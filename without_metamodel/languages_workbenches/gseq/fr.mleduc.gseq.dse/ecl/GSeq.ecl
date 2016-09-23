@@ -18,8 +18,6 @@ context Method
 context Operation
 	def : execute : Event = self.execute()
 
---context MethodCall
-
 context Method
 
     -- all the operation of a method must be executed in sequence 
@@ -48,9 +46,6 @@ context Method
 	    let allEventWhichCall1 : Event = Expression Union(self.calledBy.execute) in
 		Relation Precedes(allEventWhichCall1, self.callIt)
 		
---	inv enterAndLeave:
---		Relation WeakAlternates(self.callIt, self.endOf)
-		
 	inv endOfAfterAll:
 		Relation Precedes(self.operations->last().execute, self.endOf)
 	inv endOfAfterAllEndOf:
@@ -68,11 +63,6 @@ context MethodCall
 context Program
 	inv initBeforeAll:
 		Relation Precedes(self.start, self.startMethod.callIt)
-		
-	
---	inv startMethodBeforeAll:
---		let allOpExec : Event = Expression Union(self.methods->select(e | ((e) <> self.startMethod)).callIt)  -- mettre parenthèses dans exprs OCL
---		in Relation Precedes(self.startMethod.callIt, allOpExec)
 		
 	inv initOnlyOnce:
 		let oneStartOnly : Event = Expression OneTickAndNoMore(self.start) 
