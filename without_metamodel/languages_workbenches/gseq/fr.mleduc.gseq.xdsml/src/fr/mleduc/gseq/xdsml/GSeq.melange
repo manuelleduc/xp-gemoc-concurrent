@@ -1,0 +1,20 @@
+package fr.mleduc.gseq.xdsml
+
+language GSeq {
+	syntax "platform:/resource//fr.mleduc.gseq.model/model/gseq.ecore"
+
+	with gseq.aspects.MethodCallAspect
+	with gseq.aspects.OperationAspect
+	with gseq.aspects.PrintAspect
+	with gseq.aspects.MethodAspect
+	with gseq.aspects.ProgramAspect
+
+	
+/*
+ *	with qualified.class.name
+ */
+
+	ecl "/fr.mleduc.gseq.dse/ecl/GSeq.ecl"
+	
+	exactType GSeqMT
+}

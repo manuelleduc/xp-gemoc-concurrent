@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+  <extension point="org.gemoc.gemoc_language_workbench.concurrent.xdsml">
+    <XDSML_Definition codeExecutor_class="gseq.xdsml.api.impl.GSeqCodeExecutor" modelLoader_class="org.gemoc.executionframework.extensions.sirius.modelloader.DefaultModelLoader" name="fr.mleduc.gseq.xdsml.GSeq" solver_class="org.gemoc.execution.concurrent.ccsljavaengine.extensions.timesquare.moc.impl.CcslSolver" toCCSLQVTOFilePath="/fr.mleduc.gseq.dse/qvto-gen/modeling/GSeq.qvto" xdsmlFilePath="/fr.mleduc.gseq.xdsml/bin/fr/mleduc/gseq/xdsml/GSeq.melange" />
+  </extension>
+  <extension point="fr.inria.diverse.melange.modeltype">
+    <modeltype id="fr.mleduc.gseq.xdsml.GSeqMT" uri="http://gseqmt/" />
+  </extension>
+  <extension point="fr.inria.diverse.melange.language">
+    <language aspects="Print:gseq.aspects.PrintAspect;Program:gseq.aspects.ProgramAspect;Operation:gseq.aspects.OperationAspect;Method:gseq.aspects.MethodAspect;MethodCall:gseq.aspects.MethodCallAspect" entryPoints="" exactType="fr.mleduc.gseq.xdsml.GSeqMT" id="fr.mleduc.gseq.xdsml.GSeq" uri="http://gseqmt/">
+      <adapter class="fr.mleduc.gseq.xdsml.gseq.adapters.gseqmt.GSeqAdapter" modeltypeId="fr.mleduc.gseq.xdsml.GSeqMT" />
+    </language>
+  </extension>
+</plugin>

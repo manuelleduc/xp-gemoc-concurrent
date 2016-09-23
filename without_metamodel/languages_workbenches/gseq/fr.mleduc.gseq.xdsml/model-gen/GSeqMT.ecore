@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="gseq" nsURI="http://gseqmt/" nsPrefix="gseq">
+  <eClassifiers xsi:type="ecore:EClass" name="Program">
+    <eOperations name="init"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="methods" upperBound="-1" eType="//Method" containment="true" eOpposite="//Method/inProgram"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="startMethod" lowerBound="1" eType="//Method"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Method">
+    <eOperations name="call"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operations" upperBound="-1" eType="//Operation" containment="true" eOpposite="//Operation/executedBy"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inProgram" lowerBound="1" eType="//Program" eOpposite="//Program/methods"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="calledBy" upperBound="-1" eType="//MethodCall" eOpposite="//MethodCall/methodToCall"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Operation" abstract="true">
+    <eOperations name="execute"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="executedBy" lowerBound="1" eType="//Method" eOpposite="//Method/operations"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Print" eSuperTypes="//Operation">
+    <eOperations name="execute">
+      <eAnnotations source="aspect"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MethodCall" eSuperTypes="//Operation">
+    <eOperations name="execute">
+      <eAnnotations source="aspect"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="methodToCall" lowerBound="1" eType="//Method" eOpposite="//Method/calledBy"/>
+  </eClassifiers>
+</ecore:EPackage>

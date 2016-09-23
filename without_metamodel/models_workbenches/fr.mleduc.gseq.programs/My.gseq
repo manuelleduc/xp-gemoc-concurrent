@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gseq:Program xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gseq="http://mleduc.fr/gseq" startMethod="//@methods.0">
+  <methods name="main">
+    <operations xsi:type="gseq:Print" value="a"/>
+    <operations xsi:type="gseq:MethodCall" methodToCall="//@methods.1"/>
+    <operations xsi:type="gseq:Print" value="b"/>
+  </methods>
+  <methods name="called" calledBy="//@methods.0/@operations.1 //@methods.2/@operations.1">
+    <operations xsi:type="gseq:Print" value="c"/>
+    <operations xsi:type="gseq:Print" value="d"/>
+    <operations xsi:type="gseq:MethodCall" methodToCall="//@methods.2"/>
+  </methods>
+  <methods name="callBis" calledBy="//@methods.1/@operations.2">
+    <operations xsi:type="gseq:Print" value="e"/>
+    <operations xsi:type="gseq:MethodCall" methodToCall="//@methods.1"/>
+  </methods>
+</gseq:Program>
