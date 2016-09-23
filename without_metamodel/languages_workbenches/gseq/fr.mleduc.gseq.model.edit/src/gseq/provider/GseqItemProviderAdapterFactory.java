@@ -164,6 +164,213 @@ public class GseqItemProviderAdapterFactory extends GseqAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link gseq.If} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected IfItemProvider ifItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link gseq.If}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createIfAdapter() {
+		if (ifItemProvider == null) {
+			ifItemProvider = new IfItemProvider(this);
+		}
+
+		return ifItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link gseq.True} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TrueItemProvider trueItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link gseq.True}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTrueAdapter() {
+		if (trueItemProvider == null) {
+			trueItemProvider = new TrueItemProvider(this);
+		}
+
+		return trueItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link gseq.False} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FalseItemProvider falseItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link gseq.False}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFalseAdapter() {
+		if (falseItemProvider == null) {
+			falseItemProvider = new FalseItemProvider(this);
+		}
+
+		return falseItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link gseq.Equality} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EqualityItemProvider equalityItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link gseq.Equality}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEqualityAdapter() {
+		if (equalityItemProvider == null) {
+			equalityItemProvider = new EqualityItemProvider(this);
+		}
+
+		return equalityItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link gseq.Not} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NotItemProvider notItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link gseq.Not}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNotAdapter() {
+		if (notItemProvider == null) {
+			notItemProvider = new NotItemProvider(this);
+		}
+
+		return notItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link gseq.And} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AndItemProvider andItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link gseq.And}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAndAdapter() {
+		if (andItemProvider == null) {
+			andItemProvider = new AndItemProvider(this);
+		}
+
+		return andItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link gseq.Const} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ConstItemProvider constItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link gseq.Const}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createConstAdapter() {
+		if (constItemProvider == null) {
+			constItemProvider = new ConstItemProvider(this);
+		}
+
+		return constItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link gseq.Var} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected VarItemProvider varItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link gseq.Var}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createVarAdapter() {
+		if (varItemProvider == null) {
+			varItemProvider = new VarItemProvider(this);
+		}
+
+		return varItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link gseq.Assign} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AssignItemProvider assignItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link gseq.Assign}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAssignAdapter() {
+		if (assignItemProvider == null) {
+			assignItemProvider = new AssignItemProvider(this);
+		}
+
+		return assignItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -266,6 +473,15 @@ public class GseqItemProviderAdapterFactory extends GseqAdapterFactory implement
 		if (methodItemProvider != null) methodItemProvider.dispose();
 		if (printItemProvider != null) printItemProvider.dispose();
 		if (methodCallItemProvider != null) methodCallItemProvider.dispose();
+		if (ifItemProvider != null) ifItemProvider.dispose();
+		if (trueItemProvider != null) trueItemProvider.dispose();
+		if (falseItemProvider != null) falseItemProvider.dispose();
+		if (equalityItemProvider != null) equalityItemProvider.dispose();
+		if (notItemProvider != null) notItemProvider.dispose();
+		if (andItemProvider != null) andItemProvider.dispose();
+		if (constItemProvider != null) constItemProvider.dispose();
+		if (varItemProvider != null) varItemProvider.dispose();
+		if (assignItemProvider != null) assignItemProvider.dispose();
 	}
 
 }

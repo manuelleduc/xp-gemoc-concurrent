@@ -60,6 +60,15 @@ public class GseqFactoryImpl extends EFactoryImpl implements GseqFactory {
 			case GseqPackage.METHOD: return createMethod();
 			case GseqPackage.PRINT: return createPrint();
 			case GseqPackage.METHOD_CALL: return createMethodCall();
+			case GseqPackage.IF: return createIf();
+			case GseqPackage.TRUE: return createTrue();
+			case GseqPackage.FALSE: return createFalse();
+			case GseqPackage.EQUALITY: return createEquality();
+			case GseqPackage.NOT: return createNot();
+			case GseqPackage.AND: return createAnd();
+			case GseqPackage.CONST: return createConst();
+			case GseqPackage.VAR: return createVar();
+			case GseqPackage.ASSIGN: return createAssign();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -98,6 +107,87 @@ public class GseqFactoryImpl extends EFactoryImpl implements GseqFactory {
 	 * @generated
 	 */
 	public MethodCall createMethodCall() {
+		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public If createIf() {
+		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public True createTrue() {
+		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public False createFalse() {
+		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Equality createEquality() {
+		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Not createNot() {
+		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public And createAnd() {
+		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Const createConst() {
+		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Var createVar() {
+		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Assign createAssign() {
 		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
 	}
 

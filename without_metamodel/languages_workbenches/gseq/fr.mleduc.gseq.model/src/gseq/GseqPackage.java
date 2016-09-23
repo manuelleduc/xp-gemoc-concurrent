@@ -251,13 +251,13 @@ public interface GseqPackage extends EPackage {
 	int PRINT__EXECUTED_BY = OPERATION__EXECUTED_BY;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * The feature id for the '<em><b>To Print</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PRINT__VALUE = OPERATION_FEATURE_COUNT + 0;
+	int PRINT__TO_PRINT = OPERATION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Print</em>' class.
@@ -340,6 +340,820 @@ public interface GseqPackage extends EPackage {
 	 * @ordered
 	 */
 	int METHOD_CALL_OPERATION_COUNT = OPERATION_OPERATION_COUNT + 0;
+
+
+	/**
+	 * The meta object id for the '{@link gseq.impl.BooleanExpressionImpl <em>Boolean Expression</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see gseq.impl.BooleanExpressionImpl
+	 * @see gseq.impl.GseqPackageImpl#getBooleanExpression()
+	 * @generated
+	 */
+	int BOOLEAN_EXPRESSION = 5;
+
+	/**
+	 * The feature id for the '<em><b>Executed By</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_EXPRESSION__EXECUTED_BY = OPERATION__EXECUTED_BY;
+
+	/**
+	 * The number of structural features of the '<em>Boolean Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_EXPRESSION_FEATURE_COUNT = OPERATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Execute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_EXPRESSION___EXECUTE = OPERATION___EXECUTE;
+
+	/**
+	 * The operation id for the '<em>Pretty</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_EXPRESSION___PRETTY = OPERATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Bvalue</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_EXPRESSION___BVALUE = OPERATION_OPERATION_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Boolean Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_EXPRESSION_OPERATION_COUNT = OPERATION_OPERATION_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link gseq.impl.IfImpl <em>If</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see gseq.impl.IfImpl
+	 * @see gseq.impl.GseqPackageImpl#getIf()
+	 * @generated
+	 */
+	int IF = 6;
+
+	/**
+	 * The feature id for the '<em><b>Executed By</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IF__EXECUTED_BY = OPERATION__EXECUTED_BY;
+
+	/**
+	 * The feature id for the '<em><b>If Condition</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IF__IF_CONDITION = OPERATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Then Branch</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IF__THEN_BRANCH = OPERATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Else Branch</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IF__ELSE_BRANCH = OPERATION_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>If</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IF_FEATURE_COUNT = OPERATION_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Execute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IF___EXECUTE = OPERATION___EXECUTE;
+
+	/**
+	 * The number of operations of the '<em>If</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IF_OPERATION_COUNT = OPERATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link gseq.impl.TrueImpl <em>True</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see gseq.impl.TrueImpl
+	 * @see gseq.impl.GseqPackageImpl#getTrue()
+	 * @generated
+	 */
+	int TRUE = 7;
+
+	/**
+	 * The feature id for the '<em><b>Executed By</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUE__EXECUTED_BY = BOOLEAN_EXPRESSION__EXECUTED_BY;
+
+	/**
+	 * The number of structural features of the '<em>True</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUE_FEATURE_COUNT = BOOLEAN_EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Execute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUE___EXECUTE = BOOLEAN_EXPRESSION___EXECUTE;
+
+	/**
+	 * The operation id for the '<em>Pretty</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUE___PRETTY = BOOLEAN_EXPRESSION___PRETTY;
+
+	/**
+	 * The operation id for the '<em>Bvalue</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUE___BVALUE = BOOLEAN_EXPRESSION___BVALUE;
+
+	/**
+	 * The number of operations of the '<em>True</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUE_OPERATION_COUNT = BOOLEAN_EXPRESSION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link gseq.impl.FalseImpl <em>False</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see gseq.impl.FalseImpl
+	 * @see gseq.impl.GseqPackageImpl#getFalse()
+	 * @generated
+	 */
+	int FALSE = 8;
+
+	/**
+	 * The feature id for the '<em><b>Executed By</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FALSE__EXECUTED_BY = BOOLEAN_EXPRESSION__EXECUTED_BY;
+
+	/**
+	 * The number of structural features of the '<em>False</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FALSE_FEATURE_COUNT = BOOLEAN_EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Execute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FALSE___EXECUTE = BOOLEAN_EXPRESSION___EXECUTE;
+
+	/**
+	 * The operation id for the '<em>Pretty</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FALSE___PRETTY = BOOLEAN_EXPRESSION___PRETTY;
+
+	/**
+	 * The operation id for the '<em>Bvalue</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FALSE___BVALUE = BOOLEAN_EXPRESSION___BVALUE;
+
+	/**
+	 * The number of operations of the '<em>False</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FALSE_OPERATION_COUNT = BOOLEAN_EXPRESSION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link gseq.impl.EqualityImpl <em>Equality</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see gseq.impl.EqualityImpl
+	 * @see gseq.impl.GseqPackageImpl#getEquality()
+	 * @generated
+	 */
+	int EQUALITY = 9;
+
+	/**
+	 * The feature id for the '<em><b>Executed By</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EQUALITY__EXECUTED_BY = BOOLEAN_EXPRESSION__EXECUTED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Left Equality</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EQUALITY__LEFT_EQUALITY = BOOLEAN_EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Right Equality</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EQUALITY__RIGHT_EQUALITY = BOOLEAN_EXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Equality</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EQUALITY_FEATURE_COUNT = BOOLEAN_EXPRESSION_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Execute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EQUALITY___EXECUTE = BOOLEAN_EXPRESSION___EXECUTE;
+
+	/**
+	 * The operation id for the '<em>Pretty</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EQUALITY___PRETTY = BOOLEAN_EXPRESSION___PRETTY;
+
+	/**
+	 * The operation id for the '<em>Bvalue</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EQUALITY___BVALUE = BOOLEAN_EXPRESSION___BVALUE;
+
+	/**
+	 * The number of operations of the '<em>Equality</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EQUALITY_OPERATION_COUNT = BOOLEAN_EXPRESSION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link gseq.impl.NotImpl <em>Not</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see gseq.impl.NotImpl
+	 * @see gseq.impl.GseqPackageImpl#getNot()
+	 * @generated
+	 */
+	int NOT = 10;
+
+	/**
+	 * The feature id for the '<em><b>Executed By</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOT__EXECUTED_BY = BOOLEAN_EXPRESSION__EXECUTED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Not Expression</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOT__NOT_EXPRESSION = BOOLEAN_EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Not</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOT_FEATURE_COUNT = BOOLEAN_EXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Execute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOT___EXECUTE = BOOLEAN_EXPRESSION___EXECUTE;
+
+	/**
+	 * The operation id for the '<em>Pretty</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOT___PRETTY = BOOLEAN_EXPRESSION___PRETTY;
+
+	/**
+	 * The operation id for the '<em>Bvalue</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOT___BVALUE = BOOLEAN_EXPRESSION___BVALUE;
+
+	/**
+	 * The number of operations of the '<em>Not</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOT_OPERATION_COUNT = BOOLEAN_EXPRESSION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link gseq.impl.AndImpl <em>And</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see gseq.impl.AndImpl
+	 * @see gseq.impl.GseqPackageImpl#getAnd()
+	 * @generated
+	 */
+	int AND = 11;
+
+	/**
+	 * The feature id for the '<em><b>Executed By</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AND__EXECUTED_BY = BOOLEAN_EXPRESSION__EXECUTED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Left And</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AND__LEFT_AND = BOOLEAN_EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Right And</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AND__RIGHT_AND = BOOLEAN_EXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>And</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AND_FEATURE_COUNT = BOOLEAN_EXPRESSION_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Execute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AND___EXECUTE = BOOLEAN_EXPRESSION___EXECUTE;
+
+	/**
+	 * The operation id for the '<em>Pretty</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AND___PRETTY = BOOLEAN_EXPRESSION___PRETTY;
+
+	/**
+	 * The operation id for the '<em>Bvalue</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AND___BVALUE = BOOLEAN_EXPRESSION___BVALUE;
+
+	/**
+	 * The number of operations of the '<em>And</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AND_OPERATION_COUNT = BOOLEAN_EXPRESSION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link gseq.impl.IntegerExpressionImpl <em>Integer Expression</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see gseq.impl.IntegerExpressionImpl
+	 * @see gseq.impl.GseqPackageImpl#getIntegerExpression()
+	 * @generated
+	 */
+	int INTEGER_EXPRESSION = 12;
+
+	/**
+	 * The feature id for the '<em><b>Executed By</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_EXPRESSION__EXECUTED_BY = OPERATION__EXECUTED_BY;
+
+	/**
+	 * The number of structural features of the '<em>Integer Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_EXPRESSION_FEATURE_COUNT = OPERATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Execute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_EXPRESSION___EXECUTE = OPERATION___EXECUTE;
+
+	/**
+	 * The operation id for the '<em>Pretty</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_EXPRESSION___PRETTY = OPERATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Ivalue</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_EXPRESSION___IVALUE = OPERATION_OPERATION_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Integer Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_EXPRESSION_OPERATION_COUNT = OPERATION_OPERATION_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link gseq.impl.ConstImpl <em>Const</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see gseq.impl.ConstImpl
+	 * @see gseq.impl.GseqPackageImpl#getConst()
+	 * @generated
+	 */
+	int CONST = 13;
+
+	/**
+	 * The feature id for the '<em><b>Executed By</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONST__EXECUTED_BY = INTEGER_EXPRESSION__EXECUTED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONST__VALUE = INTEGER_EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Const</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONST_FEATURE_COUNT = INTEGER_EXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Execute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONST___EXECUTE = INTEGER_EXPRESSION___EXECUTE;
+
+	/**
+	 * The operation id for the '<em>Pretty</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONST___PRETTY = INTEGER_EXPRESSION___PRETTY;
+
+	/**
+	 * The operation id for the '<em>Ivalue</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONST___IVALUE = INTEGER_EXPRESSION___IVALUE;
+
+	/**
+	 * The number of operations of the '<em>Const</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONST_OPERATION_COUNT = INTEGER_EXPRESSION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link gseq.impl.VarImpl <em>Var</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see gseq.impl.VarImpl
+	 * @see gseq.impl.GseqPackageImpl#getVar()
+	 * @generated
+	 */
+	int VAR = 14;
+
+	/**
+	 * The feature id for the '<em><b>Executed By</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VAR__EXECUTED_BY = INTEGER_EXPRESSION__EXECUTED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Var Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VAR__VAR_NAME = INTEGER_EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Var</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VAR_FEATURE_COUNT = INTEGER_EXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Execute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VAR___EXECUTE = INTEGER_EXPRESSION___EXECUTE;
+
+	/**
+	 * The operation id for the '<em>Pretty</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VAR___PRETTY = INTEGER_EXPRESSION___PRETTY;
+
+	/**
+	 * The operation id for the '<em>Ivalue</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VAR___IVALUE = INTEGER_EXPRESSION___IVALUE;
+
+	/**
+	 * The number of operations of the '<em>Var</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VAR_OPERATION_COUNT = INTEGER_EXPRESSION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link gseq.impl.AssignImpl <em>Assign</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see gseq.impl.AssignImpl
+	 * @see gseq.impl.GseqPackageImpl#getAssign()
+	 * @generated
+	 */
+	int ASSIGN = 15;
+
+	/**
+	 * The feature id for the '<em><b>Executed By</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIGN__EXECUTED_BY = OPERATION__EXECUTED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Var Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIGN__VAR_NAME = OPERATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Assigned Expression</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIGN__ASSIGNED_EXPRESSION = OPERATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Assign</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIGN_FEATURE_COUNT = OPERATION_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Execute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIGN___EXECUTE = OPERATION___EXECUTE;
+
+	/**
+	 * The number of operations of the '<em>Assign</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSIGN_OPERATION_COUNT = OPERATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link gseq.Printable <em>Printable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see gseq.Printable
+	 * @see gseq.impl.GseqPackageImpl#getPrintable()
+	 * @generated
+	 */
+	int PRINTABLE = 16;
+
+	/**
+	 * The number of structural features of the '<em>Printable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRINTABLE_FEATURE_COUNT = 0;
+
+	/**
+	 * The operation id for the '<em>Pretty</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRINTABLE___PRETTY = 0;
+
+	/**
+	 * The number of operations of the '<em>Printable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRINTABLE_OPERATION_COUNT = 1;
 
 
 	/**
@@ -490,15 +1304,15 @@ public interface GseqPackage extends EPackage {
 	EClass getPrint();
 
 	/**
-	 * Returns the meta object for the attribute '{@link gseq.Print#getValue <em>Value</em>}'.
+	 * Returns the meta object for the reference '{@link gseq.Print#getToPrint <em>To Print</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see gseq.Print#getValue()
+	 * @return the meta object for the reference '<em>To Print</em>'.
+	 * @see gseq.Print#getToPrint()
 	 * @see #getPrint()
 	 * @generated
 	 */
-	EAttribute getPrint_Value();
+	EReference getPrint_ToPrint();
 
 	/**
 	 * Returns the meta object for class '{@link gseq.MethodCall <em>Method Call</em>}'.
@@ -520,6 +1334,288 @@ public interface GseqPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getMethodCall_MethodToCall();
+
+	/**
+	 * Returns the meta object for class '{@link gseq.BooleanExpression <em>Boolean Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Boolean Expression</em>'.
+	 * @see gseq.BooleanExpression
+	 * @generated
+	 */
+	EClass getBooleanExpression();
+
+	/**
+	 * Returns the meta object for the '{@link gseq.BooleanExpression#bvalue() <em>Bvalue</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Bvalue</em>' operation.
+	 * @see gseq.BooleanExpression#bvalue()
+	 * @generated
+	 */
+	EOperation getBooleanExpression__Bvalue();
+
+	/**
+	 * Returns the meta object for class '{@link gseq.If <em>If</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>If</em>'.
+	 * @see gseq.If
+	 * @generated
+	 */
+	EClass getIf();
+
+	/**
+	 * Returns the meta object for the reference '{@link gseq.If#getIfCondition <em>If Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>If Condition</em>'.
+	 * @see gseq.If#getIfCondition()
+	 * @see #getIf()
+	 * @generated
+	 */
+	EReference getIf_IfCondition();
+
+	/**
+	 * Returns the meta object for the reference '{@link gseq.If#getThenBranch <em>Then Branch</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Then Branch</em>'.
+	 * @see gseq.If#getThenBranch()
+	 * @see #getIf()
+	 * @generated
+	 */
+	EReference getIf_ThenBranch();
+
+	/**
+	 * Returns the meta object for the reference '{@link gseq.If#getElseBranch <em>Else Branch</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Else Branch</em>'.
+	 * @see gseq.If#getElseBranch()
+	 * @see #getIf()
+	 * @generated
+	 */
+	EReference getIf_ElseBranch();
+
+	/**
+	 * Returns the meta object for class '{@link gseq.True <em>True</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>True</em>'.
+	 * @see gseq.True
+	 * @generated
+	 */
+	EClass getTrue();
+
+	/**
+	 * Returns the meta object for class '{@link gseq.False <em>False</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>False</em>'.
+	 * @see gseq.False
+	 * @generated
+	 */
+	EClass getFalse();
+
+	/**
+	 * Returns the meta object for class '{@link gseq.Equality <em>Equality</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Equality</em>'.
+	 * @see gseq.Equality
+	 * @generated
+	 */
+	EClass getEquality();
+
+	/**
+	 * Returns the meta object for the reference '{@link gseq.Equality#getLeftEquality <em>Left Equality</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Left Equality</em>'.
+	 * @see gseq.Equality#getLeftEquality()
+	 * @see #getEquality()
+	 * @generated
+	 */
+	EReference getEquality_LeftEquality();
+
+	/**
+	 * Returns the meta object for the reference '{@link gseq.Equality#getRightEquality <em>Right Equality</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Right Equality</em>'.
+	 * @see gseq.Equality#getRightEquality()
+	 * @see #getEquality()
+	 * @generated
+	 */
+	EReference getEquality_RightEquality();
+
+	/**
+	 * Returns the meta object for class '{@link gseq.Not <em>Not</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Not</em>'.
+	 * @see gseq.Not
+	 * @generated
+	 */
+	EClass getNot();
+
+	/**
+	 * Returns the meta object for the reference '{@link gseq.Not#getNotExpression <em>Not Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Not Expression</em>'.
+	 * @see gseq.Not#getNotExpression()
+	 * @see #getNot()
+	 * @generated
+	 */
+	EReference getNot_NotExpression();
+
+	/**
+	 * Returns the meta object for class '{@link gseq.And <em>And</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>And</em>'.
+	 * @see gseq.And
+	 * @generated
+	 */
+	EClass getAnd();
+
+	/**
+	 * Returns the meta object for the reference '{@link gseq.And#getLeftAnd <em>Left And</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Left And</em>'.
+	 * @see gseq.And#getLeftAnd()
+	 * @see #getAnd()
+	 * @generated
+	 */
+	EReference getAnd_LeftAnd();
+
+	/**
+	 * Returns the meta object for the reference '{@link gseq.And#getRightAnd <em>Right And</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Right And</em>'.
+	 * @see gseq.And#getRightAnd()
+	 * @see #getAnd()
+	 * @generated
+	 */
+	EReference getAnd_RightAnd();
+
+	/**
+	 * Returns the meta object for class '{@link gseq.IntegerExpression <em>Integer Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Integer Expression</em>'.
+	 * @see gseq.IntegerExpression
+	 * @generated
+	 */
+	EClass getIntegerExpression();
+
+	/**
+	 * Returns the meta object for the '{@link gseq.IntegerExpression#ivalue() <em>Ivalue</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Ivalue</em>' operation.
+	 * @see gseq.IntegerExpression#ivalue()
+	 * @generated
+	 */
+	EOperation getIntegerExpression__Ivalue();
+
+	/**
+	 * Returns the meta object for class '{@link gseq.Const <em>Const</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Const</em>'.
+	 * @see gseq.Const
+	 * @generated
+	 */
+	EClass getConst();
+
+	/**
+	 * Returns the meta object for the attribute '{@link gseq.Const#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see gseq.Const#getValue()
+	 * @see #getConst()
+	 * @generated
+	 */
+	EAttribute getConst_Value();
+
+	/**
+	 * Returns the meta object for class '{@link gseq.Var <em>Var</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Var</em>'.
+	 * @see gseq.Var
+	 * @generated
+	 */
+	EClass getVar();
+
+	/**
+	 * Returns the meta object for the attribute '{@link gseq.Var#getVarName <em>Var Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Var Name</em>'.
+	 * @see gseq.Var#getVarName()
+	 * @see #getVar()
+	 * @generated
+	 */
+	EAttribute getVar_VarName();
+
+	/**
+	 * Returns the meta object for class '{@link gseq.Assign <em>Assign</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Assign</em>'.
+	 * @see gseq.Assign
+	 * @generated
+	 */
+	EClass getAssign();
+
+	/**
+	 * Returns the meta object for the attribute '{@link gseq.Assign#getVarName <em>Var Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Var Name</em>'.
+	 * @see gseq.Assign#getVarName()
+	 * @see #getAssign()
+	 * @generated
+	 */
+	EAttribute getAssign_VarName();
+
+	/**
+	 * Returns the meta object for the reference '{@link gseq.Assign#getAssignedExpression <em>Assigned Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Assigned Expression</em>'.
+	 * @see gseq.Assign#getAssignedExpression()
+	 * @see #getAssign()
+	 * @generated
+	 */
+	EReference getAssign_AssignedExpression();
+
+	/**
+	 * Returns the meta object for class '{@link gseq.Printable <em>Printable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Printable</em>'.
+	 * @see gseq.Printable
+	 * @generated
+	 */
+	EClass getPrintable();
+
+	/**
+	 * Returns the meta object for the '{@link gseq.Printable#pretty() <em>Pretty</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Pretty</em>' operation.
+	 * @see gseq.Printable#pretty()
+	 * @generated
+	 */
+	EOperation getPrintable__Pretty();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -665,12 +1761,12 @@ public interface GseqPackage extends EPackage {
 		EClass PRINT = eINSTANCE.getPrint();
 
 		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>To Print</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PRINT__VALUE = eINSTANCE.getPrint_Value();
+		EReference PRINT__TO_PRINT = eINSTANCE.getPrint_ToPrint();
 
 		/**
 		 * The meta object literal for the '{@link gseq.impl.MethodCallImpl <em>Method Call</em>}' class.
@@ -689,6 +1785,246 @@ public interface GseqPackage extends EPackage {
 		 * @generated
 		 */
 		EReference METHOD_CALL__METHOD_TO_CALL = eINSTANCE.getMethodCall_MethodToCall();
+
+		/**
+		 * The meta object literal for the '{@link gseq.impl.BooleanExpressionImpl <em>Boolean Expression</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see gseq.impl.BooleanExpressionImpl
+		 * @see gseq.impl.GseqPackageImpl#getBooleanExpression()
+		 * @generated
+		 */
+		EClass BOOLEAN_EXPRESSION = eINSTANCE.getBooleanExpression();
+
+		/**
+		 * The meta object literal for the '<em><b>Bvalue</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation BOOLEAN_EXPRESSION___BVALUE = eINSTANCE.getBooleanExpression__Bvalue();
+
+		/**
+		 * The meta object literal for the '{@link gseq.impl.IfImpl <em>If</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see gseq.impl.IfImpl
+		 * @see gseq.impl.GseqPackageImpl#getIf()
+		 * @generated
+		 */
+		EClass IF = eINSTANCE.getIf();
+
+		/**
+		 * The meta object literal for the '<em><b>If Condition</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IF__IF_CONDITION = eINSTANCE.getIf_IfCondition();
+
+		/**
+		 * The meta object literal for the '<em><b>Then Branch</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IF__THEN_BRANCH = eINSTANCE.getIf_ThenBranch();
+
+		/**
+		 * The meta object literal for the '<em><b>Else Branch</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IF__ELSE_BRANCH = eINSTANCE.getIf_ElseBranch();
+
+		/**
+		 * The meta object literal for the '{@link gseq.impl.TrueImpl <em>True</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see gseq.impl.TrueImpl
+		 * @see gseq.impl.GseqPackageImpl#getTrue()
+		 * @generated
+		 */
+		EClass TRUE = eINSTANCE.getTrue();
+
+		/**
+		 * The meta object literal for the '{@link gseq.impl.FalseImpl <em>False</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see gseq.impl.FalseImpl
+		 * @see gseq.impl.GseqPackageImpl#getFalse()
+		 * @generated
+		 */
+		EClass FALSE = eINSTANCE.getFalse();
+
+		/**
+		 * The meta object literal for the '{@link gseq.impl.EqualityImpl <em>Equality</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see gseq.impl.EqualityImpl
+		 * @see gseq.impl.GseqPackageImpl#getEquality()
+		 * @generated
+		 */
+		EClass EQUALITY = eINSTANCE.getEquality();
+
+		/**
+		 * The meta object literal for the '<em><b>Left Equality</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EQUALITY__LEFT_EQUALITY = eINSTANCE.getEquality_LeftEquality();
+
+		/**
+		 * The meta object literal for the '<em><b>Right Equality</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EQUALITY__RIGHT_EQUALITY = eINSTANCE.getEquality_RightEquality();
+
+		/**
+		 * The meta object literal for the '{@link gseq.impl.NotImpl <em>Not</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see gseq.impl.NotImpl
+		 * @see gseq.impl.GseqPackageImpl#getNot()
+		 * @generated
+		 */
+		EClass NOT = eINSTANCE.getNot();
+
+		/**
+		 * The meta object literal for the '<em><b>Not Expression</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NOT__NOT_EXPRESSION = eINSTANCE.getNot_NotExpression();
+
+		/**
+		 * The meta object literal for the '{@link gseq.impl.AndImpl <em>And</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see gseq.impl.AndImpl
+		 * @see gseq.impl.GseqPackageImpl#getAnd()
+		 * @generated
+		 */
+		EClass AND = eINSTANCE.getAnd();
+
+		/**
+		 * The meta object literal for the '<em><b>Left And</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference AND__LEFT_AND = eINSTANCE.getAnd_LeftAnd();
+
+		/**
+		 * The meta object literal for the '<em><b>Right And</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference AND__RIGHT_AND = eINSTANCE.getAnd_RightAnd();
+
+		/**
+		 * The meta object literal for the '{@link gseq.impl.IntegerExpressionImpl <em>Integer Expression</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see gseq.impl.IntegerExpressionImpl
+		 * @see gseq.impl.GseqPackageImpl#getIntegerExpression()
+		 * @generated
+		 */
+		EClass INTEGER_EXPRESSION = eINSTANCE.getIntegerExpression();
+
+		/**
+		 * The meta object literal for the '<em><b>Ivalue</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation INTEGER_EXPRESSION___IVALUE = eINSTANCE.getIntegerExpression__Ivalue();
+
+		/**
+		 * The meta object literal for the '{@link gseq.impl.ConstImpl <em>Const</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see gseq.impl.ConstImpl
+		 * @see gseq.impl.GseqPackageImpl#getConst()
+		 * @generated
+		 */
+		EClass CONST = eINSTANCE.getConst();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONST__VALUE = eINSTANCE.getConst_Value();
+
+		/**
+		 * The meta object literal for the '{@link gseq.impl.VarImpl <em>Var</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see gseq.impl.VarImpl
+		 * @see gseq.impl.GseqPackageImpl#getVar()
+		 * @generated
+		 */
+		EClass VAR = eINSTANCE.getVar();
+
+		/**
+		 * The meta object literal for the '<em><b>Var Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VAR__VAR_NAME = eINSTANCE.getVar_VarName();
+
+		/**
+		 * The meta object literal for the '{@link gseq.impl.AssignImpl <em>Assign</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see gseq.impl.AssignImpl
+		 * @see gseq.impl.GseqPackageImpl#getAssign()
+		 * @generated
+		 */
+		EClass ASSIGN = eINSTANCE.getAssign();
+
+		/**
+		 * The meta object literal for the '<em><b>Var Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ASSIGN__VAR_NAME = eINSTANCE.getAssign_VarName();
+
+		/**
+		 * The meta object literal for the '<em><b>Assigned Expression</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ASSIGN__ASSIGNED_EXPRESSION = eINSTANCE.getAssign_AssignedExpression();
+
+		/**
+		 * The meta object literal for the '{@link gseq.Printable <em>Printable</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see gseq.Printable
+		 * @see gseq.impl.GseqPackageImpl#getPrintable()
+		 * @generated
+		 */
+		EClass PRINTABLE = eINSTANCE.getPrintable();
+
+		/**
+		 * The meta object literal for the '<em><b>Pretty</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PRINTABLE___PRETTY = eINSTANCE.getPrintable__Pretty();
 
 	}
 

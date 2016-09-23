@@ -98,6 +98,105 @@ public class GseqSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case GseqPackage.BOOLEAN_EXPRESSION: {
+				BooleanExpression booleanExpression = (BooleanExpression)theEObject;
+				T result = caseBooleanExpression(booleanExpression);
+				if (result == null) result = caseOperation(booleanExpression);
+				if (result == null) result = casePrintable(booleanExpression);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GseqPackage.IF: {
+				If if_ = (If)theEObject;
+				T result = caseIf(if_);
+				if (result == null) result = caseOperation(if_);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GseqPackage.TRUE: {
+				True true_ = (True)theEObject;
+				T result = caseTrue(true_);
+				if (result == null) result = caseBooleanExpression(true_);
+				if (result == null) result = caseOperation(true_);
+				if (result == null) result = casePrintable(true_);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GseqPackage.FALSE: {
+				False false_ = (False)theEObject;
+				T result = caseFalse(false_);
+				if (result == null) result = caseBooleanExpression(false_);
+				if (result == null) result = caseOperation(false_);
+				if (result == null) result = casePrintable(false_);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GseqPackage.EQUALITY: {
+				Equality equality = (Equality)theEObject;
+				T result = caseEquality(equality);
+				if (result == null) result = caseBooleanExpression(equality);
+				if (result == null) result = caseOperation(equality);
+				if (result == null) result = casePrintable(equality);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GseqPackage.NOT: {
+				Not not = (Not)theEObject;
+				T result = caseNot(not);
+				if (result == null) result = caseBooleanExpression(not);
+				if (result == null) result = caseOperation(not);
+				if (result == null) result = casePrintable(not);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GseqPackage.AND: {
+				And and = (And)theEObject;
+				T result = caseAnd(and);
+				if (result == null) result = caseBooleanExpression(and);
+				if (result == null) result = caseOperation(and);
+				if (result == null) result = casePrintable(and);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GseqPackage.INTEGER_EXPRESSION: {
+				IntegerExpression integerExpression = (IntegerExpression)theEObject;
+				T result = caseIntegerExpression(integerExpression);
+				if (result == null) result = caseOperation(integerExpression);
+				if (result == null) result = casePrintable(integerExpression);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GseqPackage.CONST: {
+				Const const_ = (Const)theEObject;
+				T result = caseConst(const_);
+				if (result == null) result = caseIntegerExpression(const_);
+				if (result == null) result = caseOperation(const_);
+				if (result == null) result = casePrintable(const_);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GseqPackage.VAR: {
+				Var var = (Var)theEObject;
+				T result = caseVar(var);
+				if (result == null) result = caseIntegerExpression(var);
+				if (result == null) result = caseOperation(var);
+				if (result == null) result = casePrintable(var);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GseqPackage.ASSIGN: {
+				Assign assign = (Assign)theEObject;
+				T result = caseAssign(assign);
+				if (result == null) result = caseOperation(assign);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GseqPackage.PRINTABLE: {
+				Printable printable = (Printable)theEObject;
+				T result = casePrintable(printable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -174,6 +273,186 @@ public class GseqSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseMethodCall(MethodCall object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Boolean Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Boolean Expression</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBooleanExpression(BooleanExpression object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>If</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>If</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIf(If object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>True</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>True</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTrue(True object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>False</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>False</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFalse(False object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Equality</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Equality</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEquality(Equality object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Not</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Not</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNot(Not object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>And</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>And</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAnd(And object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Integer Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Integer Expression</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIntegerExpression(IntegerExpression object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Const</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Const</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseConst(Const object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Var</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Var</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseVar(Var object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Assign</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Assign</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAssign(Assign object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Printable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Printable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePrintable(Printable object) {
 		return null;
 	}
 

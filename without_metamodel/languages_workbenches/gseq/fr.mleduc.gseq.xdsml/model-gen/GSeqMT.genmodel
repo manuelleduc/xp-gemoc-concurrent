@@ -44,8 +44,8 @@
     </genClasses>
     <genClasses>
       <ecoreClass href="GSeqMT.ecore#//Print"/>
-      <genFeatures createChild="false">
-        <ecoreFeature xsi:type="ecore:EAttribute" href="GSeqMT.ecore#//Print/value"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="GSeqMT.ecore#//Print/toPrint"/>
       </genFeatures>
       <genOperations>
         <ecoreOperation href="GSeqMT.ecore#//Print/execute"/>
@@ -58,6 +58,87 @@
       </genFeatures>
       <genOperations>
         <ecoreOperation href="GSeqMT.ecore#//MethodCall/execute"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false">
+      <ecoreClass href="GSeqMT.ecore#//BooleanExpression"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="GSeqMT.ecore#//If"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="GSeqMT.ecore#//If/ifCondition"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="GSeqMT.ecore#//If/thenBranch"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="GSeqMT.ecore#//If/elseBranch"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="GSeqMT.ecore#//True"/>
+      <genOperations>
+        <ecoreOperation href="GSeqMT.ecore#//True/pretty"/>
+      </genOperations>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="GSeqMT.ecore#//False"/>
+      <genOperations>
+        <ecoreOperation href="GSeqMT.ecore#//False/pretty"/>
+      </genOperations>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="GSeqMT.ecore#//Equality"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="GSeqMT.ecore#//Equality/leftEquality"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="GSeqMT.ecore#//Equality/rightEquality"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="GSeqMT.ecore#//Not"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="GSeqMT.ecore#//Not/notExpression"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="GSeqMT.ecore#//And"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="GSeqMT.ecore#//And/leftAnd"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="GSeqMT.ecore#//And/rightAnd"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses image="false">
+      <ecoreClass href="GSeqMT.ecore#//IntegerExpression"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="GSeqMT.ecore#//Const"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="GSeqMT.ecore#//Const/value"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="GSeqMT.ecore#//Var"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="GSeqMT.ecore#//Var/varName"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="GSeqMT.ecore#//Assign"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="GSeqMT.ecore#//Assign/varName"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="GSeqMT.ecore#//Assign/assignedExpression"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses image="false">
+      <ecoreClass href="GSeqMT.ecore#//Printable"/>
+      <genOperations>
+        <ecoreOperation href="GSeqMT.ecore#//Printable/pretty"/>
       </genOperations>
     </genClasses>
   </genPackages>

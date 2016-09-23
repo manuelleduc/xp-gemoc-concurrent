@@ -60,6 +60,15 @@ public class GseqFactoryImpl extends EFactoryImpl implements GseqFactory {
 			case GseqPackage.METHOD: return createMethod();
 			case GseqPackage.PRINT: return createPrint();
 			case GseqPackage.METHOD_CALL: return createMethodCall();
+			case GseqPackage.IF: return createIf();
+			case GseqPackage.TRUE: return createTrue();
+			case GseqPackage.FALSE: return createFalse();
+			case GseqPackage.EQUALITY: return createEquality();
+			case GseqPackage.NOT: return createNot();
+			case GseqPackage.AND: return createAnd();
+			case GseqPackage.CONST: return createConst();
+			case GseqPackage.VAR: return createVar();
+			case GseqPackage.ASSIGN: return createAssign();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -103,6 +112,96 @@ public class GseqFactoryImpl extends EFactoryImpl implements GseqFactory {
 	public MethodCall createMethodCall() {
 		MethodCallImpl methodCall = new MethodCallImpl();
 		return methodCall;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public If createIf() {
+		IfImpl if_ = new IfImpl();
+		return if_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public True createTrue() {
+		TrueImpl true_ = new TrueImpl();
+		return true_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public False createFalse() {
+		FalseImpl false_ = new FalseImpl();
+		return false_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Equality createEquality() {
+		EqualityImpl equality = new EqualityImpl();
+		return equality;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Not createNot() {
+		NotImpl not = new NotImpl();
+		return not;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public And createAnd() {
+		AndImpl and = new AndImpl();
+		return and;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Const createConst() {
+		ConstImpl const_ = new ConstImpl();
+		return const_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Var createVar() {
+		VarImpl var = new VarImpl();
+		return var;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Assign createAssign() {
+		AssignImpl assign = new AssignImpl();
+		return assign;
 	}
 
 	/**

@@ -3,6 +3,7 @@ package fr.mleduc.gseq.xdsml.gseq.adapters.gseqmt.gseq;
 import fr.inria.diverse.melange.adapters.EObjectAdapter;
 import fr.mleduc.gseq.xdsml.gseq.adapters.gseqmt.GSeqMTAdaptersFactory;
 import fr.mleduc.gseq.xdsml.gseqmt.gseq.Method;
+import fr.mleduc.gseq.xdsml.gseqmt.gseq.Printable;
 import gseq.Print;
 import org.eclipse.emf.ecore.EClass;
 
@@ -13,16 +14,6 @@ public class PrintAdapter extends EObjectAdapter<Print> implements fr.mleduc.gse
   public PrintAdapter() {
     super(fr.mleduc.gseq.xdsml.gseq.adapters.gseqmt.GSeqMTAdaptersFactory.getInstance());
     adaptersFactory = fr.mleduc.gseq.xdsml.gseq.adapters.gseqmt.GSeqMTAdaptersFactory.getInstance();
-  }
-  
-  @Override
-  public String getValue() {
-    return adaptee.getValue();
-  }
-  
-  @Override
-  public void setValue(final String o) {
-    adaptee.setValue(o);
   }
   
   @Override
@@ -38,11 +29,21 @@ public class PrintAdapter extends EObjectAdapter<Print> implements fr.mleduc.gse
   }
   
   @Override
+  public Printable getToPrint() {
+    return (Printable) adaptersFactory.createAdapter(adaptee.getToPrint(), eResource);
+  }
+  
+  @Override
+  public void setToPrint(final Printable o) {
+    if (o != null)
+    	adaptee.setToPrint(((fr.mleduc.gseq.xdsml.gseq.adapters.gseqmt.gseq.PrintableAdapter) o).getAdaptee());
+    else adaptee.setToPrint(null);
+  }
+  
+  @Override
   public void execute() {
     adaptee.execute();
   }
-  
-  protected final static String VALUE_EDEFAULT = null;
   
   @Override
   public EClass eClass() {
@@ -54,8 +55,8 @@ public class PrintAdapter extends EObjectAdapter<Print> implements fr.mleduc.gse
     switch (featureID) {
     	case fr.mleduc.gseq.xdsml.gseqmt.gseq.GseqPackage.PRINT__EXECUTED_BY:
     		return getExecutedBy();
-    	case fr.mleduc.gseq.xdsml.gseqmt.gseq.GseqPackage.PRINT__VALUE:
-    		return getValue();
+    	case fr.mleduc.gseq.xdsml.gseqmt.gseq.GseqPackage.PRINT__TO_PRINT:
+    		return getToPrint();
     }
     
     return super.eGet(featureID, resolve, coreType);
@@ -66,8 +67,8 @@ public class PrintAdapter extends EObjectAdapter<Print> implements fr.mleduc.gse
     switch (featureID) {
     	case fr.mleduc.gseq.xdsml.gseqmt.gseq.GseqPackage.PRINT__EXECUTED_BY:
     		return getExecutedBy() != null;
-    	case fr.mleduc.gseq.xdsml.gseqmt.gseq.GseqPackage.PRINT__VALUE:
-    		return getValue() != VALUE_EDEFAULT;
+    	case fr.mleduc.gseq.xdsml.gseqmt.gseq.GseqPackage.PRINT__TO_PRINT:
+    		return getToPrint() != null;
     }
     
     return super.eIsSet(featureID);
@@ -81,9 +82,9 @@ public class PrintAdapter extends EObjectAdapter<Print> implements fr.mleduc.gse
     		(fr.mleduc.gseq.xdsml.gseqmt.gseq.Method)
     		 newValue);
     		return;
-    	case fr.mleduc.gseq.xdsml.gseqmt.gseq.GseqPackage.PRINT__VALUE:
-    		setValue(
-    		(java.lang.String)
+    	case fr.mleduc.gseq.xdsml.gseqmt.gseq.GseqPackage.PRINT__TO_PRINT:
+    		setToPrint(
+    		(fr.mleduc.gseq.xdsml.gseqmt.gseq.Printable)
     		 newValue);
     		return;
     }

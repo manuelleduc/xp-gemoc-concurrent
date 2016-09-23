@@ -22,14 +22,63 @@
     <eOperations name="execute">
       <eAnnotations source="aspect"/>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value">
-      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="toPrint" lowerBound="1" eType="//Printable"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MethodCall" eSuperTypes="//Operation">
     <eOperations name="execute">
       <eAnnotations source="aspect"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="methodToCall" lowerBound="1" eType="//Method" eOpposite="//Method/calledBy"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BooleanExpression" abstract="true" eSuperTypes="//Operation //Printable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="If" eSuperTypes="//Operation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ifCondition" lowerBound="1" eType="//BooleanExpression"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="thenBranch" lowerBound="1" eType="//Operation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elseBranch" eType="//Operation"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="True" eSuperTypes="//BooleanExpression">
+    <eOperations name="pretty">
+      <eAnnotations source="aspect"/>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="False" eSuperTypes="//BooleanExpression">
+    <eOperations name="pretty">
+      <eAnnotations source="aspect"/>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Equality" eSuperTypes="//BooleanExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="leftEquality" lowerBound="1" eType="//IntegerExpression"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rightEquality" lowerBound="1" eType="//IntegerExpression"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Not" eSuperTypes="//BooleanExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="notExpression" lowerBound="1" eType="//BooleanExpression"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="And" eSuperTypes="//BooleanExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="leftAnd" lowerBound="1" eType="//BooleanExpression"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rightAnd" lowerBound="1" eType="//BooleanExpression"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IntegerExpression" abstract="true" eSuperTypes="//Operation //Printable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Const" eSuperTypes="//IntegerExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Var" eSuperTypes="//IntegerExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="varName" lowerBound="1">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Assign" eSuperTypes="//Operation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="varName" lowerBound="1">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assignedExpression" lowerBound="1" eType="//IntegerExpression"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Printable" abstract="true" interface="true">
+    <eOperations name="pretty" lowerBound="1">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
   </eClassifiers>
 </ecore:EPackage>

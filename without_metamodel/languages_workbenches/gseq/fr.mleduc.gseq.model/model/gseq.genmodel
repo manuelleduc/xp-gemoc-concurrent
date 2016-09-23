@@ -44,8 +44,8 @@
     </genClasses>
     <genClasses>
       <ecoreClass href="gseq.ecore#//Print"/>
-      <genFeatures createChild="false">
-        <ecoreFeature xsi:type="ecore:EAttribute" href="gseq.ecore#//Print/value"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="gseq.ecore#//Print/toPrint"/>
       </genFeatures>
     </genClasses>
     <genClasses>
@@ -53,6 +53,87 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true">
         <ecoreFeature xsi:type="ecore:EReference" href="gseq.ecore#//MethodCall/methodToCall"/>
       </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="gseq.ecore#//BooleanExpression"/>
+      <genOperations>
+        <ecoreOperation href="gseq.ecore#//BooleanExpression/bvalue"/>
+      </genOperations>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="gseq.ecore#//If"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="gseq.ecore#//If/ifCondition"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="gseq.ecore#//If/thenBranch"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="gseq.ecore#//If/elseBranch"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="gseq.ecore#//True"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="gseq.ecore#//False"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="gseq.ecore#//Equality"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="gseq.ecore#//Equality/leftEquality"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="gseq.ecore#//Equality/rightEquality"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="gseq.ecore#//Not"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="gseq.ecore#//Not/notExpression"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="gseq.ecore#//And"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="gseq.ecore#//And/leftAnd"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="gseq.ecore#//And/rightAnd"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="gseq.ecore#//IntegerExpression"/>
+      <genOperations>
+        <ecoreOperation href="gseq.ecore#//IntegerExpression/ivalue"/>
+      </genOperations>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="gseq.ecore#//Const"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="gseq.ecore#//Const/value"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="gseq.ecore#//Var"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="gseq.ecore#//Var/varName"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="gseq.ecore#//Assign"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="gseq.ecore#//Assign/varName"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="gseq.ecore#//Assign/assignedExpression"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="gseq.ecore#//Printable"/>
+      <genOperations>
+        <ecoreOperation href="gseq.ecore#//Printable/pretty"/>
+      </genOperations>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -211,6 +211,51 @@ public class MethodItemProvider
 			(createChildParameter
 				(GseqPackage.Literals.METHOD__OPERATIONS,
 				 GseqFactory.eINSTANCE.createMethodCall()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GseqPackage.Literals.METHOD__OPERATIONS,
+				 GseqFactory.eINSTANCE.createIf()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GseqPackage.Literals.METHOD__OPERATIONS,
+				 GseqFactory.eINSTANCE.createTrue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GseqPackage.Literals.METHOD__OPERATIONS,
+				 GseqFactory.eINSTANCE.createFalse()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GseqPackage.Literals.METHOD__OPERATIONS,
+				 GseqFactory.eINSTANCE.createEquality()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GseqPackage.Literals.METHOD__OPERATIONS,
+				 GseqFactory.eINSTANCE.createNot()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GseqPackage.Literals.METHOD__OPERATIONS,
+				 GseqFactory.eINSTANCE.createAnd()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GseqPackage.Literals.METHOD__OPERATIONS,
+				 GseqFactory.eINSTANCE.createConst()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GseqPackage.Literals.METHOD__OPERATIONS,
+				 GseqFactory.eINSTANCE.createVar()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GseqPackage.Literals.METHOD__OPERATIONS,
+				 GseqFactory.eINSTANCE.createAssign()));
 	}
 
 	/**

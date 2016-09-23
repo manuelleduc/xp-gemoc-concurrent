@@ -2,14 +2,26 @@
  */
 package gseq.impl;
 
+import gseq.And;
+import gseq.Assign;
+import gseq.BooleanExpression;
+import gseq.Const;
+import gseq.Equality;
+import gseq.False;
 import gseq.GseqFactory;
 import gseq.GseqPackage;
+import gseq.If;
+import gseq.IntegerExpression;
 import gseq.Method;
 import gseq.MethodCall;
+import gseq.Not;
 import gseq.Operation;
 import gseq.Print;
+import gseq.Printable;
 import gseq.Program;
 
+import gseq.True;
+import gseq.Var;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EOperation;
@@ -59,6 +71,90 @@ public class GseqPackageImpl extends EPackageImpl implements GseqPackage {
 	 * @generated
 	 */
 	private EClass methodCallEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass booleanExpressionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass ifEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass trueEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass falseEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass equalityEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass notEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass andEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass integerExpressionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass constEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass varEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass assignEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass printableEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -252,8 +348,8 @@ public class GseqPackageImpl extends EPackageImpl implements GseqPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPrint_Value() {
-		return (EAttribute)printEClass.getEStructuralFeatures().get(0);
+	public EReference getPrint_ToPrint() {
+		return (EReference)printEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -272,6 +368,249 @@ public class GseqPackageImpl extends EPackageImpl implements GseqPackage {
 	 */
 	public EReference getMethodCall_MethodToCall() {
 		return (EReference)methodCallEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBooleanExpression() {
+		return booleanExpressionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getBooleanExpression__Bvalue() {
+		return booleanExpressionEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getIf() {
+		return ifEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIf_IfCondition() {
+		return (EReference)ifEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIf_ThenBranch() {
+		return (EReference)ifEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIf_ElseBranch() {
+		return (EReference)ifEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTrue() {
+		return trueEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getFalse() {
+		return falseEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEquality() {
+		return equalityEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEquality_LeftEquality() {
+		return (EReference)equalityEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEquality_RightEquality() {
+		return (EReference)equalityEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getNot() {
+		return notEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getNot_NotExpression() {
+		return (EReference)notEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAnd() {
+		return andEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAnd_LeftAnd() {
+		return (EReference)andEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAnd_RightAnd() {
+		return (EReference)andEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getIntegerExpression() {
+		return integerExpressionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getIntegerExpression__Ivalue() {
+		return integerExpressionEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getConst() {
+		return constEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConst_Value() {
+		return (EAttribute)constEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getVar() {
+		return varEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getVar_VarName() {
+		return (EAttribute)varEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAssign() {
+		return assignEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAssign_VarName() {
+		return (EAttribute)assignEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAssign_AssignedExpression() {
+		return (EReference)assignEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPrintable() {
+		return printableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getPrintable__Pretty() {
+		return printableEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -319,10 +658,49 @@ public class GseqPackageImpl extends EPackageImpl implements GseqPackage {
 		createEOperation(operationEClass, OPERATION___EXECUTE);
 
 		printEClass = createEClass(PRINT);
-		createEAttribute(printEClass, PRINT__VALUE);
+		createEReference(printEClass, PRINT__TO_PRINT);
 
 		methodCallEClass = createEClass(METHOD_CALL);
 		createEReference(methodCallEClass, METHOD_CALL__METHOD_TO_CALL);
+
+		booleanExpressionEClass = createEClass(BOOLEAN_EXPRESSION);
+		createEOperation(booleanExpressionEClass, BOOLEAN_EXPRESSION___BVALUE);
+
+		ifEClass = createEClass(IF);
+		createEReference(ifEClass, IF__IF_CONDITION);
+		createEReference(ifEClass, IF__THEN_BRANCH);
+		createEReference(ifEClass, IF__ELSE_BRANCH);
+
+		trueEClass = createEClass(TRUE);
+
+		falseEClass = createEClass(FALSE);
+
+		equalityEClass = createEClass(EQUALITY);
+		createEReference(equalityEClass, EQUALITY__LEFT_EQUALITY);
+		createEReference(equalityEClass, EQUALITY__RIGHT_EQUALITY);
+
+		notEClass = createEClass(NOT);
+		createEReference(notEClass, NOT__NOT_EXPRESSION);
+
+		andEClass = createEClass(AND);
+		createEReference(andEClass, AND__LEFT_AND);
+		createEReference(andEClass, AND__RIGHT_AND);
+
+		integerExpressionEClass = createEClass(INTEGER_EXPRESSION);
+		createEOperation(integerExpressionEClass, INTEGER_EXPRESSION___IVALUE);
+
+		constEClass = createEClass(CONST);
+		createEAttribute(constEClass, CONST__VALUE);
+
+		varEClass = createEClass(VAR);
+		createEAttribute(varEClass, VAR__VAR_NAME);
+
+		assignEClass = createEClass(ASSIGN);
+		createEAttribute(assignEClass, ASSIGN__VAR_NAME);
+		createEReference(assignEClass, ASSIGN__ASSIGNED_EXPRESSION);
+
+		printableEClass = createEClass(PRINTABLE);
+		createEOperation(printableEClass, PRINTABLE___PRETTY);
 	}
 
 	/**
@@ -355,6 +733,19 @@ public class GseqPackageImpl extends EPackageImpl implements GseqPackage {
 		// Add supertypes to classes
 		printEClass.getESuperTypes().add(this.getOperation());
 		methodCallEClass.getESuperTypes().add(this.getOperation());
+		booleanExpressionEClass.getESuperTypes().add(this.getOperation());
+		booleanExpressionEClass.getESuperTypes().add(this.getPrintable());
+		ifEClass.getESuperTypes().add(this.getOperation());
+		trueEClass.getESuperTypes().add(this.getBooleanExpression());
+		falseEClass.getESuperTypes().add(this.getBooleanExpression());
+		equalityEClass.getESuperTypes().add(this.getBooleanExpression());
+		notEClass.getESuperTypes().add(this.getBooleanExpression());
+		andEClass.getESuperTypes().add(this.getBooleanExpression());
+		integerExpressionEClass.getESuperTypes().add(this.getOperation());
+		integerExpressionEClass.getESuperTypes().add(this.getPrintable());
+		constEClass.getESuperTypes().add(this.getIntegerExpression());
+		varEClass.getESuperTypes().add(this.getIntegerExpression());
+		assignEClass.getESuperTypes().add(this.getOperation());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(programEClass, Program.class, "Program", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -377,10 +768,52 @@ public class GseqPackageImpl extends EPackageImpl implements GseqPackage {
 		initEOperation(getOperation__Execute(), null, "execute", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(printEClass, Print.class, "Print", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPrint_Value(), ecorePackage.getEString(), "value", null, 0, 1, Print.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPrint_ToPrint(), this.getPrintable(), null, "toPrint", null, 1, 1, Print.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(methodCallEClass, MethodCall.class, "MethodCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMethodCall_MethodToCall(), this.getMethod(), this.getMethod_CalledBy(), "methodToCall", null, 1, 1, MethodCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(booleanExpressionEClass, BooleanExpression.class, "BooleanExpression", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEOperation(getBooleanExpression__Bvalue(), null, "bvalue", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(ifEClass, If.class, "If", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getIf_IfCondition(), this.getBooleanExpression(), null, "ifCondition", null, 1, 1, If.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIf_ThenBranch(), this.getOperation(), null, "thenBranch", null, 1, 1, If.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIf_ElseBranch(), this.getOperation(), null, "elseBranch", null, 0, 1, If.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(trueEClass, True.class, "True", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(falseEClass, False.class, "False", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(equalityEClass, Equality.class, "Equality", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getEquality_LeftEquality(), this.getIntegerExpression(), null, "leftEquality", null, 1, 1, Equality.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEquality_RightEquality(), this.getIntegerExpression(), null, "rightEquality", null, 1, 1, Equality.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(notEClass, Not.class, "Not", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getNot_NotExpression(), this.getBooleanExpression(), null, "notExpression", null, 1, 1, Not.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(andEClass, And.class, "And", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAnd_LeftAnd(), this.getBooleanExpression(), null, "leftAnd", null, 1, 1, And.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAnd_RightAnd(), this.getBooleanExpression(), null, "rightAnd", null, 1, 1, And.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(integerExpressionEClass, IntegerExpression.class, "IntegerExpression", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEOperation(getIntegerExpression__Ivalue(), ecorePackage.getELong(), "ivalue", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(constEClass, Const.class, "Const", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getConst_Value(), ecorePackage.getELong(), "value", null, 1, 1, Const.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(varEClass, Var.class, "Var", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getVar_VarName(), ecorePackage.getEString(), "varName", null, 1, 1, Var.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(assignEClass, Assign.class, "Assign", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAssign_VarName(), ecorePackage.getEString(), "varName", null, 1, 1, Assign.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAssign_AssignedExpression(), this.getIntegerExpression(), null, "assignedExpression", null, 1, 1, Assign.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(printableEClass, Printable.class, "Printable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEOperation(getPrintable__Pretty(), ecorePackage.getEString(), "pretty", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

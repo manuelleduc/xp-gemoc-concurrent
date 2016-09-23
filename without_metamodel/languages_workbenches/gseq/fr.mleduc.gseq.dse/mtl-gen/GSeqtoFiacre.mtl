@@ -18,6 +18,18 @@ const NUMBER_Methods : int is [aProgram.eAllContents(Method)->size()/]
 const NUMBER_Operations : int is [aProgram.eAllContents(Operation)->size()/]
 const NUMBER_Prints : int is [aProgram.eAllContents(Print)->size()/]
 const NUMBER_MethodCalls : int is [aProgram.eAllContents(MethodCall)->size()/]
+const NUMBER_BooleanExpressions : int is [aProgram.eAllContents(BooleanExpression)->size()/]
+const NUMBER_Ifs : int is [aProgram.eAllContents(If)->size()/]
+const NUMBER_Trues : int is [aProgram.eAllContents(True)->size()/]
+const NUMBER_Falses : int is [aProgram.eAllContents(False)->size()/]
+const NUMBER_Equalitys : int is [aProgram.eAllContents(Equality)->size()/]
+const NUMBER_Nots : int is [aProgram.eAllContents(Not)->size()/]
+const NUMBER_Ands : int is [aProgram.eAllContents(And)->size()/]
+const NUMBER_IntegerExpressions : int is [aProgram.eAllContents(IntegerExpression)->size()/]
+const NUMBER_Consts : int is [aProgram.eAllContents(Const)->size()/]
+const NUMBER_Vars : int is [aProgram.eAllContents(Var)->size()/]
+const NUMBER_Assigns : int is [aProgram.eAllContents(Assign)->size()/]
+const NUMBER_Printables : int is [aProgram.eAllContents(Printable)->size()/]
 
 type Method_methodsArray is array [Program.eContents(Method)->size()/] of int
 type Operation_operationsArray is array [Method.eContents(Operation)->size()/] of int

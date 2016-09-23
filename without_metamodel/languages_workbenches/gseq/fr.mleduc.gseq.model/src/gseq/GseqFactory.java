@@ -58,6 +58,87 @@ public interface GseqFactory extends EFactory {
 	MethodCall createMethodCall();
 
 	/**
+	 * Returns a new object of class '<em>If</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>If</em>'.
+	 * @generated
+	 */
+	If createIf();
+
+	/**
+	 * Returns a new object of class '<em>True</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>True</em>'.
+	 * @generated
+	 */
+	True createTrue();
+
+	/**
+	 * Returns a new object of class '<em>False</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>False</em>'.
+	 * @generated
+	 */
+	False createFalse();
+
+	/**
+	 * Returns a new object of class '<em>Equality</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Equality</em>'.
+	 * @generated
+	 */
+	Equality createEquality();
+
+	/**
+	 * Returns a new object of class '<em>Not</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Not</em>'.
+	 * @generated
+	 */
+	Not createNot();
+
+	/**
+	 * Returns a new object of class '<em>And</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>And</em>'.
+	 * @generated
+	 */
+	And createAnd();
+
+	/**
+	 * Returns a new object of class '<em>Const</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Const</em>'.
+	 * @generated
+	 */
+	Const createConst();
+
+	/**
+	 * Returns a new object of class '<em>Var</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Var</em>'.
+	 * @generated
+	 */
+	Var createVar();
+
+	/**
+	 * Returns a new object of class '<em>Assign</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Assign</em>'.
+	 * @generated
+	 */
+	Assign createAssign();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

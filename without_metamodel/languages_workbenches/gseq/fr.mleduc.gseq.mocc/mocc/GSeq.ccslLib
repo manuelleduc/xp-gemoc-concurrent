@@ -12,6 +12,12 @@ Library GSeq {
 	}
 	
 	RelationLibrary GSeq_relations {
+		
+		
+		RelationDeclaration BooleanGuardedTransitionRule (evaluateGuard : clock, resTrue : clock, resFalse : clock)
+		
+		
+		
 		RelationDeclaration WeakAlternates (WeakAlternatesLeftClock:clock, WeakAlternatesRightClock:clock) 			
 		RelationDefinition WeakAlternatesDef[WeakAlternates] {
 			//c1 <= c2

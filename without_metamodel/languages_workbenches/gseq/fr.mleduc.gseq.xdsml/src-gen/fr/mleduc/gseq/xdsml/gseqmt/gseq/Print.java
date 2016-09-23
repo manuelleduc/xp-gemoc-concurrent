@@ -11,7 +11,7 @@ package fr.mleduc.gseq.xdsml.gseqmt.gseq;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link fr.mleduc.gseq.xdsml.gseqmt.gseq.Print#getValue <em>Value</em>}</li>
+ *   <li>{@link fr.mleduc.gseq.xdsml.gseqmt.gseq.Print#getToPrint <em>To Print</em>}</li>
  * </ul>
  * </p>
  *
@@ -21,30 +21,30 @@ package fr.mleduc.gseq.xdsml.gseqmt.gseq;
  */
 public interface Print extends Operation {
 	/**
-	 * Returns the value of the '<em><b>Value</b></em>' attribute.
+	 * Returns the value of the '<em><b>To Print</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Value</em>' attribute isn't clear,
+	 * If the meaning of the '<em>To Print</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Value</em>' attribute.
-	 * @see #setValue(String)
-	 * @see fr.mleduc.gseq.xdsml.gseqmt.gseq.GseqPackage#getPrint_Value()
-	 * @model
+	 * @return the value of the '<em>To Print</em>' reference.
+	 * @see #setToPrint(Printable)
+	 * @see fr.mleduc.gseq.xdsml.gseqmt.gseq.GseqPackage#getPrint_ToPrint()
+	 * @model required="true"
 	 * @generated
 	 */
-	String getValue();
+	Printable getToPrint();
 
 	/**
-	 * Sets the value of the '{@link fr.mleduc.gseq.xdsml.gseqmt.gseq.Print#getValue <em>Value</em>}' attribute.
+	 * Sets the value of the '{@link fr.mleduc.gseq.xdsml.gseqmt.gseq.Print#getToPrint <em>To Print</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Value</em>' attribute.
-	 * @see #getValue()
+	 * @param value the new value of the '<em>To Print</em>' reference.
+	 * @see #getToPrint()
 	 * @generated
 	 */
-	void setValue(String value);
+	void setToPrint(Printable value);
 
 	/**
 	 * <!-- begin-user-doc -->
