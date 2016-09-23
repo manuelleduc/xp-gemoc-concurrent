@@ -371,6 +371,75 @@ public class GseqItemProviderAdapterFactory extends GseqAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link gseq.Plus} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PlusItemProvider plusItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link gseq.Plus}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPlusAdapter() {
+		if (plusItemProvider == null) {
+			plusItemProvider = new PlusItemProvider(this);
+		}
+
+		return plusItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link gseq.GreaterThan} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GreaterThanItemProvider greaterThanItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link gseq.GreaterThan}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGreaterThanAdapter() {
+		if (greaterThanItemProvider == null) {
+			greaterThanItemProvider = new GreaterThanItemProvider(this);
+		}
+
+		return greaterThanItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link gseq.While} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected WhileItemProvider whileItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link gseq.While}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createWhileAdapter() {
+		if (whileItemProvider == null) {
+			whileItemProvider = new WhileItemProvider(this);
+		}
+
+		return whileItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -482,6 +551,9 @@ public class GseqItemProviderAdapterFactory extends GseqAdapterFactory implement
 		if (constItemProvider != null) constItemProvider.dispose();
 		if (varItemProvider != null) varItemProvider.dispose();
 		if (assignItemProvider != null) assignItemProvider.dispose();
+		if (plusItemProvider != null) plusItemProvider.dispose();
+		if (greaterThanItemProvider != null) greaterThanItemProvider.dispose();
+		if (whileItemProvider != null) whileItemProvider.dispose();
 	}
 
 }

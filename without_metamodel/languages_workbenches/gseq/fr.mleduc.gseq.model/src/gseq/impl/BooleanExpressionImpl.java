@@ -46,7 +46,7 @@ public abstract class BooleanExpressionImpl extends OperationImpl implements Boo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void bvalue() {
+	public boolean bvalue() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -88,8 +88,7 @@ public abstract class BooleanExpressionImpl extends OperationImpl implements Boo
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case GseqPackage.BOOLEAN_EXPRESSION___BVALUE:
-				bvalue();
-				return null;
+				return bvalue();
 			case GseqPackage.BOOLEAN_EXPRESSION___PRETTY:
 				return pretty();
 		}

@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class MethodCallImpl extends OperationImpl implements MethodCall {
+public class MethodCallImpl extends IntegerExpressionImpl implements MethodCall {
 	/**
 	 * The cached value of the '{@link #getMethodToCall() <em>Method To Call</em>}' reference.
 	 * <!-- begin-user-doc -->

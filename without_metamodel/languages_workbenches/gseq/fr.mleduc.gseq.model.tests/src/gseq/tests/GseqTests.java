@@ -44,6 +44,9 @@ public class GseqTests extends TestSuite {
 		suite.addTestSuite(ConstTest.class);
 		suite.addTestSuite(VarTest.class);
 		suite.addTestSuite(AssignTest.class);
+		suite.addTestSuite(PlusTest.class);
+		suite.addTestSuite(GreaterThanTest.class);
+		suite.addTestSuite(WhileTest.class);
 		return suite;
 	}
 

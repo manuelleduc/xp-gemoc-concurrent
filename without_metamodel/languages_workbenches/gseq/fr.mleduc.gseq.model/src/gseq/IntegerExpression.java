@@ -14,7 +14,6 @@ package gseq;
  * @generated
  */
 public interface IntegerExpression extends Operation, Printable {
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -22,4 +21,5 @@ public interface IntegerExpression extends Operation, Printable {
 	 * @generated
 	 */
 	long ivalue();
+
 } // IntegerExpression

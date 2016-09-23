@@ -14,12 +14,12 @@ package gseq;
  * @generated
  */
 public interface BooleanExpression extends Operation, Printable {
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
 	 */
-	void bvalue();
+	boolean bvalue();
+
 } // BooleanExpression

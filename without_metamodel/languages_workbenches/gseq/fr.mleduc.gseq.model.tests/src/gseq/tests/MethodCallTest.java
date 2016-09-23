@@ -13,7 +13,7 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class MethodCallTest extends OperationTest {
+public class MethodCallTest extends IntegerExpressionTest {
 
 	/**
 	 * <!-- begin-user-doc -->

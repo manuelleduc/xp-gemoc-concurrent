@@ -256,6 +256,21 @@ public class MethodItemProvider
 			(createChildParameter
 				(GseqPackage.Literals.METHOD__OPERATIONS,
 				 GseqFactory.eINSTANCE.createAssign()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GseqPackage.Literals.METHOD__OPERATIONS,
+				 GseqFactory.eINSTANCE.createPlus()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GseqPackage.Literals.METHOD__OPERATIONS,
+				 GseqFactory.eINSTANCE.createGreaterThan()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GseqPackage.Literals.METHOD__OPERATIONS,
+				 GseqFactory.eINSTANCE.createWhile()));
 	}
 
 	/**

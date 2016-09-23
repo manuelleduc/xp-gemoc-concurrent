@@ -94,7 +94,9 @@ public class GseqSwitch<T> extends Switch<T> {
 			case GseqPackage.METHOD_CALL: {
 				MethodCall methodCall = (MethodCall)theEObject;
 				T result = caseMethodCall(methodCall);
+				if (result == null) result = caseIntegerExpression(methodCall);
 				if (result == null) result = caseOperation(methodCall);
+				if (result == null) result = casePrintable(methodCall);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -194,6 +196,31 @@ public class GseqSwitch<T> extends Switch<T> {
 			case GseqPackage.PRINTABLE: {
 				Printable printable = (Printable)theEObject;
 				T result = casePrintable(printable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GseqPackage.PLUS: {
+				Plus plus = (Plus)theEObject;
+				T result = casePlus(plus);
+				if (result == null) result = caseIntegerExpression(plus);
+				if (result == null) result = caseOperation(plus);
+				if (result == null) result = casePrintable(plus);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GseqPackage.GREATER_THAN: {
+				GreaterThan greaterThan = (GreaterThan)theEObject;
+				T result = caseGreaterThan(greaterThan);
+				if (result == null) result = caseBooleanExpression(greaterThan);
+				if (result == null) result = caseOperation(greaterThan);
+				if (result == null) result = casePrintable(greaterThan);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GseqPackage.WHILE: {
+				While while_ = (While)theEObject;
+				T result = caseWhile(while_);
+				if (result == null) result = caseOperation(while_);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -453,6 +480,51 @@ public class GseqSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T casePrintable(Printable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Plus</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Plus</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePlus(Plus object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Greater Than</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Greater Than</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGreaterThan(GreaterThan object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>While</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>While</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseWhile(While object) {
 		return null;
 	}
 

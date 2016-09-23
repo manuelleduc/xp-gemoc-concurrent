@@ -287,6 +287,70 @@ public interface GseqPackage extends EPackage {
 	int PRINT_OPERATION_COUNT = OPERATION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link gseq.impl.IntegerExpressionImpl <em>Integer Expression</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see gseq.impl.IntegerExpressionImpl
+	 * @see gseq.impl.GseqPackageImpl#getIntegerExpression()
+	 * @generated
+	 */
+	int INTEGER_EXPRESSION = 12;
+
+	/**
+	 * The feature id for the '<em><b>Executed By</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_EXPRESSION__EXECUTED_BY = OPERATION__EXECUTED_BY;
+
+	/**
+	 * The number of structural features of the '<em>Integer Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_EXPRESSION_FEATURE_COUNT = OPERATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Execute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_EXPRESSION___EXECUTE = OPERATION___EXECUTE;
+
+	/**
+	 * The operation id for the '<em>Pretty</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_EXPRESSION___PRETTY = OPERATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Ivalue</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_EXPRESSION___IVALUE = OPERATION_OPERATION_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Integer Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_EXPRESSION_OPERATION_COUNT = OPERATION_OPERATION_COUNT + 2;
+
+	/**
 	 * The meta object id for the '{@link gseq.impl.MethodCallImpl <em>Method Call</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -303,7 +367,7 @@ public interface GseqPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int METHOD_CALL__EXECUTED_BY = OPERATION__EXECUTED_BY;
+	int METHOD_CALL__EXECUTED_BY = INTEGER_EXPRESSION__EXECUTED_BY;
 
 	/**
 	 * The feature id for the '<em><b>Method To Call</b></em>' reference.
@@ -312,7 +376,7 @@ public interface GseqPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int METHOD_CALL__METHOD_TO_CALL = OPERATION_FEATURE_COUNT + 0;
+	int METHOD_CALL__METHOD_TO_CALL = INTEGER_EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Method Call</em>' class.
@@ -321,7 +385,7 @@ public interface GseqPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int METHOD_CALL_FEATURE_COUNT = OPERATION_FEATURE_COUNT + 1;
+	int METHOD_CALL_FEATURE_COUNT = INTEGER_EXPRESSION_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Execute</em>' operation.
@@ -330,7 +394,25 @@ public interface GseqPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int METHOD_CALL___EXECUTE = OPERATION___EXECUTE;
+	int METHOD_CALL___EXECUTE = INTEGER_EXPRESSION___EXECUTE;
+
+	/**
+	 * The operation id for the '<em>Pretty</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD_CALL___PRETTY = INTEGER_EXPRESSION___PRETTY;
+
+	/**
+	 * The operation id for the '<em>Ivalue</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD_CALL___IVALUE = INTEGER_EXPRESSION___IVALUE;
 
 	/**
 	 * The number of operations of the '<em>Method Call</em>' class.
@@ -339,8 +421,7 @@ public interface GseqPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int METHOD_CALL_OPERATION_COUNT = OPERATION_OPERATION_COUNT + 0;
-
+	int METHOD_CALL_OPERATION_COUNT = INTEGER_EXPRESSION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link gseq.impl.BooleanExpressionImpl <em>Boolean Expression</em>}' class.
@@ -845,70 +926,6 @@ public interface GseqPackage extends EPackage {
 	int AND_OPERATION_COUNT = BOOLEAN_EXPRESSION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link gseq.impl.IntegerExpressionImpl <em>Integer Expression</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see gseq.impl.IntegerExpressionImpl
-	 * @see gseq.impl.GseqPackageImpl#getIntegerExpression()
-	 * @generated
-	 */
-	int INTEGER_EXPRESSION = 12;
-
-	/**
-	 * The feature id for the '<em><b>Executed By</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTEGER_EXPRESSION__EXECUTED_BY = OPERATION__EXECUTED_BY;
-
-	/**
-	 * The number of structural features of the '<em>Integer Expression</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTEGER_EXPRESSION_FEATURE_COUNT = OPERATION_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Execute</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTEGER_EXPRESSION___EXECUTE = OPERATION___EXECUTE;
-
-	/**
-	 * The operation id for the '<em>Pretty</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTEGER_EXPRESSION___PRETTY = OPERATION_OPERATION_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Ivalue</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTEGER_EXPRESSION___IVALUE = OPERATION_OPERATION_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Integer Expression</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTEGER_EXPRESSION_OPERATION_COUNT = OPERATION_OPERATION_COUNT + 2;
-
-	/**
 	 * The meta object id for the '{@link gseq.impl.ConstImpl <em>Const</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1154,6 +1171,234 @@ public interface GseqPackage extends EPackage {
 	 * @ordered
 	 */
 	int PRINTABLE_OPERATION_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link gseq.impl.PlusImpl <em>Plus</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see gseq.impl.PlusImpl
+	 * @see gseq.impl.GseqPackageImpl#getPlus()
+	 * @generated
+	 */
+	int PLUS = 17;
+
+	/**
+	 * The feature id for the '<em><b>Executed By</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLUS__EXECUTED_BY = INTEGER_EXPRESSION__EXECUTED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Right Plus</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLUS__RIGHT_PLUS = INTEGER_EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Left Plus</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLUS__LEFT_PLUS = INTEGER_EXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Plus</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLUS_FEATURE_COUNT = INTEGER_EXPRESSION_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Execute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLUS___EXECUTE = INTEGER_EXPRESSION___EXECUTE;
+
+	/**
+	 * The operation id for the '<em>Pretty</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLUS___PRETTY = INTEGER_EXPRESSION___PRETTY;
+
+	/**
+	 * The operation id for the '<em>Ivalue</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLUS___IVALUE = INTEGER_EXPRESSION___IVALUE;
+
+	/**
+	 * The number of operations of the '<em>Plus</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLUS_OPERATION_COUNT = INTEGER_EXPRESSION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link gseq.impl.GreaterThanImpl <em>Greater Than</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see gseq.impl.GreaterThanImpl
+	 * @see gseq.impl.GseqPackageImpl#getGreaterThan()
+	 * @generated
+	 */
+	int GREATER_THAN = 18;
+
+	/**
+	 * The feature id for the '<em><b>Executed By</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GREATER_THAN__EXECUTED_BY = BOOLEAN_EXPRESSION__EXECUTED_BY;
+
+	/**
+	 * The feature id for the '<em><b>Left Greater Than</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GREATER_THAN__LEFT_GREATER_THAN = BOOLEAN_EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Right Greater Than</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GREATER_THAN__RIGHT_GREATER_THAN = BOOLEAN_EXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Greater Than</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GREATER_THAN_FEATURE_COUNT = BOOLEAN_EXPRESSION_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Execute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GREATER_THAN___EXECUTE = BOOLEAN_EXPRESSION___EXECUTE;
+
+	/**
+	 * The operation id for the '<em>Pretty</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GREATER_THAN___PRETTY = BOOLEAN_EXPRESSION___PRETTY;
+
+	/**
+	 * The operation id for the '<em>Bvalue</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GREATER_THAN___BVALUE = BOOLEAN_EXPRESSION___BVALUE;
+
+	/**
+	 * The number of operations of the '<em>Greater Than</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GREATER_THAN_OPERATION_COUNT = BOOLEAN_EXPRESSION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link gseq.impl.WhileImpl <em>While</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see gseq.impl.WhileImpl
+	 * @see gseq.impl.GseqPackageImpl#getWhile()
+	 * @generated
+	 */
+	int WHILE = 19;
+
+	/**
+	 * The feature id for the '<em><b>Executed By</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WHILE__EXECUTED_BY = OPERATION__EXECUTED_BY;
+
+	/**
+	 * The feature id for the '<em><b>While Condition</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WHILE__WHILE_CONDITION = OPERATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>While Expression</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WHILE__WHILE_EXPRESSION = OPERATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>While</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WHILE_FEATURE_COUNT = OPERATION_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Execute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WHILE___EXECUTE = OPERATION___EXECUTE;
+
+	/**
+	 * The number of operations of the '<em>While</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WHILE_OPERATION_COUNT = OPERATION_OPERATION_COUNT + 0;
 
 
 	/**
@@ -1618,6 +1863,102 @@ public interface GseqPackage extends EPackage {
 	EOperation getPrintable__Pretty();
 
 	/**
+	 * Returns the meta object for class '{@link gseq.Plus <em>Plus</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Plus</em>'.
+	 * @see gseq.Plus
+	 * @generated
+	 */
+	EClass getPlus();
+
+	/**
+	 * Returns the meta object for the reference '{@link gseq.Plus#getRightPlus <em>Right Plus</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Right Plus</em>'.
+	 * @see gseq.Plus#getRightPlus()
+	 * @see #getPlus()
+	 * @generated
+	 */
+	EReference getPlus_RightPlus();
+
+	/**
+	 * Returns the meta object for the reference '{@link gseq.Plus#getLeftPlus <em>Left Plus</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Left Plus</em>'.
+	 * @see gseq.Plus#getLeftPlus()
+	 * @see #getPlus()
+	 * @generated
+	 */
+	EReference getPlus_LeftPlus();
+
+	/**
+	 * Returns the meta object for class '{@link gseq.GreaterThan <em>Greater Than</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Greater Than</em>'.
+	 * @see gseq.GreaterThan
+	 * @generated
+	 */
+	EClass getGreaterThan();
+
+	/**
+	 * Returns the meta object for the reference '{@link gseq.GreaterThan#getLeftGreaterThan <em>Left Greater Than</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Left Greater Than</em>'.
+	 * @see gseq.GreaterThan#getLeftGreaterThan()
+	 * @see #getGreaterThan()
+	 * @generated
+	 */
+	EReference getGreaterThan_LeftGreaterThan();
+
+	/**
+	 * Returns the meta object for the reference '{@link gseq.GreaterThan#getRightGreaterThan <em>Right Greater Than</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Right Greater Than</em>'.
+	 * @see gseq.GreaterThan#getRightGreaterThan()
+	 * @see #getGreaterThan()
+	 * @generated
+	 */
+	EReference getGreaterThan_RightGreaterThan();
+
+	/**
+	 * Returns the meta object for class '{@link gseq.While <em>While</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>While</em>'.
+	 * @see gseq.While
+	 * @generated
+	 */
+	EClass getWhile();
+
+	/**
+	 * Returns the meta object for the reference '{@link gseq.While#getWhileCondition <em>While Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>While Condition</em>'.
+	 * @see gseq.While#getWhileCondition()
+	 * @see #getWhile()
+	 * @generated
+	 */
+	EReference getWhile_WhileCondition();
+
+	/**
+	 * Returns the meta object for the reference '{@link gseq.While#getWhileExpression <em>While Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>While Expression</em>'.
+	 * @see gseq.While#getWhileExpression()
+	 * @see #getWhile()
+	 * @generated
+	 */
+	EReference getWhile_WhileExpression();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2025,6 +2366,84 @@ public interface GseqPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PRINTABLE___PRETTY = eINSTANCE.getPrintable__Pretty();
+
+		/**
+		 * The meta object literal for the '{@link gseq.impl.PlusImpl <em>Plus</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see gseq.impl.PlusImpl
+		 * @see gseq.impl.GseqPackageImpl#getPlus()
+		 * @generated
+		 */
+		EClass PLUS = eINSTANCE.getPlus();
+
+		/**
+		 * The meta object literal for the '<em><b>Right Plus</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PLUS__RIGHT_PLUS = eINSTANCE.getPlus_RightPlus();
+
+		/**
+		 * The meta object literal for the '<em><b>Left Plus</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PLUS__LEFT_PLUS = eINSTANCE.getPlus_LeftPlus();
+
+		/**
+		 * The meta object literal for the '{@link gseq.impl.GreaterThanImpl <em>Greater Than</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see gseq.impl.GreaterThanImpl
+		 * @see gseq.impl.GseqPackageImpl#getGreaterThan()
+		 * @generated
+		 */
+		EClass GREATER_THAN = eINSTANCE.getGreaterThan();
+
+		/**
+		 * The meta object literal for the '<em><b>Left Greater Than</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GREATER_THAN__LEFT_GREATER_THAN = eINSTANCE.getGreaterThan_LeftGreaterThan();
+
+		/**
+		 * The meta object literal for the '<em><b>Right Greater Than</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GREATER_THAN__RIGHT_GREATER_THAN = eINSTANCE.getGreaterThan_RightGreaterThan();
+
+		/**
+		 * The meta object literal for the '{@link gseq.impl.WhileImpl <em>While</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see gseq.impl.WhileImpl
+		 * @see gseq.impl.GseqPackageImpl#getWhile()
+		 * @generated
+		 */
+		EClass WHILE = eINSTANCE.getWhile();
+
+		/**
+		 * The meta object literal for the '<em><b>While Condition</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference WHILE__WHILE_CONDITION = eINSTANCE.getWhile_WhileCondition();
+
+		/**
+		 * The meta object literal for the '<em><b>While Expression</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference WHILE__WHILE_EXPRESSION = eINSTANCE.getWhile_WhileExpression();
 
 	}
 

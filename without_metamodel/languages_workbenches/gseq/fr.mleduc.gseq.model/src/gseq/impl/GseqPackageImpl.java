@@ -8,6 +8,7 @@ import gseq.BooleanExpression;
 import gseq.Const;
 import gseq.Equality;
 import gseq.False;
+import gseq.GreaterThan;
 import gseq.GseqFactory;
 import gseq.GseqPackage;
 import gseq.If;
@@ -16,12 +17,14 @@ import gseq.Method;
 import gseq.MethodCall;
 import gseq.Not;
 import gseq.Operation;
+import gseq.Plus;
 import gseq.Print;
 import gseq.Printable;
 import gseq.Program;
-
 import gseq.True;
 import gseq.Var;
+import gseq.While;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EOperation;
@@ -155,6 +158,27 @@ public class GseqPackageImpl extends EPackageImpl implements GseqPackage {
 	 * @generated
 	 */
 	private EClass printableEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass plusEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass greaterThanEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass whileEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -618,6 +642,87 @@ public class GseqPackageImpl extends EPackageImpl implements GseqPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getPlus() {
+		return plusEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPlus_RightPlus() {
+		return (EReference)plusEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPlus_LeftPlus() {
+		return (EReference)plusEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getGreaterThan() {
+		return greaterThanEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getGreaterThan_LeftGreaterThan() {
+		return (EReference)greaterThanEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getGreaterThan_RightGreaterThan() {
+		return (EReference)greaterThanEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getWhile() {
+		return whileEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getWhile_WhileCondition() {
+		return (EReference)whileEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getWhile_WhileExpression() {
+		return (EReference)whileEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public GseqFactory getGseqFactory() {
 		return (GseqFactory)getEFactoryInstance();
 	}
@@ -701,6 +806,18 @@ public class GseqPackageImpl extends EPackageImpl implements GseqPackage {
 
 		printableEClass = createEClass(PRINTABLE);
 		createEOperation(printableEClass, PRINTABLE___PRETTY);
+
+		plusEClass = createEClass(PLUS);
+		createEReference(plusEClass, PLUS__RIGHT_PLUS);
+		createEReference(plusEClass, PLUS__LEFT_PLUS);
+
+		greaterThanEClass = createEClass(GREATER_THAN);
+		createEReference(greaterThanEClass, GREATER_THAN__LEFT_GREATER_THAN);
+		createEReference(greaterThanEClass, GREATER_THAN__RIGHT_GREATER_THAN);
+
+		whileEClass = createEClass(WHILE);
+		createEReference(whileEClass, WHILE__WHILE_CONDITION);
+		createEReference(whileEClass, WHILE__WHILE_EXPRESSION);
 	}
 
 	/**
@@ -732,7 +849,7 @@ public class GseqPackageImpl extends EPackageImpl implements GseqPackage {
 
 		// Add supertypes to classes
 		printEClass.getESuperTypes().add(this.getOperation());
-		methodCallEClass.getESuperTypes().add(this.getOperation());
+		methodCallEClass.getESuperTypes().add(this.getIntegerExpression());
 		booleanExpressionEClass.getESuperTypes().add(this.getOperation());
 		booleanExpressionEClass.getESuperTypes().add(this.getPrintable());
 		ifEClass.getESuperTypes().add(this.getOperation());
@@ -746,6 +863,9 @@ public class GseqPackageImpl extends EPackageImpl implements GseqPackage {
 		constEClass.getESuperTypes().add(this.getIntegerExpression());
 		varEClass.getESuperTypes().add(this.getIntegerExpression());
 		assignEClass.getESuperTypes().add(this.getOperation());
+		plusEClass.getESuperTypes().add(this.getIntegerExpression());
+		greaterThanEClass.getESuperTypes().add(this.getBooleanExpression());
+		whileEClass.getESuperTypes().add(this.getOperation());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(programEClass, Program.class, "Program", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -775,7 +895,7 @@ public class GseqPackageImpl extends EPackageImpl implements GseqPackage {
 
 		initEClass(booleanExpressionEClass, BooleanExpression.class, "BooleanExpression", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEOperation(getBooleanExpression__Bvalue(), null, "bvalue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getBooleanExpression__Bvalue(), ecorePackage.getEBoolean(), "bvalue", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(ifEClass, If.class, "If", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getIf_IfCondition(), this.getBooleanExpression(), null, "ifCondition", null, 1, 1, If.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -814,6 +934,18 @@ public class GseqPackageImpl extends EPackageImpl implements GseqPackage {
 		initEClass(printableEClass, Printable.class, "Printable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEOperation(getPrintable__Pretty(), ecorePackage.getEString(), "pretty", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(plusEClass, Plus.class, "Plus", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getPlus_RightPlus(), this.getIntegerExpression(), null, "rightPlus", null, 1, 1, Plus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPlus_LeftPlus(), this.getIntegerExpression(), null, "leftPlus", null, 1, 1, Plus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(greaterThanEClass, GreaterThan.class, "GreaterThan", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getGreaterThan_LeftGreaterThan(), this.getIntegerExpression(), null, "leftGreaterThan", null, 1, 1, GreaterThan.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGreaterThan_RightGreaterThan(), this.getIntegerExpression(), null, "rightGreaterThan", null, 0, 1, GreaterThan.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(whileEClass, While.class, "While", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getWhile_WhileCondition(), this.getBooleanExpression(), null, "whileCondition", null, 0, 1, While.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getWhile_WhileExpression(), this.getIntegerExpression(), null, "whileExpression", null, 1, 1, While.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -19,7 +19,7 @@ package gseq;
  * @model
  * @generated
  */
-public interface MethodCall extends Operation {
+public interface MethodCall extends IntegerExpression {
 	/**
 	 * Returns the value of the '<em><b>Method To Call</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link gseq.Method#getCalledBy <em>Called By</em>}'.

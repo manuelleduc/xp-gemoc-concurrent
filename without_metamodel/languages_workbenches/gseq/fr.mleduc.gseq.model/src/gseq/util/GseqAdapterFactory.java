@@ -136,6 +136,18 @@ public class GseqAdapterFactory extends AdapterFactoryImpl {
 				return createPrintableAdapter();
 			}
 			@Override
+			public Adapter casePlus(Plus object) {
+				return createPlusAdapter();
+			}
+			@Override
+			public Adapter caseGreaterThan(GreaterThan object) {
+				return createGreaterThanAdapter();
+			}
+			@Override
+			public Adapter caseWhile(While object) {
+				return createWhileAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -390,6 +402,48 @@ public class GseqAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPrintableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link gseq.Plus <em>Plus</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see gseq.Plus
+	 * @generated
+	 */
+	public Adapter createPlusAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link gseq.GreaterThan <em>Greater Than</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see gseq.GreaterThan
+	 * @generated
+	 */
+	public Adapter createGreaterThanAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link gseq.While <em>While</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see gseq.While
+	 * @generated
+	 */
+	public Adapter createWhileAdapter() {
 		return null;
 	}
 

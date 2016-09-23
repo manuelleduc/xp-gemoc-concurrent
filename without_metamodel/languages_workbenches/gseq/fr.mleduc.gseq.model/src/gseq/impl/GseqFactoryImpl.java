@@ -69,6 +69,9 @@ public class GseqFactoryImpl extends EFactoryImpl implements GseqFactory {
 			case GseqPackage.CONST: return createConst();
 			case GseqPackage.VAR: return createVar();
 			case GseqPackage.ASSIGN: return createAssign();
+			case GseqPackage.PLUS: return createPlus();
+			case GseqPackage.GREATER_THAN: return createGreaterThan();
+			case GseqPackage.WHILE: return createWhile();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -202,6 +205,36 @@ public class GseqFactoryImpl extends EFactoryImpl implements GseqFactory {
 	public Assign createAssign() {
 		AssignImpl assign = new AssignImpl();
 		return assign;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Plus createPlus() {
+		PlusImpl plus = new PlusImpl();
+		return plus;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GreaterThan createGreaterThan() {
+		GreaterThanImpl greaterThan = new GreaterThanImpl();
+		return greaterThan;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public While createWhile() {
+		WhileImpl while_ = new WhileImpl();
+		return while_;
 	}
 
 	/**
