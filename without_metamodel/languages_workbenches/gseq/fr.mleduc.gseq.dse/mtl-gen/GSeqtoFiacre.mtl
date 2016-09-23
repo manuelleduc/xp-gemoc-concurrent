@@ -30,6 +30,9 @@ const NUMBER_Consts : int is [aProgram.eAllContents(Const)->size()/]
 const NUMBER_Vars : int is [aProgram.eAllContents(Var)->size()/]
 const NUMBER_Assigns : int is [aProgram.eAllContents(Assign)->size()/]
 const NUMBER_Printables : int is [aProgram.eAllContents(Printable)->size()/]
+const NUMBER_Pluss : int is [aProgram.eAllContents(Plus)->size()/]
+const NUMBER_GreaterThans : int is [aProgram.eAllContents(GreaterThan)->size()/]
+const NUMBER_Whiles : int is [aProgram.eAllContents(While)->size()/]
 
 type Method_methodsArray is array [Program.eContents(Method)->size()/] of int
 type Operation_operationsArray is array [Method.eContents(Operation)->size()/] of int
