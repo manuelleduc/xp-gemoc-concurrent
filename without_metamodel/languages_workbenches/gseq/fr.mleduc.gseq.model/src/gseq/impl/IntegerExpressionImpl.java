@@ -4,7 +4,6 @@ package gseq.impl;
 
 import gseq.GseqPackage;
 import gseq.IntegerExpression;
-import gseq.Printable;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -21,7 +20,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public abstract class IntegerExpressionImpl extends OperationImpl implements IntegerExpression {
+public class IntegerExpressionImpl extends OperationImpl implements IntegerExpression {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -61,22 +60,6 @@ public abstract class IntegerExpressionImpl extends OperationImpl implements Int
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
-		if (baseClass == Printable.class) {
-			switch (baseOperationID) {
-				case GseqPackage.PRINTABLE___PRETTY: return GseqPackage.INTEGER_EXPRESSION___PRETTY;
-				default: return -1;
-			}
-		}
-		return super.eDerivedOperationID(baseOperationID, baseClass);
 	}
 
 	/**

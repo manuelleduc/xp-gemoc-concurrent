@@ -96,7 +96,6 @@ public class GseqSwitch<T> extends Switch<T> {
 				T result = caseMethodCall(methodCall);
 				if (result == null) result = caseIntegerExpression(methodCall);
 				if (result == null) result = caseOperation(methodCall);
-				if (result == null) result = casePrintable(methodCall);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -104,7 +103,6 @@ public class GseqSwitch<T> extends Switch<T> {
 				BooleanExpression booleanExpression = (BooleanExpression)theEObject;
 				T result = caseBooleanExpression(booleanExpression);
 				if (result == null) result = caseOperation(booleanExpression);
-				if (result == null) result = casePrintable(booleanExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -120,7 +118,6 @@ public class GseqSwitch<T> extends Switch<T> {
 				T result = caseTrue(true_);
 				if (result == null) result = caseBooleanExpression(true_);
 				if (result == null) result = caseOperation(true_);
-				if (result == null) result = casePrintable(true_);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -129,7 +126,6 @@ public class GseqSwitch<T> extends Switch<T> {
 				T result = caseFalse(false_);
 				if (result == null) result = caseBooleanExpression(false_);
 				if (result == null) result = caseOperation(false_);
-				if (result == null) result = casePrintable(false_);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -138,7 +134,6 @@ public class GseqSwitch<T> extends Switch<T> {
 				T result = caseEquality(equality);
 				if (result == null) result = caseBooleanExpression(equality);
 				if (result == null) result = caseOperation(equality);
-				if (result == null) result = casePrintable(equality);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -147,7 +142,6 @@ public class GseqSwitch<T> extends Switch<T> {
 				T result = caseNot(not);
 				if (result == null) result = caseBooleanExpression(not);
 				if (result == null) result = caseOperation(not);
-				if (result == null) result = casePrintable(not);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -156,7 +150,6 @@ public class GseqSwitch<T> extends Switch<T> {
 				T result = caseAnd(and);
 				if (result == null) result = caseBooleanExpression(and);
 				if (result == null) result = caseOperation(and);
-				if (result == null) result = casePrintable(and);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -164,7 +157,6 @@ public class GseqSwitch<T> extends Switch<T> {
 				IntegerExpression integerExpression = (IntegerExpression)theEObject;
 				T result = caseIntegerExpression(integerExpression);
 				if (result == null) result = caseOperation(integerExpression);
-				if (result == null) result = casePrintable(integerExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -173,7 +165,6 @@ public class GseqSwitch<T> extends Switch<T> {
 				T result = caseConst(const_);
 				if (result == null) result = caseIntegerExpression(const_);
 				if (result == null) result = caseOperation(const_);
-				if (result == null) result = casePrintable(const_);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -182,7 +173,6 @@ public class GseqSwitch<T> extends Switch<T> {
 				T result = caseVar(var);
 				if (result == null) result = caseIntegerExpression(var);
 				if (result == null) result = caseOperation(var);
-				if (result == null) result = casePrintable(var);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -193,18 +183,11 @@ public class GseqSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case GseqPackage.PRINTABLE: {
-				Printable printable = (Printable)theEObject;
-				T result = casePrintable(printable);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case GseqPackage.PLUS: {
 				Plus plus = (Plus)theEObject;
 				T result = casePlus(plus);
 				if (result == null) result = caseIntegerExpression(plus);
 				if (result == null) result = caseOperation(plus);
-				if (result == null) result = casePrintable(plus);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -213,7 +196,6 @@ public class GseqSwitch<T> extends Switch<T> {
 				T result = caseGreaterThan(greaterThan);
 				if (result == null) result = caseBooleanExpression(greaterThan);
 				if (result == null) result = caseOperation(greaterThan);
-				if (result == null) result = casePrintable(greaterThan);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -465,21 +447,6 @@ public class GseqSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseAssign(Assign object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Printable</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Printable</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T casePrintable(Printable object) {
 		return null;
 	}
 

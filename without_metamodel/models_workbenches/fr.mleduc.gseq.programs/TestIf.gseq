@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gseq:Program xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gseq="http://mleduc.fr/gseq" startMethod="//@methods.0">
+  <methods name="main">
+    <operations xsi:type="gseq:If">
+      <elseBranch xsi:type="gseq:Print">
+        <toPrint xsi:type="gseq:Const" value="1"/>
+      </elseBranch>
+      <thenBranch xsi:type="gseq:Print">
+        <toPrint xsi:type="gseq:Const"/>
+      </thenBranch>
+      <conditionIf xsi:type="gseq:True"/>
+    </operations>
+  </methods>
+</gseq:Program>

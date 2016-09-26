@@ -11,6 +11,12 @@ import junit.textui.TestRunner;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Print</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link gseq.Print#print() <em>Print</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class PrintTest extends OperationTest {
@@ -65,6 +71,19 @@ public class PrintTest extends OperationTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link gseq.Print#print() <em>Print</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see gseq.Print#print()
+	 * @generated
+	 */
+	public void testPrint() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //PrintTest

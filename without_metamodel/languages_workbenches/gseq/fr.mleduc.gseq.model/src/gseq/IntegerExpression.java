@@ -10,10 +10,10 @@ package gseq;
  *
  *
  * @see gseq.GseqPackage#getIntegerExpression()
- * @model abstract="true"
+ * @model
  * @generated
  */
-public interface IntegerExpression extends Operation, Printable {
+public interface IntegerExpression extends Operation {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -21,5 +21,13 @@ public interface IntegerExpression extends Operation, Printable {
 	 * @generated
 	 */
 	long ivalue();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	String pretty();
 
 } // IntegerExpression

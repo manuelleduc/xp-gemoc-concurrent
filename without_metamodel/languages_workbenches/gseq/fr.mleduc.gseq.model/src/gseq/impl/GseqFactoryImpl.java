@@ -66,6 +66,7 @@ public class GseqFactoryImpl extends EFactoryImpl implements GseqFactory {
 			case GseqPackage.EQUALITY: return createEquality();
 			case GseqPackage.NOT: return createNot();
 			case GseqPackage.AND: return createAnd();
+			case GseqPackage.INTEGER_EXPRESSION: return createIntegerExpression();
 			case GseqPackage.CONST: return createConst();
 			case GseqPackage.VAR: return createVar();
 			case GseqPackage.ASSIGN: return createAssign();
@@ -175,6 +176,16 @@ public class GseqFactoryImpl extends EFactoryImpl implements GseqFactory {
 	public And createAnd() {
 		AndImpl and = new AndImpl();
 		return and;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IntegerExpression createIntegerExpression() {
+		IntegerExpressionImpl integerExpression = new IntegerExpressionImpl();
+		return integerExpression;
 	}
 
 	/**

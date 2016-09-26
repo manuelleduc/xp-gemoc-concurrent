@@ -118,6 +118,13 @@ main() {
 
 		
 
+		////[ BooleanExpression ]
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), BooleanExpression.oclAsType(EClass)).oclAsType(BooleanExpression)->map bvalue2Clock();
+		
+
+
+		
+
 		////[ Method ]
 		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Method.oclAsType(EClass)).oclAsType(Method)->map callIt2Clock();
 		////[ Method ]
@@ -129,6 +136,34 @@ main() {
 
 		////[ Operation ]
 		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Operation.oclAsType(EClass)).oclAsType(Operation)->map execute2Clock();
+		////[ Operation ]
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Operation.oclAsType(EClass)).oclAsType(Operation)->map endOfOperation2Clock();
+		
+
+
+		
+
+		////[ Print ]
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Print.oclAsType(EClass)).oclAsType(Print)->map print2Clock();
+		
+
+
+		
+
+		
+
+
+		
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Operation.oclAsType(EClass)).oclAsType(Operation)->map openrationStartThenEnd12openrationStartThenEnd();
+		
+		
+
+		////[ If ]
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), If.oclAsType(EClass)).oclAsType(If)->map doEvaluateIf2Clock();
+		////[ If ]
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), If.oclAsType(EClass)).oclAsType(If)->map evaluateTrue2Clock();
+		////[ If ]
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), If.oclAsType(EClass)).oclAsType(If)->map evaluateFalse2Clock();
 		
 
 
@@ -156,7 +191,7 @@ main() {
 		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Method.oclAsType(EClass)).oclAsType(Method)->map endOfAfterAll12endOfAfterAll();
 		
 		
-		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Method.oclAsType(EClass)).oclAsType(Method)->map endOfAfterAllEndOf12endOfAfterAllEndOf();
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Method.oclAsType(EClass)).oclAsType(Method)->map endOfAfterAllEndOf242endOfAfterAllEndOf();
 		
 		
 
@@ -164,7 +199,55 @@ main() {
 
 
 		
-		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), MethodCall.oclAsType(EClass)).oclAsType(MethodCall)->map waitForCallEndBeforeNext382waitForCallEndBeforeNext();
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), If.oclAsType(EClass)).oclAsType(If)->map doEvaluateIfMoment12doEvaluateIfMoment();
+		
+		
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), If.oclAsType(EClass)).oclAsType(If)->map ifTrueThenElseElse12ifTrueThenElseElse();
+		
+		
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), If.oclAsType(EClass)).oclAsType(If)->map ifConditionAfterSelfExecute12ifConditionAfterSelfExecute();
+		
+		
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), If.oclAsType(EClass)).oclAsType(If)->map ifThenBranchAfterSelfExecute12ifThenBranchAfterSelfExecute();
+		
+		
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), If.oclAsType(EClass)).oclAsType(If)->map ifElseBranchAfterSelfExecute102ifElseBranchAfterSelfExecute();
+		
+		
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), If.oclAsType(EClass)).oclAsType(If)->map endOfAfterEndOfCondition12endOfAfterEndOfCondition();
+		
+		
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), If.oclAsType(EClass)).oclAsType(If)->map ifEndOfConditionBeforeBranching162ifEndOfConditionBeforeBranching();
+		
+		
+
+		
+
+
+		
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), BooleanExpression.oclAsType(EClass)).oclAsType(BooleanExpression)->map beBvalueAfterExecute12beBvalueAfterExecute();
+		
+		
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), BooleanExpression.oclAsType(EClass)).oclAsType(BooleanExpression)->map beBValueBeforeEnd12beBValueBeforeEnd();
+		
+		
+
+		
+
+
+		
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), MethodCall.oclAsType(EClass)).oclAsType(MethodCall)->map waitForCallEndBeforeNext462waitForCallEndBeforeNext();
+		
+		
+
+		
+
+
+		
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Print.oclAsType(EClass)).oclAsType(Print)->map printToPrintBeforeSelf122printToPrintBeforeSelf();
+		
+		
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Print.oclAsType(EClass)).oclAsType(Print)->map printPrintAfterOperationExecuted122printPrintAfterOperationExecuted();
 		
 		
 
@@ -356,6 +439,28 @@ main() {
 		}
 	}
 
+	mapping inMM1::If::unionsTheElse22Expression():TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
+	{
+		name := getNameOrUID(self.oclAsType(EObject))+'_Inf_unionsTheElse2';
+		type := seqOfExpressionDeclaration->select(rd | rd.name = "Inf")->first();
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = getNameOrUID(self.thenBranch.oclAsType(EObject))+'_execute']->first();
+				//	var size : Integer = seqOfExpressionDeclaration[name = 'Inf']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Inf).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->size()+1;
+					var seqAbstract : Sequence(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity) := seqOfExpressionDeclaration[name = 'Inf']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Inf).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
+					seqAbstract := seqAbstract->sortedBy(e | e.name); //just a way to have always the same order ?
+					_abstract := seqAbstract->at(1).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
+				};
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = getNameOrUID(self.elseBranch.oclAsType(EObject))+'_execute']->first();
+				//	var size : Integer = seqOfExpressionDeclaration[name = 'Inf']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Inf).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->size()+1;
+					var seqAbstract : Sequence(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity) := seqOfExpressionDeclaration[name = 'Inf']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Inf).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
+					seqAbstract := seqAbstract->sortedBy(e | e.name); //just a way to have always the same order ?
+					_abstract := seqAbstract->at(2).oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
+				};
+		end{
+			theMainBlock.expressions += result;
+		}
+	}
 	
 	
 //Create an intermediate expression
@@ -438,6 +543,27 @@ main() {
 		}
 
 //relation stuff		
+	 	mapping inMM1::BooleanExpression::bvalue2Clock() :TimeModel::Clock 
+			when {  }
+		{
+			name:= getNameOrUID(self.oclAsType(EObject))+'_bvalue';
+			tickingEvent := object TimeModel::Event{
+ 				referencedObjectRefs += self.oclAsType(EObject);
+				//referencedObjectRefs += self.oclAsType(EObject);
+				referencedObjectRefs += self.oclAsType(EObject).eClass().eAllOperations->select(op |op.name = "bvalue")->first().oclAsType(EObject);
+			
+				name := 'evt_'+getNameOrUID(self.oclAsType(EObject))+'_bvalue';
+			kind :=TimeModel::EventKind::undefined;
+						
+			};
+			type:= Kernel_Clock_Type;
+
+			end{
+				theMainBlock.elements += result;
+			}
+		}
+
+//relation stuff		
 	 	mapping inMM1::Method::callIt2Clock() :TimeModel::Clock 
 			when {  }
 		{
@@ -486,6 +612,118 @@ main() {
 				referencedObjectRefs += self.oclAsType(EObject).eClass().eAllOperations->select(op |op.name = "execute")->first().oclAsType(EObject);
 			
 				name := 'evt_'+getNameOrUID(self.oclAsType(EObject))+'_execute';
+			kind :=TimeModel::EventKind::undefined;
+						
+			};
+			type:= Kernel_Clock_Type;
+
+			end{
+				theMainBlock.elements += result;
+			}
+		}
+	 	mapping inMM1::Operation::endOfOperation2Clock() :TimeModel::Clock 
+			when {  }
+		{
+			name:= getNameOrUID(self.oclAsType(EObject))+'_endOfOperation';
+			tickingEvent := object TimeModel::Event{
+ 				referencedObjectRefs += self.oclAsType(EObject);
+			
+				name := 'evt_'+getNameOrUID(self.oclAsType(EObject))+'_endOfOperation';
+			kind :=TimeModel::EventKind::undefined;
+						
+			};
+			type:= Kernel_Clock_Type;
+
+			end{
+				theMainBlock.elements += result;
+			}
+		}
+
+//relation stuff		
+	 	mapping inMM1::Print::print2Clock() :TimeModel::Clock 
+			when {  }
+		{
+			name:= getNameOrUID(self.oclAsType(EObject))+'_print';
+			tickingEvent := object TimeModel::Event{
+ 				referencedObjectRefs += self.oclAsType(EObject);
+				//referencedObjectRefs += self.oclAsType(EObject);
+				referencedObjectRefs += self.oclAsType(EObject).eClass().eAllOperations->select(op |op.name = "print")->first().oclAsType(EObject);
+			
+				name := 'evt_'+getNameOrUID(self.oclAsType(EObject))+'_print';
+			kind :=TimeModel::EventKind::undefined;
+						
+			};
+			type:= Kernel_Clock_Type;
+
+			end{
+				theMainBlock.elements += result;
+			}
+		}
+
+//relation stuff		
+
+//relation stuff		
+	
+		mapping inMM1::Operation::openrationStartThenEnd12openrationStartThenEnd(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+		{
+		 	name := getNameOrUID(self.oclAsType(EObject))+"Precedes_openrationStartThenEnd";
+			type := seqOfRelationDeclaration->select(rd | rd.name = "Precedes")->first();
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_execute']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Precedes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).leftEntity;
+				};
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_endOfOperation']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Precedes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).rightEntity;
+				};
+		
+		theMainBlock.relations += result;
+		}
+		
+	 	mapping inMM1::If::doEvaluateIf2Clock() :TimeModel::Clock 
+			when {  }
+		{
+			name:= getNameOrUID(self.oclAsType(EObject))+'_doEvaluateIf';
+			tickingEvent := object TimeModel::Event{
+ 				referencedObjectRefs += self.conditionIf.oclAsType(EObject);
+				//referencedObjectRefs += self.oclAsType(EObject);
+				referencedObjectRefs += self.conditionIf.oclAsType(EObject).eClass().eAllOperations->select(op |op.name = "bvalue")->first().oclAsType(EObject);
+			
+				name := 'evt_'+getNameOrUID(self.oclAsType(EObject))+'_doEvaluateIf';
+			kind :=TimeModel::EventKind::undefined;
+						
+			};
+			type:= Kernel_Clock_Type;
+
+			end{
+				theMainBlock.elements += result;
+			}
+		}
+	 	mapping inMM1::If::evaluateTrue2Clock() :TimeModel::Clock 
+			when {  }
+		{
+			name:= getNameOrUID(self.oclAsType(EObject))+'_evaluateTrue';
+			tickingEvent := object TimeModel::Event{
+ 				referencedObjectRefs += self.oclAsType(EObject);
+			
+				name := 'evt_'+getNameOrUID(self.oclAsType(EObject))+'_evaluateTrue';
+			kind :=TimeModel::EventKind::undefined;
+						
+			};
+			type:= Kernel_Clock_Type;
+
+			end{
+				theMainBlock.elements += result;
+			}
+		}
+	 	mapping inMM1::If::evaluateFalse2Clock() :TimeModel::Clock 
+			when {  }
+		{
+			name:= getNameOrUID(self.oclAsType(EObject))+'_evaluateFalse';
+			tickingEvent := object TimeModel::Event{
+ 				referencedObjectRefs += self.oclAsType(EObject);
+			
+				name := 'evt_'+getNameOrUID(self.oclAsType(EObject))+'_evaluateFalse';
 			kind :=TimeModel::EventKind::undefined;
 						
 			};
@@ -630,7 +868,7 @@ main() {
 		 	name := getNameOrUID(self.oclAsType(EObject))+"Precedes_endOfAfterAll";
 			type := seqOfRelationDeclaration->select(rd | rd.name = "Precedes")->first();
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-					bindable := theMainBlock.elements[name = getNameOrUID(self.operations->last().oclAsType(EObject))+'_execute']->first();
+					bindable := theMainBlock.elements[name = getNameOrUID(self.operations->last().oclAsType(EObject))+'_endOfOperation']->first();
 					_abstract := seqOfRelationDeclaration[name = 'Precedes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).leftEntity;
 				};
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
@@ -642,7 +880,11 @@ main() {
 		}
 		
 	
-		mapping inMM1::Method::endOfAfterAllEndOf12endOfAfterAllEndOf(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+		mapping inMM1::Method::endOfAfterAllEndOf242endOfAfterAllEndOf(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+			when { 
+				(self.operations->select(e | (e).oclIsKindOf(MethodCall))->size() > 0) 
+				
+}
 		{
 		 	name := getNameOrUID(self.oclAsType(EObject))+"Precedes_endOfAfterAllEndOf";
 			type := seqOfRelationDeclaration->select(rd | rd.name = "Precedes")->first();
@@ -661,9 +903,174 @@ main() {
 
 //relation stuff		
 	
-		mapping inMM1::MethodCall::waitForCallEndBeforeNext382waitForCallEndBeforeNext(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+		mapping inMM1::If::doEvaluateIfMoment12doEvaluateIfMoment(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+		{
+		 	name := getNameOrUID(self.oclAsType(EObject))+"Coincides_doEvaluateIfMoment";
+			type := seqOfRelationDeclaration->select(rd | rd.name = "Coincides")->first();
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_execute']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Coincides']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).leftEntity;
+				};
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_doEvaluateIf']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Coincides']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).rightEntity;
+				};
+		
+		theMainBlock.relations += result;
+		}
+		
+	
+		mapping inMM1::If::ifTrueThenElseElse12ifTrueThenElseElse(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+		{
+		 	name := getNameOrUID(self.oclAsType(EObject))+"BooleanGuardedTransitionRule_ifTrueThenElseElse";
+			type := seqOfRelationDeclaration->select(rd | rd.name = "BooleanGuardedTransitionRule")->first();
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_doEvaluateIf']->first();
+					_abstract := seqOfAbstractEntity[name = 'evaluateGuard']->first();
+				};
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_evaluateTrue']->first();
+					_abstract := seqOfAbstractEntity[name = 'resTrue']->first();
+				};
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_evaluateFalse']->first();
+					_abstract := seqOfAbstractEntity[name = 'resFalse']->first();
+				};
+		
+		theMainBlock.relations += result;
+		}
+		
+	
+		mapping inMM1::If::ifConditionAfterSelfExecute12ifConditionAfterSelfExecute(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+		{
+		 	name := getNameOrUID(self.oclAsType(EObject))+"Precedes_ifConditionAfterSelfExecute";
+			type := seqOfRelationDeclaration->select(rd | rd.name = "Precedes")->first();
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_execute']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Precedes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).leftEntity;
+				};
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = getNameOrUID(self.conditionIf.oclAsType(EObject))+'_execute']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Precedes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).rightEntity;
+				};
+		
+		theMainBlock.relations += result;
+		}
+		
+	
+		mapping inMM1::If::ifThenBranchAfterSelfExecute12ifThenBranchAfterSelfExecute(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+		{
+		 	name := getNameOrUID(self.oclAsType(EObject))+"Precedes_ifThenBranchAfterSelfExecute";
+			type := seqOfRelationDeclaration->select(rd | rd.name = "Precedes")->first();
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_evaluateTrue']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Precedes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).leftEntity;
+				};
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = getNameOrUID(self.thenBranch.oclAsType(EObject))+'_execute']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Precedes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).rightEntity;
+				};
+		
+		theMainBlock.relations += result;
+		}
+		
+	
+		mapping inMM1::If::ifElseBranchAfterSelfExecute102ifElseBranchAfterSelfExecute(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
 			when { 
-				( (self.methodToCall.operations->size() > 0) and (self.executedBy.operations->size() > self.executedBy.operations->indexOf(self))) 
+				(self.elseBranch <> null) 
+				
+}
+		{
+		 	name := getNameOrUID(self.oclAsType(EObject))+"Precedes_ifElseBranchAfterSelfExecute";
+			type := seqOfRelationDeclaration->select(rd | rd.name = "Precedes")->first();
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_evaluateFalse']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Precedes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).leftEntity;
+				};
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = getNameOrUID(self.elseBranch.oclAsType(EObject))+'_execute']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Precedes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).rightEntity;
+				};
+		
+		theMainBlock.relations += result;
+		}
+		
+	
+		mapping inMM1::If::endOfAfterEndOfCondition12endOfAfterEndOfCondition(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+		{
+		 	name := getNameOrUID(self.oclAsType(EObject))+"Precedes_endOfAfterEndOfCondition";
+			type := seqOfRelationDeclaration->select(rd | rd.name = "Precedes")->first();
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = getNameOrUID(self.conditionIf.oclAsType(EObject))+'_endOfOperation']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Precedes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).leftEntity;
+				};
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_endOfOperation']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Precedes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).rightEntity;
+				};
+		
+		theMainBlock.relations += result;
+		}
+		
+	
+		mapping inMM1::If::ifEndOfConditionBeforeBranching162ifEndOfConditionBeforeBranching(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+		{
+		 	name := getNameOrUID(self.oclAsType(EObject))+"Precedes_ifEndOfConditionBeforeBranching";
+			type := seqOfRelationDeclaration->select(rd | rd.name = "Precedes")->first();
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = getNameOrUID(self.conditionIf.oclAsType(EObject))+'_endOfOperation']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Precedes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).leftEntity;
+				};
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+							bindable := self -> map unionsTheElse22Expression()->asSequence()->first();
+					_abstract := seqOfRelationDeclaration[name = 'Precedes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).rightEntity;
+				};
+		
+		theMainBlock.relations += result;
+		}
+		
+
+//relation stuff		
+	
+		mapping inMM1::BooleanExpression::beBvalueAfterExecute12beBvalueAfterExecute(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+		{
+		 	name := getNameOrUID(self.oclAsType(EObject))+"Precedes_beBvalueAfterExecute";
+			type := seqOfRelationDeclaration->select(rd | rd.name = "Precedes")->first();
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_execute']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Precedes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).leftEntity;
+				};
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_bvalue']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Precedes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).rightEntity;
+				};
+		
+		theMainBlock.relations += result;
+		}
+		
+	
+		mapping inMM1::BooleanExpression::beBValueBeforeEnd12beBValueBeforeEnd(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+		{
+		 	name := getNameOrUID(self.oclAsType(EObject))+"Precedes_beBValueBeforeEnd";
+			type := seqOfRelationDeclaration->select(rd | rd.name = "Precedes")->first();
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_bvalue']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Precedes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).leftEntity;
+				};
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_endOfOperation']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Precedes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).rightEntity;
+				};
+		
+		theMainBlock.relations += result;
+		}
+		
+
+//relation stuff		
+	
+		mapping inMM1::MethodCall::waitForCallEndBeforeNext462waitForCallEndBeforeNext(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+			when { 
+				( (self.methodToCall.operations->size() > 0) and (self.executedBy <> null) and (self.executedBy.operations->size() > self.executedBy.operations->indexOf(self))) 
 				
 }
 		{
@@ -675,6 +1082,50 @@ main() {
 				};
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
 					bindable := theMainBlock.elements[name = getNameOrUID(self.executedBy.operations->at(self.executedBy.operations->indexOf(self)+1).oclAsType(EObject))+'_execute']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Precedes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).rightEntity;
+				};
+		
+		theMainBlock.relations += result;
+		}
+		
+
+//relation stuff		
+	
+		mapping inMM1::Print::printToPrintBeforeSelf122printToPrintBeforeSelf(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+			when { 
+				(self.toPrint.oclIsKindOf(Operation)) 
+				
+}
+		{
+		 	name := getNameOrUID(self.oclAsType(EObject))+"Precedes_printToPrintBeforeSelf";
+			type := seqOfRelationDeclaration->select(rd | rd.name = "Precedes")->first();
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_execute']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Precedes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).leftEntity;
+				};
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = getNameOrUID(self.toPrint.oclAsType(Operation).oclAsType(EObject))+'_execute']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Precedes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).rightEntity;
+				};
+		
+		theMainBlock.relations += result;
+		}
+		
+	
+		mapping inMM1::Print::printPrintAfterOperationExecuted122printPrintAfterOperationExecuted(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+			when { 
+				(self.toPrint.oclIsKindOf(Operation)) 
+				
+}
+		{
+		 	name := getNameOrUID(self.oclAsType(EObject))+"Precedes_printPrintAfterOperationExecuted";
+			type := seqOfRelationDeclaration->select(rd | rd.name = "Precedes")->first();
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = getNameOrUID(self.toPrint.oclAsType(Operation).oclAsType(EObject))+'_execute']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Precedes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).leftEntity;
+				};
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_print']->first();
 					_abstract := seqOfRelationDeclaration[name = 'Precedes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).rightEntity;
 				};
 		
@@ -752,6 +1203,13 @@ mapping inMM1::Program::gseq2FeedBack() : FeedBack::ActionModel {
 
 		
 
+	getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), BooleanExpression.oclAsType(EClass)).oclAsType(BooleanExpression)->map bvalue2MSE();
+
+
+
+
+		
+
 	getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Method.oclAsType(EClass)).oclAsType(Method)->map callIt2MSE();
 	getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Method.oclAsType(EClass)).oclAsType(Method)->map endOf2MSE();
 
@@ -761,6 +1219,49 @@ mapping inMM1::Program::gseq2FeedBack() : FeedBack::ActionModel {
 		
 
 	getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Operation.oclAsType(EClass)).oclAsType(Operation)->map execute2MSE();
+	getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Operation.oclAsType(EClass)).oclAsType(Operation)->map endOfOperation2MSE();
+
+
+
+
+		
+
+	getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Print.oclAsType(EClass)).oclAsType(Print)->map print2MSE();
+
+
+
+
+		
+
+
+
+
+
+		
+
+	getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), If.oclAsType(EClass)).oclAsType(If)->map doEvaluateIf2MSE();
+	getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), If.oclAsType(EClass)).oclAsType(If)->map evaluateTrue2MSE();
+	getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), If.oclAsType(EClass)).oclAsType(If)->map evaluateFalse2MSE();
+
+	getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), If.oclAsType(EClass)).oclAsType(If)->map doEvaluateIf12ActionFeedBack();
+	getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), If.oclAsType(EClass)).oclAsType(If)->map doEvaluateIf22ActionFeedBack();
+
+
+
+		
+
+
+
+
+
+		
+
+
+
+
+
+		
+
 
 
 
@@ -795,6 +1296,19 @@ mapping inMM1::Program::gseq2FeedBack() : FeedBack::ActionModel {
 				caller := self.oclAsType(EObject);
 				action := self.oclAsType(EObject).eClass().eAllOperations->select(op |op.name = "init")->first();
 				solverEvent := theMainBlock.elements[TimeModel::Clock]->select(c|c.name=getNameOrUID(self.oclAsType(EObject))+'_start')->first().oclAsType(EObject);
+				
+			end{
+				theFeedBackSpec.events += result;
+				seqOfMSE += result
+			}
+		}
+	 	mapping inMM1::BooleanExpression::bvalue2MSE() :FeedBack::ModelSpecificEvent 
+			when {  }
+		{
+			name:= 'MSE_'+getNameOrUID(self.oclAsType(EObject))+'_bvalue';
+				caller := self.oclAsType(EObject);
+				action := self.oclAsType(EObject).eClass().eAllOperations->select(op |op.name = "bvalue")->first();
+				solverEvent := theMainBlock.elements[TimeModel::Clock]->select(c|c.name=getNameOrUID(self.oclAsType(EObject))+'_bvalue')->first().oclAsType(EObject);
 				
 			end{
 				theFeedBackSpec.events += result;
@@ -838,10 +1352,105 @@ mapping inMM1::Program::gseq2FeedBack() : FeedBack::ActionModel {
 				seqOfMSE += result
 			}
 		}
+	 	mapping inMM1::Operation::endOfOperation2MSE() :FeedBack::ModelSpecificEvent 
+			when {  }
+		{
+			name:= 'MSE_'+getNameOrUID(self.oclAsType(EObject))+'_endOfOperation';
+				solverEvent := theMainBlock.elements[TimeModel::Clock]->select(c|c.name=getNameOrUID(self.oclAsType(EObject))+'_endOfOperation')->first().oclAsType(EObject);
+				
+			end{
+				theFeedBackSpec.events += result;
+				seqOfMSE += result
+			}
+		}
+	 	mapping inMM1::Print::print2MSE() :FeedBack::ModelSpecificEvent 
+			when {  }
+		{
+			name:= 'MSE_'+getNameOrUID(self.oclAsType(EObject))+'_print';
+				caller := self.oclAsType(EObject);
+				action := self.oclAsType(EObject).eClass().eAllOperations->select(op |op.name = "print")->first();
+				solverEvent := theMainBlock.elements[TimeModel::Clock]->select(c|c.name=getNameOrUID(self.oclAsType(EObject))+'_print')->first().oclAsType(EObject);
+				
+			end{
+				theFeedBackSpec.events += result;
+				seqOfMSE += result
+			}
+		}
+	 	mapping inMM1::If::doEvaluateIf2MSE() :FeedBack::ModelSpecificEvent 
+			when {  }
+		{
+			name:= 'MSE_'+getNameOrUID(self.oclAsType(EObject))+'_doEvaluateIf';
+				caller := self.conditionIf.oclAsType(EObject);
+				action := self.conditionIf.oclAsType(EObject).eClass().eAllOperations->select(op |op.name = "bvalue")->first();
+				solverEvent := theMainBlock.elements[TimeModel::Clock]->select(c|c.name=getNameOrUID(self.oclAsType(EObject))+'_doEvaluateIf')->first().oclAsType(EObject);
+				
+			end{
+				theFeedBackSpec.events += result;
+				seqOfMSE += result
+			}
+		}
+	 	mapping inMM1::If::evaluateTrue2MSE() :FeedBack::ModelSpecificEvent 
+			when {  }
+		{
+			name:= 'MSE_'+getNameOrUID(self.oclAsType(EObject))+'_evaluateTrue';
+				solverEvent := theMainBlock.elements[TimeModel::Clock]->select(c|c.name=getNameOrUID(self.oclAsType(EObject))+'_evaluateTrue')->first().oclAsType(EObject);
+				
+			end{
+				theFeedBackSpec.events += result;
+				seqOfMSE += result
+			}
+		}
+	 	mapping inMM1::If::evaluateFalse2MSE() :FeedBack::ModelSpecificEvent 
+			when {  }
+		{
+			name:= 'MSE_'+getNameOrUID(self.oclAsType(EObject))+'_evaluateFalse';
+				solverEvent := theMainBlock.elements[TimeModel::Clock]->select(c|c.name=getNameOrUID(self.oclAsType(EObject))+'_evaluateFalse')->first().oclAsType(EObject);
+				
+			end{
+				theFeedBackSpec.events += result;
+				seqOfMSE += result
+			}
+		}
 			
 		
 
 
+		mapping inMM1::If::doEvaluateIf12ActionFeedBack() :FeedBack::When 
+			when {  }
+		{
+			action := object FeedBack::Force{
+				kind := ForceKind::Presence;
+				eventToBeForced := seqOfMSE->select(mse | mse.name = 'MSE_'+getNameOrUID(self.oclAsType(EObject))+'_evaluateTrue')->first();
+				
+			};
+			condition := object FeedBack::ActionResultCondition{
+				operator := ComparisonOperator::equals;
+				comparisonValue := true;
+			};
+			source := seqOfMSE->select(mse | mse.name = 'MSE_'+getNameOrUID(self.oclAsType(EObject))+'_doEvaluateIf')->first();
+			
+			end{
+				theFeedBackSpec.whenStatements += result;
+			}
+		}
+		mapping inMM1::If::doEvaluateIf22ActionFeedBack() :FeedBack::When 
+			when {  }
+		{
+			action := object FeedBack::Force{
+				kind := ForceKind::Presence;
+				eventToBeForced := seqOfMSE->select(mse | mse.name = 'MSE_'+getNameOrUID(self.oclAsType(EObject))+'_evaluateFalse')->first();
+				
+			};
+			condition := object FeedBack::ActionResultCondition{
+				operator := ComparisonOperator::equals;
+				comparisonValue := false;
+			};
+			source := seqOfMSE->select(mse | mse.name = 'MSE_'+getNameOrUID(self.oclAsType(EObject))+'_doEvaluateIf')->first();
+			
+			end{
+				theFeedBackSpec.whenStatements += result;
+			}
+		}
 
 
 

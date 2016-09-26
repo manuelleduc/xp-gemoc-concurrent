@@ -302,6 +302,29 @@ public class GseqItemProviderAdapterFactory extends GseqAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link gseq.IntegerExpression} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected IntegerExpressionItemProvider integerExpressionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link gseq.IntegerExpression}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createIntegerExpressionAdapter() {
+		if (integerExpressionItemProvider == null) {
+			integerExpressionItemProvider = new IntegerExpressionItemProvider(this);
+		}
+
+		return integerExpressionItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link gseq.Const} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -548,6 +571,7 @@ public class GseqItemProviderAdapterFactory extends GseqAdapterFactory implement
 		if (equalityItemProvider != null) equalityItemProvider.dispose();
 		if (notItemProvider != null) notItemProvider.dispose();
 		if (andItemProvider != null) andItemProvider.dispose();
+		if (integerExpressionItemProvider != null) integerExpressionItemProvider.dispose();
 		if (constItemProvider != null) constItemProvider.dispose();
 		if (varItemProvider != null) varItemProvider.dispose();
 		if (assignItemProvider != null) assignItemProvider.dispose();

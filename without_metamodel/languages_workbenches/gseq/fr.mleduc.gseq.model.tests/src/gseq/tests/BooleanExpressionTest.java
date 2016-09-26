@@ -12,7 +12,7 @@ import gseq.BooleanExpression;
  * The following operations are tested:
  * <ul>
  *   <li>{@link gseq.BooleanExpression#bvalue() <em>Bvalue</em>}</li>
- *   <li>{@link gseq.Printable#pretty() <em>Pretty</em>}</li>
+ *   <li>{@link gseq.BooleanExpression#pretty() <em>Pretty</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -54,10 +54,10 @@ public abstract class BooleanExpressionTest extends OperationTest {
 	}
 
 	/**
-	 * Tests the '{@link gseq.Printable#pretty() <em>Pretty</em>}' operation.
+	 * Tests the '{@link gseq.BooleanExpression#pretty() <em>Pretty</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see gseq.Printable#pretty()
+	 * @see gseq.BooleanExpression#pretty()
 	 * @generated
 	 */
 	public void testPretty() {

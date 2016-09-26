@@ -4,7 +4,6 @@ package gseq.impl;
 
 import gseq.BooleanExpression;
 import gseq.GseqPackage;
-import gseq.Printable;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -61,22 +60,6 @@ public abstract class BooleanExpressionImpl extends OperationImpl implements Boo
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
-		if (baseClass == Printable.class) {
-			switch (baseOperationID) {
-				case GseqPackage.PRINTABLE___PRETTY: return GseqPackage.BOOLEAN_EXPRESSION___PRETTY;
-				default: return -1;
-			}
-		}
-		return super.eDerivedOperationID(baseOperationID, baseClass);
 	}
 
 	/**

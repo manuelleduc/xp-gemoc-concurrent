@@ -10,13 +10,30 @@ package gseq
 
 context Program
 	def : start : Event = self.init()
-	
+
+context BooleanExpression
+	def : bvalue : Event = self.bvalue()
+
 context Method
 	def : callIt : Event = self.call()
 	def : endOf : Event = self
 	
 context Operation
 	def : execute : Event = self.execute()
+	def : endOfOperation : Event = self
+
+context Print
+	def : print : Event = self.print()
+
+context Operation
+	inv openrationStartThenEnd:
+		Relation Precedes(self.execute, self.endOfOperation)
+
+context If
+	def : doEvaluateIf : Event = self.conditionIf.bvalue() [res] switch case self.res = true force evaluateTrue;
+	                                                                    case self.res = false force evaluateFalse;
+	def : evaluateTrue : Event = self
+	def : evaluateFalse : Event = self
 
 context Method
 
@@ -47,17 +64,65 @@ context Method
 		Relation Precedes(allEventWhichCall1, self.callIt)
 		
 	inv endOfAfterAll:
-		Relation Precedes(self.operations->last().execute, self.endOf)
+		Relation Precedes(self.operations->last().endOfOperation, self.endOf)
 	inv endOfAfterAllEndOf:
-		Relation Precedes(self.operations->select(e | (e).oclIsKindOf(MethodCall))->last().oclAsType(MethodCall).methodToCall.endOf, self.endOf)	
+		(self.operations->select(e | (e).oclIsKindOf(MethodCall))->size() > 0) implies
+		(Relation Precedes(self.operations->select(e | (e).oclIsKindOf(MethodCall))->last().oclAsType(MethodCall).methodToCall.endOf, self.endOf))	
+	
 		
+
+
+context If
+
+	inv doEvaluateIfMoment:
+		Relation Coincides(self.execute, self.doEvaluateIf)
+
+	inv ifTrueThenElseElse:
+		Relation BooleanGuardedTransitionRule(self.doEvaluateIf, self.evaluateTrue, self.evaluateFalse)
+		
+	inv ifConditionAfterSelfExecute:
+		Relation Precedes(self.execute, self.conditionIf.execute)
+	
+	inv ifThenBranchAfterSelfExecute:
+		Relation Precedes(self.evaluateTrue, self.thenBranch.execute)
+	
+	inv ifElseBranchAfterSelfExecute:
+		(self.elseBranch <> null) implies (Relation Precedes(self.evaluateFalse, self.elseBranch.execute))
+		
+--	inv endOfOperationAfterAllContaingEndsOfOperation:
+--		let unionsTheElse : Event = Expression Inf(self.thenBranch.endOfOperation, self.elseBranch.endOfOperation)
+--		in Relation Precedes(unionsTheElse, self.endOfOperation)
+
+	inv endOfAfterEndOfCondition:
+		Relation Precedes(self.conditionIf.endOfOperation, self.endOfOperation)
+		
+	inv ifEndOfConditionBeforeBranching:
+		let unionsTheElse2 : Event = Expression Inf(self.thenBranch.execute, self.elseBranch.execute) in
+		Relation Precedes(self.conditionIf.endOfOperation, unionsTheElse2)
+
+context BooleanExpression
+	inv beBvalueAfterExecute:
+		Relation Precedes(self.execute, self.bvalue)
+		
+	inv beBValueBeforeEnd:
+		Relation Precedes(self.bvalue, self.endOfOperation)
+
+
 context MethodCall
 	inv waitForCallEndBeforeNext:
-		( (self.methodToCall.operations->size() > 0) and (self.executedBy.operations->size() > self.executedBy.operations->indexOf(self))) implies
+		( (self.methodToCall.operations->size() > 0) and (self.executedBy <> null) and (self.executedBy.operations->size() > self.executedBy.operations->indexOf(self))) implies
 		(Relation Precedes(self.methodToCall.endOf, 
 			self.executedBy.operations->at(self.executedBy.operations->indexOf(self)+1).execute)
 		)
-		
+	
+context Print
+	inv printToPrintBeforeSelf:
+		(self.toPrint.oclIsKindOf(Operation)) implies
+		(Relation Precedes(self.execute, self.toPrint.oclAsType(Operation).execute))
+	
+	inv printPrintAfterOperationExecuted:
+		(self.toPrint.oclIsKindOf(Operation)) implies
+		(Relation Precedes(self.toPrint.oclAsType(Operation).execute, self.print))
 	
 	
 context Program

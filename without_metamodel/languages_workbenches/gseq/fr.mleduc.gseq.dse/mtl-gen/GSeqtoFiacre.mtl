@@ -29,7 +29,6 @@ const NUMBER_IntegerExpressions : int is [aProgram.eAllContents(IntegerExpressio
 const NUMBER_Consts : int is [aProgram.eAllContents(Const)->size()/]
 const NUMBER_Vars : int is [aProgram.eAllContents(Var)->size()/]
 const NUMBER_Assigns : int is [aProgram.eAllContents(Assign)->size()/]
-const NUMBER_Printables : int is [aProgram.eAllContents(Printable)->size()/]
 const NUMBER_Pluss : int is [aProgram.eAllContents(Plus)->size()/]
 const NUMBER_GreaterThans : int is [aProgram.eAllContents(GreaterThan)->size()/]
 const NUMBER_Whiles : int is [aProgram.eAllContents(While)->size()/]
@@ -43,10 +42,19 @@ type MethodCall_calledByArray is array [Method.eContents(MethodCall)->size()/] o
 Defining the Functions for : Program
 **********************************************************************/
 /*********************************************************************
+Defining the Functions for : BooleanExpression
+**********************************************************************/
+/*********************************************************************
 Defining the Functions for : Method
 **********************************************************************/
 /*********************************************************************
 Defining the Functions for : Operation
+**********************************************************************/
+/*********************************************************************
+Defining the Functions for : Print
+**********************************************************************/
+/*********************************************************************
+Defining the Functions for : If
 **********************************************************************/
 /*********************************************************************
 Defining the Functions for : MethodCall
@@ -58,6 +66,13 @@ process p[element.name/] ['['/][element.name/]_start:in none[']'/](&global : Sys
 	var _self:Program
     from s0  [element.name/]_start; global:=Program_init( global , global.refToElement_id) ;  to s0
 [/for]
+/************************* BooleanExpression Process Instances***************************/
+[for (element : BooleanExpression| aProgram.eAllContents(BooleanExpression))]
+process p[element.name/] ['['/][element.name/]_bvalue:in none[']'/](&global : SystemDataRoot, id : read int) is
+	states s0
+	var _self:BooleanExpression
+    from s0  [element.name/]_bvalue; global:=BooleanExpression_bvalue( global , global.refToElement_id) ;  to s0
+[/for]
 /************************* Method Process Instances***************************/
 [for (element : Method| aProgram.eAllContents(Method))]
 process p[element.name/] ['['/][element.name/]_callIt:in none,[element.name/]_endOf:in none[']'/](&global : SystemDataRoot, id : read int) is
@@ -68,19 +83,34 @@ process p[element.name/] ['['/][element.name/]_callIt:in none,[element.name/]_en
 [/for]
 /************************* Operation Process Instances***************************/
 [for (element : Operation| aProgram.eAllContents(Operation))]
-process p[element.name/] ['['/][element.name/]_execute:in none[']'/](&global : SystemDataRoot, id : read int) is
+process p[element.name/] ['['/][element.name/]_execute:in none,[element.name/]_endOfOperation:in none[']'/](&global : SystemDataRoot, id : read int) is
 	states s0
 	var _self:Operation
     from s0  [element.name/]_execute; global:=Operation_execute( global , global.refToElement_id) ;  to s0
+    from s0  [element.name/]_endOfOperation;  to s0
+[/for]
+/************************* Print Process Instances***************************/
+[for (element : Print| aProgram.eAllContents(Print))]
+process p[element.name/] ['['/][element.name/]_print:in none[']'/](&global : SystemDataRoot, id : read int) is
+	states s0
+	var _self:Print
+    from s0  [element.name/]_print; global:=Print_print( global , global.refToElement_id) ;  to s0
 [/for]
 process pUnConstrainedSemantics['['/][for (element : Program| aProgram.eAllContents(Program))]
-[element.name/]_start:out none,[/for][for (element : Method| aProgram.eAllContents(Method))]
+[element.name/]_start:out none,[/for][for (element : BooleanExpression| aProgram.eAllContents(BooleanExpression))]
+[element.name/]_bvalue:out none,[/for][for (element : Method| aProgram.eAllContents(Method))]
 [element.name/]_callIt:out none,[element.name/]_endOf:out none,[/for][for (element : Operation| aProgram.eAllContents(Operation))]
-[element.name/]_execute:out none,[/for][for (element : MethodCall| aProgram.eAllContents(MethodCall))]
+[element.name/]_execute:out none,[element.name/]_endOfOperation:out none,[/for][for (element : Print| aProgram.eAllContents(Print))]
+[element.name/]_print:out none,[/for][for (element : If| aProgram.eAllContents(If))]
+[element.name/]_doEvaluateIf:out none,[element.name/]_evaluateTrue:out none,[element.name/]_evaluateFalse:out none,[/for][for (element : MethodCall| aProgram.eAllContents(MethodCall))]
 [/for][']'/] is
 	states s0
 [for (element : Program| aProgram.eAllContents(Program))]
     from s0  [element.name/]_start;  to s0
+
+[/for]
+[for (element : BooleanExpression| aProgram.eAllContents(BooleanExpression))]
+    from s0  [element.name/]_bvalue;  to s0
 
 [/for]
 [for (element : Method| aProgram.eAllContents(Method))]
@@ -90,6 +120,17 @@ process pUnConstrainedSemantics['['/][for (element : Program| aProgram.eAllConte
 [/for]
 [for (element : Operation| aProgram.eAllContents(Operation))]
     from s0  [element.name/]_execute;  to s0
+    from s0  [element.name/]_endOfOperation;  to s0
+
+[/for]
+[for (element : Print| aProgram.eAllContents(Print))]
+    from s0  [element.name/]_print;  to s0
+
+[/for]
+[for (element : If| aProgram.eAllContents(If))]
+    from s0  [element.name/]_doEvaluateIf;  to s0
+    from s0  [element.name/]_evaluateTrue;  to s0
+    from s0  [element.name/]_evaluateFalse;  to s0
 
 [/for]
 [for (element : MethodCall| aProgram.eAllContents(MethodCall))]
@@ -98,14 +139,21 @@ process pUnConstrainedSemantics['['/][for (element : Program| aProgram.eAllConte
 
 [file ('pUnConstrainedSemantics.fcr', false, 'UTF-8')]
 process pUnConstrainedSemantics['['/][for (element : Program| aProgram.eAllContents(Program))]
-[element.name/]_start:out none,[/for][for (element : Method| aProgram.eAllContents(Method))]
+[element.name/]_start:out none,[/for][for (element : BooleanExpression| aProgram.eAllContents(BooleanExpression))]
+[element.name/]_bvalue:out none,[/for][for (element : Method| aProgram.eAllContents(Method))]
 [element.name/]_callIt:out none,[element.name/]_endOf:out none,[/for][for (element : Operation| aProgram.eAllContents(Operation))]
-[element.name/]_execute:out none,[/for][for (element : MethodCall| aProgram.eAllContents(MethodCall))]
+[element.name/]_execute:out none,[element.name/]_endOfOperation:out none,[/for][for (element : Print| aProgram.eAllContents(Print))]
+[element.name/]_print:out none,[/for][for (element : If| aProgram.eAllContents(If))]
+[element.name/]_doEvaluateIf:out none,[element.name/]_evaluateTrue:out none,[element.name/]_evaluateFalse:out none,[/for][for (element : MethodCall| aProgram.eAllContents(MethodCall))]
 [/for][']'/] is
 	
 	states s0
 [for (element : Program| aProgram.eAllContents(Program))]
     from s0  [element.name/]_start;  to s0
+
+[/for]
+[for (element : BooleanExpression| aProgram.eAllContents(BooleanExpression))]
+    from s0  [element.name/]_bvalue;  to s0
 
 [/for]
 [for (element : Method| aProgram.eAllContents(Method))]
@@ -115,6 +163,17 @@ process pUnConstrainedSemantics['['/][for (element : Program| aProgram.eAllConte
 [/for]
 [for (element : Operation| aProgram.eAllContents(Operation))]
     from s0  [element.name/]_execute;  to s0
+    from s0  [element.name/]_endOfOperation;  to s0
+
+[/for]
+[for (element : Print| aProgram.eAllContents(Print))]
+    from s0  [element.name/]_print;  to s0
+
+[/for]
+[for (element : If| aProgram.eAllContents(If))]
+    from s0  [element.name/]_doEvaluateIf;  to s0
+    from s0  [element.name/]_evaluateTrue;  to s0
+    from s0  [element.name/]_evaluateFalse;  to s0
 
 [/for]
 [for (element : MethodCall| aProgram.eAllContents(MethodCall))]
@@ -133,11 +192,21 @@ port
 [for (element : Program| aProgram.eAllContents(Program))]
 [element.name/]_start: none,
 
+[/for][for (element : BooleanExpression| aProgram.eAllContents(BooleanExpression))]
+[element.name/]_bvalue: none,
+
 [/for][for (element : Method| aProgram.eAllContents(Method))]
 [element.name/]_callIt: none,[element.name/]_endOf: none,
 
 [/for][for (element : Operation| aProgram.eAllContents(Operation))]
-[element.name/]_execute: none,
+[element.name/]_execute: none,[element.name/]_endOfOperation: none,
+
+[/for][for (element : Print| aProgram.eAllContents(Print))]
+[element.name/]_print: none,
+
+[/for][for (element : If| aProgram.eAllContents(If))]
+[element.name/]_doEvaluateIf: none,[element.name/]_evaluateTrue: none,[element.name/]_evaluateFalse: none,
+
 [/for][for (element : MethodCall| aProgram.eAllContents(MethodCall))]
 
 [/for]
@@ -145,18 +214,30 @@ port
 par
 
 pUnConstrainedSemantics['['/][for (element : Program| aProgram.eAllContents(Program))]
-[element.name/]_start,[/for][for (element : Method| aProgram.eAllContents(Method))]
+[element.name/]_start,[/for][for (element : BooleanExpression| aProgram.eAllContents(BooleanExpression))]
+[element.name/]_bvalue,[/for][for (element : Method| aProgram.eAllContents(Method))]
 [element.name/]_callIt,[element.name/]_endOf,[/for][for (element : Operation| aProgram.eAllContents(Operation))]
-[element.name/]_execute,[/for][for (element : MethodCall| aProgram.eAllContents(MethodCall))]
+[element.name/]_execute,[element.name/]_endOfOperation,[/for][for (element : Print| aProgram.eAllContents(Print))]
+[element.name/]_print,[/for][for (element : If| aProgram.eAllContents(If))]
+[element.name/]_doEvaluateIf,[element.name/]_evaluateTrue,[element.name/]_evaluateFalse,[/for][for (element : MethodCall| aProgram.eAllContents(MethodCall))]
 ,[/for][']'/]
 [for (element : Program| aProgram.eAllContents(Program))]
 || p[element.name/] ['['/][element.name/]_start[']'/] (&global, ID)
+[/for]
+[for (element : BooleanExpression| aProgram.eAllContents(BooleanExpression))]
+|| p[element.name/] ['['/][element.name/]_bvalue[']'/] (&global, ID)
 [/for]
 [for (element : Method| aProgram.eAllContents(Method))]
 || p[element.name/] ['['/][element.name/]_callIt,[element.name/]_endOf[']'/] (&global, ID)
 [/for]
 [for (element : Operation| aProgram.eAllContents(Operation))]
-|| p[element.name/] ['['/][element.name/]_execute[']'/] (&global, ID)
+|| p[element.name/] ['['/][element.name/]_execute,[element.name/]_endOfOperation[']'/] (&global, ID)
+[/for]
+[for (element : Print| aProgram.eAllContents(Print))]
+|| p[element.name/] ['['/][element.name/]_print[']'/] (&global, ID)
+[/for]
+[for (element : If| aProgram.eAllContents(If))]
+|| p[element.name/] ['['/][element.name/]_doEvaluateIf,[element.name/]_evaluateTrue,[element.name/]_evaluateFalse[']'/] (&global, ID)
 [/for]
 [for (element : MethodCall| aProgram.eAllContents(MethodCall))]
 || p[element.name/] ['['/][']'/] (&global, ID)

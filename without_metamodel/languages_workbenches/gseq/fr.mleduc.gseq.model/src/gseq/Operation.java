@@ -34,7 +34,7 @@ public interface Operation extends EObject {
 	 * @see #setExecutedBy(Method)
 	 * @see gseq.GseqPackage#getOperation_ExecutedBy()
 	 * @see gseq.Method#getOperations
-	 * @model opposite="operations" required="true" transient="false"
+	 * @model opposite="operations" transient="false"
 	 * @generated
 	 */
 	Method getExecutedBy();

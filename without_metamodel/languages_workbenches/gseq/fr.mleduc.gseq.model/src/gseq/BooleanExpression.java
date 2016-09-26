@@ -13,7 +13,7 @@ package gseq;
  * @model abstract="true"
  * @generated
  */
-public interface BooleanExpression extends Operation, Printable {
+public interface BooleanExpression extends Operation {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -21,5 +21,13 @@ public interface BooleanExpression extends Operation, Printable {
 	 * @generated
 	 */
 	boolean bvalue();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	String pretty();
 
 } // BooleanExpression

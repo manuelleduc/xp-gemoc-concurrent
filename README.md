@@ -12,3 +12,6 @@ Defines the same concurrent languages but using the ./metamodel
 
 ## ./metamodel
 Defines a common model for concurrent language.
+
+# Current State
+  * Model Workbench : Debug does not start since it can not load the mocc library. Solution : Delete and recreate the library so it is loaded again at model workbench startup !

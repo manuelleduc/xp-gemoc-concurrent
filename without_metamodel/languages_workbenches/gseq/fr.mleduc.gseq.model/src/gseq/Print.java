@@ -21,29 +21,37 @@ package gseq;
  */
 public interface Print extends Operation {
 	/**
-	 * Returns the value of the '<em><b>To Print</b></em>' reference.
+	 * Returns the value of the '<em><b>To Print</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>To Print</em>' reference isn't clear,
+	 * If the meaning of the '<em>To Print</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>To Print</em>' reference.
-	 * @see #setToPrint(Printable)
+	 * @return the value of the '<em>To Print</em>' containment reference.
+	 * @see #setToPrint(Operation)
 	 * @see gseq.GseqPackage#getPrint_ToPrint()
-	 * @model required="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	Printable getToPrint();
+	Operation getToPrint();
 
 	/**
-	 * Sets the value of the '{@link gseq.Print#getToPrint <em>To Print</em>}' reference.
+	 * Sets the value of the '{@link gseq.Print#getToPrint <em>To Print</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>To Print</em>' reference.
+	 * @param value the new value of the '<em>To Print</em>' containment reference.
 	 * @see #getToPrint()
 	 * @generated
 	 */
-	void setToPrint(Printable value);
+	void setToPrint(Operation value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void print();
 
 } // Print

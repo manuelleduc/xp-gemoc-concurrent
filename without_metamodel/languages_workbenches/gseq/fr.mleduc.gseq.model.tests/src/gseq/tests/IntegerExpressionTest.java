@@ -2,7 +2,9 @@
  */
 package gseq.tests;
 
+import gseq.GseqFactory;
 import gseq.IntegerExpression;
+import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
@@ -12,12 +14,21 @@ import gseq.IntegerExpression;
  * The following operations are tested:
  * <ul>
  *   <li>{@link gseq.IntegerExpression#ivalue() <em>Ivalue</em>}</li>
- *   <li>{@link gseq.Printable#pretty() <em>Pretty</em>}</li>
+ *   <li>{@link gseq.IntegerExpression#pretty() <em>Pretty</em>}</li>
  * </ul>
  * </p>
  * @generated
  */
-public abstract class IntegerExpressionTest extends OperationTest {
+public class IntegerExpressionTest extends OperationTest {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static void main(String[] args) {
+		TestRunner.run(IntegerExpressionTest.class);
+	}
 
 	/**
 	 * Constructs a new Integer Expression test case with the given name.
@@ -41,6 +52,28 @@ public abstract class IntegerExpressionTest extends OperationTest {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see junit.framework.TestCase#setUp()
+	 * @generated
+	 */
+	@Override
+	protected void setUp() throws Exception {
+		setFixture(GseqFactory.eINSTANCE.createIntegerExpression());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see junit.framework.TestCase#tearDown()
+	 * @generated
+	 */
+	@Override
+	protected void tearDown() throws Exception {
+		setFixture(null);
+	}
+
+	/**
 	 * Tests the '{@link gseq.IntegerExpression#ivalue() <em>Ivalue</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -54,10 +87,10 @@ public abstract class IntegerExpressionTest extends OperationTest {
 	}
 
 	/**
-	 * Tests the '{@link gseq.Printable#pretty() <em>Pretty</em>}' operation.
+	 * Tests the '{@link gseq.IntegerExpression#pretty() <em>Pretty</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see gseq.Printable#pretty()
+	 * @see gseq.IntegerExpression#pretty()
 	 * @generated
 	 */
 	public void testPretty() {

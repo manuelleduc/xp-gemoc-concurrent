@@ -3,7 +3,9 @@
 package gseq.provider;
 
 
+import gseq.GseqFactory;
 import gseq.GseqPackage;
+import gseq.If;
 
 import java.util.Collection;
 import java.util.List;
@@ -11,8 +13,10 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link gseq.If} object.
@@ -42,77 +46,40 @@ public class IfItemProvider extends OperationItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addIfConditionPropertyDescriptor(object);
-			addThenBranchPropertyDescriptor(object);
-			addElseBranchPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the If Condition feature.
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIfConditionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_If_ifCondition_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_If_ifCondition_feature", "_UI_If_type"),
-				 GseqPackage.Literals.IF__IF_CONDITION,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(GseqPackage.Literals.IF__ELSE_BRANCH);
+			childrenFeatures.add(GseqPackage.Literals.IF__THEN_BRANCH);
+			childrenFeatures.add(GseqPackage.Literals.IF__CONDITION_IF);
+		}
+		return childrenFeatures;
 	}
 
 	/**
-	 * This adds a property descriptor for the Then Branch feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addThenBranchPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_If_thenBranch_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_If_thenBranch_feature", "_UI_If_type"),
-				 GseqPackage.Literals.IF__THEN_BRANCH,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
 
-	/**
-	 * This adds a property descriptor for the Else Branch feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addElseBranchPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_If_elseBranch_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_If_elseBranch_feature", "_UI_If_type"),
-				 GseqPackage.Literals.IF__ELSE_BRANCH,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+		return super.getChildFeature(object, child);
 	}
 
 	/**
@@ -148,6 +115,14 @@ public class IfItemProvider extends OperationItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(If.class)) {
+			case GseqPackage.IF__ELSE_BRANCH:
+			case GseqPackage.IF__THEN_BRANCH:
+			case GseqPackage.IF__CONDITION_IF:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 
@@ -161,6 +136,210 @@ public class IfItemProvider extends OperationItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GseqPackage.Literals.IF__ELSE_BRANCH,
+				 GseqFactory.eINSTANCE.createPrint()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GseqPackage.Literals.IF__ELSE_BRANCH,
+				 GseqFactory.eINSTANCE.createIntegerExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GseqPackage.Literals.IF__ELSE_BRANCH,
+				 GseqFactory.eINSTANCE.createMethodCall()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GseqPackage.Literals.IF__ELSE_BRANCH,
+				 GseqFactory.eINSTANCE.createIf()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GseqPackage.Literals.IF__ELSE_BRANCH,
+				 GseqFactory.eINSTANCE.createTrue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GseqPackage.Literals.IF__ELSE_BRANCH,
+				 GseqFactory.eINSTANCE.createFalse()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GseqPackage.Literals.IF__ELSE_BRANCH,
+				 GseqFactory.eINSTANCE.createEquality()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GseqPackage.Literals.IF__ELSE_BRANCH,
+				 GseqFactory.eINSTANCE.createNot()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GseqPackage.Literals.IF__ELSE_BRANCH,
+				 GseqFactory.eINSTANCE.createAnd()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GseqPackage.Literals.IF__ELSE_BRANCH,
+				 GseqFactory.eINSTANCE.createConst()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GseqPackage.Literals.IF__ELSE_BRANCH,
+				 GseqFactory.eINSTANCE.createVar()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GseqPackage.Literals.IF__ELSE_BRANCH,
+				 GseqFactory.eINSTANCE.createAssign()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GseqPackage.Literals.IF__ELSE_BRANCH,
+				 GseqFactory.eINSTANCE.createPlus()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GseqPackage.Literals.IF__ELSE_BRANCH,
+				 GseqFactory.eINSTANCE.createGreaterThan()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GseqPackage.Literals.IF__ELSE_BRANCH,
+				 GseqFactory.eINSTANCE.createWhile()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GseqPackage.Literals.IF__THEN_BRANCH,
+				 GseqFactory.eINSTANCE.createPrint()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GseqPackage.Literals.IF__THEN_BRANCH,
+				 GseqFactory.eINSTANCE.createIntegerExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GseqPackage.Literals.IF__THEN_BRANCH,
+				 GseqFactory.eINSTANCE.createMethodCall()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GseqPackage.Literals.IF__THEN_BRANCH,
+				 GseqFactory.eINSTANCE.createIf()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GseqPackage.Literals.IF__THEN_BRANCH,
+				 GseqFactory.eINSTANCE.createTrue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GseqPackage.Literals.IF__THEN_BRANCH,
+				 GseqFactory.eINSTANCE.createFalse()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GseqPackage.Literals.IF__THEN_BRANCH,
+				 GseqFactory.eINSTANCE.createEquality()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GseqPackage.Literals.IF__THEN_BRANCH,
+				 GseqFactory.eINSTANCE.createNot()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GseqPackage.Literals.IF__THEN_BRANCH,
+				 GseqFactory.eINSTANCE.createAnd()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GseqPackage.Literals.IF__THEN_BRANCH,
+				 GseqFactory.eINSTANCE.createConst()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GseqPackage.Literals.IF__THEN_BRANCH,
+				 GseqFactory.eINSTANCE.createVar()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GseqPackage.Literals.IF__THEN_BRANCH,
+				 GseqFactory.eINSTANCE.createAssign()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GseqPackage.Literals.IF__THEN_BRANCH,
+				 GseqFactory.eINSTANCE.createPlus()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GseqPackage.Literals.IF__THEN_BRANCH,
+				 GseqFactory.eINSTANCE.createGreaterThan()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GseqPackage.Literals.IF__THEN_BRANCH,
+				 GseqFactory.eINSTANCE.createWhile()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GseqPackage.Literals.IF__CONDITION_IF,
+				 GseqFactory.eINSTANCE.createTrue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GseqPackage.Literals.IF__CONDITION_IF,
+				 GseqFactory.eINSTANCE.createFalse()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GseqPackage.Literals.IF__CONDITION_IF,
+				 GseqFactory.eINSTANCE.createEquality()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GseqPackage.Literals.IF__CONDITION_IF,
+				 GseqFactory.eINSTANCE.createNot()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GseqPackage.Literals.IF__CONDITION_IF,
+				 GseqFactory.eINSTANCE.createAnd()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GseqPackage.Literals.IF__CONDITION_IF,
+				 GseqFactory.eINSTANCE.createGreaterThan()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify =
+			childFeature == GseqPackage.Literals.IF__ELSE_BRANCH ||
+			childFeature == GseqPackage.Literals.IF__THEN_BRANCH ||
+			childFeature == GseqPackage.Literals.IF__CONDITION_IF;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 }

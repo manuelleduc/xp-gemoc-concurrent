@@ -19,7 +19,6 @@ import gseq.Not;
 import gseq.Operation;
 import gseq.Plus;
 import gseq.Print;
-import gseq.Printable;
 import gseq.Program;
 import gseq.True;
 import gseq.Var;
@@ -151,13 +150,6 @@ public class GseqPackageImpl extends EPackageImpl implements GseqPackage {
 	 * @generated
 	 */
 	private EClass assignEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass printableEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -381,6 +373,15 @@ public class GseqPackageImpl extends EPackageImpl implements GseqPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getPrint__Print() {
+		return printEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getMethodCall() {
 		return methodCallEClass;
 	}
@@ -417,6 +418,15 @@ public class GseqPackageImpl extends EPackageImpl implements GseqPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getBooleanExpression__Pretty() {
+		return booleanExpressionEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getIf() {
 		return ifEClass;
 	}
@@ -426,7 +436,7 @@ public class GseqPackageImpl extends EPackageImpl implements GseqPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getIf_IfCondition() {
+	public EReference getIf_ElseBranch() {
 		return (EReference)ifEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -444,7 +454,7 @@ public class GseqPackageImpl extends EPackageImpl implements GseqPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getIf_ElseBranch() {
+	public EReference getIf_ConditionIf() {
 		return (EReference)ifEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -561,6 +571,15 @@ public class GseqPackageImpl extends EPackageImpl implements GseqPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getIntegerExpression__Pretty() {
+		return integerExpressionEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getConst() {
 		return constEClass;
 	}
@@ -617,24 +636,6 @@ public class GseqPackageImpl extends EPackageImpl implements GseqPackage {
 	 */
 	public EReference getAssign_AssignedExpression() {
 		return (EReference)assignEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getPrintable() {
-		return printableEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getPrintable__Pretty() {
-		return printableEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -764,17 +765,19 @@ public class GseqPackageImpl extends EPackageImpl implements GseqPackage {
 
 		printEClass = createEClass(PRINT);
 		createEReference(printEClass, PRINT__TO_PRINT);
+		createEOperation(printEClass, PRINT___PRINT);
 
 		methodCallEClass = createEClass(METHOD_CALL);
 		createEReference(methodCallEClass, METHOD_CALL__METHOD_TO_CALL);
 
 		booleanExpressionEClass = createEClass(BOOLEAN_EXPRESSION);
 		createEOperation(booleanExpressionEClass, BOOLEAN_EXPRESSION___BVALUE);
+		createEOperation(booleanExpressionEClass, BOOLEAN_EXPRESSION___PRETTY);
 
 		ifEClass = createEClass(IF);
-		createEReference(ifEClass, IF__IF_CONDITION);
-		createEReference(ifEClass, IF__THEN_BRANCH);
 		createEReference(ifEClass, IF__ELSE_BRANCH);
+		createEReference(ifEClass, IF__THEN_BRANCH);
+		createEReference(ifEClass, IF__CONDITION_IF);
 
 		trueEClass = createEClass(TRUE);
 
@@ -793,6 +796,7 @@ public class GseqPackageImpl extends EPackageImpl implements GseqPackage {
 
 		integerExpressionEClass = createEClass(INTEGER_EXPRESSION);
 		createEOperation(integerExpressionEClass, INTEGER_EXPRESSION___IVALUE);
+		createEOperation(integerExpressionEClass, INTEGER_EXPRESSION___PRETTY);
 
 		constEClass = createEClass(CONST);
 		createEAttribute(constEClass, CONST__VALUE);
@@ -803,9 +807,6 @@ public class GseqPackageImpl extends EPackageImpl implements GseqPackage {
 		assignEClass = createEClass(ASSIGN);
 		createEAttribute(assignEClass, ASSIGN__VAR_NAME);
 		createEReference(assignEClass, ASSIGN__ASSIGNED_EXPRESSION);
-
-		printableEClass = createEClass(PRINTABLE);
-		createEOperation(printableEClass, PRINTABLE___PRETTY);
 
 		plusEClass = createEClass(PLUS);
 		createEReference(plusEClass, PLUS__RIGHT_PLUS);
@@ -851,7 +852,6 @@ public class GseqPackageImpl extends EPackageImpl implements GseqPackage {
 		printEClass.getESuperTypes().add(this.getOperation());
 		methodCallEClass.getESuperTypes().add(this.getIntegerExpression());
 		booleanExpressionEClass.getESuperTypes().add(this.getOperation());
-		booleanExpressionEClass.getESuperTypes().add(this.getPrintable());
 		ifEClass.getESuperTypes().add(this.getOperation());
 		trueEClass.getESuperTypes().add(this.getBooleanExpression());
 		falseEClass.getESuperTypes().add(this.getBooleanExpression());
@@ -859,7 +859,6 @@ public class GseqPackageImpl extends EPackageImpl implements GseqPackage {
 		notEClass.getESuperTypes().add(this.getBooleanExpression());
 		andEClass.getESuperTypes().add(this.getBooleanExpression());
 		integerExpressionEClass.getESuperTypes().add(this.getOperation());
-		integerExpressionEClass.getESuperTypes().add(this.getPrintable());
 		constEClass.getESuperTypes().add(this.getIntegerExpression());
 		varEClass.getESuperTypes().add(this.getIntegerExpression());
 		assignEClass.getESuperTypes().add(this.getOperation());
@@ -883,12 +882,14 @@ public class GseqPackageImpl extends EPackageImpl implements GseqPackage {
 		initEOperation(getMethod__Call(), null, "call", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(operationEClass, Operation.class, "Operation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getOperation_ExecutedBy(), this.getMethod(), this.getMethod_Operations(), "executedBy", null, 1, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOperation_ExecutedBy(), this.getMethod(), this.getMethod_Operations(), "executedBy", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getOperation__Execute(), null, "execute", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(printEClass, Print.class, "Print", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPrint_ToPrint(), this.getPrintable(), null, "toPrint", null, 1, 1, Print.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPrint_ToPrint(), this.getOperation(), null, "toPrint", null, 1, 1, Print.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getPrint__Print(), null, "print", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(methodCallEClass, MethodCall.class, "MethodCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMethodCall_MethodToCall(), this.getMethod(), this.getMethod_CalledBy(), "methodToCall", null, 1, 1, MethodCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -897,10 +898,12 @@ public class GseqPackageImpl extends EPackageImpl implements GseqPackage {
 
 		initEOperation(getBooleanExpression__Bvalue(), ecorePackage.getEBoolean(), "bvalue", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		initEOperation(getBooleanExpression__Pretty(), ecorePackage.getEString(), "pretty", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(ifEClass, If.class, "If", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getIf_IfCondition(), this.getBooleanExpression(), null, "ifCondition", null, 1, 1, If.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getIf_ThenBranch(), this.getOperation(), null, "thenBranch", null, 1, 1, If.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getIf_ElseBranch(), this.getOperation(), null, "elseBranch", null, 0, 1, If.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIf_ElseBranch(), this.getOperation(), null, "elseBranch", null, 0, 1, If.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIf_ThenBranch(), this.getOperation(), null, "thenBranch", null, 1, 1, If.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIf_ConditionIf(), this.getBooleanExpression(), null, "conditionIf", null, 1, 1, If.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(trueEClass, True.class, "True", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -917,9 +920,11 @@ public class GseqPackageImpl extends EPackageImpl implements GseqPackage {
 		initEReference(getAnd_LeftAnd(), this.getBooleanExpression(), null, "leftAnd", null, 1, 1, And.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAnd_RightAnd(), this.getBooleanExpression(), null, "rightAnd", null, 1, 1, And.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(integerExpressionEClass, IntegerExpression.class, "IntegerExpression", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(integerExpressionEClass, IntegerExpression.class, "IntegerExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEOperation(getIntegerExpression__Ivalue(), ecorePackage.getELong(), "ivalue", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getIntegerExpression__Pretty(), ecorePackage.getEString(), "pretty", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(constEClass, Const.class, "Const", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getConst_Value(), ecorePackage.getELong(), "value", null, 1, 1, Const.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -930,10 +935,6 @@ public class GseqPackageImpl extends EPackageImpl implements GseqPackage {
 		initEClass(assignEClass, Assign.class, "Assign", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAssign_VarName(), ecorePackage.getEString(), "varName", null, 1, 1, Assign.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAssign_AssignedExpression(), this.getIntegerExpression(), null, "assignedExpression", null, 1, 1, Assign.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(printableEClass, Printable.class, "Printable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEOperation(getPrintable__Pretty(), ecorePackage.getEString(), "pretty", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(plusEClass, Plus.class, "Plus", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPlus_RightPlus(), this.getIntegerExpression(), null, "rightPlus", null, 1, 1, Plus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

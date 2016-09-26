@@ -210,6 +210,11 @@ public class MethodItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(GseqPackage.Literals.METHOD__OPERATIONS,
+				 GseqFactory.eINSTANCE.createIntegerExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(GseqPackage.Literals.METHOD__OPERATIONS,
 				 GseqFactory.eINSTANCE.createMethodCall()));
 
 		newChildDescriptors.add

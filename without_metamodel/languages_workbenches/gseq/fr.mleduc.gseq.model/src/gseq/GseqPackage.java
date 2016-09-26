@@ -251,7 +251,7 @@ public interface GseqPackage extends EPackage {
 	int PRINT__EXECUTED_BY = OPERATION__EXECUTED_BY;
 
 	/**
-	 * The feature id for the '<em><b>To Print</b></em>' reference.
+	 * The feature id for the '<em><b>To Print</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -278,13 +278,22 @@ public interface GseqPackage extends EPackage {
 	int PRINT___EXECUTE = OPERATION___EXECUTE;
 
 	/**
+	 * The operation id for the '<em>Print</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRINT___PRINT = OPERATION_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Print</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PRINT_OPERATION_COUNT = OPERATION_OPERATION_COUNT + 0;
+	int PRINT_OPERATION_COUNT = OPERATION_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link gseq.impl.IntegerExpressionImpl <em>Integer Expression</em>}' class.
@@ -324,22 +333,22 @@ public interface GseqPackage extends EPackage {
 	int INTEGER_EXPRESSION___EXECUTE = OPERATION___EXECUTE;
 
 	/**
-	 * The operation id for the '<em>Pretty</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTEGER_EXPRESSION___PRETTY = OPERATION_OPERATION_COUNT + 0;
-
-	/**
 	 * The operation id for the '<em>Ivalue</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTEGER_EXPRESSION___IVALUE = OPERATION_OPERATION_COUNT + 1;
+	int INTEGER_EXPRESSION___IVALUE = OPERATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Pretty</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_EXPRESSION___PRETTY = OPERATION_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Integer Expression</em>' class.
@@ -397,15 +406,6 @@ public interface GseqPackage extends EPackage {
 	int METHOD_CALL___EXECUTE = INTEGER_EXPRESSION___EXECUTE;
 
 	/**
-	 * The operation id for the '<em>Pretty</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int METHOD_CALL___PRETTY = INTEGER_EXPRESSION___PRETTY;
-
-	/**
 	 * The operation id for the '<em>Ivalue</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -413,6 +413,15 @@ public interface GseqPackage extends EPackage {
 	 * @ordered
 	 */
 	int METHOD_CALL___IVALUE = INTEGER_EXPRESSION___IVALUE;
+
+	/**
+	 * The operation id for the '<em>Pretty</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD_CALL___PRETTY = INTEGER_EXPRESSION___PRETTY;
 
 	/**
 	 * The number of operations of the '<em>Method Call</em>' class.
@@ -461,22 +470,22 @@ public interface GseqPackage extends EPackage {
 	int BOOLEAN_EXPRESSION___EXECUTE = OPERATION___EXECUTE;
 
 	/**
-	 * The operation id for the '<em>Pretty</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOLEAN_EXPRESSION___PRETTY = OPERATION_OPERATION_COUNT + 0;
-
-	/**
 	 * The operation id for the '<em>Bvalue</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_EXPRESSION___BVALUE = OPERATION_OPERATION_COUNT + 1;
+	int BOOLEAN_EXPRESSION___BVALUE = OPERATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Pretty</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_EXPRESSION___PRETTY = OPERATION_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Boolean Expression</em>' class.
@@ -507,16 +516,16 @@ public interface GseqPackage extends EPackage {
 	int IF__EXECUTED_BY = OPERATION__EXECUTED_BY;
 
 	/**
-	 * The feature id for the '<em><b>If Condition</b></em>' reference.
+	 * The feature id for the '<em><b>Else Branch</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IF__IF_CONDITION = OPERATION_FEATURE_COUNT + 0;
+	int IF__ELSE_BRANCH = OPERATION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Then Branch</b></em>' reference.
+	 * The feature id for the '<em><b>Then Branch</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -525,13 +534,13 @@ public interface GseqPackage extends EPackage {
 	int IF__THEN_BRANCH = OPERATION_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Else Branch</b></em>' reference.
+	 * The feature id for the '<em><b>Condition If</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IF__ELSE_BRANCH = OPERATION_FEATURE_COUNT + 2;
+	int IF__CONDITION_IF = OPERATION_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>If</em>' class.
@@ -598,15 +607,6 @@ public interface GseqPackage extends EPackage {
 	int TRUE___EXECUTE = BOOLEAN_EXPRESSION___EXECUTE;
 
 	/**
-	 * The operation id for the '<em>Pretty</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUE___PRETTY = BOOLEAN_EXPRESSION___PRETTY;
-
-	/**
 	 * The operation id for the '<em>Bvalue</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -614,6 +614,15 @@ public interface GseqPackage extends EPackage {
 	 * @ordered
 	 */
 	int TRUE___BVALUE = BOOLEAN_EXPRESSION___BVALUE;
+
+	/**
+	 * The operation id for the '<em>Pretty</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUE___PRETTY = BOOLEAN_EXPRESSION___PRETTY;
 
 	/**
 	 * The number of operations of the '<em>True</em>' class.
@@ -662,15 +671,6 @@ public interface GseqPackage extends EPackage {
 	int FALSE___EXECUTE = BOOLEAN_EXPRESSION___EXECUTE;
 
 	/**
-	 * The operation id for the '<em>Pretty</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FALSE___PRETTY = BOOLEAN_EXPRESSION___PRETTY;
-
-	/**
 	 * The operation id for the '<em>Bvalue</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -678,6 +678,15 @@ public interface GseqPackage extends EPackage {
 	 * @ordered
 	 */
 	int FALSE___BVALUE = BOOLEAN_EXPRESSION___BVALUE;
+
+	/**
+	 * The operation id for the '<em>Pretty</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FALSE___PRETTY = BOOLEAN_EXPRESSION___PRETTY;
 
 	/**
 	 * The number of operations of the '<em>False</em>' class.
@@ -744,15 +753,6 @@ public interface GseqPackage extends EPackage {
 	int EQUALITY___EXECUTE = BOOLEAN_EXPRESSION___EXECUTE;
 
 	/**
-	 * The operation id for the '<em>Pretty</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EQUALITY___PRETTY = BOOLEAN_EXPRESSION___PRETTY;
-
-	/**
 	 * The operation id for the '<em>Bvalue</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -760,6 +760,15 @@ public interface GseqPackage extends EPackage {
 	 * @ordered
 	 */
 	int EQUALITY___BVALUE = BOOLEAN_EXPRESSION___BVALUE;
+
+	/**
+	 * The operation id for the '<em>Pretty</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EQUALITY___PRETTY = BOOLEAN_EXPRESSION___PRETTY;
 
 	/**
 	 * The number of operations of the '<em>Equality</em>' class.
@@ -817,15 +826,6 @@ public interface GseqPackage extends EPackage {
 	int NOT___EXECUTE = BOOLEAN_EXPRESSION___EXECUTE;
 
 	/**
-	 * The operation id for the '<em>Pretty</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NOT___PRETTY = BOOLEAN_EXPRESSION___PRETTY;
-
-	/**
 	 * The operation id for the '<em>Bvalue</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -833,6 +833,15 @@ public interface GseqPackage extends EPackage {
 	 * @ordered
 	 */
 	int NOT___BVALUE = BOOLEAN_EXPRESSION___BVALUE;
+
+	/**
+	 * The operation id for the '<em>Pretty</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOT___PRETTY = BOOLEAN_EXPRESSION___PRETTY;
 
 	/**
 	 * The number of operations of the '<em>Not</em>' class.
@@ -899,15 +908,6 @@ public interface GseqPackage extends EPackage {
 	int AND___EXECUTE = BOOLEAN_EXPRESSION___EXECUTE;
 
 	/**
-	 * The operation id for the '<em>Pretty</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AND___PRETTY = BOOLEAN_EXPRESSION___PRETTY;
-
-	/**
 	 * The operation id for the '<em>Bvalue</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -915,6 +915,15 @@ public interface GseqPackage extends EPackage {
 	 * @ordered
 	 */
 	int AND___BVALUE = BOOLEAN_EXPRESSION___BVALUE;
+
+	/**
+	 * The operation id for the '<em>Pretty</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AND___PRETTY = BOOLEAN_EXPRESSION___PRETTY;
 
 	/**
 	 * The number of operations of the '<em>And</em>' class.
@@ -972,15 +981,6 @@ public interface GseqPackage extends EPackage {
 	int CONST___EXECUTE = INTEGER_EXPRESSION___EXECUTE;
 
 	/**
-	 * The operation id for the '<em>Pretty</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONST___PRETTY = INTEGER_EXPRESSION___PRETTY;
-
-	/**
 	 * The operation id for the '<em>Ivalue</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -988,6 +988,15 @@ public interface GseqPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONST___IVALUE = INTEGER_EXPRESSION___IVALUE;
+
+	/**
+	 * The operation id for the '<em>Pretty</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONST___PRETTY = INTEGER_EXPRESSION___PRETTY;
 
 	/**
 	 * The number of operations of the '<em>Const</em>' class.
@@ -1045,15 +1054,6 @@ public interface GseqPackage extends EPackage {
 	int VAR___EXECUTE = INTEGER_EXPRESSION___EXECUTE;
 
 	/**
-	 * The operation id for the '<em>Pretty</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VAR___PRETTY = INTEGER_EXPRESSION___PRETTY;
-
-	/**
 	 * The operation id for the '<em>Ivalue</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1061,6 +1061,15 @@ public interface GseqPackage extends EPackage {
 	 * @ordered
 	 */
 	int VAR___IVALUE = INTEGER_EXPRESSION___IVALUE;
+
+	/**
+	 * The operation id for the '<em>Pretty</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VAR___PRETTY = INTEGER_EXPRESSION___PRETTY;
 
 	/**
 	 * The number of operations of the '<em>Var</em>' class.
@@ -1136,43 +1145,6 @@ public interface GseqPackage extends EPackage {
 	int ASSIGN_OPERATION_COUNT = OPERATION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link gseq.Printable <em>Printable</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see gseq.Printable
-	 * @see gseq.impl.GseqPackageImpl#getPrintable()
-	 * @generated
-	 */
-	int PRINTABLE = 16;
-
-	/**
-	 * The number of structural features of the '<em>Printable</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRINTABLE_FEATURE_COUNT = 0;
-
-	/**
-	 * The operation id for the '<em>Pretty</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRINTABLE___PRETTY = 0;
-
-	/**
-	 * The number of operations of the '<em>Printable</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRINTABLE_OPERATION_COUNT = 1;
-
-	/**
 	 * The meta object id for the '{@link gseq.impl.PlusImpl <em>Plus</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1180,7 +1152,7 @@ public interface GseqPackage extends EPackage {
 	 * @see gseq.impl.GseqPackageImpl#getPlus()
 	 * @generated
 	 */
-	int PLUS = 17;
+	int PLUS = 16;
 
 	/**
 	 * The feature id for the '<em><b>Executed By</b></em>' container reference.
@@ -1228,15 +1200,6 @@ public interface GseqPackage extends EPackage {
 	int PLUS___EXECUTE = INTEGER_EXPRESSION___EXECUTE;
 
 	/**
-	 * The operation id for the '<em>Pretty</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLUS___PRETTY = INTEGER_EXPRESSION___PRETTY;
-
-	/**
 	 * The operation id for the '<em>Ivalue</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1244,6 +1207,15 @@ public interface GseqPackage extends EPackage {
 	 * @ordered
 	 */
 	int PLUS___IVALUE = INTEGER_EXPRESSION___IVALUE;
+
+	/**
+	 * The operation id for the '<em>Pretty</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLUS___PRETTY = INTEGER_EXPRESSION___PRETTY;
 
 	/**
 	 * The number of operations of the '<em>Plus</em>' class.
@@ -1262,7 +1234,7 @@ public interface GseqPackage extends EPackage {
 	 * @see gseq.impl.GseqPackageImpl#getGreaterThan()
 	 * @generated
 	 */
-	int GREATER_THAN = 18;
+	int GREATER_THAN = 17;
 
 	/**
 	 * The feature id for the '<em><b>Executed By</b></em>' container reference.
@@ -1310,15 +1282,6 @@ public interface GseqPackage extends EPackage {
 	int GREATER_THAN___EXECUTE = BOOLEAN_EXPRESSION___EXECUTE;
 
 	/**
-	 * The operation id for the '<em>Pretty</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GREATER_THAN___PRETTY = BOOLEAN_EXPRESSION___PRETTY;
-
-	/**
 	 * The operation id for the '<em>Bvalue</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1326,6 +1289,15 @@ public interface GseqPackage extends EPackage {
 	 * @ordered
 	 */
 	int GREATER_THAN___BVALUE = BOOLEAN_EXPRESSION___BVALUE;
+
+	/**
+	 * The operation id for the '<em>Pretty</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GREATER_THAN___PRETTY = BOOLEAN_EXPRESSION___PRETTY;
 
 	/**
 	 * The number of operations of the '<em>Greater Than</em>' class.
@@ -1344,7 +1316,7 @@ public interface GseqPackage extends EPackage {
 	 * @see gseq.impl.GseqPackageImpl#getWhile()
 	 * @generated
 	 */
-	int WHILE = 19;
+	int WHILE = 18;
 
 	/**
 	 * The feature id for the '<em><b>Executed By</b></em>' container reference.
@@ -1549,15 +1521,25 @@ public interface GseqPackage extends EPackage {
 	EClass getPrint();
 
 	/**
-	 * Returns the meta object for the reference '{@link gseq.Print#getToPrint <em>To Print</em>}'.
+	 * Returns the meta object for the containment reference '{@link gseq.Print#getToPrint <em>To Print</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>To Print</em>'.
+	 * @return the meta object for the containment reference '<em>To Print</em>'.
 	 * @see gseq.Print#getToPrint()
 	 * @see #getPrint()
 	 * @generated
 	 */
 	EReference getPrint_ToPrint();
+
+	/**
+	 * Returns the meta object for the '{@link gseq.Print#print() <em>Print</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Print</em>' operation.
+	 * @see gseq.Print#print()
+	 * @generated
+	 */
+	EOperation getPrint__Print();
 
 	/**
 	 * Returns the meta object for class '{@link gseq.MethodCall <em>Method Call</em>}'.
@@ -1601,6 +1583,16 @@ public interface GseqPackage extends EPackage {
 	EOperation getBooleanExpression__Bvalue();
 
 	/**
+	 * Returns the meta object for the '{@link gseq.BooleanExpression#pretty() <em>Pretty</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Pretty</em>' operation.
+	 * @see gseq.BooleanExpression#pretty()
+	 * @generated
+	 */
+	EOperation getBooleanExpression__Pretty();
+
+	/**
 	 * Returns the meta object for class '{@link gseq.If <em>If</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1611,21 +1603,21 @@ public interface GseqPackage extends EPackage {
 	EClass getIf();
 
 	/**
-	 * Returns the meta object for the reference '{@link gseq.If#getIfCondition <em>If Condition</em>}'.
+	 * Returns the meta object for the containment reference '{@link gseq.If#getElseBranch <em>Else Branch</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>If Condition</em>'.
-	 * @see gseq.If#getIfCondition()
+	 * @return the meta object for the containment reference '<em>Else Branch</em>'.
+	 * @see gseq.If#getElseBranch()
 	 * @see #getIf()
 	 * @generated
 	 */
-	EReference getIf_IfCondition();
+	EReference getIf_ElseBranch();
 
 	/**
-	 * Returns the meta object for the reference '{@link gseq.If#getThenBranch <em>Then Branch</em>}'.
+	 * Returns the meta object for the containment reference '{@link gseq.If#getThenBranch <em>Then Branch</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Then Branch</em>'.
+	 * @return the meta object for the containment reference '<em>Then Branch</em>'.
 	 * @see gseq.If#getThenBranch()
 	 * @see #getIf()
 	 * @generated
@@ -1633,15 +1625,15 @@ public interface GseqPackage extends EPackage {
 	EReference getIf_ThenBranch();
 
 	/**
-	 * Returns the meta object for the reference '{@link gseq.If#getElseBranch <em>Else Branch</em>}'.
+	 * Returns the meta object for the containment reference '{@link gseq.If#getConditionIf <em>Condition If</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Else Branch</em>'.
-	 * @see gseq.If#getElseBranch()
+	 * @return the meta object for the containment reference '<em>Condition If</em>'.
+	 * @see gseq.If#getConditionIf()
 	 * @see #getIf()
 	 * @generated
 	 */
-	EReference getIf_ElseBranch();
+	EReference getIf_ConditionIf();
 
 	/**
 	 * Returns the meta object for class '{@link gseq.True <em>True</em>}'.
@@ -1769,6 +1761,16 @@ public interface GseqPackage extends EPackage {
 	EOperation getIntegerExpression__Ivalue();
 
 	/**
+	 * Returns the meta object for the '{@link gseq.IntegerExpression#pretty() <em>Pretty</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Pretty</em>' operation.
+	 * @see gseq.IntegerExpression#pretty()
+	 * @generated
+	 */
+	EOperation getIntegerExpression__Pretty();
+
+	/**
 	 * Returns the meta object for class '{@link gseq.Const <em>Const</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1841,26 +1843,6 @@ public interface GseqPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getAssign_AssignedExpression();
-
-	/**
-	 * Returns the meta object for class '{@link gseq.Printable <em>Printable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Printable</em>'.
-	 * @see gseq.Printable
-	 * @generated
-	 */
-	EClass getPrintable();
-
-	/**
-	 * Returns the meta object for the '{@link gseq.Printable#pretty() <em>Pretty</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Pretty</em>' operation.
-	 * @see gseq.Printable#pretty()
-	 * @generated
-	 */
-	EOperation getPrintable__Pretty();
 
 	/**
 	 * Returns the meta object for class '{@link gseq.Plus <em>Plus</em>}'.
@@ -2102,12 +2084,20 @@ public interface GseqPackage extends EPackage {
 		EClass PRINT = eINSTANCE.getPrint();
 
 		/**
-		 * The meta object literal for the '<em><b>To Print</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>To Print</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference PRINT__TO_PRINT = eINSTANCE.getPrint_ToPrint();
+
+		/**
+		 * The meta object literal for the '<em><b>Print</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PRINT___PRINT = eINSTANCE.getPrint__Print();
 
 		/**
 		 * The meta object literal for the '{@link gseq.impl.MethodCallImpl <em>Method Call</em>}' class.
@@ -2146,6 +2136,14 @@ public interface GseqPackage extends EPackage {
 		EOperation BOOLEAN_EXPRESSION___BVALUE = eINSTANCE.getBooleanExpression__Bvalue();
 
 		/**
+		 * The meta object literal for the '<em><b>Pretty</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation BOOLEAN_EXPRESSION___PRETTY = eINSTANCE.getBooleanExpression__Pretty();
+
+		/**
 		 * The meta object literal for the '{@link gseq.impl.IfImpl <em>If</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2156,15 +2154,15 @@ public interface GseqPackage extends EPackage {
 		EClass IF = eINSTANCE.getIf();
 
 		/**
-		 * The meta object literal for the '<em><b>If Condition</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Else Branch</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference IF__IF_CONDITION = eINSTANCE.getIf_IfCondition();
+		EReference IF__ELSE_BRANCH = eINSTANCE.getIf_ElseBranch();
 
 		/**
-		 * The meta object literal for the '<em><b>Then Branch</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Then Branch</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2172,12 +2170,12 @@ public interface GseqPackage extends EPackage {
 		EReference IF__THEN_BRANCH = eINSTANCE.getIf_ThenBranch();
 
 		/**
-		 * The meta object literal for the '<em><b>Else Branch</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Condition If</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference IF__ELSE_BRANCH = eINSTANCE.getIf_ElseBranch();
+		EReference IF__CONDITION_IF = eINSTANCE.getIf_ConditionIf();
 
 		/**
 		 * The meta object literal for the '{@link gseq.impl.TrueImpl <em>True</em>}' class.
@@ -2288,6 +2286,14 @@ public interface GseqPackage extends EPackage {
 		EOperation INTEGER_EXPRESSION___IVALUE = eINSTANCE.getIntegerExpression__Ivalue();
 
 		/**
+		 * The meta object literal for the '<em><b>Pretty</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation INTEGER_EXPRESSION___PRETTY = eINSTANCE.getIntegerExpression__Pretty();
+
+		/**
 		 * The meta object literal for the '{@link gseq.impl.ConstImpl <em>Const</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2348,24 +2354,6 @@ public interface GseqPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ASSIGN__ASSIGNED_EXPRESSION = eINSTANCE.getAssign_AssignedExpression();
-
-		/**
-		 * The meta object literal for the '{@link gseq.Printable <em>Printable</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see gseq.Printable
-		 * @see gseq.impl.GseqPackageImpl#getPrintable()
-		 * @generated
-		 */
-		EClass PRINTABLE = eINSTANCE.getPrintable();
-
-		/**
-		 * The meta object literal for the '<em><b>Pretty</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation PRINTABLE___PRETTY = eINSTANCE.getPrintable__Pretty();
 
 		/**
 		 * The meta object literal for the '{@link gseq.impl.PlusImpl <em>Plus</em>}' class.
