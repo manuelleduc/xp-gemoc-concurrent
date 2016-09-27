@@ -112,15 +112,6 @@ public interface GseqFactory extends EFactory {
 	And createAnd();
 
 	/**
-	 * Returns a new object of class '<em>Integer Expression</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Integer Expression</em>'.
-	 * @generated
-	 */
-	IntegerExpression createIntegerExpression();
-
-	/**
 	 * Returns a new object of class '<em>Const</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

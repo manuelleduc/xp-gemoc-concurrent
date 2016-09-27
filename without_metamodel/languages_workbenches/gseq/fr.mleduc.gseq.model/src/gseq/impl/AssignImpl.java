@@ -7,6 +7,7 @@ import gseq.GseqPackage;
 import gseq.IntegerExpression;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -49,7 +50,7 @@ public class AssignImpl extends OperationImpl implements Assign {
 	protected String varName = VAR_NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getAssignedExpression() <em>Assigned Expression</em>}' reference.
+	 * The cached value of the '{@link #getAssignedExpression() <em>Assigned Expression</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getAssignedExpression()
@@ -104,14 +105,6 @@ public class AssignImpl extends OperationImpl implements Assign {
 	 * @generated
 	 */
 	public IntegerExpression getAssignedExpression() {
-		if (assignedExpression != null && assignedExpression.eIsProxy()) {
-			InternalEObject oldAssignedExpression = (InternalEObject)assignedExpression;
-			assignedExpression = (IntegerExpression)eResolveProxy(oldAssignedExpression);
-			if (assignedExpression != oldAssignedExpression) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GseqPackage.ASSIGN__ASSIGNED_EXPRESSION, oldAssignedExpression, assignedExpression));
-			}
-		}
 		return assignedExpression;
 	}
 
@@ -120,8 +113,14 @@ public class AssignImpl extends OperationImpl implements Assign {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IntegerExpression basicGetAssignedExpression() {
-		return assignedExpression;
+	public NotificationChain basicSetAssignedExpression(IntegerExpression newAssignedExpression, NotificationChain msgs) {
+		IntegerExpression oldAssignedExpression = assignedExpression;
+		assignedExpression = newAssignedExpression;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GseqPackage.ASSIGN__ASSIGNED_EXPRESSION, oldAssignedExpression, newAssignedExpression);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -130,10 +129,31 @@ public class AssignImpl extends OperationImpl implements Assign {
 	 * @generated
 	 */
 	public void setAssignedExpression(IntegerExpression newAssignedExpression) {
-		IntegerExpression oldAssignedExpression = assignedExpression;
-		assignedExpression = newAssignedExpression;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GseqPackage.ASSIGN__ASSIGNED_EXPRESSION, oldAssignedExpression, assignedExpression));
+		if (newAssignedExpression != assignedExpression) {
+			NotificationChain msgs = null;
+			if (assignedExpression != null)
+				msgs = ((InternalEObject)assignedExpression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GseqPackage.ASSIGN__ASSIGNED_EXPRESSION, null, msgs);
+			if (newAssignedExpression != null)
+				msgs = ((InternalEObject)newAssignedExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GseqPackage.ASSIGN__ASSIGNED_EXPRESSION, null, msgs);
+			msgs = basicSetAssignedExpression(newAssignedExpression, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GseqPackage.ASSIGN__ASSIGNED_EXPRESSION, newAssignedExpression, newAssignedExpression));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case GseqPackage.ASSIGN__ASSIGNED_EXPRESSION:
+				return basicSetAssignedExpression(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -147,8 +167,7 @@ public class AssignImpl extends OperationImpl implements Assign {
 			case GseqPackage.ASSIGN__VAR_NAME:
 				return getVarName();
 			case GseqPackage.ASSIGN__ASSIGNED_EXPRESSION:
-				if (resolve) return getAssignedExpression();
-				return basicGetAssignedExpression();
+				return getAssignedExpression();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}

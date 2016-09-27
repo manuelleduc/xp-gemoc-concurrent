@@ -2,9 +2,7 @@
  */
 package gseq.tests;
 
-import gseq.GseqFactory;
 import gseq.IntegerExpression;
-import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,16 +17,7 @@ import junit.textui.TestRunner;
  * </p>
  * @generated
  */
-public class IntegerExpressionTest extends OperationTest {
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static void main(String[] args) {
-		TestRunner.run(IntegerExpressionTest.class);
-	}
+public abstract class IntegerExpressionTest extends OperationTest {
 
 	/**
 	 * Constructs a new Integer Expression test case with the given name.
@@ -49,28 +38,6 @@ public class IntegerExpressionTest extends OperationTest {
 	@Override
 	protected IntegerExpression getFixture() {
 		return (IntegerExpression)fixture;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#setUp()
-	 * @generated
-	 */
-	@Override
-	protected void setUp() throws Exception {
-		setFixture(GseqFactory.eINSTANCE.createIntegerExpression());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#tearDown()
-	 * @generated
-	 */
-	@Override
-	protected void tearDown() throws Exception {
-		setFixture(null);
 	}
 
 	/**

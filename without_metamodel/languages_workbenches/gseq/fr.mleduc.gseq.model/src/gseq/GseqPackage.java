@@ -1109,7 +1109,7 @@ public interface GseqPackage extends EPackage {
 	int ASSIGN__VAR_NAME = OPERATION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Assigned Expression</b></em>' reference.
+	 * The feature id for the '<em><b>Assigned Expression</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1164,22 +1164,22 @@ public interface GseqPackage extends EPackage {
 	int PLUS__EXECUTED_BY = INTEGER_EXPRESSION__EXECUTED_BY;
 
 	/**
-	 * The feature id for the '<em><b>Right Plus</b></em>' reference.
+	 * The feature id for the '<em><b>Left Plus</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PLUS__RIGHT_PLUS = INTEGER_EXPRESSION_FEATURE_COUNT + 0;
+	int PLUS__LEFT_PLUS = INTEGER_EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Left Plus</b></em>' reference.
+	 * The feature id for the '<em><b>Right Plus</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PLUS__LEFT_PLUS = INTEGER_EXPRESSION_FEATURE_COUNT + 1;
+	int PLUS__RIGHT_PLUS = INTEGER_EXPRESSION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Plus</em>' class.
@@ -1834,10 +1834,10 @@ public interface GseqPackage extends EPackage {
 	EAttribute getAssign_VarName();
 
 	/**
-	 * Returns the meta object for the reference '{@link gseq.Assign#getAssignedExpression <em>Assigned Expression</em>}'.
+	 * Returns the meta object for the containment reference '{@link gseq.Assign#getAssignedExpression <em>Assigned Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Assigned Expression</em>'.
+	 * @return the meta object for the containment reference '<em>Assigned Expression</em>'.
 	 * @see gseq.Assign#getAssignedExpression()
 	 * @see #getAssign()
 	 * @generated
@@ -1855,26 +1855,26 @@ public interface GseqPackage extends EPackage {
 	EClass getPlus();
 
 	/**
-	 * Returns the meta object for the reference '{@link gseq.Plus#getRightPlus <em>Right Plus</em>}'.
+	 * Returns the meta object for the containment reference '{@link gseq.Plus#getLeftPlus <em>Left Plus</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Right Plus</em>'.
-	 * @see gseq.Plus#getRightPlus()
-	 * @see #getPlus()
-	 * @generated
-	 */
-	EReference getPlus_RightPlus();
-
-	/**
-	 * Returns the meta object for the reference '{@link gseq.Plus#getLeftPlus <em>Left Plus</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Left Plus</em>'.
+	 * @return the meta object for the containment reference '<em>Left Plus</em>'.
 	 * @see gseq.Plus#getLeftPlus()
 	 * @see #getPlus()
 	 * @generated
 	 */
 	EReference getPlus_LeftPlus();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link gseq.Plus#getRightPlus <em>Right Plus</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Right Plus</em>'.
+	 * @see gseq.Plus#getRightPlus()
+	 * @see #getPlus()
+	 * @generated
+	 */
+	EReference getPlus_RightPlus();
 
 	/**
 	 * Returns the meta object for class '{@link gseq.GreaterThan <em>Greater Than</em>}'.
@@ -2348,7 +2348,7 @@ public interface GseqPackage extends EPackage {
 		EAttribute ASSIGN__VAR_NAME = eINSTANCE.getAssign_VarName();
 
 		/**
-		 * The meta object literal for the '<em><b>Assigned Expression</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Assigned Expression</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2366,20 +2366,20 @@ public interface GseqPackage extends EPackage {
 		EClass PLUS = eINSTANCE.getPlus();
 
 		/**
-		 * The meta object literal for the '<em><b>Right Plus</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PLUS__RIGHT_PLUS = eINSTANCE.getPlus_RightPlus();
-
-		/**
-		 * The meta object literal for the '<em><b>Left Plus</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Left Plus</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference PLUS__LEFT_PLUS = eINSTANCE.getPlus_LeftPlus();
+
+		/**
+		 * The meta object literal for the '<em><b>Right Plus</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PLUS__RIGHT_PLUS = eINSTANCE.getPlus_RightPlus();
 
 		/**
 		 * The meta object literal for the '{@link gseq.impl.GreaterThanImpl <em>Greater Than</em>}' class.

@@ -51,7 +51,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="leftAnd" lowerBound="1" eType="//BooleanExpression"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="rightAnd" lowerBound="1" eType="//BooleanExpression"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="IntegerExpression" eSuperTypes="//Operation">
+  <eClassifiers xsi:type="ecore:EClass" name="IntegerExpression" abstract="true" eSuperTypes="//Operation">
     <eOperations name="ivalue">
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
     </eOperations>
@@ -73,11 +73,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="varName" lowerBound="1">
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="assignedExpression" lowerBound="1" eType="//IntegerExpression"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assignedExpression" lowerBound="1" eType="//IntegerExpression" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Plus" eSuperTypes="//IntegerExpression">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="rightPlus" lowerBound="1" eType="//IntegerExpression"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="leftPlus" lowerBound="1" eType="//IntegerExpression"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="leftPlus" lowerBound="1" eType="//IntegerExpression" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rightPlus" lowerBound="1" eType="//IntegerExpression" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GreaterThan" eSuperTypes="//BooleanExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="leftGreaterThan" lowerBound="1" eType="//IntegerExpression"/>

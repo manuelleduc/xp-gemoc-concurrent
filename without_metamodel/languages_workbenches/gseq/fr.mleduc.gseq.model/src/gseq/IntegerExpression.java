@@ -10,7 +10,7 @@ package gseq;
  *
  *
  * @see gseq.GseqPackage#getIntegerExpression()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface IntegerExpression extends Operation {

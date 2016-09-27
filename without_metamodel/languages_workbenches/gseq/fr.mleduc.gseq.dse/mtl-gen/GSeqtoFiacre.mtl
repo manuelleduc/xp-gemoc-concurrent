@@ -57,7 +57,13 @@ Defining the Functions for : Print
 Defining the Functions for : If
 **********************************************************************/
 /*********************************************************************
+Defining the Functions for : Assign
+**********************************************************************/
+/*********************************************************************
 Defining the Functions for : MethodCall
+**********************************************************************/
+/*********************************************************************
+Defining the Functions for : Plus
 **********************************************************************/
 /************************* Program Process Instances***************************/
 [for (element : Program| aProgram.eAllContents(Program))]
@@ -102,7 +108,9 @@ process pUnConstrainedSemantics['['/][for (element : Program| aProgram.eAllConte
 [element.name/]_callIt:out none,[element.name/]_endOf:out none,[/for][for (element : Operation| aProgram.eAllContents(Operation))]
 [element.name/]_execute:out none,[element.name/]_endOfOperation:out none,[/for][for (element : Print| aProgram.eAllContents(Print))]
 [element.name/]_print:out none,[/for][for (element : If| aProgram.eAllContents(If))]
-[element.name/]_doEvaluateIf:out none,[element.name/]_evaluateTrue:out none,[element.name/]_evaluateFalse:out none,[/for][for (element : MethodCall| aProgram.eAllContents(MethodCall))]
+[element.name/]_doEvaluateIf:out none,[element.name/]_evaluateTrue:out none,[element.name/]_evaluateFalse:out none,[/for][for (element : Assign| aProgram.eAllContents(Assign))]
+[/for][for (element : MethodCall| aProgram.eAllContents(MethodCall))]
+[/for][for (element : Plus| aProgram.eAllContents(Plus))]
 [/for][']'/] is
 	states s0
 [for (element : Program| aProgram.eAllContents(Program))]
@@ -133,7 +141,13 @@ process pUnConstrainedSemantics['['/][for (element : Program| aProgram.eAllConte
     from s0  [element.name/]_evaluateFalse;  to s0
 
 [/for]
+[for (element : Assign| aProgram.eAllContents(Assign))]
+
+[/for]
 [for (element : MethodCall| aProgram.eAllContents(MethodCall))]
+
+[/for]
+[for (element : Plus| aProgram.eAllContents(Plus))]
 
 [/for]
 
@@ -144,7 +158,9 @@ process pUnConstrainedSemantics['['/][for (element : Program| aProgram.eAllConte
 [element.name/]_callIt:out none,[element.name/]_endOf:out none,[/for][for (element : Operation| aProgram.eAllContents(Operation))]
 [element.name/]_execute:out none,[element.name/]_endOfOperation:out none,[/for][for (element : Print| aProgram.eAllContents(Print))]
 [element.name/]_print:out none,[/for][for (element : If| aProgram.eAllContents(If))]
-[element.name/]_doEvaluateIf:out none,[element.name/]_evaluateTrue:out none,[element.name/]_evaluateFalse:out none,[/for][for (element : MethodCall| aProgram.eAllContents(MethodCall))]
+[element.name/]_doEvaluateIf:out none,[element.name/]_evaluateTrue:out none,[element.name/]_evaluateFalse:out none,[/for][for (element : Assign| aProgram.eAllContents(Assign))]
+[/for][for (element : MethodCall| aProgram.eAllContents(MethodCall))]
+[/for][for (element : Plus| aProgram.eAllContents(Plus))]
 [/for][']'/] is
 	
 	states s0
@@ -176,7 +192,13 @@ process pUnConstrainedSemantics['['/][for (element : Program| aProgram.eAllConte
     from s0  [element.name/]_evaluateFalse;  to s0
 
 [/for]
+[for (element : Assign| aProgram.eAllContents(Assign))]
+
+[/for]
 [for (element : MethodCall| aProgram.eAllContents(MethodCall))]
+
+[/for]
+[for (element : Plus| aProgram.eAllContents(Plus))]
 
 [/for]
 [/file]
@@ -207,7 +229,11 @@ port
 [/for][for (element : If| aProgram.eAllContents(If))]
 [element.name/]_doEvaluateIf: none,[element.name/]_evaluateTrue: none,[element.name/]_evaluateFalse: none,
 
+[/for][for (element : Assign| aProgram.eAllContents(Assign))]
+
 [/for][for (element : MethodCall| aProgram.eAllContents(MethodCall))]
+
+[/for][for (element : Plus| aProgram.eAllContents(Plus))]
 
 [/for]
 
@@ -219,7 +245,9 @@ pUnConstrainedSemantics['['/][for (element : Program| aProgram.eAllContents(Prog
 [element.name/]_callIt,[element.name/]_endOf,[/for][for (element : Operation| aProgram.eAllContents(Operation))]
 [element.name/]_execute,[element.name/]_endOfOperation,[/for][for (element : Print| aProgram.eAllContents(Print))]
 [element.name/]_print,[/for][for (element : If| aProgram.eAllContents(If))]
-[element.name/]_doEvaluateIf,[element.name/]_evaluateTrue,[element.name/]_evaluateFalse,[/for][for (element : MethodCall| aProgram.eAllContents(MethodCall))]
+[element.name/]_doEvaluateIf,[element.name/]_evaluateTrue,[element.name/]_evaluateFalse,[/for][for (element : Assign| aProgram.eAllContents(Assign))]
+,[/for][for (element : MethodCall| aProgram.eAllContents(MethodCall))]
+,[/for][for (element : Plus| aProgram.eAllContents(Plus))]
 ,[/for][']'/]
 [for (element : Program| aProgram.eAllContents(Program))]
 || p[element.name/] ['['/][element.name/]_start[']'/] (&global, ID)
@@ -239,7 +267,13 @@ pUnConstrainedSemantics['['/][for (element : Program| aProgram.eAllContents(Prog
 [for (element : If| aProgram.eAllContents(If))]
 || p[element.name/] ['['/][element.name/]_doEvaluateIf,[element.name/]_evaluateTrue,[element.name/]_evaluateFalse[']'/] (&global, ID)
 [/for]
+[for (element : Assign| aProgram.eAllContents(Assign))]
+|| p[element.name/] ['['/][']'/] (&global, ID)
+[/for]
 [for (element : MethodCall| aProgram.eAllContents(MethodCall))]
+|| p[element.name/] ['['/][']'/] (&global, ID)
+[/for]
+[for (element : Plus| aProgram.eAllContents(Plus))]
 || p[element.name/] ['['/][']'/] (&global, ID)
 [/for]
 end par

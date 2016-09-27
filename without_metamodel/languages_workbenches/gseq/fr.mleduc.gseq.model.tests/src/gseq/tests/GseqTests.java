@@ -41,7 +41,6 @@ public class GseqTests extends TestSuite {
 		suite.addTestSuite(EqualityTest.class);
 		suite.addTestSuite(NotTest.class);
 		suite.addTestSuite(AndTest.class);
-		suite.addTestSuite(IntegerExpressionTest.class);
 		suite.addTestSuite(ConstTest.class);
 		suite.addTestSuite(VarTest.class);
 		suite.addTestSuite(AssignTest.class);

@@ -35,6 +35,8 @@ context If
 	def : evaluateTrue : Event = self
 	def : evaluateFalse : Event = self
 
+
+
 context Method
 
     -- all the operation of a method must be executed in sequence 
@@ -70,6 +72,13 @@ context Method
 		(Relation Precedes(self.operations->select(e | (e).oclIsKindOf(MethodCall))->last().oclAsType(MethodCall).methodToCall.endOf, self.endOf))	
 	
 		
+context Assign
+	inv assignEvaluteBeforeSelf:
+		Relation Precedes(self.execute, self.assignedExpression.execute)
+	
+	inv evaluationFinishBeforeSelf:
+		Relation Precedes(self.assignedExpression.endOfOperation, self.endOfOperation)
+
 
 
 context If
@@ -114,6 +123,18 @@ context MethodCall
 		(Relation Precedes(self.methodToCall.endOf, 
 			self.executedBy.operations->at(self.executedBy.operations->indexOf(self)+1).execute)
 		)
+		
+context Plus
+	inv subpartsBeforeSumRight:
+		Relation Precedes(self.rightPlus.execute, self.execute)
+	inv subpartsBeforeSumLeft:
+		Relation Precedes(self.leftPlus.execute, self.rightPlus.execute)
+		
+	inv subpartsEndBeforeSum:
+		Relation Precedes(self.leftPlus.endOfOperation, self.rightPlus.execute)
+		
+	inv sibPartBeforeEndSumRigth:
+		Relation Precedes(self.rightPlus.endOfOperation, self.execute)
 	
 context Print
 	inv printToPrintBeforeSelf:

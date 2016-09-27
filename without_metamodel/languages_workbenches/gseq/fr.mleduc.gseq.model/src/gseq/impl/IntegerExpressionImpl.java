@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class IntegerExpressionImpl extends OperationImpl implements IntegerExpression {
+public abstract class IntegerExpressionImpl extends OperationImpl implements IntegerExpression {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

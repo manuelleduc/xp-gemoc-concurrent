@@ -141,11 +141,6 @@ public class PrintItemProvider extends OperationItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(GseqPackage.Literals.PRINT__TO_PRINT,
-				 GseqFactory.eINSTANCE.createIntegerExpression()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(GseqPackage.Literals.PRINT__TO_PRINT,
 				 GseqFactory.eINSTANCE.createMethodCall()));
 
 		newChildDescriptors.add

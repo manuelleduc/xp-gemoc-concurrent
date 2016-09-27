@@ -145,11 +145,6 @@ public class IfItemProvider extends OperationItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(GseqPackage.Literals.IF__ELSE_BRANCH,
-				 GseqFactory.eINSTANCE.createIntegerExpression()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(GseqPackage.Literals.IF__ELSE_BRANCH,
 				 GseqFactory.eINSTANCE.createMethodCall()));
 
 		newChildDescriptors.add
@@ -216,11 +211,6 @@ public class IfItemProvider extends OperationItemProvider {
 			(createChildParameter
 				(GseqPackage.Literals.IF__THEN_BRANCH,
 				 GseqFactory.eINSTANCE.createPrint()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(GseqPackage.Literals.IF__THEN_BRANCH,
-				 GseqFactory.eINSTANCE.createIntegerExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter

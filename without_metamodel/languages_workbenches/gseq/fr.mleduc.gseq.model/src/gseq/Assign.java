@@ -48,26 +48,26 @@ public interface Assign extends Operation {
 	void setVarName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Assigned Expression</b></em>' reference.
+	 * Returns the value of the '<em><b>Assigned Expression</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Assigned Expression</em>' reference isn't clear,
+	 * If the meaning of the '<em>Assigned Expression</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Assigned Expression</em>' reference.
+	 * @return the value of the '<em>Assigned Expression</em>' containment reference.
 	 * @see #setAssignedExpression(IntegerExpression)
 	 * @see gseq.GseqPackage#getAssign_AssignedExpression()
-	 * @model required="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	IntegerExpression getAssignedExpression();
 
 	/**
-	 * Sets the value of the '{@link gseq.Assign#getAssignedExpression <em>Assigned Expression</em>}' reference.
+	 * Sets the value of the '{@link gseq.Assign#getAssignedExpression <em>Assigned Expression</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Assigned Expression</em>' reference.
+	 * @param value the new value of the '<em>Assigned Expression</em>' containment reference.
 	 * @see #getAssignedExpression()
 	 * @generated
 	 */

@@ -8,6 +8,15 @@
       <thenBranch xsi:type="gseq:Print">
         <toPrint xsi:type="gseq:Const"/>
       </thenBranch>
+      <conditionIf xsi:type="gseq:False"/>
+    </operations>
+    <operations xsi:type="gseq:If">
+      <elseBranch xsi:type="gseq:Print">
+        <toPrint xsi:type="gseq:Const" value="2"/>
+      </elseBranch>
+      <thenBranch xsi:type="gseq:Print">
+        <toPrint xsi:type="gseq:Const" value="3"/>
+      </thenBranch>
       <conditionIf xsi:type="gseq:True"/>
     </operations>
   </methods>

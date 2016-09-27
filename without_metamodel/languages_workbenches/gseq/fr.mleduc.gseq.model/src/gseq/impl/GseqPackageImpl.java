@@ -652,7 +652,7 @@ public class GseqPackageImpl extends EPackageImpl implements GseqPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPlus_RightPlus() {
+	public EReference getPlus_LeftPlus() {
 		return (EReference)plusEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -661,7 +661,7 @@ public class GseqPackageImpl extends EPackageImpl implements GseqPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPlus_LeftPlus() {
+	public EReference getPlus_RightPlus() {
 		return (EReference)plusEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -809,8 +809,8 @@ public class GseqPackageImpl extends EPackageImpl implements GseqPackage {
 		createEReference(assignEClass, ASSIGN__ASSIGNED_EXPRESSION);
 
 		plusEClass = createEClass(PLUS);
-		createEReference(plusEClass, PLUS__RIGHT_PLUS);
 		createEReference(plusEClass, PLUS__LEFT_PLUS);
+		createEReference(plusEClass, PLUS__RIGHT_PLUS);
 
 		greaterThanEClass = createEClass(GREATER_THAN);
 		createEReference(greaterThanEClass, GREATER_THAN__LEFT_GREATER_THAN);
@@ -920,7 +920,7 @@ public class GseqPackageImpl extends EPackageImpl implements GseqPackage {
 		initEReference(getAnd_LeftAnd(), this.getBooleanExpression(), null, "leftAnd", null, 1, 1, And.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAnd_RightAnd(), this.getBooleanExpression(), null, "rightAnd", null, 1, 1, And.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(integerExpressionEClass, IntegerExpression.class, "IntegerExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(integerExpressionEClass, IntegerExpression.class, "IntegerExpression", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEOperation(getIntegerExpression__Ivalue(), ecorePackage.getELong(), "ivalue", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -934,11 +934,11 @@ public class GseqPackageImpl extends EPackageImpl implements GseqPackage {
 
 		initEClass(assignEClass, Assign.class, "Assign", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAssign_VarName(), ecorePackage.getEString(), "varName", null, 1, 1, Assign.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAssign_AssignedExpression(), this.getIntegerExpression(), null, "assignedExpression", null, 1, 1, Assign.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAssign_AssignedExpression(), this.getIntegerExpression(), null, "assignedExpression", null, 1, 1, Assign.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(plusEClass, Plus.class, "Plus", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPlus_RightPlus(), this.getIntegerExpression(), null, "rightPlus", null, 1, 1, Plus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPlus_LeftPlus(), this.getIntegerExpression(), null, "leftPlus", null, 1, 1, Plus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPlus_LeftPlus(), this.getIntegerExpression(), null, "leftPlus", null, 1, 1, Plus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPlus_RightPlus(), this.getIntegerExpression(), null, "rightPlus", null, 1, 1, Plus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(greaterThanEClass, GreaterThan.class, "GreaterThan", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGreaterThan_LeftGreaterThan(), this.getIntegerExpression(), null, "leftGreaterThan", null, 1, 1, GreaterThan.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gseq:Program xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gseq="http://mleduc.fr/gseq" startMethod="//@methods.0">
+  <methods name="main">
+    <operations xsi:type="gseq:Assign" varName="a">
+      <assignedExpression xsi:type="gseq:Const"/>
+    </operations>
+    <operations xsi:type="gseq:Assign" varName="b">
+      <assignedExpression xsi:type="gseq:Const" value="3"/>
+    </operations>
+    <operations xsi:type="gseq:Print">
+      <toPrint xsi:type="gseq:Plus">
+        <leftPlus xsi:type="gseq:Var" varName="a"/>
+        <rightPlus xsi:type="gseq:Var" varName="b"/>
+      </toPrint>
+    </operations>
+  </methods>
+</gseq:Program>
