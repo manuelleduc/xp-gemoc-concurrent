@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated gx10 -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="gx10.presentation.Gx10ModelWizardID"
+            name="%_UI_Gx10ModelWizard_label"
+            class="gx10.presentation.Gx10ModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/Gx10ModelFile.gif">
+         <description>%_UI_Gx10ModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated gx10 -->
+      <editor
+            id="gx10.presentation.Gx10EditorID"
+            name="%_UI_Gx10Editor_label"
+            icon="icons/full/obj16/Gx10ModelFile.gif"
+            extensions="gx10"
+            class="gx10.presentation.Gx10Editor"
+            contributorClass="gx10.presentation.Gx10ActionBarContributor">
+      </editor>
+   </extension>
+</plugin>

@@ -1,0 +1,44 @@
+[comment encoding = UTF-8 /]
+
+[module generate('http://fr.inria.aoste.timemodel.ccslmodel.clockexpressionandrelation', 
+	'http://www.eclipse.org/emf/2002/Ecore', 
+	'http://org.gemoc.moccml/1.0', 
+	'http://fr.inria.aoste.timemodel',
+	'http://org.gemoc.moccml.fsmmodel/1.0',
+	'http://www.eclipse.org/xtend', 
+	'http://www.eclipse.org/xtend/RichString', 
+	'http://www.eclipse.org/xtext/xbase/Xbase',
+	'http://mleduc.fr/gx10') ]
+[template public generate(aProgram : Program)]
+[comment @main/]
+[file (aProgram.name+'_FiacreProcess.fcr', false, 'UTF-8')]
+// *********************** Type Declaration ******************************/
+
+
+
+process pUnConstrainedSemantics['['/][']'/] is
+	states s0
+
+[file ('pUnConstrainedSemantics.fcr', false, 'UTF-8')]
+process pUnConstrainedSemantics['['/][']'/] is
+	
+	states s0
+[/file]
+/******************** Process Parallelization for Program******************/
+component sys is
+
+var 
+	global : SystemDataRoot,
+    ID: int := 0
+	//global : SystemDataRoot := INITIAL_Configuration
+
+port
+
+
+par
+
+pUnConstrainedSemantics['['/][']'/]
+end par
+sys 
+[/file]
+[/template]

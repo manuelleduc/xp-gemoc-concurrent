@@ -1,0 +1,8 @@
+
+"Some global constants"
+|system moccmllibs ccsllibs|
+
+
+system := ClockSystem named: 'aProgram_withMoC-'.
+system addLibrary:moccmllibs asDictionary.
+

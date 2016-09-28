@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated gx10 -->
+      <package
+            uri="http://mleduc.fr/gx10"
+            class="gx10.Gx10Package"
+            genModel="model/gx10.genmodel"/>
+   </extension>
+
+</plugin>
