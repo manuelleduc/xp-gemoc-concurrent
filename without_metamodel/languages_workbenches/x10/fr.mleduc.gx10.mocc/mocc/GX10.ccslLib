@@ -1,0 +1,48 @@
+/* CCSL Library 
+ *
+ *@author:  mleduc
+ * date :  Thu September 29 2016  02:40:16 CEST 
+ */
+Library GX10 {
+	imports {
+		 // import statements
+		import "platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib" as lib0; 
+		import "platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib" as lib1; 
+
+	}
+	
+	RelationLibrary GX10_relations {
+		RelationDeclaration WeakAlternates (WeakAlternatesLeftClock:clock, WeakAlternatesRightClock:clock) 			
+		RelationDefinition WeakAlternatesDef[WeakAlternates] {
+			//c1 <= c2
+			Relation WeakAlt_c1PrecedesC2[Causes](
+				LeftClock -> WeakAlternatesLeftClock,	
+				RightClock -> WeakAlternatesRightClock
+			)
+				
+			Sequence WeakseqOneInfinite:IntegerSequence = (one=1) 
+
+			// c1 delayedBy (1)
+			Expression WeakAlt_c1DelayedByOne = Defer (
+				BaseClock -> WeakAlternatesLeftClock, 
+				DelayClock -> WeakAlternatesLeftClock, 
+				DelayPatternExpression -> WeakseqOneInfinite
+			)
+				
+			//c2 <= (c1 delayedBy (1))
+			Relation WeakAlt_c2precedesC1DelayedByOne[Causes] (
+				LeftClock -> WeakAlternatesRightClock, 
+				RightClock -> WeakAlt_c1DelayedByOne
+			)
+										
+		}		
+	}
+	
+}
+	
+	
+	
+	
+	
+	
+	

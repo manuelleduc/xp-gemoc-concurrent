@@ -72,6 +72,90 @@ public class Gx10AdapterFactory extends AdapterFactoryImpl {
 				return createProgramAdapter();
 			}
 			@Override
+			public Adapter caseMethod(Method object) {
+				return createMethodAdapter();
+			}
+			@Override
+			public Adapter caseBlock(Block object) {
+				return createBlockAdapter();
+			}
+			@Override
+			public Adapter caseStatement(Statement object) {
+				return createStatementAdapter();
+			}
+			@Override
+			public Adapter caseControlStructure(ControlStructure object) {
+				return createControlStructureAdapter();
+			}
+			@Override
+			public Adapter caseIntExpression(IntExpression object) {
+				return createIntExpressionAdapter();
+			}
+			@Override
+			public Adapter caseBoolExpression(BoolExpression object) {
+				return createBoolExpressionAdapter();
+			}
+			@Override
+			public Adapter caseIf(If object) {
+				return createIfAdapter();
+			}
+			@Override
+			public Adapter caseWhile(While object) {
+				return createWhileAdapter();
+			}
+			@Override
+			public Adapter caseTrue(True object) {
+				return createTrueAdapter();
+			}
+			@Override
+			public Adapter caseFalse(False object) {
+				return createFalseAdapter();
+			}
+			@Override
+			public Adapter caseNot(Not object) {
+				return createNotAdapter();
+			}
+			@Override
+			public Adapter caseAnd(And object) {
+				return createAndAdapter();
+			}
+			@Override
+			public Adapter caseIntConst(IntConst object) {
+				return createIntConstAdapter();
+			}
+			@Override
+			public Adapter casePlus(Plus object) {
+				return createPlusAdapter();
+			}
+			@Override
+			public Adapter caseAsync(Async object) {
+				return createAsyncAdapter();
+			}
+			@Override
+			public Adapter caseMethodCall(MethodCall object) {
+				return createMethodCallAdapter();
+			}
+			@Override
+			public Adapter caseExpression(Expression object) {
+				return createExpressionAdapter();
+			}
+			@Override
+			public Adapter caseFinish(Finish object) {
+				return createFinishAdapter();
+			}
+			@Override
+			public Adapter casePrint(Print object) {
+				return createPrintAdapter();
+			}
+			@Override
+			public Adapter caseBoolVar(BoolVar object) {
+				return createBoolVarAdapter();
+			}
+			@Override
+			public Adapter caseIntVar(IntVar object) {
+				return createIntVarAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -102,6 +186,300 @@ public class Gx10AdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createProgramAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link gx10.Method <em>Method</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see gx10.Method
+	 * @generated
+	 */
+	public Adapter createMethodAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link gx10.Block <em>Block</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see gx10.Block
+	 * @generated
+	 */
+	public Adapter createBlockAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link gx10.Statement <em>Statement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see gx10.Statement
+	 * @generated
+	 */
+	public Adapter createStatementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link gx10.ControlStructure <em>Control Structure</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see gx10.ControlStructure
+	 * @generated
+	 */
+	public Adapter createControlStructureAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link gx10.IntExpression <em>Int Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see gx10.IntExpression
+	 * @generated
+	 */
+	public Adapter createIntExpressionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link gx10.BoolExpression <em>Bool Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see gx10.BoolExpression
+	 * @generated
+	 */
+	public Adapter createBoolExpressionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link gx10.If <em>If</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see gx10.If
+	 * @generated
+	 */
+	public Adapter createIfAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link gx10.While <em>While</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see gx10.While
+	 * @generated
+	 */
+	public Adapter createWhileAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link gx10.True <em>True</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see gx10.True
+	 * @generated
+	 */
+	public Adapter createTrueAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link gx10.False <em>False</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see gx10.False
+	 * @generated
+	 */
+	public Adapter createFalseAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link gx10.Not <em>Not</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see gx10.Not
+	 * @generated
+	 */
+	public Adapter createNotAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link gx10.And <em>And</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see gx10.And
+	 * @generated
+	 */
+	public Adapter createAndAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link gx10.IntConst <em>Int Const</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see gx10.IntConst
+	 * @generated
+	 */
+	public Adapter createIntConstAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link gx10.Plus <em>Plus</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see gx10.Plus
+	 * @generated
+	 */
+	public Adapter createPlusAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link gx10.Async <em>Async</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see gx10.Async
+	 * @generated
+	 */
+	public Adapter createAsyncAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link gx10.MethodCall <em>Method Call</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see gx10.MethodCall
+	 * @generated
+	 */
+	public Adapter createMethodCallAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link gx10.Expression <em>Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see gx10.Expression
+	 * @generated
+	 */
+	public Adapter createExpressionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link gx10.Finish <em>Finish</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see gx10.Finish
+	 * @generated
+	 */
+	public Adapter createFinishAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link gx10.Print <em>Print</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see gx10.Print
+	 * @generated
+	 */
+	public Adapter createPrintAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link gx10.BoolVar <em>Bool Var</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see gx10.BoolVar
+	 * @generated
+	 */
+	public Adapter createBoolVarAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link gx10.IntVar <em>Int Var</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see gx10.IntVar
+	 * @generated
+	 */
+	public Adapter createIntVarAdapter() {
 		return null;
 	}
 

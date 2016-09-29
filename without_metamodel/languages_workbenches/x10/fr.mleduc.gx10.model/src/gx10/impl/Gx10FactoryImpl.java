@@ -57,6 +57,22 @@ public class Gx10FactoryImpl extends EFactoryImpl implements Gx10Factory {
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case Gx10Package.PROGRAM: return createProgram();
+			case Gx10Package.METHOD: return createMethod();
+			case Gx10Package.BLOCK: return createBlock();
+			case Gx10Package.IF: return createIf();
+			case Gx10Package.WHILE: return createWhile();
+			case Gx10Package.TRUE: return createTrue();
+			case Gx10Package.FALSE: return createFalse();
+			case Gx10Package.NOT: return createNot();
+			case Gx10Package.AND: return createAnd();
+			case Gx10Package.INT_CONST: return createIntConst();
+			case Gx10Package.PLUS: return createPlus();
+			case Gx10Package.ASYNC: return createAsync();
+			case Gx10Package.METHOD_CALL: return createMethodCall();
+			case Gx10Package.FINISH: return createFinish();
+			case Gx10Package.PRINT: return createPrint();
+			case Gx10Package.BOOL_VAR: return createBoolVar();
+			case Gx10Package.INT_VAR: return createIntVar();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -70,6 +86,166 @@ public class Gx10FactoryImpl extends EFactoryImpl implements Gx10Factory {
 	public Program createProgram() {
 		ProgramImpl program = new ProgramImpl();
 		return program;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Method createMethod() {
+		MethodImpl method = new MethodImpl();
+		return method;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Block createBlock() {
+		BlockImpl block = new BlockImpl();
+		return block;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public If createIf() {
+		IfImpl if_ = new IfImpl();
+		return if_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public While createWhile() {
+		WhileImpl while_ = new WhileImpl();
+		return while_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public True createTrue() {
+		TrueImpl true_ = new TrueImpl();
+		return true_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public False createFalse() {
+		FalseImpl false_ = new FalseImpl();
+		return false_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Not createNot() {
+		NotImpl not = new NotImpl();
+		return not;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public And createAnd() {
+		AndImpl and = new AndImpl();
+		return and;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IntConst createIntConst() {
+		IntConstImpl intConst = new IntConstImpl();
+		return intConst;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Plus createPlus() {
+		PlusImpl plus = new PlusImpl();
+		return plus;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Async createAsync() {
+		AsyncImpl async = new AsyncImpl();
+		return async;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MethodCall createMethodCall() {
+		MethodCallImpl methodCall = new MethodCallImpl();
+		return methodCall;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Finish createFinish() {
+		FinishImpl finish = new FinishImpl();
+		return finish;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Print createPrint() {
+		PrintImpl print = new PrintImpl();
+		return print;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BoolVar createBoolVar() {
+		BoolVarImpl boolVar = new BoolVarImpl();
+		return boolVar;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IntVar createIntVar() {
+		IntVarImpl intVar = new IntVarImpl();
+		return intVar;
 	}
 
 	/**

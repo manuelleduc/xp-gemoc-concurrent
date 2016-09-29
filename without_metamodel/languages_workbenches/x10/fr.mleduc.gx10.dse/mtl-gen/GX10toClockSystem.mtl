@@ -13,7 +13,9 @@
 
 "Some global constants"
 |system moccmllibs ccsllibs|
+"MoCCML librairies specifications" 
 
+	"CCSL librairies specifications"
 
 
 "Instanciation" 
@@ -23,7 +25,172 @@ system := ClockSystem named: '[aProgram.name/]_withMoC-'.
 system addLibrary:moccmllibs asDictionary.
 "system addLibs:ccsllibs asDictionary."
 
+[for (element : gx10::Program| aProgram.eAllContents(gx10::Program))]
+"clocks for Program [element.name/]" 
+system addClocks: #(start[element.name/]).
 
+"internal clocks for gx10::Program [element.name/]" 
+	system addInternalClocks: #(oneStartOnly[element.name/]).
+
+[/for]
+[for (element : gx10::Method| aProgram.eAllContents(gx10::Method))]
+"clocks for Method [element.name/]" 
+system addClocks: #(startMethodEvt[element.name/]).
+system addClocks: #(endMethodEvt[element.name/]).
+
+"internal clocks for gx10::Method [element.name/]" 
+	
+[/for]
+[for (element : gx10::Statement| aProgram.eAllContents(gx10::Statement))]
+"clocks for Statement [element.name/]" 
+system addClocks: #(startStatement[element.name/]).
+system addClocks: #(endStatement[element.name/]).
+
+[/for]
+[for (element : gx10::Print| aProgram.eAllContents(gx10::Print))]
+"clocks for Print [element.name/]" 
+system addClocks: #(print[element.name/]).
+
+[/for]
+[for (element : gx10::MethodCall| aProgram.eAllContents(gx10::MethodCall))]
+"clocks for MethodCall [element.name/]" 
+system addClocks: #(callPreparation[element.name/]).
+system addClocks: #(callEvt[element.name/]).
+
+[/for]
+[for (element : gx10::Block| aProgram.eAllContents(gx10::Block))]
+"clocks for Block [element.name/]" 
+"internal clocks for gx10::Block [element.name/]" 
+	
+[/for]
+
+[for (element : gx10::Program| aProgram.eAllContents(gx10::Program))]
+"expressions used by  Program [element.name/]" 
+
+	[if ( ->size()>1) ]
+	system allOneTickAndNoMore: #(start[element.name/]) named: #oneStartOnly[element.name/]. 
+	[/if]
+ 
+"relations for Program [element.name/]" 
+	"initBeforeAll in Program [element.name/]"
+		[if ( true) ]
+	system library: #Kernel relation: #Precedes clocks: #(start[element.name/]  startMethodEvt[element.startMethod.name/])  constants:{-1} .
+		[/if]
+	"initOnlyOnce in Program [element.name/]"
+		[if ( true) ]
+	system library: #Kernel relation: #Coincides clocks: #(start[element.name/]  oneStartOnly[element.name/]) .
+		[/if]
+[/for]
+[for (element : gx10::Method| aProgram.eAllContents(gx10::Method))]
+"expressions used by  Method [element.name/]" 
+
+	[if ( ) ]
+	system allUnion: #() named: #allEventWhichCall0[element.name/]. 
+	[/if]
+ 
+
+	[if ( ) ]
+	system all: #() named: #inps0[element.name/]. 
+	[/if]
+ 
+
+	[if ( true) ]
+	system allUnion: #() named: #allEventsUnion[element.name/]. 
+	[/if]
+ 
+
+	[if ( ) ]
+	system allUnion: #() named: #allEventWhichCall2[element.name/]. 
+	[/if]
+ 
+"relations for Method [element.name/]" 
+	"methodStartThenEnd in Method [element.name/]"
+		[if ( true) ]
+	system library: #Kernel relation: #Precedes clocks: #(startMethodEvt[element.name/]  endMethodEvt[element.name/])  constants:{-1} .
+		[/if]
+	"methodBlockStartAtStart in Method [element.name/]"
+		[if ( true) ]
+	system library: #Kernel relation: #Precedes clocks: #(startMethodEvt[element.name/]  startStatement[element.methodBlock.name/])  constants:{-1} .
+		[/if]
+	"methodStopWhenBlockStop in Method [element.name/]"
+		[if ( true) ]
+	system library: #Kernel relation: #Precedes clocks: #(endStatement[element.methodBlock.name/]  endMethodEvt[element.name/])  constants:{-1} .
+		[/if]
+	"methodStartOnCall0 in Method [element.name/]"
+		[if ( ( self.inProgram.startMethod = self and self.calledBy->size() > 0) ) ]
+	system library: #Kernel relation: #Coincides clocks: #(allEventsUnion[element.name/]  startMethodEvt[element.name/]) .
+		[/if]
+	"methodStartOnCall1 in Method [element.name/]"
+		[if ( ( self.inProgram.startMethod = self and self.calledBy->size() = 0) ) ]
+	system library: #Kernel relation: #Coincides clocks: #(startMethodEvt[element.inProgram.startMethod.name/]  startMethodEvt[element.name/]) .
+		[/if]
+	"methodStartOnCall2 in Method [element.name/]"
+		[if ( ( self.inProgram.startMethod <> self and self.calledBy->size() > 0) ) ]
+	system library: #Kernel relation: #Coincides clocks: #(allEventWhichCall2[element.name/]  startMethodEvt[element.name/]) .
+		[/if]
+[/for]
+[for (element : gx10::Statement| aProgram.eAllContents(gx10::Statement))]
+"relations for Statement [element.name/]" 
+	"statementStartThenStop in Statement [element.name/]"
+		[if ( true) ]
+	system library: #Kernel relation: #Precedes clocks: #(startStatement[element.name/]  endStatement[element.name/])  constants:{-1} .
+		[/if]
+	"waitForPreviousToFinish in Statement [element.name/]"
+		[if ( ( self.inBlock <> null and self.inBlock.blockStatements->indexOf(self) > 1) ) ]
+	system library: #Kernel relation: #Precedes clocks: #(endStatement[element.inBlock.blockStatements->at(element.inBlock.blockStatements->indexOf(self).-(1)).name/]  startStatement[element.name/])  constants:{-1} .
+		[/if]
+[/for]
+[for (element : gx10::Print| aProgram.eAllContents(gx10::Print))]
+"relations for Print [element.name/]" 
+	"printEvaluateBeforePrint0 in Print [element.name/]"
+		[if ( true) ]
+	system library: #Kernel relation: #Precedes clocks: #(startStatement[element.name/]  startStatement[element.toPrint.name/])  constants:{-1} .
+		[/if]
+	"printEvaluateBeforePrint1 in Print [element.name/]"
+		[if ( true) ]
+	system library: #Kernel relation: #Precedes clocks: #(endStatement[element.toPrint.name/]  print[element.name/])  constants:{-1} .
+		[/if]
+	"printFinishAfterPrint in Print [element.name/]"
+		[if ( true) ]
+	system library: #Kernel relation: #Precedes clocks: #(print[element.name/]  endStatement[element.name/])  constants:{-1} .
+		[/if]
+[/for]
+[for (element : gx10::MethodCall| aProgram.eAllContents(gx10::MethodCall))]
+"relations for MethodCall [element.name/]" 
+	"methodStartBeforePrepareCall in MethodCall [element.name/]"
+		[if ( true) ]
+	system library: #Kernel relation: #Precedes clocks: #(startStatement[element.name/]  callPreparation[element.name/])  constants:{-1} .
+		[/if]
+	"methodCallStartMethod in MethodCall [element.name/]"
+		[if ( true) ]
+	system library: #Kernel relation: #Precedes clocks: #(callPreparation[element.name/]  callEvt[element.name/])  constants:{-1} .
+		[/if]
+	"methodCallStopWhenCalledEnd in MethodCall [element.name/]"
+		[if ( true) ]
+	system library: #Kernel relation: #Precedes clocks: #(endMethodEvt[element.methodToCall.name/]  endStatement[element.name/])  constants:{-1} .
+		[/if]
+[/for]
+[for (element : gx10::Block| aProgram.eAllContents(gx10::Block))]
+"expressions used by  Block [element.name/]" 
+
+	[if ( ) ]
+	system allSup: #() named: #blockLastofAllStatements[element.name/]. 
+	[/if]
+ 
+"relations for Block [element.name/]" 
+	"blockStatementsOrdered in Block [element.name/]"
+		[if ( true) ]
+	system library: #Kernel relation: #Precedes clocks: #()  constants:{-1} .
+		[/if]
+	"firstInstructionStartWhenBlockReady in Block [element.name/]"
+		[if ( ( self.blockStatements->size() > 0) ) ]
+	system library: #Kernel relation: #Precedes clocks: #(startStatement[element.name/]  startStatement[element.blockStatements->first().name/])  constants:{-1} .
+		[/if]
+	"blockStatementWaitForAllToFinish in Block [element.name/]"
+		[if ( ( self.blockStatements->size() > 0) ) ]
+	system library: #Kernel relation: #Precedes clocks: #(blockLastofAllStatements[element.name/]  endStatement[element.name/])  constants:{-1} .
+		[/if]
+[/for]
 [/file]
 [file ('ClkSysFunctionTest.clocksystem', false, 'UTF-8')]
 SimpleSDF example1 system

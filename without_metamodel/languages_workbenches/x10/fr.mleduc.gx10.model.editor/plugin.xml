@@ -33,4 +33,5 @@
             contributorClass="gx10.presentation.Gx10ActionBarContributor">
       </editor>
    </extension>
+
 </plugin>

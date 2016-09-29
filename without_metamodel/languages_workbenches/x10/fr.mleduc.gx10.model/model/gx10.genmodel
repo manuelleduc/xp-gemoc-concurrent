@@ -1,10 +1,163 @@
 <?xml version="1.0" encoding="ASCII"?>
-<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/fr.mleduc.gx10.model/src" modelPluginID="fr.mleduc.gx10.model" modelName="Gx10" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/fr.mleduc.gx10.model/src" modelPluginID="fr.mleduc.gx10.model" modelName="Gx10" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
   <foreignModel>gx10.ecore</foreignModel>
   <genPackages prefix="Gx10" disposableProviderFactory="true">
     <ecorePackage href="gx10.ecore#/"/>
     <genClasses>
       <ecoreClass href="gx10.ecore#//Program"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="gx10.ecore#//Program/methods"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="gx10.ecore#//Program/startMethod"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="gx10.ecore#//Method"/>
+      <genFeatures property="None" notify="false" createChild="false">
+        <ecoreFeature xsi:type="ecore:EReference" href="gx10.ecore#//Method/inProgram"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="gx10.ecore#//Method/methodBlock"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="gx10.ecore#//Method/name"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="gx10.ecore#//Method/calledBy"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="gx10.ecore#//Block"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="gx10.ecore#//Block/blockStatements"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses image="false">
+      <ecoreClass href="gx10.ecore#//Statement"/>
+      <genFeatures property="None" notify="false" createChild="false">
+        <ecoreFeature xsi:type="ecore:EReference" href="gx10.ecore#//Statement/inBlock"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses image="false">
+      <ecoreClass href="gx10.ecore#//ControlStructure"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="gx10.ecore#//ControlStructure/controlStructureCondition"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses image="false">
+      <ecoreClass href="gx10.ecore#//IntExpression"/>
+      <genOperations>
+        <ecoreOperation href="gx10.ecore#//IntExpression/getCurrentValue"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false">
+      <ecoreClass href="gx10.ecore#//BoolExpression"/>
+      <genOperations>
+        <ecoreOperation href="gx10.ecore#//BoolExpression/getCurrentValue"/>
+      </genOperations>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="gx10.ecore#//If"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="gx10.ecore#//If/thenBlock"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="gx10.ecore#//If/elseBlock"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="gx10.ecore#//While"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="gx10.ecore#//While/whileBlock"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="gx10.ecore#//True"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="gx10.ecore#//False"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="gx10.ecore#//Not"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="gx10.ecore#//Not/notExpression"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="gx10.ecore#//And"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="gx10.ecore#//And/leftAndExpression"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="gx10.ecore#//And/rightAndExpression"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="gx10.ecore#//IntConst"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="gx10.ecore#//IntConst/value"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="gx10.ecore#//Plus"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="gx10.ecore#//Plus/leftPlus"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="gx10.ecore#//Plus/rightPlus"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="gx10.ecore#//Async"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="gx10.ecore#//Async/asyncBlock"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="gx10.ecore#//MethodCall"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="gx10.ecore#//MethodCall/methodToCall"/>
+      </genFeatures>
+      <genOperations>
+        <ecoreOperation href="gx10.ecore#//MethodCall/call"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false">
+      <ecoreClass href="gx10.ecore#//Expression"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="gx10.ecore#//Finish"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="gx10.ecore#//Finish/finishStatement"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="gx10.ecore#//Print"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="gx10.ecore#//Print/toPrint"/>
+      </genFeatures>
+      <genOperations>
+        <ecoreOperation href="gx10.ecore#//Print/print"/>
+      </genOperations>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="gx10.ecore#//BoolVar"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="gx10.ecore#//BoolVar/name"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="gx10.ecore#//BoolVar/boolVarExpr"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="gx10.ecore#//IntVar"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="gx10.ecore#//IntVar/name"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="gx10.ecore#//IntVar/intVarExpr"/>
+      </genFeatures>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

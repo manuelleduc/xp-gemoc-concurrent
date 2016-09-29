@@ -13,16 +13,139 @@
 [comment @main/]
 [file (aProgram.name+'_FiacreProcess.fcr', false, 'UTF-8')]
 // *********************** Type Declaration ******************************/
+const NUMBER_Programs : int is [aProgram.eAllContents(Program)->size()/]
+const NUMBER_Methods : int is [aProgram.eAllContents(Method)->size()/]
+const NUMBER_Blocks : int is [aProgram.eAllContents(Block)->size()/]
+const NUMBER_Statements : int is [aProgram.eAllContents(Statement)->size()/]
+const NUMBER_ControlStructures : int is [aProgram.eAllContents(ControlStructure)->size()/]
+const NUMBER_IntExpressions : int is [aProgram.eAllContents(IntExpression)->size()/]
+const NUMBER_BoolExpressions : int is [aProgram.eAllContents(BoolExpression)->size()/]
+const NUMBER_Ifs : int is [aProgram.eAllContents(If)->size()/]
+const NUMBER_Whiles : int is [aProgram.eAllContents(While)->size()/]
+const NUMBER_Trues : int is [aProgram.eAllContents(True)->size()/]
+const NUMBER_Falses : int is [aProgram.eAllContents(False)->size()/]
+const NUMBER_Nots : int is [aProgram.eAllContents(Not)->size()/]
+const NUMBER_Ands : int is [aProgram.eAllContents(And)->size()/]
+const NUMBER_IntConsts : int is [aProgram.eAllContents(IntConst)->size()/]
+const NUMBER_Pluss : int is [aProgram.eAllContents(Plus)->size()/]
+const NUMBER_Asyncs : int is [aProgram.eAllContents(Async)->size()/]
+const NUMBER_MethodCalls : int is [aProgram.eAllContents(MethodCall)->size()/]
+const NUMBER_Expressions : int is [aProgram.eAllContents(Expression)->size()/]
+const NUMBER_Finishs : int is [aProgram.eAllContents(Finish)->size()/]
+const NUMBER_Prints : int is [aProgram.eAllContents(Print)->size()/]
+const NUMBER_BoolVars : int is [aProgram.eAllContents(BoolVar)->size()/]
+const NUMBER_IntVars : int is [aProgram.eAllContents(IntVar)->size()/]
+
+type Method_methodsArray is array [Program.eContents(Method)->size()/] of int
+type MethodCall_calledByArray is array [Method.eContents(MethodCall)->size()/] of int
+type Statement_blockStatementsArray is array [Block.eContents(Statement)->size()/] of int
+type Block_whileBlockArray is array [While.eContents(Block)->size()/] of int
 
 
-
-process pUnConstrainedSemantics['['/][']'/] is
+/*********************************************************************
+Defining the Functions for : Program
+**********************************************************************/
+/*********************************************************************
+Defining the Functions for : Method
+**********************************************************************/
+/*********************************************************************
+Defining the Functions for : Statement
+**********************************************************************/
+/*********************************************************************
+Defining the Functions for : Print
+**********************************************************************/
+/*********************************************************************
+Defining the Functions for : MethodCall
+**********************************************************************/
+/*********************************************************************
+Defining the Functions for : Block
+**********************************************************************/
+/************************* Print Process Instances***************************/
+[for (element : Print| aProgram.eAllContents(Print))]
+process p[element.name/] ['['/][element.name/]_print:in none[']'/](&global : SystemDataRoot, id : read int) is
 	states s0
+	var _self:Print
+    from s0  [element.name/]_print; global:=Print_print( global , global.refToElement_id) ;  to s0
+[/for]
+/************************* MethodCall Process Instances***************************/
+[for (element : MethodCall| aProgram.eAllContents(MethodCall))]
+process p[element.name/] ['['/][element.name/]_callPreparation:in none,[element.name/]_callEvt:in none[']'/](&global : SystemDataRoot, id : read int) is
+	states s0
+	var _self:MethodCall
+    from s0  [element.name/]_callPreparation; global:=MethodCall_call( global , global.refToElement_id) ;  to s0
+    from s0  [element.name/]_callEvt;  to s0
+[/for]
+process pUnConstrainedSemantics['['/][for (element : Program| aProgram.eAllContents(Program))]
+[element.name/]_start:out none,[/for][for (element : Method| aProgram.eAllContents(Method))]
+[element.name/]_startMethodEvt:out none,[element.name/]_endMethodEvt:out none,[/for][for (element : Statement| aProgram.eAllContents(Statement))]
+[element.name/]_startStatement:out none,[element.name/]_endStatement:out none,[/for][for (element : Print| aProgram.eAllContents(Print))]
+[element.name/]_print:out none,[/for][for (element : MethodCall| aProgram.eAllContents(MethodCall))]
+[element.name/]_callPreparation:out none,[element.name/]_callEvt:out none,[/for][for (element : Block| aProgram.eAllContents(Block))]
+[/for][']'/] is
+	states s0
+[for (element : Program| aProgram.eAllContents(Program))]
+    from s0  [element.name/]_start;  to s0
+
+[/for]
+[for (element : Method| aProgram.eAllContents(Method))]
+    from s0  [element.name/]_startMethodEvt;  to s0
+    from s0  [element.name/]_endMethodEvt;  to s0
+
+[/for]
+[for (element : Statement| aProgram.eAllContents(Statement))]
+    from s0  [element.name/]_startStatement;  to s0
+    from s0  [element.name/]_endStatement;  to s0
+
+[/for]
+[for (element : Print| aProgram.eAllContents(Print))]
+    from s0  [element.name/]_print;  to s0
+
+[/for]
+[for (element : MethodCall| aProgram.eAllContents(MethodCall))]
+    from s0  [element.name/]_callPreparation;  to s0
+    from s0  [element.name/]_callEvt;  to s0
+
+[/for]
+[for (element : Block| aProgram.eAllContents(Block))]
+
+[/for]
 
 [file ('pUnConstrainedSemantics.fcr', false, 'UTF-8')]
-process pUnConstrainedSemantics['['/][']'/] is
+process pUnConstrainedSemantics['['/][for (element : Program| aProgram.eAllContents(Program))]
+[element.name/]_start:out none,[/for][for (element : Method| aProgram.eAllContents(Method))]
+[element.name/]_startMethodEvt:out none,[element.name/]_endMethodEvt:out none,[/for][for (element : Statement| aProgram.eAllContents(Statement))]
+[element.name/]_startStatement:out none,[element.name/]_endStatement:out none,[/for][for (element : Print| aProgram.eAllContents(Print))]
+[element.name/]_print:out none,[/for][for (element : MethodCall| aProgram.eAllContents(MethodCall))]
+[element.name/]_callPreparation:out none,[element.name/]_callEvt:out none,[/for][for (element : Block| aProgram.eAllContents(Block))]
+[/for][']'/] is
 	
 	states s0
+[for (element : Program| aProgram.eAllContents(Program))]
+    from s0  [element.name/]_start;  to s0
+
+[/for]
+[for (element : Method| aProgram.eAllContents(Method))]
+    from s0  [element.name/]_startMethodEvt;  to s0
+    from s0  [element.name/]_endMethodEvt;  to s0
+
+[/for]
+[for (element : Statement| aProgram.eAllContents(Statement))]
+    from s0  [element.name/]_startStatement;  to s0
+    from s0  [element.name/]_endStatement;  to s0
+
+[/for]
+[for (element : Print| aProgram.eAllContents(Print))]
+    from s0  [element.name/]_print;  to s0
+
+[/for]
+[for (element : MethodCall| aProgram.eAllContents(MethodCall))]
+    from s0  [element.name/]_callPreparation;  to s0
+    from s0  [element.name/]_callEvt;  to s0
+
+[/for]
+[for (element : Block| aProgram.eAllContents(Block))]
+
+[/for]
 [/file]
 /******************** Process Parallelization for Program******************/
 component sys is
@@ -33,11 +156,52 @@ var
 	//global : SystemDataRoot := INITIAL_Configuration
 
 port
+[for (element : Program| aProgram.eAllContents(Program))]
+[element.name/]_start: none,
 
+[/for][for (element : Method| aProgram.eAllContents(Method))]
+[element.name/]_startMethodEvt: none,[element.name/]_endMethodEvt: none,
+
+[/for][for (element : Statement| aProgram.eAllContents(Statement))]
+[element.name/]_startStatement: none,[element.name/]_endStatement: none,
+
+[/for][for (element : Print| aProgram.eAllContents(Print))]
+[element.name/]_print: none,
+
+[/for][for (element : MethodCall| aProgram.eAllContents(MethodCall))]
+[element.name/]_callPreparation: none,[element.name/]_callEvt: none,
+
+[/for][for (element : Block| aProgram.eAllContents(Block))]
+
+[/for]
 
 par
 
-pUnConstrainedSemantics['['/][']'/]
+pUnConstrainedSemantics['['/][for (element : Program| aProgram.eAllContents(Program))]
+[element.name/]_start,[/for][for (element : Method| aProgram.eAllContents(Method))]
+[element.name/]_startMethodEvt,[element.name/]_endMethodEvt,[/for][for (element : Statement| aProgram.eAllContents(Statement))]
+[element.name/]_startStatement,[element.name/]_endStatement,[/for][for (element : Print| aProgram.eAllContents(Print))]
+[element.name/]_print,[/for][for (element : MethodCall| aProgram.eAllContents(MethodCall))]
+[element.name/]_callPreparation,[element.name/]_callEvt,[/for][for (element : Block| aProgram.eAllContents(Block))]
+,[/for][']'/]
+[for (element : Program| aProgram.eAllContents(Program))]
+|| p[element.name/] ['['/][element.name/]_start[']'/] (&global, ID)
+[/for]
+[for (element : Method| aProgram.eAllContents(Method))]
+|| p[element.name/] ['['/][element.name/]_startMethodEvt,[element.name/]_endMethodEvt[']'/] (&global, ID)
+[/for]
+[for (element : Statement| aProgram.eAllContents(Statement))]
+|| p[element.name/] ['['/][element.name/]_startStatement,[element.name/]_endStatement[']'/] (&global, ID)
+[/for]
+[for (element : Print| aProgram.eAllContents(Print))]
+|| p[element.name/] ['['/][element.name/]_print[']'/] (&global, ID)
+[/for]
+[for (element : MethodCall| aProgram.eAllContents(MethodCall))]
+|| p[element.name/] ['['/][element.name/]_callPreparation,[element.name/]_callEvt[']'/] (&global, ID)
+[/for]
+[for (element : Block| aProgram.eAllContents(Block))]
+|| p[element.name/] ['['/][']'/] (&global, ID)
+[/for]
 end par
 sys 
 [/file]

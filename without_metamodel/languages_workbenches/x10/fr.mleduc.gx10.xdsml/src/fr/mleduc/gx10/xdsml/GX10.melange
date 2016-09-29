@@ -1,0 +1,36 @@
+package fr.mleduc.gx10.xdsml
+
+language GX10 {
+	syntax "platform:/resource//fr.mleduc.gx10.model/model/gx10.ecore"
+
+	with gx10.aspects.WhileAspect
+	with gx10.aspects.PrintAspect
+	with gx10.aspects.MethodAspect
+	with gx10.aspects.BoolExpressionAspect
+	with gx10.aspects.BlockAspect
+	with gx10.aspects.IntVarAspect
+	with gx10.aspects.StatementAspect
+	with gx10.aspects.BoolVarAspect
+	with gx10.aspects.FinishAspect
+	with gx10.aspects.MethodCallAspect
+	with gx10.aspects.TrueAspect
+	with gx10.aspects.IfAspect
+	with gx10.aspects.ExpressionAspect
+	with gx10.aspects.FalseAspect
+	with gx10.aspects.AsyncAspect
+	with gx10.aspects.IntExpressionAspect
+	with gx10.aspects.NotAspect
+	with gx10.aspects.AndAspect
+	with gx10.aspects.IntConstAspect
+	with gx10.aspects.ProgramAspect
+	with gx10.aspects.PlusAspect
+	with gx10.aspects.ControlStructureAspect
+	
+/*
+ *	with qualified.class.name
+ */
+
+	ecl "/fr.mleduc.gx10.dse/ecl/GX10.ecl"
+	
+	exactType GX10MT
+}

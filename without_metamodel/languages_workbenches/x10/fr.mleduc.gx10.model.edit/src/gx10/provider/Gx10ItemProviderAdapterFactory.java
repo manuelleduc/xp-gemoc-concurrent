@@ -95,6 +95,374 @@ public class Gx10ItemProviderAdapterFactory extends Gx10AdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link gx10.Method} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MethodItemProvider methodItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link gx10.Method}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMethodAdapter() {
+		if (methodItemProvider == null) {
+			methodItemProvider = new MethodItemProvider(this);
+		}
+
+		return methodItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link gx10.Block} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BlockItemProvider blockItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link gx10.Block}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBlockAdapter() {
+		if (blockItemProvider == null) {
+			blockItemProvider = new BlockItemProvider(this);
+		}
+
+		return blockItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link gx10.If} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected IfItemProvider ifItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link gx10.If}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createIfAdapter() {
+		if (ifItemProvider == null) {
+			ifItemProvider = new IfItemProvider(this);
+		}
+
+		return ifItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link gx10.While} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected WhileItemProvider whileItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link gx10.While}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createWhileAdapter() {
+		if (whileItemProvider == null) {
+			whileItemProvider = new WhileItemProvider(this);
+		}
+
+		return whileItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link gx10.True} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TrueItemProvider trueItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link gx10.True}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTrueAdapter() {
+		if (trueItemProvider == null) {
+			trueItemProvider = new TrueItemProvider(this);
+		}
+
+		return trueItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link gx10.False} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FalseItemProvider falseItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link gx10.False}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFalseAdapter() {
+		if (falseItemProvider == null) {
+			falseItemProvider = new FalseItemProvider(this);
+		}
+
+		return falseItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link gx10.Not} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NotItemProvider notItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link gx10.Not}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNotAdapter() {
+		if (notItemProvider == null) {
+			notItemProvider = new NotItemProvider(this);
+		}
+
+		return notItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link gx10.And} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AndItemProvider andItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link gx10.And}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAndAdapter() {
+		if (andItemProvider == null) {
+			andItemProvider = new AndItemProvider(this);
+		}
+
+		return andItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link gx10.IntConst} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected IntConstItemProvider intConstItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link gx10.IntConst}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createIntConstAdapter() {
+		if (intConstItemProvider == null) {
+			intConstItemProvider = new IntConstItemProvider(this);
+		}
+
+		return intConstItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link gx10.Plus} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PlusItemProvider plusItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link gx10.Plus}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPlusAdapter() {
+		if (plusItemProvider == null) {
+			plusItemProvider = new PlusItemProvider(this);
+		}
+
+		return plusItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link gx10.Async} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AsyncItemProvider asyncItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link gx10.Async}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAsyncAdapter() {
+		if (asyncItemProvider == null) {
+			asyncItemProvider = new AsyncItemProvider(this);
+		}
+
+		return asyncItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link gx10.MethodCall} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MethodCallItemProvider methodCallItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link gx10.MethodCall}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMethodCallAdapter() {
+		if (methodCallItemProvider == null) {
+			methodCallItemProvider = new MethodCallItemProvider(this);
+		}
+
+		return methodCallItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link gx10.Finish} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FinishItemProvider finishItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link gx10.Finish}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFinishAdapter() {
+		if (finishItemProvider == null) {
+			finishItemProvider = new FinishItemProvider(this);
+		}
+
+		return finishItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link gx10.Print} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PrintItemProvider printItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link gx10.Print}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPrintAdapter() {
+		if (printItemProvider == null) {
+			printItemProvider = new PrintItemProvider(this);
+		}
+
+		return printItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link gx10.BoolVar} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BoolVarItemProvider boolVarItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link gx10.BoolVar}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBoolVarAdapter() {
+		if (boolVarItemProvider == null) {
+			boolVarItemProvider = new BoolVarItemProvider(this);
+		}
+
+		return boolVarItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link gx10.IntVar} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected IntVarItemProvider intVarItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link gx10.IntVar}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createIntVarAdapter() {
+		if (intVarItemProvider == null) {
+			intVarItemProvider = new IntVarItemProvider(this);
+		}
+
+		return intVarItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -194,6 +562,22 @@ public class Gx10ItemProviderAdapterFactory extends Gx10AdapterFactory implement
 	 */
 	public void dispose() {
 		if (programItemProvider != null) programItemProvider.dispose();
+		if (methodItemProvider != null) methodItemProvider.dispose();
+		if (blockItemProvider != null) blockItemProvider.dispose();
+		if (ifItemProvider != null) ifItemProvider.dispose();
+		if (whileItemProvider != null) whileItemProvider.dispose();
+		if (trueItemProvider != null) trueItemProvider.dispose();
+		if (falseItemProvider != null) falseItemProvider.dispose();
+		if (notItemProvider != null) notItemProvider.dispose();
+		if (andItemProvider != null) andItemProvider.dispose();
+		if (intConstItemProvider != null) intConstItemProvider.dispose();
+		if (plusItemProvider != null) plusItemProvider.dispose();
+		if (asyncItemProvider != null) asyncItemProvider.dispose();
+		if (methodCallItemProvider != null) methodCallItemProvider.dispose();
+		if (finishItemProvider != null) finishItemProvider.dispose();
+		if (printItemProvider != null) printItemProvider.dispose();
+		if (boolVarItemProvider != null) boolVarItemProvider.dispose();
+		if (intVarItemProvider != null) intVarItemProvider.dispose();
 	}
 
 }
