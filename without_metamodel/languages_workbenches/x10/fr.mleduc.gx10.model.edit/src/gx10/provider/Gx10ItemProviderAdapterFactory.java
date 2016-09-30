@@ -463,6 +463,52 @@ public class Gx10ItemProviderAdapterFactory extends Gx10AdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link gx10.IntVarAccess} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected IntVarAccessItemProvider intVarAccessItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link gx10.IntVarAccess}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createIntVarAccessAdapter() {
+		if (intVarAccessItemProvider == null) {
+			intVarAccessItemProvider = new IntVarAccessItemProvider(this);
+		}
+
+		return intVarAccessItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link gx10.BoolVarAccess} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BoolVarAccessItemProvider boolVarAccessItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link gx10.BoolVarAccess}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBoolVarAccessAdapter() {
+		if (boolVarAccessItemProvider == null) {
+			boolVarAccessItemProvider = new BoolVarAccessItemProvider(this);
+		}
+
+		return boolVarAccessItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -578,6 +624,8 @@ public class Gx10ItemProviderAdapterFactory extends Gx10AdapterFactory implement
 		if (printItemProvider != null) printItemProvider.dispose();
 		if (boolVarItemProvider != null) boolVarItemProvider.dispose();
 		if (intVarItemProvider != null) intVarItemProvider.dispose();
+		if (intVarAccessItemProvider != null) intVarAccessItemProvider.dispose();
+		if (boolVarAccessItemProvider != null) boolVarAccessItemProvider.dispose();
 	}
 
 }

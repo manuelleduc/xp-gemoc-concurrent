@@ -148,7 +148,7 @@ public class PlusItemProvider extends IntExpressionItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(Gx10Package.Literals.PLUS__LEFT_PLUS,
-				 Gx10Factory.eINSTANCE.createIntVar()));
+				 Gx10Factory.eINSTANCE.createIntVarAccess()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -163,7 +163,7 @@ public class PlusItemProvider extends IntExpressionItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(Gx10Package.Literals.PLUS__RIGHT_PLUS,
-				 Gx10Factory.eINSTANCE.createIntVar()));
+				 Gx10Factory.eINSTANCE.createIntVarAccess()));
 	}
 
 	/**

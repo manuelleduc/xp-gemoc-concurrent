@@ -26,7 +26,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class IntVarItemProvider extends IntExpressionItemProvider {
+public class IntVarItemProvider extends StatementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -177,7 +177,7 @@ public class IntVarItemProvider extends IntExpressionItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(Gx10Package.Literals.INT_VAR__INT_VAR_EXPR,
-				 Gx10Factory.eINSTANCE.createIntVar()));
+				 Gx10Factory.eINSTANCE.createIntVarAccess()));
 	}
 
 }

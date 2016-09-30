@@ -10,10 +10,10 @@ package gx10;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link gx10.Async#getAsyncBlock <em>Async Block</em>}</li>
  * </ul>
- * </p>
  *
  * @see gx10.Gx10Package#getAsync()
  * @model

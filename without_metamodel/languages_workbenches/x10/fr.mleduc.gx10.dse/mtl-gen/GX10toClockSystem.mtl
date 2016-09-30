@@ -52,16 +52,18 @@ system addClocks: #(endStatement[element.name/]).
 system addClocks: #(print[element.name/]).
 
 [/for]
+[for (element : gx10::IntVar| aProgram.eAllContents(gx10::IntVar))]
+"clocks for IntVar [element.name/]" 
+system addClocks: #(evaluate[element.name/]).
+
+[/for]
 [for (element : gx10::MethodCall| aProgram.eAllContents(gx10::MethodCall))]
 "clocks for MethodCall [element.name/]" 
 system addClocks: #(callPreparation[element.name/]).
-system addClocks: #(callEvt[element.name/]).
 
 [/for]
 [for (element : gx10::Block| aProgram.eAllContents(gx10::Block))]
 "clocks for Block [element.name/]" 
-"internal clocks for gx10::Block [element.name/]" 
-	
 [/for]
 
 [for (element : gx10::Program| aProgram.eAllContents(gx10::Program))]
@@ -103,6 +105,11 @@ system addClocks: #(callEvt[element.name/]).
 	system allUnion: #() named: #allEventWhichCall2[element.name/]. 
 	[/if]
  
+
+	[if ( ) ]
+	system allUnion: #() named: #allEventWhichCall22[element.name/]. 
+	[/if]
+ 
 "relations for Method [element.name/]" 
 	"methodStartThenEnd in Method [element.name/]"
 		[if ( true) ]
@@ -118,7 +125,7 @@ system addClocks: #(callEvt[element.name/]).
 		[/if]
 	"methodStartOnCall0 in Method [element.name/]"
 		[if ( ( self.inProgram.startMethod = self and self.calledBy->size() > 0) ) ]
-	system library: #Kernel relation: #Coincides clocks: #(allEventsUnion[element.name/]  startMethodEvt[element.name/]) .
+	system library: #Kernel relation: #Precedes clocks: #(allEventsUnion[element.name/]  startMethodEvt[element.name/])  constants:{-1} .
 		[/if]
 	"methodStartOnCall1 in Method [element.name/]"
 		[if ( ( self.inProgram.startMethod = self and self.calledBy->size() = 0) ) ]
@@ -126,7 +133,11 @@ system addClocks: #(callEvt[element.name/]).
 		[/if]
 	"methodStartOnCall2 in Method [element.name/]"
 		[if ( ( self.inProgram.startMethod <> self and self.calledBy->size() > 0) ) ]
-	system library: #Kernel relation: #Coincides clocks: #(allEventWhichCall2[element.name/]  startMethodEvt[element.name/]) .
+	system library: #Kernel relation: #Precedes clocks: #(allEventWhichCall2[element.name/]  startMethodEvt[element.name/])  constants:{-1} .
+		[/if]
+	"methodEndOnCall2 in Method [element.name/]"
+		[if ( ( self.inProgram.startMethod <> self and self.calledBy->size() > 0) ) ]
+	system library: #Kernel relation: #Precedes clocks: #(endMethodEvt[element.name/]  allEventWhichCall22[element.name/])  constants:{-1} .
 		[/if]
 [/for]
 [for (element : gx10::Statement| aProgram.eAllContents(gx10::Statement))]
@@ -138,6 +149,14 @@ system addClocks: #(callEvt[element.name/]).
 	"waitForPreviousToFinish in Statement [element.name/]"
 		[if ( ( self.inBlock <> null and self.inBlock.blockStatements->indexOf(self) > 1) ) ]
 	system library: #Kernel relation: #Precedes clocks: #(endStatement[element.inBlock.blockStatements->at(element.inBlock.blockStatements->indexOf(self).-(1)).name/]  startStatement[element.name/])  constants:{-1} .
+		[/if]
+	"firstStartAfterBlockStart in Statement [element.name/]"
+		[if ( ( self.inBlock <> null and self.inBlock.blockStatements->first() = self) ) ]
+	system library: #Kernel relation: #Precedes clocks: #(startStatement[element.inBlock.name/]  startStatement[element.name/])  constants:{-1} .
+		[/if]
+	"lastEndWhenBlockEnd in Statement [element.name/]"
+		[if ( ( self.inBlock <> null and self.inBlock.blockStatements->indexOf(self) = self.inBlock.blockStatements->size()) ) ]
+	system library: #Kernel relation: #Precedes clocks: #(endStatement[element.name/]  endStatement[element.inBlock.name/])  constants:{-1} .
 		[/if]
 [/for]
 [for (element : gx10::Print| aProgram.eAllContents(gx10::Print))]
@@ -155,40 +174,37 @@ system addClocks: #(callEvt[element.name/]).
 	system library: #Kernel relation: #Precedes clocks: #(print[element.name/]  endStatement[element.name/])  constants:{-1} .
 		[/if]
 [/for]
+[for (element : gx10::IntVar| aProgram.eAllContents(gx10::IntVar))]
+"relations for IntVar [element.name/]" 
+	"intVarEvaluateBefore0 in IntVar [element.name/]"
+		[if ( true) ]
+	system library: #Kernel relation: #Precedes clocks: #(startStatement[element.name/]  startStatement[element.intVarExpr.name/])  constants:{-1} .
+		[/if]
+	"intVarEvaluateBefore1 in IntVar [element.name/]"
+		[if ( true) ]
+	system library: #Kernel relation: #Precedes clocks: #(endStatement[element.intVarExpr.name/]  evaluate[element.name/])  constants:{-1} .
+		[/if]
+	"intVarEvaluateBeforet in IntVar [element.name/]"
+		[if ( true) ]
+	system library: #Kernel relation: #Precedes clocks: #(evaluate[element.name/]  endStatement[element.name/])  constants:{-1} .
+		[/if]
+[/for]
 [for (element : gx10::MethodCall| aProgram.eAllContents(gx10::MethodCall))]
 "relations for MethodCall [element.name/]" 
 	"methodStartBeforePrepareCall in MethodCall [element.name/]"
 		[if ( true) ]
 	system library: #Kernel relation: #Precedes clocks: #(startStatement[element.name/]  callPreparation[element.name/])  constants:{-1} .
 		[/if]
-	"methodCallStartMethod in MethodCall [element.name/]"
-		[if ( true) ]
-	system library: #Kernel relation: #Precedes clocks: #(callPreparation[element.name/]  callEvt[element.name/])  constants:{-1} .
-		[/if]
-	"methodCallStopWhenCalledEnd in MethodCall [element.name/]"
-		[if ( true) ]
-	system library: #Kernel relation: #Precedes clocks: #(endMethodEvt[element.methodToCall.name/]  endStatement[element.name/])  constants:{-1} .
-		[/if]
 [/for]
 [for (element : gx10::Block| aProgram.eAllContents(gx10::Block))]
-"expressions used by  Block [element.name/]" 
-
-	[if ( ) ]
-	system allSup: #() named: #blockLastofAllStatements[element.name/]. 
-	[/if]
- 
 "relations for Block [element.name/]" 
-	"blockStatementsOrdered in Block [element.name/]"
-		[if ( true) ]
-	system library: #Kernel relation: #Precedes clocks: #()  constants:{-1} .
-		[/if]
 	"firstInstructionStartWhenBlockReady in Block [element.name/]"
 		[if ( ( self.blockStatements->size() > 0) ) ]
 	system library: #Kernel relation: #Precedes clocks: #(startStatement[element.name/]  startStatement[element.blockStatements->first().name/])  constants:{-1} .
 		[/if]
 	"blockStatementWaitForAllToFinish in Block [element.name/]"
 		[if ( ( self.blockStatements->size() > 0) ) ]
-	system library: #Kernel relation: #Precedes clocks: #(blockLastofAllStatements[element.name/]  endStatement[element.name/])  constants:{-1} .
+	system library: #Kernel relation: #Precedes clocks: #(endStatement[element.blockStatements->last().name/]  endStatement[element.name/])  constants:{-1} .
 		[/if]
 [/for]
 [/file]

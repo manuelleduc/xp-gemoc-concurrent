@@ -26,7 +26,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class BoolVarItemProvider extends BoolExpressionItemProvider {
+public class BoolVarItemProvider extends ExpressionItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -187,7 +187,7 @@ public class BoolVarItemProvider extends BoolExpressionItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(Gx10Package.Literals.BOOL_VAR__BOOL_VAR_EXPR,
-				 Gx10Factory.eINSTANCE.createBoolVar()));
+				 Gx10Factory.eINSTANCE.createBoolVarAccess()));
 	}
 
 }

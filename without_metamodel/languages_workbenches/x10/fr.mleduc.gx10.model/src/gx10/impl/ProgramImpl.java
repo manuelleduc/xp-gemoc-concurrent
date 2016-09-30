@@ -28,11 +28,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link gx10.impl.ProgramImpl#getMethods <em>Methods</em>}</li>
  *   <li>{@link gx10.impl.ProgramImpl#getStartMethod <em>Start Method</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

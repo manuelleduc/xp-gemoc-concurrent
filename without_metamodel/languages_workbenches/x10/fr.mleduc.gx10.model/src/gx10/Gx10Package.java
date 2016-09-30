@@ -1093,7 +1093,7 @@ public interface Gx10Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOL_VAR__IN_BLOCK = BOOL_EXPRESSION__IN_BLOCK;
+	int BOOL_VAR__IN_BLOCK = EXPRESSION__IN_BLOCK;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1102,7 +1102,7 @@ public interface Gx10Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOL_VAR__NAME = BOOL_EXPRESSION_FEATURE_COUNT + 0;
+	int BOOL_VAR__NAME = EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Bool Var Expr</b></em>' containment reference.
@@ -1111,7 +1111,7 @@ public interface Gx10Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOL_VAR__BOOL_VAR_EXPR = BOOL_EXPRESSION_FEATURE_COUNT + 1;
+	int BOOL_VAR__BOOL_VAR_EXPR = EXPRESSION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Bool Var</em>' class.
@@ -1120,16 +1120,7 @@ public interface Gx10Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOL_VAR_FEATURE_COUNT = BOOL_EXPRESSION_FEATURE_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>Get Current Value</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOL_VAR___GET_CURRENT_VALUE = BOOL_EXPRESSION___GET_CURRENT_VALUE;
+	int BOOL_VAR_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Bool Var</em>' class.
@@ -1138,7 +1129,7 @@ public interface Gx10Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOL_VAR_OPERATION_COUNT = BOOL_EXPRESSION_OPERATION_COUNT + 0;
+	int BOOL_VAR_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link gx10.impl.IntVarImpl <em>Int Var</em>}' class.
@@ -1157,7 +1148,7 @@ public interface Gx10Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INT_VAR__IN_BLOCK = INT_EXPRESSION__IN_BLOCK;
+	int INT_VAR__IN_BLOCK = STATEMENT__IN_BLOCK;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1166,7 +1157,7 @@ public interface Gx10Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INT_VAR__NAME = INT_EXPRESSION_FEATURE_COUNT + 0;
+	int INT_VAR__NAME = STATEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Int Var Expr</b></em>' containment reference.
@@ -1175,7 +1166,7 @@ public interface Gx10Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INT_VAR__INT_VAR_EXPR = INT_EXPRESSION_FEATURE_COUNT + 1;
+	int INT_VAR__INT_VAR_EXPR = STATEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Int Var</em>' class.
@@ -1184,16 +1175,16 @@ public interface Gx10Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INT_VAR_FEATURE_COUNT = INT_EXPRESSION_FEATURE_COUNT + 2;
+	int INT_VAR_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Get Current Value</em>' operation.
+	 * The operation id for the '<em>Evaluate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INT_VAR___GET_CURRENT_VALUE = INT_EXPRESSION___GET_CURRENT_VALUE;
+	int INT_VAR___EVALUATE = STATEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Int Var</em>' class.
@@ -1202,7 +1193,117 @@ public interface Gx10Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INT_VAR_OPERATION_COUNT = INT_EXPRESSION_OPERATION_COUNT + 0;
+	int INT_VAR_OPERATION_COUNT = STATEMENT_OPERATION_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link gx10.impl.IntVarAccessImpl <em>Int Var Access</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see gx10.impl.IntVarAccessImpl
+	 * @see gx10.impl.Gx10PackageImpl#getIntVarAccess()
+	 * @generated
+	 */
+	int INT_VAR_ACCESS = 22;
+
+	/**
+	 * The feature id for the '<em><b>In Block</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INT_VAR_ACCESS__IN_BLOCK = INT_EXPRESSION__IN_BLOCK;
+
+	/**
+	 * The feature id for the '<em><b>Int Var Ref</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INT_VAR_ACCESS__INT_VAR_REF = INT_EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Int Var Access</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INT_VAR_ACCESS_FEATURE_COUNT = INT_EXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Current Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INT_VAR_ACCESS___GET_CURRENT_VALUE = INT_EXPRESSION___GET_CURRENT_VALUE;
+
+	/**
+	 * The number of operations of the '<em>Int Var Access</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INT_VAR_ACCESS_OPERATION_COUNT = INT_EXPRESSION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link gx10.impl.BoolVarAccessImpl <em>Bool Var Access</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see gx10.impl.BoolVarAccessImpl
+	 * @see gx10.impl.Gx10PackageImpl#getBoolVarAccess()
+	 * @generated
+	 */
+	int BOOL_VAR_ACCESS = 23;
+
+	/**
+	 * The feature id for the '<em><b>In Block</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOL_VAR_ACCESS__IN_BLOCK = BOOL_EXPRESSION__IN_BLOCK;
+
+	/**
+	 * The feature id for the '<em><b>Bool Var Ref</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOL_VAR_ACCESS__BOOL_VAR_REF = BOOL_EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Bool Var Access</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOL_VAR_ACCESS_FEATURE_COUNT = BOOL_EXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Current Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOL_VAR_ACCESS___GET_CURRENT_VALUE = BOOL_EXPRESSION___GET_CURRENT_VALUE;
+
+	/**
+	 * The number of operations of the '<em>Bool Var Access</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOL_VAR_ACCESS_OPERATION_COUNT = BOOL_EXPRESSION_OPERATION_COUNT + 0;
 
 
 	/**
@@ -1752,6 +1853,58 @@ public interface Gx10Package extends EPackage {
 	EReference getIntVar_IntVarExpr();
 
 	/**
+	 * Returns the meta object for the '{@link gx10.IntVar#evaluate() <em>Evaluate</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Evaluate</em>' operation.
+	 * @see gx10.IntVar#evaluate()
+	 * @generated
+	 */
+	EOperation getIntVar__Evaluate();
+
+	/**
+	 * Returns the meta object for class '{@link gx10.IntVarAccess <em>Int Var Access</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Int Var Access</em>'.
+	 * @see gx10.IntVarAccess
+	 * @generated
+	 */
+	EClass getIntVarAccess();
+
+	/**
+	 * Returns the meta object for the reference '{@link gx10.IntVarAccess#getIntVarRef <em>Int Var Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Int Var Ref</em>'.
+	 * @see gx10.IntVarAccess#getIntVarRef()
+	 * @see #getIntVarAccess()
+	 * @generated
+	 */
+	EReference getIntVarAccess_IntVarRef();
+
+	/**
+	 * Returns the meta object for class '{@link gx10.BoolVarAccess <em>Bool Var Access</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Bool Var Access</em>'.
+	 * @see gx10.BoolVarAccess
+	 * @generated
+	 */
+	EClass getBoolVarAccess();
+
+	/**
+	 * Returns the meta object for the reference '{@link gx10.BoolVarAccess#getBoolVarRef <em>Bool Var Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Bool Var Ref</em>'.
+	 * @see gx10.BoolVarAccess#getBoolVarRef()
+	 * @see #getBoolVarAccess()
+	 * @generated
+	 */
+	EReference getBoolVarAccess_BoolVarRef();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2233,6 +2386,50 @@ public interface Gx10Package extends EPackage {
 		 * @generated
 		 */
 		EReference INT_VAR__INT_VAR_EXPR = eINSTANCE.getIntVar_IntVarExpr();
+
+		/**
+		 * The meta object literal for the '<em><b>Evaluate</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation INT_VAR___EVALUATE = eINSTANCE.getIntVar__Evaluate();
+
+		/**
+		 * The meta object literal for the '{@link gx10.impl.IntVarAccessImpl <em>Int Var Access</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see gx10.impl.IntVarAccessImpl
+		 * @see gx10.impl.Gx10PackageImpl#getIntVarAccess()
+		 * @generated
+		 */
+		EClass INT_VAR_ACCESS = eINSTANCE.getIntVarAccess();
+
+		/**
+		 * The meta object literal for the '<em><b>Int Var Ref</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INT_VAR_ACCESS__INT_VAR_REF = eINSTANCE.getIntVarAccess_IntVarRef();
+
+		/**
+		 * The meta object literal for the '{@link gx10.impl.BoolVarAccessImpl <em>Bool Var Access</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see gx10.impl.BoolVarAccessImpl
+		 * @see gx10.impl.Gx10PackageImpl#getBoolVarAccess()
+		 * @generated
+		 */
+		EClass BOOL_VAR_ACCESS = eINSTANCE.getBoolVarAccess();
+
+		/**
+		 * The meta object literal for the '<em><b>Bool Var Ref</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BOOL_VAR_ACCESS__BOOL_VAR_REF = eINSTANCE.getBoolVarAccess_BoolVarRef();
 
 	}
 

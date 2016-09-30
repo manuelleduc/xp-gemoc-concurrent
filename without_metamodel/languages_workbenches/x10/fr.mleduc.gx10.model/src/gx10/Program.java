@@ -13,11 +13,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link gx10.Program#getMethods <em>Methods</em>}</li>
  *   <li>{@link gx10.Program#getStartMethod <em>Start Method</em>}</li>
  * </ul>
- * </p>
  *
  * @see gx10.Gx10Package#getProgram()
  * @model

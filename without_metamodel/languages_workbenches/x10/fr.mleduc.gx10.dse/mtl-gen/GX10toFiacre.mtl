@@ -35,6 +35,8 @@ const NUMBER_Finishs : int is [aProgram.eAllContents(Finish)->size()/]
 const NUMBER_Prints : int is [aProgram.eAllContents(Print)->size()/]
 const NUMBER_BoolVars : int is [aProgram.eAllContents(BoolVar)->size()/]
 const NUMBER_IntVars : int is [aProgram.eAllContents(IntVar)->size()/]
+const NUMBER_IntVarAccesss : int is [aProgram.eAllContents(IntVarAccess)->size()/]
+const NUMBER_BoolVarAccesss : int is [aProgram.eAllContents(BoolVarAccess)->size()/]
 
 type Method_methodsArray is array [Program.eContents(Method)->size()/] of int
 type MethodCall_calledByArray is array [Method.eContents(MethodCall)->size()/] of int
@@ -55,6 +57,9 @@ Defining the Functions for : Statement
 Defining the Functions for : Print
 **********************************************************************/
 /*********************************************************************
+Defining the Functions for : IntVar
+**********************************************************************/
+/*********************************************************************
 Defining the Functions for : MethodCall
 **********************************************************************/
 /*********************************************************************
@@ -67,20 +72,27 @@ process p[element.name/] ['['/][element.name/]_print:in none[']'/](&global : Sys
 	var _self:Print
     from s0  [element.name/]_print; global:=Print_print( global , global.refToElement_id) ;  to s0
 [/for]
+/************************* IntVar Process Instances***************************/
+[for (element : IntVar| aProgram.eAllContents(IntVar))]
+process p[element.name/] ['['/][element.name/]_evaluate:in none[']'/](&global : SystemDataRoot, id : read int) is
+	states s0
+	var _self:IntVar
+    from s0  [element.name/]_evaluate; global:=IntVar_evaluate( global , global.refToElement_id) ;  to s0
+[/for]
 /************************* MethodCall Process Instances***************************/
 [for (element : MethodCall| aProgram.eAllContents(MethodCall))]
-process p[element.name/] ['['/][element.name/]_callPreparation:in none,[element.name/]_callEvt:in none[']'/](&global : SystemDataRoot, id : read int) is
+process p[element.name/] ['['/][element.name/]_callPreparation:in none[']'/](&global : SystemDataRoot, id : read int) is
 	states s0
 	var _self:MethodCall
     from s0  [element.name/]_callPreparation; global:=MethodCall_call( global , global.refToElement_id) ;  to s0
-    from s0  [element.name/]_callEvt;  to s0
 [/for]
 process pUnConstrainedSemantics['['/][for (element : Program| aProgram.eAllContents(Program))]
 [element.name/]_start:out none,[/for][for (element : Method| aProgram.eAllContents(Method))]
 [element.name/]_startMethodEvt:out none,[element.name/]_endMethodEvt:out none,[/for][for (element : Statement| aProgram.eAllContents(Statement))]
 [element.name/]_startStatement:out none,[element.name/]_endStatement:out none,[/for][for (element : Print| aProgram.eAllContents(Print))]
-[element.name/]_print:out none,[/for][for (element : MethodCall| aProgram.eAllContents(MethodCall))]
-[element.name/]_callPreparation:out none,[element.name/]_callEvt:out none,[/for][for (element : Block| aProgram.eAllContents(Block))]
+[element.name/]_print:out none,[/for][for (element : IntVar| aProgram.eAllContents(IntVar))]
+[element.name/]_evaluate:out none,[/for][for (element : MethodCall| aProgram.eAllContents(MethodCall))]
+[element.name/]_callPreparation:out none,[/for][for (element : Block| aProgram.eAllContents(Block))]
 [/for][']'/] is
 	states s0
 [for (element : Program| aProgram.eAllContents(Program))]
@@ -101,9 +113,12 @@ process pUnConstrainedSemantics['['/][for (element : Program| aProgram.eAllConte
     from s0  [element.name/]_print;  to s0
 
 [/for]
+[for (element : IntVar| aProgram.eAllContents(IntVar))]
+    from s0  [element.name/]_evaluate;  to s0
+
+[/for]
 [for (element : MethodCall| aProgram.eAllContents(MethodCall))]
     from s0  [element.name/]_callPreparation;  to s0
-    from s0  [element.name/]_callEvt;  to s0
 
 [/for]
 [for (element : Block| aProgram.eAllContents(Block))]
@@ -115,8 +130,9 @@ process pUnConstrainedSemantics['['/][for (element : Program| aProgram.eAllConte
 [element.name/]_start:out none,[/for][for (element : Method| aProgram.eAllContents(Method))]
 [element.name/]_startMethodEvt:out none,[element.name/]_endMethodEvt:out none,[/for][for (element : Statement| aProgram.eAllContents(Statement))]
 [element.name/]_startStatement:out none,[element.name/]_endStatement:out none,[/for][for (element : Print| aProgram.eAllContents(Print))]
-[element.name/]_print:out none,[/for][for (element : MethodCall| aProgram.eAllContents(MethodCall))]
-[element.name/]_callPreparation:out none,[element.name/]_callEvt:out none,[/for][for (element : Block| aProgram.eAllContents(Block))]
+[element.name/]_print:out none,[/for][for (element : IntVar| aProgram.eAllContents(IntVar))]
+[element.name/]_evaluate:out none,[/for][for (element : MethodCall| aProgram.eAllContents(MethodCall))]
+[element.name/]_callPreparation:out none,[/for][for (element : Block| aProgram.eAllContents(Block))]
 [/for][']'/] is
 	
 	states s0
@@ -138,9 +154,12 @@ process pUnConstrainedSemantics['['/][for (element : Program| aProgram.eAllConte
     from s0  [element.name/]_print;  to s0
 
 [/for]
+[for (element : IntVar| aProgram.eAllContents(IntVar))]
+    from s0  [element.name/]_evaluate;  to s0
+
+[/for]
 [for (element : MethodCall| aProgram.eAllContents(MethodCall))]
     from s0  [element.name/]_callPreparation;  to s0
-    from s0  [element.name/]_callEvt;  to s0
 
 [/for]
 [for (element : Block| aProgram.eAllContents(Block))]
@@ -168,8 +187,11 @@ port
 [/for][for (element : Print| aProgram.eAllContents(Print))]
 [element.name/]_print: none,
 
+[/for][for (element : IntVar| aProgram.eAllContents(IntVar))]
+[element.name/]_evaluate: none,
+
 [/for][for (element : MethodCall| aProgram.eAllContents(MethodCall))]
-[element.name/]_callPreparation: none,[element.name/]_callEvt: none,
+[element.name/]_callPreparation: none,
 
 [/for][for (element : Block| aProgram.eAllContents(Block))]
 
@@ -181,8 +203,9 @@ pUnConstrainedSemantics['['/][for (element : Program| aProgram.eAllContents(Prog
 [element.name/]_start,[/for][for (element : Method| aProgram.eAllContents(Method))]
 [element.name/]_startMethodEvt,[element.name/]_endMethodEvt,[/for][for (element : Statement| aProgram.eAllContents(Statement))]
 [element.name/]_startStatement,[element.name/]_endStatement,[/for][for (element : Print| aProgram.eAllContents(Print))]
-[element.name/]_print,[/for][for (element : MethodCall| aProgram.eAllContents(MethodCall))]
-[element.name/]_callPreparation,[element.name/]_callEvt,[/for][for (element : Block| aProgram.eAllContents(Block))]
+[element.name/]_print,[/for][for (element : IntVar| aProgram.eAllContents(IntVar))]
+[element.name/]_evaluate,[/for][for (element : MethodCall| aProgram.eAllContents(MethodCall))]
+[element.name/]_callPreparation,[/for][for (element : Block| aProgram.eAllContents(Block))]
 ,[/for][']'/]
 [for (element : Program| aProgram.eAllContents(Program))]
 || p[element.name/] ['['/][element.name/]_start[']'/] (&global, ID)
@@ -196,8 +219,11 @@ pUnConstrainedSemantics['['/][for (element : Program| aProgram.eAllContents(Prog
 [for (element : Print| aProgram.eAllContents(Print))]
 || p[element.name/] ['['/][element.name/]_print[']'/] (&global, ID)
 [/for]
+[for (element : IntVar| aProgram.eAllContents(IntVar))]
+|| p[element.name/] ['['/][element.name/]_evaluate[']'/] (&global, ID)
+[/for]
 [for (element : MethodCall| aProgram.eAllContents(MethodCall))]
-|| p[element.name/] ['['/][element.name/]_callPreparation,[element.name/]_callEvt[']'/] (&global, ID)
+|| p[element.name/] ['['/][element.name/]_callPreparation[']'/] (&global, ID)
 [/for]
 [for (element : Block| aProgram.eAllContents(Block))]
 || p[element.name/] ['['/][']'/] (&global, ID)

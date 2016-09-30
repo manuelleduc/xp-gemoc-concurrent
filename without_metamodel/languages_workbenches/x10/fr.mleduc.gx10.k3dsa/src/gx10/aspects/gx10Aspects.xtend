@@ -1,6 +1,7 @@
 package gx10.aspects
 
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect
+import fr.inria.diverse.k3.al.annotationprocessor.ReplaceAspectMethod
 import gx10.Program
 import gx10.Method
 import gx10.Block
@@ -23,6 +24,8 @@ import gx10.Finish
 import gx10.Print
 import gx10.BoolVar
 import gx10.IntVar
+import gx10.IntVarAccess
+import gx10.BoolVarAccess
 
 import static extension gx10.aspects.ProgramAspect.*
 import static extension gx10.aspects.MethodAspect.*
@@ -46,7 +49,23 @@ import static extension gx10.aspects.FinishAspect.*
 import static extension gx10.aspects.PrintAspect.*
 import static extension gx10.aspects.BoolVarAspect.*
 import static extension gx10.aspects.IntVarAspect.*
-import fr.inria.diverse.k3.al.annotationprocessor.ReplaceAspectMethod
+import static extension gx10.aspects.IntVarAccessAspect.*
+import static extension gx10.aspects.BoolVarAccessAspect.*
+import java.util.Map
+import org.eclipse.emf.ecore.EObject
+
+class Context {
+
+	private Map<String, Integer> intContext = newHashMap()
+
+	public def void addInt(String name, int value) {
+		intContext.put(name, value)
+	}
+
+	public def int getInt(String name) {
+		intContext.get(name)
+	}
+}
 
 @Aspect(className=Program)
 class ProgramAspect {
@@ -58,6 +77,9 @@ class MethodAspect {
 
 @Aspect(className=Block)
 class BlockAspect extends StatementAspect {
+
+	public val Context context = new Context
+
 }
 
 @Aspect(className=Statement)
@@ -167,12 +189,36 @@ class PrintAspect extends StatementAspect {
 }
 
 @Aspect(className=BoolVar)
-class BoolVarAspect extends BoolExpressionAspect {
+class BoolVarAspect extends ExpressionAspect {
 }
 
 @Aspect(className=IntVar)
-class IntVarAspect extends IntExpressionAspect {
+class IntVarAspect extends ExpressionAspect {
+	def void evaluate() {
+		println("Debug set value " + _self.name + " to key '" + _self.intVarExpr.currentValue + "'")
+
+		// TODO : extract in service and add constrait (no overiding etc)
+		// might have to transmit the current call instance ?
+		_self.inBlock.context.addInt(_self.name, _self.intVarExpr.currentValue)
+	}
 }
 
+@Aspect(className=IntVarAccess)
+class IntVarAccessAspect extends IntExpressionAspect {
+	def int getCurrentValue() {
+		var EObject currentStatement = _self.eContainer
+		while(!(currentStatement instanceof Block))
+			currentStatement = currentStatement.eContainer
+		
+		var abc = currentStatement as Block
+		println("_self.intVarRef.name = " + _self.intVarRef.name)
+		println("_self.inBlock.context is null = " + (abc.context == null))
+		println("_self.inBlock.context.getInt = " + (abc.context.getInt(_self.intVarRef.name)))
+		abc.context.getInt(_self.intVarRef.name)
+	}
 
+}
 
+@Aspect(className=BoolVarAccess)
+class BoolVarAccessAspect extends BoolExpressionAspect {
+}

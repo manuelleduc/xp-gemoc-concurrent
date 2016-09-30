@@ -10,17 +10,17 @@ package gx10;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link gx10.BoolVar#getName <em>Name</em>}</li>
  *   <li>{@link gx10.BoolVar#getBoolVarExpr <em>Bool Var Expr</em>}</li>
  * </ul>
- * </p>
  *
  * @see gx10.Gx10Package#getBoolVar()
  * @model
  * @generated
  */
-public interface BoolVar extends BoolExpression {
+public interface BoolVar extends Expression {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->

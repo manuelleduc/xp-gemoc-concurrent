@@ -19,6 +19,7 @@ context Method
 	def : endOf : Event = self
 	
 context Operation
+	def : startOfOperation : Event = self
 	def : execute : Event = self.execute()
 	def : endOfOperation : Event = self
 
@@ -26,7 +27,10 @@ context Print
 	def : print : Event = self.print()
 
 context Operation
-	inv openrationStartThenEnd:
+
+	inv openrationStartThenExecute:
+		Relation Precedes(self.startOfOperation, self.execute)
+	inv openrationExecuteThenEnd:
 		Relation Precedes(self.execute, self.endOfOperation)
 
 context If
@@ -41,16 +45,16 @@ context Method
 
     -- all the operation of a method must be executed in sequence 
 	inv oppOrdered:
-		Relation Precedes(self.operations.execute)
+		Relation Precedes(self.operations.startOfOperation)
 		
 	inv firstOppAfterCall:
 		(self.operations->size() > 0) implies
-		let firstOppMethod : Event = self.operations->first().execute in
+		let firstOppMethod : Event = self.operations->first().startOfOperation in
 		Relation Precedes(self.callIt, firstOppMethod)
 		
 	inv methodStartOnCall0:
 		(self.inProgram.startMethod = self and self.calledBy->size() > 0) implies
-	    let allEventWhichCall0 : Event = Expression Union(self.calledBy.execute) in
+	    let allEventWhichCall0 : Event = Expression Union(self.calledBy.startOfOperation) in
 	    let inps : Event = self.inProgram.start in
 	    let allEventWhichCall00 : Event = Expression Union(allEventWhichCall0, inps) in
 		(Relation Precedes(allEventWhichCall00, self.callIt))
@@ -62,7 +66,7 @@ context Method
 		
 	inv methodStartOnCall2:
 		(self.inProgram.startMethod <> self and self.calledBy->size() > 0) implies
-	    let allEventWhichCall1 : Event = Expression Union(self.calledBy.execute) in
+	    let allEventWhichCall1 : Event = Expression Union(self.calledBy.startOfOperation) in
 		Relation Precedes(allEventWhichCall1, self.callIt)
 		
 	inv endOfAfterAll:
@@ -71,10 +75,14 @@ context Method
 		(self.operations->select(e | (e).oclIsKindOf(MethodCall))->size() > 0) implies
 		(Relation Precedes(self.operations->select(e | (e).oclIsKindOf(MethodCall))->last().oclAsType(MethodCall).methodToCall.endOf, self.endOf))	
 	
-		
+
 context Assign
+
+	inv startAssignedAfterStartAssign:
+		Relation Precedes(self.assignedExpression.startOfOperation, self.startOfOperation)
+
 	inv assignEvaluteBeforeSelf:
-		Relation Precedes(self.execute, self.assignedExpression.execute)
+		Relation Precedes(self.assignedExpression.execute, self.execute)
 	
 	inv evaluationFinishBeforeSelf:
 		Relation Precedes(self.assignedExpression.endOfOperation, self.endOfOperation)
@@ -83,11 +91,13 @@ context Assign
 
 context If
 
-	inv doEvaluateIfMoment:
-		Relation Coincides(self.execute, self.doEvaluateIf)
-
 	inv ifTrueThenElseElse:
 		Relation BooleanGuardedTransitionRule(self.doEvaluateIf, self.evaluateTrue, self.evaluateFalse)
+		
+		
+	inv doEvaluateIfMoment:
+		Relation Coincides(self.startOfOperation, self.doEvaluateIf)
+
 		
 	inv ifConditionAfterSelfExecute:
 		Relation Precedes(self.execute, self.conditionIf.execute)
@@ -98,12 +108,8 @@ context If
 	inv ifElseBranchAfterSelfExecute:
 		(self.elseBranch <> null) implies (Relation Precedes(self.evaluateFalse, self.elseBranch.execute))
 		
---	inv endOfOperationAfterAllContaingEndsOfOperation:
---		let unionsTheElse : Event = Expression Inf(self.thenBranch.endOfOperation, self.elseBranch.endOfOperation)
---		in Relation Precedes(unionsTheElse, self.endOfOperation)
-
-	inv endOfAfterEndOfCondition:
-		Relation Precedes(self.conditionIf.endOfOperation, self.endOfOperation)
+--	inv endOfAfterEndOfCondition:
+--		Relation Precedes(self.conditionIf.endOfOperation, self.endOfOperation)
 		
 	inv ifEndOfConditionBeforeBranching:
 		let unionsTheElse2 : Event = Expression Inf(self.thenBranch.execute, self.elseBranch.execute) in
@@ -125,16 +131,30 @@ context MethodCall
 		)
 		
 context Plus
-	inv subpartsBeforeSumRight:
-		Relation Precedes(self.rightPlus.execute, self.execute)
-	inv subpartsBeforeSumLeft:
-		Relation Precedes(self.leftPlus.execute, self.rightPlus.execute)
+--	inv subpartsBeforeSumRight:
+--		Relation Precedes(self.rightPlus.execute, self.execute)
+--	inv subpartsBeforeSumLeft:
+--		Relation Precedes(self.leftPlus.execute, self.rightPlus.execute)
+--		
+--	inv subpartsEndBeforeSum:
+--		Relation Precedes(self.leftPlus.endOfOperation, self.rightPlus.startOfOperation)
+--		
+--	inv sibPartBeforeEndSumRigth:
+--		Relation Precedes(self.rightPlus.endOfOperation, self.endOfOperation)
+
+	inv plusLeftStartAfterSelf:
+		Relation Precedes(self.startOfOperation, self.leftPlus.startOfOperation)
 		
-	inv subpartsEndBeforeSum:
-		Relation Precedes(self.leftPlus.endOfOperation, self.rightPlus.execute)
+	inv plusLeftEndBeforeRightStart:
+		Relation Precedes(self.leftPlus.endOfOperation, self.rightPlus.startOfOperation)
 		
-	inv sibPartBeforeEndSumRigth:
+	inv plusRightBeforeSelfExecute:
 		Relation Precedes(self.rightPlus.endOfOperation, self.execute)
+		
+	inv plusEvaluateBeforeEnd:
+		Relation Precedes(self.execute, self.endOfOperation)
+		
+	
 	
 context Print
 	inv printToPrintBeforeSelf:

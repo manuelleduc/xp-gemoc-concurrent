@@ -20,10 +20,12 @@ context Statement
 context Print
 	def : print : Event = self.print()
 	
+context IntVar
+	def : evaluate : Event = self.evaluate()
 		
 context MethodCall
 	def : callPreparation : Event = self.call()
-	def : callEvt : Event = self
+--	def : callEvt : Event = self
 	
 	
 	
@@ -35,6 +37,13 @@ context Statement
 		(self.inBlock <> null and self.inBlock.blockStatements->indexOf(self) > 1) implies
 		(Relation Precedes(self.inBlock.blockStatements->at(self.inBlock.blockStatements->indexOf(self)-1).endStatement, self.startStatement))
 		
+	inv firstStartAfterBlockStart:
+		(self.inBlock <> null and self.inBlock.blockStatements->first() = self) implies
+		(Relation Precedes(self.inBlock.startStatement, self.startStatement))
+		
+	inv lastEndWhenBlockEnd:
+		(self.inBlock <> null and self.inBlock.blockStatements->indexOf(self) = self.inBlock.blockStatements->size()) implies
+		(Relation Precedes(self.endStatement, self.inBlock.endStatement))
 	 
 	
 context Method
@@ -49,30 +58,52 @@ context Method
 		
 	inv methodStartOnCall0:
 		(self.inProgram.startMethod = self and self.calledBy->size() > 0) implies
-		let allEventWhichCall0 : Event = Expression Union(self.calledBy.callEvt) in
+		let allEventWhichCall0 : Event = Expression Union(self.calledBy.callPreparation) in
 		let inps0 : Event = self.inProgram.startMethod.startMethodEvt in
 		let allEventsUnion : Event = Expression Union(inps0, allEventWhichCall0) in
-		(Relation Coincides(allEventsUnion, self.startMethodEvt))
---		
+		(Relation Precedes(allEventsUnion, self.startMethodEvt))
+
 	inv methodStartOnCall1:
 		(self.inProgram.startMethod = self and self.calledBy->size() = 0) implies
 		(Relation Coincides(self.inProgram.startMethod.startMethodEvt, self.startMethodEvt))
 	
 	inv methodStartOnCall2:
 		(self.inProgram.startMethod <> self and self.calledBy->size() > 0) implies
-		let allEventWhichCall2 : Event = Expression Union(self.calledBy.callEvt) in
-		(Relation Coincides(allEventWhichCall2, self.startMethodEvt))
+		let allEventWhichCall2 : Event = Expression Union(self.calledBy.callPreparation) in
+		(Relation Precedes(allEventWhichCall2, self.startMethodEvt))
+		
+	inv methodEndOnCall2:
+		(self.inProgram.startMethod <> self and self.calledBy->size() > 0) implies
+		let allEventWhichCall22 : Event = Expression Union(self.calledBy.endStatement) in
+		(Relation Precedes(self.endMethodEvt, allEventWhichCall22))
+	
 		
 context MethodCall
 
 	inv methodStartBeforePrepareCall:
 		Relation Precedes(self.startStatement, self.callPreparation)
 
-	inv methodCallStartMethod:
-		Relation Precedes(self.callPreparation, self.callEvt)
+--	inv methodCallStartMethod:
+--		Relation Precedes(self.callPreparation, self.methodToCall.startMethodEvt)
 		
-	inv methodCallStopWhenCalledEnd:
-		Relation Precedes(self.methodToCall.endMethodEvt, self.endStatement)
+		
+		-- (remonter la logique dans remplacer par l'union des endStatement des methodes appelée 
+--	inv methodCallStopWhenCalledEnd:
+--		Relation Precedes(self.methodToCall.endMethodEvt, self.endStatement)
+
+context IntVar
+	inv intVarEvaluateBefore0:
+		Relation Precedes(self.startStatement, self.intVarExpr.startStatement)
+		
+	inv intVarEvaluateBefore1:
+		Relation Precedes(self.intVarExpr.endStatement, self.evaluate)
+		
+	inv intVarEvaluateBeforet:
+		Relation Precedes(self.evaluate, self.endStatement)
+
+--context IntConst
+--	inv instConstStartThenEnd:
+--		Relation Precedes(self.startStatement, self.endStatement)
 		
 context Print
 	inv printEvaluateBeforePrint0:
@@ -86,8 +117,8 @@ context Print
 
 		
 context Block
-	inv blockStatementsOrdered:
-		Relation Precedes(self.blockStatements.startStatement)
+--	inv blockStatementsOrdered:
+--		Relation Precedes(self.blockStatements.startStatement)
 		
 	inv firstInstructionStartWhenBlockReady:
 		(self.blockStatements->size() > 0) implies
@@ -95,8 +126,7 @@ context Block
 		
 	inv blockStatementWaitForAllToFinish:
 		(self.blockStatements->size() > 0) implies 
-		let blockLastofAllStatements : Event = Expression Sup(self.blockStatements.endStatement) in
-		(Relation Precedes(blockLastofAllStatements, self.endStatement))
+		(Relation Precedes(self.blockStatements->last().endStatement, self.endStatement))
 
 context Program
 	inv initBeforeAll:

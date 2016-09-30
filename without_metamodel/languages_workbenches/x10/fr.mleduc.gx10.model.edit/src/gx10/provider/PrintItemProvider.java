@@ -176,7 +176,12 @@ public class PrintItemProvider extends StatementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(Gx10Package.Literals.PRINT__TO_PRINT,
-				 Gx10Factory.eINSTANCE.createIntVar()));
+				 Gx10Factory.eINSTANCE.createIntVarAccess()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Gx10Package.Literals.PRINT__TO_PRINT,
+				 Gx10Factory.eINSTANCE.createBoolVarAccess()));
 	}
 
 }

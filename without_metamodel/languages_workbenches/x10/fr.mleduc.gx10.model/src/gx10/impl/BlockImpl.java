@@ -5,11 +5,16 @@ package gx10.impl;
 import gx10.Block;
 import gx10.Gx10Package;
 import gx10.Statement;
+
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -19,10 +24,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link gx10.impl.BlockImpl#getBlockStatements <em>Block Statements</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

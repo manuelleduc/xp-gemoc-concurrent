@@ -28,7 +28,7 @@ public class PrintAspect extends StatementAspect {
       _xifexpression = Boolean.valueOf(((BoolExpression) _toPrint_2).getCurrentValue());
     }
     final Object toPrintVal = ((Object)_xifexpression);
-    String _valueOf = String.valueOf(((Comparable<?>)toPrintVal));
+    String _valueOf = String.valueOf(toPrintVal);
     String _plus = (">>>>>>>>>>>>>>>>>>>>>>> " + _valueOf);
     InputOutput.<String>println(_plus);
   }

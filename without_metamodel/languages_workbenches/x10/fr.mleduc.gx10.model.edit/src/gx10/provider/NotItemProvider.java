@@ -156,7 +156,7 @@ public class NotItemProvider extends BoolExpressionItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(Gx10Package.Literals.NOT__NOT_EXPRESSION,
-				 Gx10Factory.eINSTANCE.createBoolVar()));
+				 Gx10Factory.eINSTANCE.createBoolVarAccess()));
 	}
 
 }

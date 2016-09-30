@@ -11,10 +11,10 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link gx10.While#getWhileBlock <em>While Block</em>}</li>
  * </ul>
- * </p>
  *
  * @see gx10.Gx10Package#getWhile()
  * @model

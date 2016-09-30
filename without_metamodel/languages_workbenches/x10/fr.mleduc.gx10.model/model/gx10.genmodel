@@ -158,6 +158,21 @@
       <genFeatures property="None" children="true" createChild="true">
         <ecoreFeature xsi:type="ecore:EReference" href="gx10.ecore#//IntVar/intVarExpr"/>
       </genFeatures>
+      <genOperations>
+        <ecoreOperation href="gx10.ecore#//IntVar/evaluate"/>
+      </genOperations>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="gx10.ecore#//IntVarAccess"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="gx10.ecore#//IntVarAccess/intVarRef"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="gx10.ecore#//BoolVarAccess"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="gx10.ecore#//BoolVarAccess/boolVarRef"/>
+      </genFeatures>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

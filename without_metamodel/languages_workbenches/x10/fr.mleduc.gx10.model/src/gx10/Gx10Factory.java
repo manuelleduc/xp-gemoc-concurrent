@@ -175,6 +175,24 @@ public interface Gx10Factory extends EFactory {
 	IntVar createIntVar();
 
 	/**
+	 * Returns a new object of class '<em>Int Var Access</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Int Var Access</em>'.
+	 * @generated
+	 */
+	IntVarAccess createIntVarAccess();
+
+	/**
+	 * Returns a new object of class '<em>Bool Var Access</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Bool Var Access</em>'.
+	 * @generated
+	 */
+	BoolVarAccess createBoolVarAccess();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

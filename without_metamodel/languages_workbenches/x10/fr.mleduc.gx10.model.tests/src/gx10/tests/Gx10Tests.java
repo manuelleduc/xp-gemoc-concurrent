@@ -39,8 +39,9 @@ public class Gx10Tests extends TestSuite {
 		suite.addTestSuite(PlusTest.class);
 		suite.addTestSuite(MethodCallTest.class);
 		suite.addTestSuite(PrintTest.class);
-		suite.addTestSuite(BoolVarTest.class);
 		suite.addTestSuite(IntVarTest.class);
+		suite.addTestSuite(IntVarAccessTest.class);
+		suite.addTestSuite(BoolVarAccessTest.class);
 		return suite;
 	}
 

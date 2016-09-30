@@ -10,10 +10,10 @@ package gx10;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link gx10.IntConst#getValue <em>Value</em>}</li>
  * </ul>
- * </p>
  *
  * @see gx10.Gx10Package#getIntConst()
  * @model

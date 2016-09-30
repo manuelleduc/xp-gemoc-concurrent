@@ -10,10 +10,10 @@ package gx10;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link gx10.MethodCall#getMethodToCall <em>Method To Call</em>}</li>
  * </ul>
- * </p>
  *
  * @see gx10.Gx10Package#getMethodCall()
  * @model

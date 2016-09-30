@@ -10,11 +10,11 @@ package gx10;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link gx10.Plus#getLeftPlus <em>Left Plus</em>}</li>
  *   <li>{@link gx10.Plus#getRightPlus <em>Right Plus</em>}</li>
  * </ul>
- * </p>
  *
  * @see gx10.Gx10Package#getPlus()
  * @model

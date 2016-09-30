@@ -48,6 +48,7 @@ system addClocks: #(endOf[element.name/]).
 [/for]
 [for (element : gseq::Operation| aProgram.eAllContents(gseq::Operation))]
 "clocks for Operation [element.name/]" 
+system addClocks: #(startOfOperation[element.name/]).
 system addClocks: #(execute[element.name/]).
 system addClocks: #(endOfOperation[element.name/]).
 
@@ -169,7 +170,11 @@ system addClocks: #(evaluateFalse[element.name/]).
 [/for]
 [for (element : gseq::Operation| aProgram.eAllContents(gseq::Operation))]
 "relations for Operation [element.name/]" 
-	"openrationStartThenEnd in Operation [element.name/]"
+	"openrationStartThenExecute in Operation [element.name/]"
+		[if ( true) ]
+	system library: #Kernel relation: #Precedes clocks: #(startOfOperation[element.name/]  execute[element.name/])  constants:{-1} .
+		[/if]
+	"openrationExecuteThenEnd in Operation [element.name/]"
 		[if ( true) ]
 	system library: #Kernel relation: #Precedes clocks: #(execute[element.name/]  endOfOperation[element.name/])  constants:{-1} .
 		[/if]
@@ -193,10 +198,6 @@ system addClocks: #(evaluateFalse[element.name/]).
 	[/if]
  
 "relations for If [element.name/]" 
-	"doEvaluateIfMoment in If [element.name/]"
-		[if ( true) ]
-	system library: #Kernel relation: #Coincides clocks: #(execute[element.name/]  doEvaluateIf[element.name/]) .
-		[/if]
 	"ifTrueThenElseElse in If [element.name/]"
 	[if ( true) ]
 	system
@@ -207,6 +208,10 @@ system addClocks: #(evaluateFalse[element.name/]).
 		variables: {}.
 	[/if]
 
+	"doEvaluateIfMoment in If [element.name/]"
+		[if ( true) ]
+	system library: #Kernel relation: #Coincides clocks: #(startOfOperation[element.name/]  doEvaluateIf[element.name/]) .
+		[/if]
 	"ifConditionAfterSelfExecute in If [element.name/]"
 		[if ( true) ]
 	system library: #Kernel relation: #Precedes clocks: #(execute[element.name/]  execute[element.conditionIf.name/])  constants:{-1} .
@@ -219,10 +224,6 @@ system addClocks: #(evaluateFalse[element.name/]).
 		[if ( ( self.elseBranch <> null) ) ]
 	system library: #Kernel relation: #Precedes clocks: #(evaluateFalse[element.name/]  execute[element.elseBranch.name/])  constants:{-1} .
 		[/if]
-	"endOfAfterEndOfCondition in If [element.name/]"
-		[if ( true) ]
-	system library: #Kernel relation: #Precedes clocks: #(endOfOperation[element.conditionIf.name/]  endOfOperation[element.name/])  constants:{-1} .
-		[/if]
 	"ifEndOfConditionBeforeBranching in If [element.name/]"
 		[if ( true) ]
 	system library: #Kernel relation: #Precedes clocks: #(endOfOperation[element.conditionIf.name/]  unionsTheElse2[element.name/])  constants:{-1} .
@@ -230,9 +231,13 @@ system addClocks: #(evaluateFalse[element.name/]).
 [/for]
 [for (element : gseq::Assign| aProgram.eAllContents(gseq::Assign))]
 "relations for Assign [element.name/]" 
+	"startAssignedAfterStartAssign in Assign [element.name/]"
+		[if ( true) ]
+	system library: #Kernel relation: #Precedes clocks: #(startOfOperation[element.assignedExpression.name/]  startOfOperation[element.name/])  constants:{-1} .
+		[/if]
 	"assignEvaluteBeforeSelf in Assign [element.name/]"
 		[if ( true) ]
-	system library: #Kernel relation: #Precedes clocks: #(execute[element.name/]  execute[element.assignedExpression.name/])  constants:{-1} .
+	system library: #Kernel relation: #Precedes clocks: #(execute[element.assignedExpression.name/]  execute[element.name/])  constants:{-1} .
 		[/if]
 	"evaluationFinishBeforeSelf in Assign [element.name/]"
 		[if ( true) ]
@@ -248,21 +253,21 @@ system addClocks: #(evaluateFalse[element.name/]).
 [/for]
 [for (element : gseq::Plus| aProgram.eAllContents(gseq::Plus))]
 "relations for Plus [element.name/]" 
-	"subpartsBeforeSumRight in Plus [element.name/]"
+	"plusLeftStartAfterSelf in Plus [element.name/]"
 		[if ( true) ]
-	system library: #Kernel relation: #Precedes clocks: #(execute[element.rightPlus.name/]  execute[element.name/])  constants:{-1} .
+	system library: #Kernel relation: #Precedes clocks: #(startOfOperation[element.name/]  startOfOperation[element.leftPlus.name/])  constants:{-1} .
 		[/if]
-	"subpartsBeforeSumLeft in Plus [element.name/]"
+	"plusLeftEndBeforeRightStart in Plus [element.name/]"
 		[if ( true) ]
-	system library: #Kernel relation: #Precedes clocks: #(execute[element.leftPlus.name/]  execute[element.rightPlus.name/])  constants:{-1} .
+	system library: #Kernel relation: #Precedes clocks: #(endOfOperation[element.leftPlus.name/]  startOfOperation[element.rightPlus.name/])  constants:{-1} .
 		[/if]
-	"subpartsEndBeforeSum in Plus [element.name/]"
-		[if ( true) ]
-	system library: #Kernel relation: #Precedes clocks: #(endOfOperation[element.leftPlus.name/]  execute[element.rightPlus.name/])  constants:{-1} .
-		[/if]
-	"sibPartBeforeEndSumRigth in Plus [element.name/]"
+	"plusRightBeforeSelfExecute in Plus [element.name/]"
 		[if ( true) ]
 	system library: #Kernel relation: #Precedes clocks: #(endOfOperation[element.rightPlus.name/]  execute[element.name/])  constants:{-1} .
+		[/if]
+	"plusEvaluateBeforeEnd in Plus [element.name/]"
+		[if ( true) ]
+	system library: #Kernel relation: #Precedes clocks: #(execute[element.name/]  endOfOperation[element.name/])  constants:{-1} .
 		[/if]
 [/for]
 [/file]

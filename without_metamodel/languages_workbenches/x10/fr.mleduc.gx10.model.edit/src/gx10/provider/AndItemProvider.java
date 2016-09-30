@@ -158,7 +158,7 @@ public class AndItemProvider extends BoolExpressionItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(Gx10Package.Literals.AND__LEFT_AND_EXPRESSION,
-				 Gx10Factory.eINSTANCE.createBoolVar()));
+				 Gx10Factory.eINSTANCE.createBoolVarAccess()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -183,7 +183,7 @@ public class AndItemProvider extends BoolExpressionItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(Gx10Package.Literals.AND__RIGHT_AND_EXPRESSION,
-				 Gx10Factory.eINSTANCE.createBoolVar()));
+				 Gx10Factory.eINSTANCE.createBoolVarAccess()));
 	}
 
 	/**

@@ -10,11 +10,11 @@ package gx10;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link gx10.If#getThenBlock <em>Then Block</em>}</li>
  *   <li>{@link gx10.If#getElseBlock <em>Else Block</em>}</li>
  * </ul>
- * </p>
  *
  * @see gx10.Gx10Package#getIf()
  * @model

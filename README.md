@@ -15,3 +15,9 @@ Defines a common model for concurrent language.
 
 # Current State
   * Model Workbench : Debug does not start since it can not load the mocc library. Solution : Delete and recreate the library so it is loaded again at model workbench startup !
+
+
+# Todo
+  * Remplacer Operation par expression.
+  * Method est un élement d'un flot de contrôle
+  * Toutes les opérations avec un sous élement left et un sous élement droit peuvent être regroupées en opérations binaires.

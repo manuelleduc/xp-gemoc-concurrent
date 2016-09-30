@@ -10,17 +10,17 @@ package gx10;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link gx10.IntVar#getName <em>Name</em>}</li>
  *   <li>{@link gx10.IntVar#getIntVarExpr <em>Int Var Expr</em>}</li>
  * </ul>
- * </p>
  *
  * @see gx10.Gx10Package#getIntVar()
  * @model
  * @generated
  */
-public interface IntVar extends IntExpression {
+public interface IntVar extends Statement {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -32,7 +32,7 @@ public interface IntVar extends IntExpression {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see gx10.Gx10Package#getIntVar_Name()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getName();
@@ -72,5 +72,13 @@ public interface IntVar extends IntExpression {
 	 * @generated
 	 */
 	void setIntVarExpr(IntExpression value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void evaluate();
 
 } // IntVar

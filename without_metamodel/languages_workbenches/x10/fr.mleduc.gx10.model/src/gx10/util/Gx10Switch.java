@@ -47,7 +47,7 @@ public class Gx10Switch<T> extends Switch<T> {
 	 * Checks whether this is a switch for the given package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @parameter ePackage the package in question.
+	 * @param ePackage the package in question.
 	 * @return whether this is a switch for the given package.
 	 * @generated
 	 */
@@ -223,7 +223,6 @@ public class Gx10Switch<T> extends Switch<T> {
 			case Gx10Package.BOOL_VAR: {
 				BoolVar boolVar = (BoolVar)theEObject;
 				T result = caseBoolVar(boolVar);
-				if (result == null) result = caseBoolExpression(boolVar);
 				if (result == null) result = caseExpression(boolVar);
 				if (result == null) result = caseStatement(boolVar);
 				if (result == null) result = defaultCase(theEObject);
@@ -232,9 +231,25 @@ public class Gx10Switch<T> extends Switch<T> {
 			case Gx10Package.INT_VAR: {
 				IntVar intVar = (IntVar)theEObject;
 				T result = caseIntVar(intVar);
-				if (result == null) result = caseIntExpression(intVar);
-				if (result == null) result = caseExpression(intVar);
 				if (result == null) result = caseStatement(intVar);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case Gx10Package.INT_VAR_ACCESS: {
+				IntVarAccess intVarAccess = (IntVarAccess)theEObject;
+				T result = caseIntVarAccess(intVarAccess);
+				if (result == null) result = caseIntExpression(intVarAccess);
+				if (result == null) result = caseExpression(intVarAccess);
+				if (result == null) result = caseStatement(intVarAccess);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case Gx10Package.BOOL_VAR_ACCESS: {
+				BoolVarAccess boolVarAccess = (BoolVarAccess)theEObject;
+				T result = caseBoolVarAccess(boolVarAccess);
+				if (result == null) result = caseBoolExpression(boolVarAccess);
+				if (result == null) result = caseExpression(boolVarAccess);
+				if (result == null) result = caseStatement(boolVarAccess);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -569,6 +584,36 @@ public class Gx10Switch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseIntVar(IntVar object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Int Var Access</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Int Var Access</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIntVarAccess(IntVarAccess object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Bool Var Access</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Bool Var Access</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBoolVarAccess(BoolVarAccess object) {
 		return null;
 	}
 

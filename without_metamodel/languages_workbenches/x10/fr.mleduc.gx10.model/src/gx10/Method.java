@@ -3,6 +3,7 @@
 package gx10;
 
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -12,13 +13,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link gx10.Method#getInProgram <em>In Program</em>}</li>
  *   <li>{@link gx10.Method#getMethodBlock <em>Method Block</em>}</li>
  *   <li>{@link gx10.Method#getName <em>Name</em>}</li>
  *   <li>{@link gx10.Method#getCalledBy <em>Called By</em>}</li>
  * </ul>
- * </p>
  *
  * @see gx10.Gx10Package#getMethod()
  * @model

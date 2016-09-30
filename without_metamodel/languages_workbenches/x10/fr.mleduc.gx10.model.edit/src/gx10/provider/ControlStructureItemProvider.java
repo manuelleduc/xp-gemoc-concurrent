@@ -145,7 +145,7 @@ public class ControlStructureItemProvider extends StatementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(Gx10Package.Literals.CONTROL_STRUCTURE__CONTROL_STRUCTURE_CONDITION,
-				 Gx10Factory.eINSTANCE.createBoolVar()));
+				 Gx10Factory.eINSTANCE.createBoolVarAccess()));
 	}
 
 }

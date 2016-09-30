@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gx10:Program xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gx10="http://mleduc.fr/gx10" startMethod="//@methods.0">
+  <methods name="main">
+    <methodBlock>
+      <blockStatements xsi:type="gx10:MethodCall" methodToCall="//@methods.1"/>
+      <blockStatements xsi:type="gx10:Print">
+        <toPrint xsi:type="gx10:IntConst" value="1"/>
+      </blockStatements>
+      <blockStatements xsi:type="gx10:MethodCall" methodToCall="//@methods.1"/>
+      <blockStatements xsi:type="gx10:Print">
+        <toPrint xsi:type="gx10:IntConst" value="2"/>
+      </blockStatements>
+      <blockStatements xsi:type="gx10:MethodCall" methodToCall="//@methods.1"/>
+      <blockStatements xsi:type="gx10:Print">
+        <toPrint xsi:type="gx10:IntConst" value="3"/>
+      </blockStatements>
+      <blockStatements xsi:type="gx10:MethodCall" methodToCall="//@methods.1"/>
+    </methodBlock>
+  </methods>
+  <methods name="meth2" calledBy="//@methods.0/@methodBlock/@blockStatements.0 //@methods.0/@methodBlock/@blockStatements.2 //@methods.0/@methodBlock/@blockStatements.4 //@methods.0/@methodBlock/@blockStatements.6">
+    <methodBlock>
+      <blockStatements xsi:type="gx10:Print">
+        <toPrint xsi:type="gx10:True"/>
+      </blockStatements>
+    </methodBlock>
+  </methods>
+</gx10:Program>

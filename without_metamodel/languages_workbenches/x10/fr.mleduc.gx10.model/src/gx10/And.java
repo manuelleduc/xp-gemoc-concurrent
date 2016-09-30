@@ -10,11 +10,11 @@ package gx10;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link gx10.And#getLeftAndExpression <em>Left And Expression</em>}</li>
  *   <li>{@link gx10.And#getRightAndExpression <em>Right And Expression</em>}</li>
  * </ul>
- * </p>
  *
  * @see gx10.Gx10Package#getAnd()
  * @model

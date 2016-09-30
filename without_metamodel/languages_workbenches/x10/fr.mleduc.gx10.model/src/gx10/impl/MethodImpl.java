@@ -9,10 +9,12 @@ import gx10.MethodCall;
 import gx10.Program;
 
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -29,13 +31,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link gx10.impl.MethodImpl#getInProgram <em>In Program</em>}</li>
  *   <li>{@link gx10.impl.MethodImpl#getMethodBlock <em>Method Block</em>}</li>
  *   <li>{@link gx10.impl.MethodImpl#getName <em>Name</em>}</li>
  *   <li>{@link gx10.impl.MethodImpl#getCalledBy <em>Called By</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

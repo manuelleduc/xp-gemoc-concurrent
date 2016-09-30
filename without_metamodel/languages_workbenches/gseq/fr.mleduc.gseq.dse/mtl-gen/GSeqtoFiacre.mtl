@@ -89,9 +89,10 @@ process p[element.name/] ['['/][element.name/]_callIt:in none,[element.name/]_en
 [/for]
 /************************* Operation Process Instances***************************/
 [for (element : Operation| aProgram.eAllContents(Operation))]
-process p[element.name/] ['['/][element.name/]_execute:in none,[element.name/]_endOfOperation:in none[']'/](&global : SystemDataRoot, id : read int) is
+process p[element.name/] ['['/][element.name/]_startOfOperation:in none,[element.name/]_execute:in none,[element.name/]_endOfOperation:in none[']'/](&global : SystemDataRoot, id : read int) is
 	states s0
 	var _self:Operation
+    from s0  [element.name/]_startOfOperation;  to s0
     from s0  [element.name/]_execute; global:=Operation_execute( global , global.refToElement_id) ;  to s0
     from s0  [element.name/]_endOfOperation;  to s0
 [/for]
@@ -106,7 +107,7 @@ process pUnConstrainedSemantics['['/][for (element : Program| aProgram.eAllConte
 [element.name/]_start:out none,[/for][for (element : BooleanExpression| aProgram.eAllContents(BooleanExpression))]
 [element.name/]_bvalue:out none,[/for][for (element : Method| aProgram.eAllContents(Method))]
 [element.name/]_callIt:out none,[element.name/]_endOf:out none,[/for][for (element : Operation| aProgram.eAllContents(Operation))]
-[element.name/]_execute:out none,[element.name/]_endOfOperation:out none,[/for][for (element : Print| aProgram.eAllContents(Print))]
+[element.name/]_startOfOperation:out none,[element.name/]_execute:out none,[element.name/]_endOfOperation:out none,[/for][for (element : Print| aProgram.eAllContents(Print))]
 [element.name/]_print:out none,[/for][for (element : If| aProgram.eAllContents(If))]
 [element.name/]_doEvaluateIf:out none,[element.name/]_evaluateTrue:out none,[element.name/]_evaluateFalse:out none,[/for][for (element : Assign| aProgram.eAllContents(Assign))]
 [/for][for (element : MethodCall| aProgram.eAllContents(MethodCall))]
@@ -127,6 +128,7 @@ process pUnConstrainedSemantics['['/][for (element : Program| aProgram.eAllConte
 
 [/for]
 [for (element : Operation| aProgram.eAllContents(Operation))]
+    from s0  [element.name/]_startOfOperation;  to s0
     from s0  [element.name/]_execute;  to s0
     from s0  [element.name/]_endOfOperation;  to s0
 
@@ -156,7 +158,7 @@ process pUnConstrainedSemantics['['/][for (element : Program| aProgram.eAllConte
 [element.name/]_start:out none,[/for][for (element : BooleanExpression| aProgram.eAllContents(BooleanExpression))]
 [element.name/]_bvalue:out none,[/for][for (element : Method| aProgram.eAllContents(Method))]
 [element.name/]_callIt:out none,[element.name/]_endOf:out none,[/for][for (element : Operation| aProgram.eAllContents(Operation))]
-[element.name/]_execute:out none,[element.name/]_endOfOperation:out none,[/for][for (element : Print| aProgram.eAllContents(Print))]
+[element.name/]_startOfOperation:out none,[element.name/]_execute:out none,[element.name/]_endOfOperation:out none,[/for][for (element : Print| aProgram.eAllContents(Print))]
 [element.name/]_print:out none,[/for][for (element : If| aProgram.eAllContents(If))]
 [element.name/]_doEvaluateIf:out none,[element.name/]_evaluateTrue:out none,[element.name/]_evaluateFalse:out none,[/for][for (element : Assign| aProgram.eAllContents(Assign))]
 [/for][for (element : MethodCall| aProgram.eAllContents(MethodCall))]
@@ -178,6 +180,7 @@ process pUnConstrainedSemantics['['/][for (element : Program| aProgram.eAllConte
 
 [/for]
 [for (element : Operation| aProgram.eAllContents(Operation))]
+    from s0  [element.name/]_startOfOperation;  to s0
     from s0  [element.name/]_execute;  to s0
     from s0  [element.name/]_endOfOperation;  to s0
 
@@ -221,7 +224,7 @@ port
 [element.name/]_callIt: none,[element.name/]_endOf: none,
 
 [/for][for (element : Operation| aProgram.eAllContents(Operation))]
-[element.name/]_execute: none,[element.name/]_endOfOperation: none,
+[element.name/]_startOfOperation: none,[element.name/]_execute: none,[element.name/]_endOfOperation: none,
 
 [/for][for (element : Print| aProgram.eAllContents(Print))]
 [element.name/]_print: none,
@@ -243,7 +246,7 @@ pUnConstrainedSemantics['['/][for (element : Program| aProgram.eAllContents(Prog
 [element.name/]_start,[/for][for (element : BooleanExpression| aProgram.eAllContents(BooleanExpression))]
 [element.name/]_bvalue,[/for][for (element : Method| aProgram.eAllContents(Method))]
 [element.name/]_callIt,[element.name/]_endOf,[/for][for (element : Operation| aProgram.eAllContents(Operation))]
-[element.name/]_execute,[element.name/]_endOfOperation,[/for][for (element : Print| aProgram.eAllContents(Print))]
+[element.name/]_startOfOperation,[element.name/]_execute,[element.name/]_endOfOperation,[/for][for (element : Print| aProgram.eAllContents(Print))]
 [element.name/]_print,[/for][for (element : If| aProgram.eAllContents(If))]
 [element.name/]_doEvaluateIf,[element.name/]_evaluateTrue,[element.name/]_evaluateFalse,[/for][for (element : Assign| aProgram.eAllContents(Assign))]
 ,[/for][for (element : MethodCall| aProgram.eAllContents(MethodCall))]
@@ -259,7 +262,7 @@ pUnConstrainedSemantics['['/][for (element : Program| aProgram.eAllContents(Prog
 || p[element.name/] ['['/][element.name/]_callIt,[element.name/]_endOf[']'/] (&global, ID)
 [/for]
 [for (element : Operation| aProgram.eAllContents(Operation))]
-|| p[element.name/] ['['/][element.name/]_execute,[element.name/]_endOfOperation[']'/] (&global, ID)
+|| p[element.name/] ['['/][element.name/]_startOfOperation,[element.name/]_execute,[element.name/]_endOfOperation[']'/] (&global, ID)
 [/for]
 [for (element : Print| aProgram.eAllContents(Print))]
 || p[element.name/] ['['/][element.name/]_print[']'/] (&global, ID)

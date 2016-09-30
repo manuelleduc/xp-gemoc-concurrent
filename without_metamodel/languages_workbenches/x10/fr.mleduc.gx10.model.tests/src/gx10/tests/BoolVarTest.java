@@ -13,7 +13,7 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class BoolVarTest extends BoolExpressionTest {
+public class BoolVarTest extends ExpressionTest {
 
 	/**
 	 * <!-- begin-user-doc -->

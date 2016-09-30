@@ -156,6 +156,14 @@ public class Gx10AdapterFactory extends AdapterFactoryImpl {
 				return createIntVarAdapter();
 			}
 			@Override
+			public Adapter caseIntVarAccess(IntVarAccess object) {
+				return createIntVarAccessAdapter();
+			}
+			@Override
+			public Adapter caseBoolVarAccess(BoolVarAccess object) {
+				return createBoolVarAccessAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -480,6 +488,34 @@ public class Gx10AdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createIntVarAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link gx10.IntVarAccess <em>Int Var Access</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see gx10.IntVarAccess
+	 * @generated
+	 */
+	public Adapter createIntVarAccessAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link gx10.BoolVarAccess <em>Bool Var Access</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see gx10.BoolVarAccess
+	 * @generated
+	 */
+	public Adapter createBoolVarAccessAdapter() {
 		return null;
 	}
 

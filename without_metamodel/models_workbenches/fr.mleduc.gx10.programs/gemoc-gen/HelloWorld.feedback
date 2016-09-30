@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="ASCII"?>
+<feedback:ActionModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:feedback="http://timesquare.inria.fr/feedback">
+  <events name="MSE_ProgramImpl_0_start">
+    <solverEvent href="HelloWorld.timemodel#//@subBlock.0/@elements.0"/>
+  </events>
+  <events name="MSE_main_1_startMethodEvt">
+    <solverEvent href="HelloWorld.timemodel#//@subBlock.0/@elements.1"/>
+  </events>
+  <events name="MSE_meth2_2_startMethodEvt">
+    <solverEvent href="HelloWorld.timemodel#//@subBlock.0/@elements.2"/>
+  </events>
+  <events name="MSE_main_1_endMethodEvt">
+    <solverEvent href="HelloWorld.timemodel#//@subBlock.0/@elements.3"/>
+  </events>
+  <events name="MSE_meth2_2_endMethodEvt">
+    <solverEvent href="HelloWorld.timemodel#//@subBlock.0/@elements.4"/>
+  </events>
+  <events name="MSE_PrintImpl_3_startStatement">
+    <solverEvent href="HelloWorld.timemodel#//@subBlock.0/@elements.5"/>
+  </events>
+  <events name="MSE_TrueImpl_4_startStatement">
+    <solverEvent href="HelloWorld.timemodel#//@subBlock.0/@elements.6"/>
+  </events>
+  <events name="MSE_MethodCallImpl_5_startStatement">
+    <solverEvent href="HelloWorld.timemodel#//@subBlock.0/@elements.7"/>
+  </events>
+  <events name="MSE_MethodCallImpl_6_startStatement">
+    <solverEvent href="HelloWorld.timemodel#//@subBlock.0/@elements.8"/>
+  </events>
+  <events name="MSE_IntConstImpl_7_startStatement">
+    <solverEvent href="HelloWorld.timemodel#//@subBlock.0/@elements.9"/>
+  </events>
+  <events name="MSE_MethodCallImpl_8_startStatement">
+    <solverEvent href="HelloWorld.timemodel#//@subBlock.0/@elements.10"/>
+  </events>
+  <events name="MSE_BlockImpl_9_startStatement">
+    <solverEvent href="HelloWorld.timemodel#//@subBlock.0/@elements.11"/>
+  </events>
+  <events name="MSE_PrintImpl_10_startStatement">
+    <solverEvent href="HelloWorld.timemodel#//@subBlock.0/@elements.12"/>
+  </events>
+  <events name="MSE_PrintImpl_11_startStatement">
+    <solverEvent href="HelloWorld.timemodel#//@subBlock.0/@elements.13"/>
+  </events>
+  <events name="MSE_MethodCallImpl_12_startStatement">
+    <solverEvent href="HelloWorld.timemodel#//@subBlock.0/@elements.14"/>
+  </events>
+  <events name="MSE_IntConstImpl_13_startStatement">
+    <solverEvent href="HelloWorld.timemodel#//@subBlock.0/@elements.15"/>
+  </events>
+  <events name="MSE_BlockImpl_14_startStatement">
+    <solverEvent href="HelloWorld.timemodel#//@subBlock.0/@elements.16"/>
+  </events>
+  <events name="MSE_PrintImpl_15_startStatement">
+    <solverEvent href="HelloWorld.timemodel#//@subBlock.0/@elements.17"/>
+  </events>
+  <events name="MSE_IntConstImpl_16_startStatement">
+    <solverEvent href="HelloWorld.timemodel#//@subBlock.0/@elements.18"/>
+  </events>
+  <events name="MSE_PrintImpl_3_endStatement">
+    <solverEvent href="HelloWorld.timemodel#//@subBlock.0/@elements.19"/>
+  </events>
+  <events name="MSE_TrueImpl_4_endStatement">
+    <solverEvent href="HelloWorld.timemodel#//@subBlock.0/@elements.20"/>
+  </events>
+  <events name="MSE_MethodCallImpl_5_endStatement">
+    <solverEvent href="HelloWorld.timemodel#//@subBlock.0/@elements.21"/>
+  </events>
+  <events name="MSE_MethodCallImpl_6_endStatement">
+    <solverEvent href="HelloWorld.timemodel#//@subBlock.0/@elements.22"/>
+  </events>
+  <events name="MSE_IntConstImpl_7_endStatement">
+    <solverEvent href="HelloWorld.timemodel#//@subBlock.0/@elements.23"/>
+  </events>
+  <events name="MSE_MethodCallImpl_8_endStatement">
+    <solverEvent href="HelloWorld.timemodel#//@subBlock.0/@elements.24"/>
+  </events>
+  <events name="MSE_BlockImpl_9_endStatement">
+    <solverEvent href="HelloWorld.timemodel#//@subBlock.0/@elements.25"/>
+  </events>
+  <events name="MSE_PrintImpl_10_endStatement">
+    <solverEvent href="HelloWorld.timemodel#//@subBlock.0/@elements.26"/>
+  </events>
+  <events name="MSE_PrintImpl_11_endStatement">
+    <solverEvent href="HelloWorld.timemodel#//@subBlock.0/@elements.27"/>
+  </events>
+  <events name="MSE_MethodCallImpl_12_endStatement">
+    <solverEvent href="HelloWorld.timemodel#//@subBlock.0/@elements.28"/>
+  </events>
+  <events name="MSE_IntConstImpl_13_endStatement">
+    <solverEvent href="HelloWorld.timemodel#//@subBlock.0/@elements.29"/>
+  </events>
+  <events name="MSE_BlockImpl_14_endStatement">
+    <solverEvent href="HelloWorld.timemodel#//@subBlock.0/@elements.30"/>
+  </events>
+  <events name="MSE_PrintImpl_15_endStatement">
+    <solverEvent href="HelloWorld.timemodel#//@subBlock.0/@elements.31"/>
+  </events>
+  <events name="MSE_IntConstImpl_16_endStatement">
+    <solverEvent href="HelloWorld.timemodel#//@subBlock.0/@elements.32"/>
+  </events>
+  <events name="MSE_PrintImpl_3_print">
+    <caller href="../HelloWorld.gx10#//@methods.0/@methodBlock/@blockStatements.5"/>
+    <action href="http://mleduc.fr/gx10#//Print/print"/>
+    <solverEvent href="HelloWorld.timemodel#//@subBlock.0/@elements.33"/>
+  </events>
+  <events name="MSE_PrintImpl_10_print">
+    <caller href="../HelloWorld.gx10#//@methods.0/@methodBlock/@blockStatements.1"/>
+    <action href="http://mleduc.fr/gx10#//Print/print"/>
+    <solverEvent href="HelloWorld.timemodel#//@subBlock.0/@elements.34"/>
+  </events>
+  <events name="MSE_PrintImpl_11_print">
+    <caller href="../HelloWorld.gx10#//@methods.0/@methodBlock/@blockStatements.3"/>
+    <action href="http://mleduc.fr/gx10#//Print/print"/>
+    <solverEvent href="HelloWorld.timemodel#//@subBlock.0/@elements.35"/>
+  </events>
+  <events name="MSE_PrintImpl_15_print">
+    <caller href="../HelloWorld.gx10#//@methods.1/@methodBlock/@blockStatements.0"/>
+    <action href="http://mleduc.fr/gx10#//Print/print"/>
+    <solverEvent href="HelloWorld.timemodel#//@subBlock.0/@elements.36"/>
+  </events>
+  <events name="MSE_MethodCallImpl_5_callPreparation">
+    <caller href="../HelloWorld.gx10#//@methods.0/@methodBlock/@blockStatements.4"/>
+    <action href="http://mleduc.fr/gx10#//MethodCall/call"/>
+    <solverEvent href="HelloWorld.timemodel#//@subBlock.0/@elements.37"/>
+  </events>
+  <events name="MSE_MethodCallImpl_12_callPreparation">
+    <caller href="../HelloWorld.gx10#//@methods.0/@methodBlock/@blockStatements.0"/>
+    <action href="http://mleduc.fr/gx10#//MethodCall/call"/>
+    <solverEvent href="HelloWorld.timemodel#//@subBlock.0/@elements.38"/>
+  </events>
+  <events name="MSE_MethodCallImpl_6_callPreparation">
+    <caller href="../HelloWorld.gx10#//@methods.0/@methodBlock/@blockStatements.6"/>
+    <action href="http://mleduc.fr/gx10#//MethodCall/call"/>
+    <solverEvent href="HelloWorld.timemodel#//@subBlock.0/@elements.39"/>
+  </events>
+  <events name="MSE_MethodCallImpl_8_callPreparation">
+    <caller href="../HelloWorld.gx10#//@methods.0/@methodBlock/@blockStatements.2"/>
+    <action href="http://mleduc.fr/gx10#//MethodCall/call"/>
+    <solverEvent href="HelloWorld.timemodel#//@subBlock.0/@elements.40"/>
+  </events>
+  <importStatements importURI="platform:/7"/>
+</feedback:ActionModel>

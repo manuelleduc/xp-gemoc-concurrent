@@ -207,6 +207,16 @@ public class BlockItemProvider extends StatementItemProvider {
 			(createChildParameter
 				(Gx10Package.Literals.BLOCK__BLOCK_STATEMENTS,
 				 Gx10Factory.eINSTANCE.createIntVar()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Gx10Package.Literals.BLOCK__BLOCK_STATEMENTS,
+				 Gx10Factory.eINSTANCE.createIntVarAccess()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Gx10Package.Literals.BLOCK__BLOCK_STATEMENTS,
+				 Gx10Factory.eINSTANCE.createBoolVarAccess()));
 	}
 
 }

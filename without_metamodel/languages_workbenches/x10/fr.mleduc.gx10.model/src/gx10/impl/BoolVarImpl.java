@@ -20,15 +20,15 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link gx10.impl.BoolVarImpl#getName <em>Name</em>}</li>
  *   <li>{@link gx10.impl.BoolVarImpl#getBoolVarExpr <em>Bool Var Expr</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class BoolVarImpl extends BoolExpressionImpl implements BoolVar {
+public class BoolVarImpl extends ExpressionImpl implements BoolVar {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->

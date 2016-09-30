@@ -20,11 +20,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link gx10.impl.PlusImpl#getLeftPlus <em>Left Plus</em>}</li>
  *   <li>{@link gx10.impl.PlusImpl#getRightPlus <em>Right Plus</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

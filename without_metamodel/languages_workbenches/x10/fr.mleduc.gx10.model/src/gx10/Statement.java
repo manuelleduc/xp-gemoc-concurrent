@@ -11,17 +11,16 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link gx10.Statement#getInBlock <em>In Block</em>}</li>
  * </ul>
- * </p>
  *
  * @see gx10.Gx10Package#getStatement()
  * @model abstract="true"
  * @generated
  */
 public interface Statement extends EObject {
-
 	/**
 	 * Returns the value of the '<em><b>In Block</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link gx10.Block#getBlockStatements <em>Block Statements</em>}'.
@@ -49,4 +48,5 @@ public interface Statement extends EObject {
 	 * @generated
 	 */
 	void setInBlock(Block value);
+
 } // Statement

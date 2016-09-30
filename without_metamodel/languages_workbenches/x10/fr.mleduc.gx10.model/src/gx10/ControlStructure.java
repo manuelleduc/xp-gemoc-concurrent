@@ -10,10 +10,10 @@ package gx10;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link gx10.ControlStructure#getControlStructureCondition <em>Control Structure Condition</em>}</li>
  * </ul>
- * </p>
  *
  * @see gx10.Gx10Package#getControlStructure()
  * @model abstract="true"
