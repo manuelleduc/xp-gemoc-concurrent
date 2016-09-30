@@ -62,6 +62,16 @@ system addClocks: #(evaluate[element.name/]).
 system addClocks: #(callPreparation[element.name/]).
 
 [/for]
+[for (element : gx10::If| aProgram.eAllContents(gx10::If))]
+"clocks for If [element.name/]" 
+system addClocks: #(doEvaluateIf[element.name/]).
+system addClocks: #(evaluateTrue[element.name/]).
+system addClocks: #(evaluateFalse[element.name/]).
+
+"internal clocks for gx10::If [element.name/]" 
+	system addInternalClocks: #(ifOnBrancheEnded[element.name/]).
+
+[/for]
 [for (element : gx10::Block| aProgram.eAllContents(gx10::Block))]
 "clocks for Block [element.name/]" 
 [/for]
@@ -194,6 +204,45 @@ system addClocks: #(callPreparation[element.name/]).
 	"methodStartBeforePrepareCall in MethodCall [element.name/]"
 		[if ( true) ]
 	system library: #Kernel relation: #Precedes clocks: #(startStatement[element.name/]  callPreparation[element.name/])  constants:{-1} .
+		[/if]
+[/for]
+[for (element : gx10::If| aProgram.eAllContents(gx10::If))]
+"expressions used by  If [element.name/]" 
+
+	[if ( true) ]
+	system allInf: #(endStatement[element.thenBlock.name/] endStatement[element.elseBlock.name/]) named: #ifOnBrancheEnded[element.name/]. 
+	[/if]
+ 
+"relations for If [element.name/]" 
+	"ifTrueThenElseElse in If [element.name/]"
+	[if ( true) ]
+	system
+		library: #GX10
+		relation: #BooleanGuardedTransitionRuleDef
+		clocks: #(doEvaluateIf[element.name/]  evaluateTrue[element.name/]  evaluateFalse[element.name/])
+		constants: {}
+		variables: {}.
+	[/if]
+
+	"ifConditionEvaluatedAfterStart in If [element.name/]"
+		[if ( true) ]
+	system library: #Kernel relation: #Precedes clocks: #(startStatement[element.name/]  startStatement[element.controlStructureCondition.name/])  constants:{-1} .
+		[/if]
+	"ifMakeBranchingAfterEvalutation in If [element.name/]"
+		[if ( true) ]
+	system library: #Kernel relation: #Precedes clocks: #(endStatement[element.controlStructureCondition.name/]  doEvaluateIf[element.name/])  constants:{-1} .
+		[/if]
+	"ifThenBranchStartIfEvaluateTrue in If [element.name/]"
+		[if ( true) ]
+	system library: #Kernel relation: #Precedes clocks: #(evaluateTrue[element.name/]  startStatement[element.thenBlock.name/])  constants:{-1} .
+		[/if]
+	"ifElseBranchStartIfEvaluateFalse in If [element.name/]"
+		[if ( true) ]
+	system library: #Kernel relation: #Precedes clocks: #(evaluateFalse[element.name/]  startStatement[element.elseBlock.name/])  constants:{-1} .
+		[/if]
+	"idEndWhenOneBranchEnd in If [element.name/]"
+		[if ( true) ]
+	system library: #Kernel relation: #Precedes clocks: #(ifOnBrancheEnded[element.name/]  endStatement[element.name/])  constants:{-1} .
 		[/if]
 [/for]
 [for (element : gx10::Block| aProgram.eAllContents(gx10::Block))]

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gx10:Program xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gx10="http://mleduc.fr/gx10" startMethod="//@methods.0">
+  <methods name="main">
+    <methodBlock>
+      <blockStatements xsi:type="gx10:If">
+        <controlStructureCondition xsi:type="gx10:True"/>
+        <thenBlock>
+          <blockStatements xsi:type="gx10:Print">
+            <toPrint xsi:type="gx10:IntConst" value="1"/>
+          </blockStatements>
+        </thenBlock>
+        <elseBlock>
+          <blockStatements xsi:type="gx10:Print">
+            <toPrint xsi:type="gx10:IntConst" value="2"/>
+          </blockStatements>
+        </elseBlock>
+      </blockStatements>
+    </methodBlock>
+  </methods>
+</gx10:Program>

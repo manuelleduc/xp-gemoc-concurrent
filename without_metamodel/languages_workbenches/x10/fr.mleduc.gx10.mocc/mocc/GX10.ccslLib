@@ -12,6 +12,15 @@ Library GX10 {
 	}
 	
 	RelationLibrary GX10_relations {
+		
+		RelationDeclaration BooleanGuardedTransitionRule (evaluateGuard : clock, resTrue : clock, resFalse : clock)
+		RelationDefinition BooleanGuardedTransitionRuleDef [ BooleanGuardedTransitionRule ] {
+			Expression ResEvalGuard = Union ( Clock1 -> resTrue, Clock2 -> resFalse ) 
+			Relation EitherFalseOrTrue [ Exclusion ( Clock2 -> resTrue, Clock1 -> resFalse ) 
+			Relation evalCausesResult [ Alternates (AlternatesLeftClock -> evaluateGuard, AlternatesRightClock -> ResEvalGuard )
+		}
+		
+		
 		RelationDeclaration WeakAlternates (WeakAlternatesLeftClock:clock, WeakAlternatesRightClock:clock) 			
 		RelationDefinition WeakAlternatesDef[WeakAlternates] {
 			//c1 <= c2

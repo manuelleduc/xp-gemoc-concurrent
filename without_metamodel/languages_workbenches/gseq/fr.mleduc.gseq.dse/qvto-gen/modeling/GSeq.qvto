@@ -308,7 +308,6 @@ main() {
 	{ 
 		name := getNameOrUID(self.oclAsType(EObject))+'intermediate_allEventWhichCall0'+nb.toString();
 		type := seqOfExpressionDeclaration->select(rd | rd.name = "Union")->first();
-				 
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
 		 			bindable := theMainBlock.elements[name = getNameOrUID(an1.oclAsType(EObject))+'_startOfOperation']->first();
 					var seqAbstract : Sequence(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity) := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
@@ -351,6 +350,8 @@ main() {
 	mapping inMM1::Method::allEventWhichCall02Expression():TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
 	{
 		init{
+
+
 		var sources : Sequence(MethodCall) := self.calledBy->asSequence();
 		var lastExpr : TimeModel::CCSLModel::ClockExpressionAndRelation::Expression :=null;
 		var i : Integer := 3;
@@ -379,6 +380,7 @@ main() {
 	{
 		name := getNameOrUID(self.oclAsType(EObject))+'_Union_allEventWhichCall00';
 		type := seqOfExpressionDeclaration->select(rd | rd.name = "Union")->first();
+
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
 					bindable := self -> map allEventWhichCall02Expression()->asSequence()->first();
 				//	var size : Integer = seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->size()+1;
@@ -405,7 +407,6 @@ main() {
 	{ 
 		name := getNameOrUID(self.oclAsType(EObject))+'intermediate_allEventWhichCall1'+nb.toString();
 		type := seqOfExpressionDeclaration->select(rd | rd.name = "Union")->first();
-				 
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
 		 			bindable := theMainBlock.elements[name = getNameOrUID(an1.oclAsType(EObject))+'_startOfOperation']->first();
 					var seqAbstract : Sequence(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity) := seqOfExpressionDeclaration[name = 'Union']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Union).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity);
@@ -448,6 +449,8 @@ main() {
 	mapping inMM1::Method::allEventWhichCall12Expression():TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
 	{
 		init{
+
+
 		var sources : Sequence(MethodCall) := self.calledBy->asSequence();
 		var lastExpr : TimeModel::CCSLModel::ClockExpressionAndRelation::Expression :=null;
 		var i : Integer := 3;
@@ -476,6 +479,7 @@ main() {
 	{
 		name := getNameOrUID(self.oclAsType(EObject))+'_Inf_unionsTheElse2';
 		type := seqOfExpressionDeclaration->select(rd | rd.name = "Inf")->first();
+
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
 					bindable := theMainBlock.elements[name = getNameOrUID(self.thenBranch.oclAsType(EObject))+'_execute']->first();
 				//	var size : Integer = seqOfExpressionDeclaration[name = 'Inf']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelExpression::Inf).allSubobjectsOfKind(TimeModel::CCSLModel::ClockExpressionAndRelation::AbstractEntity)->asSequence()->size()+1;
@@ -502,7 +506,6 @@ main() {
 	{ 
 		name := getNameOrUID(self.oclAsType(EObject))+'intermediate_oneStartOnly'+nb.toString();
 		type := seqOfExpressionDeclaration->select(rd | rd.name = "OneTickAndNoMore")->first();
-				 
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
 		 			bindable := theMainBlock.elements[name = getNameOrUID(an1.oclAsType(EObject))+'_start']->first();
 					_abstract := seqOfAbstractEntity[name = 'OneTickAndNoMoreClock' and container().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::ExpressionDeclaration).name = 'OneTickAndNoMore']->first();
@@ -528,6 +531,8 @@ main() {
 	mapping inMM1::Program::oneStartOnly2Expression():TimeModel::CCSLModel::ClockExpressionAndRelation::Expression
 	{
 		init{
+
+
 		var sources : Sequence(Program) := self->asSequence();
 		var lastExpr : TimeModel::CCSLModel::ClockExpressionAndRelation::Expression :=null;
 		var i : Integer := 3;

@@ -25,10 +25,14 @@ context IntVar
 		
 context MethodCall
 	def : callPreparation : Event = self.call()
---	def : callEvt : Event = self
+
+context If
+	def : doEvaluateIf : Event = self.controlStructureCondition.getCurrentValue() [res] switch case self.res = true force evaluateTrue;
+	                                                                    					   case self.res = false force evaluateFalse;
+	def : evaluateTrue : Event = self
+	def : evaluateFalse : Event = self
 	
-	
-	
+
 context Statement
 	inv statementStartThenStop:
 		Relation Precedes(self.startStatement, self.endStatement) -- WeakAlternates
@@ -45,6 +49,29 @@ context Statement
 		(self.inBlock <> null and self.inBlock.blockStatements->indexOf(self) = self.inBlock.blockStatements->size()) implies
 		(Relation Precedes(self.endStatement, self.inBlock.endStatement))
 	 
+
+context If
+	inv ifTrueThenElseElse:
+		Relation BooleanGuardedTransitionRule(self.doEvaluateIf, self.evaluateTrue, self.evaluateFalse)
+		
+		
+	inv ifConditionEvaluatedAfterStart:
+		Relation Precedes(self.startStatement, self.controlStructureCondition.startStatement)
+		
+	inv ifMakeBranchingAfterEvalutation:
+		Relation Precedes(self.controlStructureCondition.endStatement, self.doEvaluateIf)
+		
+	inv ifThenBranchStartIfEvaluateTrue:
+		Relation Precedes(self.evaluateTrue, self.thenBlock.startStatement)
+		
+	inv ifElseBranchStartIfEvaluateFalse:
+		Relation Precedes(self.evaluateFalse, self.elseBlock.startStatement)
+	
+	inv idEndWhenOneBranchEnd:
+		let ifOnBrancheEnded:Event = Expression Inf(self.thenBlock.endStatement, self.elseBlock.endStatement) in
+		(Relation Precedes(ifOnBrancheEnded, self.endStatement)) 	
+		
+		
 	
 context Method
 	inv methodStartThenEnd:
