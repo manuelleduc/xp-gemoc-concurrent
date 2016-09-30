@@ -26,7 +26,7 @@ context IntVar
 context MethodCall
 	def : callPreparation : Event = self.call()
 
-context If
+context ControlStructure
 	def : doEvaluateIf : Event = self.controlStructureCondition.getCurrentValue() [res] switch case self.res = true force evaluateTrue;
 	                                                                    					   case self.res = false force evaluateFalse;
 	def : evaluateTrue : Event = self
@@ -49,12 +49,12 @@ context Statement
 		(self.inBlock <> null and self.inBlock.blockStatements->indexOf(self) = self.inBlock.blockStatements->size()) implies
 		(Relation Precedes(self.endStatement, self.inBlock.endStatement))
 	 
-
-context If
+context ControlStructure
 	inv ifTrueThenElseElse:
 		Relation BooleanGuardedTransitionRule(self.doEvaluateIf, self.evaluateTrue, self.evaluateFalse)
-		
-		
+
+context If
+	
 	inv ifConditionEvaluatedAfterStart:
 		Relation Precedes(self.startStatement, self.controlStructureCondition.startStatement)
 		
@@ -70,8 +70,23 @@ context If
 	inv idEndWhenOneBranchEnd:
 		let ifOnBrancheEnded:Event = Expression Inf(self.thenBlock.endStatement, self.elseBlock.endStatement) in
 		(Relation Precedes(ifOnBrancheEnded, self.endStatement)) 	
+
+
+context While
+
+	-- expression is evaluated whenever we start the loop or a while loop ends
+	inv whileEvaluateBeforeBranching:
+		let allWhileLoopEnds : Event = Expression Union(self.startStatement, self.whileBlock.endStatement) in 
+		(Relation Precedes(allWhileLoopEnds, self.controlStructureCondition.startStatement))
 		
+	inv whileWaitEndEvalBeforeBranching:
+		Relation Precedes(self.controlStructureCondition.endStatement, self.doEvaluateIf)
 		
+	inv whileStartLoopOnEvalTrue:
+		Relation Precedes(self.evaluateTrue, self.whileBlock.startStatement)
+		
+	inv whileEndOnEvalFalse:
+		Relation Precedes(self.evaluateFalse, self.endStatement)
 	
 context Method
 	inv methodStartThenEnd:

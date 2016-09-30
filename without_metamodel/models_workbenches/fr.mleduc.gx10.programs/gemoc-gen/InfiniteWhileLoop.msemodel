@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ASCII"?>
+<mse:MSEModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:concurrent_mse="http://www.gemoc.org/gemoc_execution_engine_concurrent_mse" xmlns:mse="http://www.gemoc.org/gemoc_execution_engine_mse">
+  <ownedMSEs xsi:type="concurrent_mse:FeedbackMSE" name="MSE_ProgramImpl_0_start">
+    <feedbackModelSpecificEvent href="InfiniteWhileLoop.feedback#//@events.0"/>
+  </ownedMSEs>
+  <ownedMSEs xsi:type="concurrent_mse:FeedbackMSE" name="MSE_main_1_startMethodEvt">
+    <feedbackModelSpecificEvent href="InfiniteWhileLoop.feedback#//@events.1"/>
+  </ownedMSEs>
+  <ownedMSEs xsi:type="concurrent_mse:FeedbackMSE" name="MSE_main_1_endMethodEvt">
+    <feedbackModelSpecificEvent href="InfiniteWhileLoop.feedback#//@events.2"/>
+  </ownedMSEs>
+  <ownedMSEs xsi:type="concurrent_mse:FeedbackMSE" name="MSE_BlockImpl_2_startStatement">
+    <feedbackModelSpecificEvent href="InfiniteWhileLoop.feedback#//@events.3"/>
+  </ownedMSEs>
+  <ownedMSEs xsi:type="concurrent_mse:FeedbackMSE" name="MSE_WhileImpl_3_startStatement">
+    <feedbackModelSpecificEvent href="InfiniteWhileLoop.feedback#//@events.4"/>
+  </ownedMSEs>
+  <ownedMSEs xsi:type="concurrent_mse:FeedbackMSE" name="MSE_IntConstImpl_4_startStatement">
+    <feedbackModelSpecificEvent href="InfiniteWhileLoop.feedback#//@events.5"/>
+  </ownedMSEs>
+  <ownedMSEs xsi:type="concurrent_mse:FeedbackMSE" name="MSE_BlockImpl_5_startStatement">
+    <feedbackModelSpecificEvent href="InfiniteWhileLoop.feedback#//@events.6"/>
+  </ownedMSEs>
+  <ownedMSEs xsi:type="concurrent_mse:FeedbackMSE" name="MSE_PrintImpl_6_startStatement">
+    <feedbackModelSpecificEvent href="InfiniteWhileLoop.feedback#//@events.7"/>
+  </ownedMSEs>
+  <ownedMSEs xsi:type="concurrent_mse:FeedbackMSE" name="MSE_TrueImpl_7_startStatement">
+    <feedbackModelSpecificEvent href="InfiniteWhileLoop.feedback#//@events.8"/>
+  </ownedMSEs>
+  <ownedMSEs xsi:type="concurrent_mse:FeedbackMSE" name="MSE_BlockImpl_2_endStatement">
+    <feedbackModelSpecificEvent href="InfiniteWhileLoop.feedback#//@events.9"/>
+  </ownedMSEs>
+  <ownedMSEs xsi:type="concurrent_mse:FeedbackMSE" name="MSE_WhileImpl_3_endStatement">
+    <feedbackModelSpecificEvent href="InfiniteWhileLoop.feedback#//@events.10"/>
+  </ownedMSEs>
+  <ownedMSEs xsi:type="concurrent_mse:FeedbackMSE" name="MSE_IntConstImpl_4_endStatement">
+    <feedbackModelSpecificEvent href="InfiniteWhileLoop.feedback#//@events.11"/>
+  </ownedMSEs>
+  <ownedMSEs xsi:type="concurrent_mse:FeedbackMSE" name="MSE_BlockImpl_5_endStatement">
+    <feedbackModelSpecificEvent href="InfiniteWhileLoop.feedback#//@events.12"/>
+  </ownedMSEs>
+  <ownedMSEs xsi:type="concurrent_mse:FeedbackMSE" name="MSE_PrintImpl_6_endStatement">
+    <feedbackModelSpecificEvent href="InfiniteWhileLoop.feedback#//@events.13"/>
+  </ownedMSEs>
+  <ownedMSEs xsi:type="concurrent_mse:FeedbackMSE" name="MSE_TrueImpl_7_endStatement">
+    <feedbackModelSpecificEvent href="InfiniteWhileLoop.feedback#//@events.14"/>
+  </ownedMSEs>
+  <ownedMSEs xsi:type="concurrent_mse:FeedbackMSE" name="MSE_PrintImpl_6_print">
+    <feedbackModelSpecificEvent href="InfiniteWhileLoop.feedback#//@events.15"/>
+  </ownedMSEs>
+  <ownedMSEs xsi:type="concurrent_mse:FeedbackMSE" name="MSE_WhileImpl_3_doEvaluateIf">
+    <feedbackModelSpecificEvent href="InfiniteWhileLoop.feedback#//@events.16"/>
+  </ownedMSEs>
+  <ownedMSEs xsi:type="concurrent_mse:FeedbackMSE" name="MSE_WhileImpl_3_evaluateTrue">
+    <feedbackModelSpecificEvent href="InfiniteWhileLoop.feedback#//@events.17"/>
+  </ownedMSEs>
+  <ownedMSEs xsi:type="concurrent_mse:FeedbackMSE" name="MSE_WhileImpl_3_evaluateFalse">
+    <feedbackModelSpecificEvent href="InfiniteWhileLoop.feedback#//@events.18"/>
+  </ownedMSEs>
+</mse:MSEModel>

@@ -6,17 +6,13 @@ import gx10.Block;
 import gx10.Gx10Package;
 import gx10.While;
 
-import java.util.Collection;
-
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,14 +29,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class WhileImpl extends ControlStructureImpl implements While {
 	/**
-	 * The cached value of the '{@link #getWhileBlock() <em>While Block</em>}' containment reference list.
+	 * The cached value of the '{@link #getWhileBlock() <em>While Block</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getWhileBlock()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Block> whileBlock;
+	protected Block whileBlock;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -66,11 +62,42 @@ public class WhileImpl extends ControlStructureImpl implements While {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Block> getWhileBlock() {
-		if (whileBlock == null) {
-			whileBlock = new EObjectContainmentEList<Block>(Block.class, this, Gx10Package.WHILE__WHILE_BLOCK);
-		}
+	public Block getWhileBlock() {
 		return whileBlock;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetWhileBlock(Block newWhileBlock, NotificationChain msgs) {
+		Block oldWhileBlock = whileBlock;
+		whileBlock = newWhileBlock;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, Gx10Package.WHILE__WHILE_BLOCK, oldWhileBlock, newWhileBlock);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setWhileBlock(Block newWhileBlock) {
+		if (newWhileBlock != whileBlock) {
+			NotificationChain msgs = null;
+			if (whileBlock != null)
+				msgs = ((InternalEObject)whileBlock).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Gx10Package.WHILE__WHILE_BLOCK, null, msgs);
+			if (newWhileBlock != null)
+				msgs = ((InternalEObject)newWhileBlock).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Gx10Package.WHILE__WHILE_BLOCK, null, msgs);
+			msgs = basicSetWhileBlock(newWhileBlock, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, Gx10Package.WHILE__WHILE_BLOCK, newWhileBlock, newWhileBlock));
 	}
 
 	/**
@@ -82,7 +109,7 @@ public class WhileImpl extends ControlStructureImpl implements While {
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case Gx10Package.WHILE__WHILE_BLOCK:
-				return ((InternalEList<?>)getWhileBlock()).basicRemove(otherEnd, msgs);
+				return basicSetWhileBlock(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -106,13 +133,11 @@ public class WhileImpl extends ControlStructureImpl implements While {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case Gx10Package.WHILE__WHILE_BLOCK:
-				getWhileBlock().clear();
-				getWhileBlock().addAll((Collection<? extends Block>)newValue);
+				setWhileBlock((Block)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -127,7 +152,7 @@ public class WhileImpl extends ControlStructureImpl implements While {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case Gx10Package.WHILE__WHILE_BLOCK:
-				getWhileBlock().clear();
+				setWhileBlock((Block)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -142,7 +167,7 @@ public class WhileImpl extends ControlStructureImpl implements While {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case Gx10Package.WHILE__WHILE_BLOCK:
-				return whileBlock != null && !whileBlock.isEmpty();
+				return whileBlock != null;
 		}
 		return super.eIsSet(featureID);
 	}

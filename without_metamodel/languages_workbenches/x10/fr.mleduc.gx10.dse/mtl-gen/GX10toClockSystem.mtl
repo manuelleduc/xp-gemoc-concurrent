@@ -62,14 +62,23 @@ system addClocks: #(evaluate[element.name/]).
 system addClocks: #(callPreparation[element.name/]).
 
 [/for]
-[for (element : gx10::If| aProgram.eAllContents(gx10::If))]
-"clocks for If [element.name/]" 
+[for (element : gx10::ControlStructure| aProgram.eAllContents(gx10::ControlStructure))]
+"clocks for ControlStructure [element.name/]" 
 system addClocks: #(doEvaluateIf[element.name/]).
 system addClocks: #(evaluateTrue[element.name/]).
 system addClocks: #(evaluateFalse[element.name/]).
 
+[/for]
+[for (element : gx10::If| aProgram.eAllContents(gx10::If))]
+"clocks for If [element.name/]" 
 "internal clocks for gx10::If [element.name/]" 
 	system addInternalClocks: #(ifOnBrancheEnded[element.name/]).
+
+[/for]
+[for (element : gx10::While| aProgram.eAllContents(gx10::While))]
+"clocks for While [element.name/]" 
+"internal clocks for gx10::While [element.name/]" 
+	system addInternalClocks: #(allWhileLoopEnds[element.name/]).
 
 [/for]
 [for (element : gx10::Block| aProgram.eAllContents(gx10::Block))]
@@ -206,15 +215,9 @@ system addClocks: #(evaluateFalse[element.name/]).
 	system library: #Kernel relation: #Precedes clocks: #(startStatement[element.name/]  callPreparation[element.name/])  constants:{-1} .
 		[/if]
 [/for]
-[for (element : gx10::If| aProgram.eAllContents(gx10::If))]
-"expressions used by  If [element.name/]" 
-
-	[if ( true) ]
-	system allInf: #(endStatement[element.thenBlock.name/] endStatement[element.elseBlock.name/]) named: #ifOnBrancheEnded[element.name/]. 
-	[/if]
- 
-"relations for If [element.name/]" 
-	"ifTrueThenElseElse in If [element.name/]"
+[for (element : gx10::ControlStructure| aProgram.eAllContents(gx10::ControlStructure))]
+"relations for ControlStructure [element.name/]" 
+	"ifTrueThenElseElse in ControlStructure [element.name/]"
 	[if ( true) ]
 	system
 		library: #GX10
@@ -224,6 +227,15 @@ system addClocks: #(evaluateFalse[element.name/]).
 		variables: {}.
 	[/if]
 
+[/for]
+[for (element : gx10::If| aProgram.eAllContents(gx10::If))]
+"expressions used by  If [element.name/]" 
+
+	[if ( true) ]
+	system allInf: #(endStatement[element.thenBlock.name/] endStatement[element.elseBlock.name/]) named: #ifOnBrancheEnded[element.name/]. 
+	[/if]
+ 
+"relations for If [element.name/]" 
 	"ifConditionEvaluatedAfterStart in If [element.name/]"
 		[if ( true) ]
 	system library: #Kernel relation: #Precedes clocks: #(startStatement[element.name/]  startStatement[element.controlStructureCondition.name/])  constants:{-1} .
@@ -243,6 +255,31 @@ system addClocks: #(evaluateFalse[element.name/]).
 	"idEndWhenOneBranchEnd in If [element.name/]"
 		[if ( true) ]
 	system library: #Kernel relation: #Precedes clocks: #(ifOnBrancheEnded[element.name/]  endStatement[element.name/])  constants:{-1} .
+		[/if]
+[/for]
+[for (element : gx10::While| aProgram.eAllContents(gx10::While))]
+"expressions used by  While [element.name/]" 
+
+	[if ( true) ]
+	system allUnion: #(startStatement[element.name/] endStatement[element.whileBlock.name/]) named: #allWhileLoopEnds[element.name/]. 
+	[/if]
+ 
+"relations for While [element.name/]" 
+	"whileEvaluateBeforeBranching in While [element.name/]"
+		[if ( true) ]
+	system library: #Kernel relation: #Precedes clocks: #(allWhileLoopEnds[element.name/]  startStatement[element.controlStructureCondition.name/])  constants:{-1} .
+		[/if]
+	"whileWaitEndEvalBeforeBranching in While [element.name/]"
+		[if ( true) ]
+	system library: #Kernel relation: #Precedes clocks: #(endStatement[element.controlStructureCondition.name/]  doEvaluateIf[element.name/])  constants:{-1} .
+		[/if]
+	"whileStartLoopOnEvalTrue in While [element.name/]"
+		[if ( true) ]
+	system library: #Kernel relation: #Precedes clocks: #(evaluateTrue[element.name/]  startStatement[element.whileBlock.name/])  constants:{-1} .
+		[/if]
+	"whileEndOnEvalFalse in While [element.name/]"
+		[if ( true) ]
+	system library: #Kernel relation: #Precedes clocks: #(evaluateFalse[element.name/]  endStatement[element.name/])  constants:{-1} .
 		[/if]
 [/for]
 [for (element : gx10::Block| aProgram.eAllContents(gx10::Block))]

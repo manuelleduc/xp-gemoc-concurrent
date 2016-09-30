@@ -518,7 +518,7 @@ public interface Gx10Package extends EPackage {
 	int WHILE__CONTROL_STRUCTURE_CONDITION = CONTROL_STRUCTURE__CONTROL_STRUCTURE_CONDITION;
 
 	/**
-	 * The feature id for the '<em><b>While Block</b></em>' containment reference list.
+	 * The feature id for the '<em><b>While Block</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1538,10 +1538,10 @@ public interface Gx10Package extends EPackage {
 	EClass getWhile();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link gx10.While#getWhileBlock <em>While Block</em>}'.
+	 * Returns the meta object for the containment reference '{@link gx10.While#getWhileBlock <em>While Block</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>While Block</em>'.
+	 * @return the meta object for the containment reference '<em>While Block</em>'.
 	 * @see gx10.While#getWhileBlock()
 	 * @see #getWhile()
 	 * @generated
@@ -2122,7 +2122,7 @@ public interface Gx10Package extends EPackage {
 		EClass WHILE = eINSTANCE.getWhile();
 
 		/**
-		 * The meta object literal for the '<em><b>While Block</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>While Block</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
