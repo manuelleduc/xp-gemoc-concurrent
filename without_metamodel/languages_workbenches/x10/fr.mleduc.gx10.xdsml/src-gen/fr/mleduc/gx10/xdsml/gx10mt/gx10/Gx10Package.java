@@ -972,6 +972,52 @@ public interface Gx10Package extends EPackage {
 	int BOOL_VAR_ACCESS_FEATURE_COUNT = BOOL_EXPRESSION_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link fr.mleduc.gx10.xdsml.gx10mt.gx10.impl.EqualImpl <em>Equal</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.mleduc.gx10.xdsml.gx10mt.gx10.impl.EqualImpl
+	 * @see fr.mleduc.gx10.xdsml.gx10mt.gx10.impl.Gx10PackageImpl#getEqual()
+	 * @generated
+	 */
+	int EQUAL = 24;
+
+	/**
+	 * The feature id for the '<em><b>In Block</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EQUAL__IN_BLOCK = BOOL_EXPRESSION__IN_BLOCK;
+
+	/**
+	 * The feature id for the '<em><b>Left Equal</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EQUAL__LEFT_EQUAL = BOOL_EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Right Equal</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EQUAL__RIGHT_EQUAL = BOOL_EXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Equal</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EQUAL_FEATURE_COUNT = BOOL_EXPRESSION_FEATURE_COUNT + 2;
+
+	/**
 	 * The meta object id for the '<em>Context</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -979,7 +1025,7 @@ public interface Gx10Package extends EPackage {
 	 * @see fr.mleduc.gx10.xdsml.gx10mt.gx10.impl.Gx10PackageImpl#getContext()
 	 * @generated
 	 */
-	int CONTEXT = 24;
+	int CONTEXT = 25;
 
 
 	/**
@@ -1531,6 +1577,38 @@ public interface Gx10Package extends EPackage {
 	EReference getBoolVarAccess_BoolVarRef();
 
 	/**
+	 * Returns the meta object for class '{@link fr.mleduc.gx10.xdsml.gx10mt.gx10.Equal <em>Equal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Equal</em>'.
+	 * @see fr.mleduc.gx10.xdsml.gx10mt.gx10.Equal
+	 * @generated
+	 */
+	EClass getEqual();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link fr.mleduc.gx10.xdsml.gx10mt.gx10.Equal#getLeftEqual <em>Left Equal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Left Equal</em>'.
+	 * @see fr.mleduc.gx10.xdsml.gx10mt.gx10.Equal#getLeftEqual()
+	 * @see #getEqual()
+	 * @generated
+	 */
+	EReference getEqual_LeftEqual();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link fr.mleduc.gx10.xdsml.gx10mt.gx10.Equal#getRightEqual <em>Right Equal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Right Equal</em>'.
+	 * @see fr.mleduc.gx10.xdsml.gx10mt.gx10.Equal#getRightEqual()
+	 * @see #getEqual()
+	 * @generated
+	 */
+	EReference getEqual_RightEqual();
+
+	/**
 	 * Returns the meta object for data type '{@link gx10.aspects.Context <em>Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2026,6 +2104,32 @@ public interface Gx10Package extends EPackage {
 		 * @generated
 		 */
 		EReference BOOL_VAR_ACCESS__BOOL_VAR_REF = eINSTANCE.getBoolVarAccess_BoolVarRef();
+
+		/**
+		 * The meta object literal for the '{@link fr.mleduc.gx10.xdsml.gx10mt.gx10.impl.EqualImpl <em>Equal</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.mleduc.gx10.xdsml.gx10mt.gx10.impl.EqualImpl
+		 * @see fr.mleduc.gx10.xdsml.gx10mt.gx10.impl.Gx10PackageImpl#getEqual()
+		 * @generated
+		 */
+		EClass EQUAL = eINSTANCE.getEqual();
+
+		/**
+		 * The meta object literal for the '<em><b>Left Equal</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EQUAL__LEFT_EQUAL = eINSTANCE.getEqual_LeftEqual();
+
+		/**
+		 * The meta object literal for the '<em><b>Right Equal</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EQUAL__RIGHT_EQUAL = eINSTANCE.getEqual_RightEqual();
 
 		/**
 		 * The meta object literal for the '<em>Context</em>' data type.

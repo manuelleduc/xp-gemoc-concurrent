@@ -193,6 +193,15 @@ public interface Gx10Factory extends EFactory {
 	BoolVarAccess createBoolVarAccess();
 
 	/**
+	 * Returns a new object of class '<em>Equal</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Equal</em>'.
+	 * @generated
+	 */
+	Equal createEqual();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

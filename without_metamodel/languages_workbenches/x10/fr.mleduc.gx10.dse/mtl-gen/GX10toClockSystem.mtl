@@ -57,6 +57,11 @@ system addClocks: #(print[element.name/]).
 system addClocks: #(evaluate[element.name/]).
 
 [/for]
+[for (element : gx10::BoolVar| aProgram.eAllContents(gx10::BoolVar))]
+"clocks for BoolVar [element.name/]" 
+system addClocks: #(evaluate[element.name/]).
+
+[/for]
 [for (element : gx10::Plus| aProgram.eAllContents(gx10::Plus))]
 "clocks for Plus [element.name/]" 
 system addClocks: #(evaluate[element.name/]).
@@ -209,6 +214,21 @@ system addClocks: #(evaluateFalse[element.name/]).
 	system library: #Kernel relation: #Precedes clocks: #(endStatement[element.intVarExpr.name/]  evaluate[element.name/])  constants:{-1} .
 		[/if]
 	"intVarEvaluateBeforet in IntVar [element.name/]"
+		[if ( true) ]
+	system library: #Kernel relation: #Precedes clocks: #(evaluate[element.name/]  endStatement[element.name/])  constants:{-1} .
+		[/if]
+[/for]
+[for (element : gx10::BoolVar| aProgram.eAllContents(gx10::BoolVar))]
+"relations for BoolVar [element.name/]" 
+	"boolVarEvaluateBefore0 in BoolVar [element.name/]"
+		[if ( true) ]
+	system library: #Kernel relation: #Precedes clocks: #(startStatement[element.name/]  startStatement[element.boolVarExpr.name/])  constants:{-1} .
+		[/if]
+	"boolVarEvaluateBefore1 in BoolVar [element.name/]"
+		[if ( true) ]
+	system library: #Kernel relation: #Precedes clocks: #(endStatement[element.boolVarExpr.name/]  evaluate[element.name/])  constants:{-1} .
+		[/if]
+	"boolVarEvaluateBeforet in BoolVar [element.name/]"
 		[if ( true) ]
 	system library: #Kernel relation: #Precedes clocks: #(evaluate[element.name/]  endStatement[element.name/])  constants:{-1} .
 		[/if]

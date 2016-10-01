@@ -9,6 +9,7 @@ import fr.mleduc.gx10.xdsml.gx10mt.gx10.BoolExpression;
 import fr.mleduc.gx10.xdsml.gx10mt.gx10.BoolVar;
 import fr.mleduc.gx10.xdsml.gx10mt.gx10.BoolVarAccess;
 import fr.mleduc.gx10.xdsml.gx10mt.gx10.ControlStructure;
+import fr.mleduc.gx10.xdsml.gx10mt.gx10.Equal;
 import fr.mleduc.gx10.xdsml.gx10mt.gx10.Expression;
 import fr.mleduc.gx10.xdsml.gx10mt.gx10.False;
 import fr.mleduc.gx10.xdsml.gx10mt.gx10.Finish;
@@ -214,6 +215,13 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 	 * @generated
 	 */
 	private EClass boolVarAccessEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass equalEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -759,6 +767,33 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getEqual() {
+		return equalEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEqual_LeftEqual() {
+		return (EReference)equalEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEqual_RightEqual() {
+		return (EReference)equalEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EDataType getContext() {
 		return contextEDataType;
 	}
@@ -867,6 +902,10 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 		boolVarAccessEClass = createEClass(BOOL_VAR_ACCESS);
 		createEReference(boolVarAccessEClass, BOOL_VAR_ACCESS__BOOL_VAR_REF);
 
+		equalEClass = createEClass(EQUAL);
+		createEReference(equalEClass, EQUAL__LEFT_EQUAL);
+		createEReference(equalEClass, EQUAL__RIGHT_EQUAL);
+
 		// Create data types
 		contextEDataType = createEDataType(CONTEXT);
 	}
@@ -920,6 +959,7 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 		intVarEClass.getESuperTypes().add(this.getStatement());
 		intVarAccessEClass.getESuperTypes().add(this.getIntExpression());
 		boolVarAccessEClass.getESuperTypes().add(this.getBoolExpression());
+		equalEClass.getESuperTypes().add(this.getBoolExpression());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(programEClass, Program.class, "Program", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1008,6 +1048,8 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 		initEAttribute(getBoolVar_Name(), ecorePackage.getEString(), "name", null, 0, 1, BoolVar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBoolVar_BoolVarExpr(), this.getBoolExpression(), null, "boolVarExpr", null, 1, 1, BoolVar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		addEOperation(boolVarEClass, null, "evaluate", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(intVarEClass, IntVar.class, "IntVar", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getIntVar_Name(), ecorePackage.getEString(), "name", null, 1, 1, IntVar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIntVar_IntVarExpr(), this.getIntExpression(), null, "intVarExpr", null, 1, 1, IntVar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1021,6 +1063,14 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 
 		initEClass(boolVarAccessEClass, BoolVarAccess.class, "BoolVarAccess", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBoolVarAccess_BoolVarRef(), this.getBoolVar(), null, "boolVarRef", null, 1, 1, BoolVarAccess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		addEOperation(boolVarAccessEClass, ecorePackage.getEBoolean(), "getCurrentValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(equalEClass, Equal.class, "Equal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getEqual_LeftEqual(), this.getIntExpression(), null, "leftEqual", null, 1, 1, Equal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEqual_RightEqual(), this.getIntExpression(), null, "rightEqual", null, 1, 1, Equal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		addEOperation(equalEClass, null, "evaluate", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(contextEDataType, Context.class, "Context", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
@@ -1068,6 +1118,11 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 		   });	
 		addAnnotation
 		  (intVarAccessEClass.getEOperations().get(0), 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (boolVarAccessEClass.getEOperations().get(0), 
 		   source, 
 		   new String[] {
 		   });	

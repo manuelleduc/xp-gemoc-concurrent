@@ -1132,13 +1132,22 @@ public interface Gx10Package extends EPackage {
 	int BOOL_VAR_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
 	/**
+	 * The operation id for the '<em>Evaluate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOL_VAR___EVALUATE = EXPRESSION_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Bool Var</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOL_VAR_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
+	int BOOL_VAR_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link gx10.impl.IntVarImpl <em>Int Var</em>}' class.
@@ -1313,6 +1322,80 @@ public interface Gx10Package extends EPackage {
 	 * @ordered
 	 */
 	int BOOL_VAR_ACCESS_OPERATION_COUNT = BOOL_EXPRESSION_OPERATION_COUNT + 0;
+
+
+	/**
+	 * The meta object id for the '{@link gx10.impl.EqualImpl <em>Equal</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see gx10.impl.EqualImpl
+	 * @see gx10.impl.Gx10PackageImpl#getEqual()
+	 * @generated
+	 */
+	int EQUAL = 24;
+
+	/**
+	 * The feature id for the '<em><b>In Block</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EQUAL__IN_BLOCK = BOOL_EXPRESSION__IN_BLOCK;
+
+	/**
+	 * The feature id for the '<em><b>Left Equal</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EQUAL__LEFT_EQUAL = BOOL_EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Right Equal</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EQUAL__RIGHT_EQUAL = BOOL_EXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Equal</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EQUAL_FEATURE_COUNT = BOOL_EXPRESSION_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Get Current Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EQUAL___GET_CURRENT_VALUE = BOOL_EXPRESSION___GET_CURRENT_VALUE;
+
+	/**
+	 * The operation id for the '<em>Evaluate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EQUAL___EVALUATE = BOOL_EXPRESSION_OPERATION_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Equal</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EQUAL_OPERATION_COUNT = BOOL_EXPRESSION_OPERATION_COUNT + 1;
 
 
 	/**
@@ -1840,6 +1923,16 @@ public interface Gx10Package extends EPackage {
 	EReference getBoolVar_BoolVarExpr();
 
 	/**
+	 * Returns the meta object for the '{@link gx10.BoolVar#evaluate() <em>Evaluate</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Evaluate</em>' operation.
+	 * @see gx10.BoolVar#evaluate()
+	 * @generated
+	 */
+	EOperation getBoolVar__Evaluate();
+
+	/**
 	 * Returns the meta object for class '{@link gx10.IntVar <em>Int Var</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1922,6 +2015,48 @@ public interface Gx10Package extends EPackage {
 	 * @generated
 	 */
 	EReference getBoolVarAccess_BoolVarRef();
+
+	/**
+	 * Returns the meta object for class '{@link gx10.Equal <em>Equal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Equal</em>'.
+	 * @see gx10.Equal
+	 * @generated
+	 */
+	EClass getEqual();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link gx10.Equal#getLeftEqual <em>Left Equal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Left Equal</em>'.
+	 * @see gx10.Equal#getLeftEqual()
+	 * @see #getEqual()
+	 * @generated
+	 */
+	EReference getEqual_LeftEqual();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link gx10.Equal#getRightEqual <em>Right Equal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Right Equal</em>'.
+	 * @see gx10.Equal#getRightEqual()
+	 * @see #getEqual()
+	 * @generated
+	 */
+	EReference getEqual_RightEqual();
+
+	/**
+	 * Returns the meta object for the '{@link gx10.Equal#evaluate() <em>Evaluate</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Evaluate</em>' operation.
+	 * @see gx10.Equal#evaluate()
+	 * @generated
+	 */
+	EOperation getEqual__Evaluate();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -2389,6 +2524,14 @@ public interface Gx10Package extends EPackage {
 		EReference BOOL_VAR__BOOL_VAR_EXPR = eINSTANCE.getBoolVar_BoolVarExpr();
 
 		/**
+		 * The meta object literal for the '<em><b>Evaluate</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation BOOL_VAR___EVALUATE = eINSTANCE.getBoolVar__Evaluate();
+
+		/**
 		 * The meta object literal for the '{@link gx10.impl.IntVarImpl <em>Int Var</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2457,6 +2600,40 @@ public interface Gx10Package extends EPackage {
 		 * @generated
 		 */
 		EReference BOOL_VAR_ACCESS__BOOL_VAR_REF = eINSTANCE.getBoolVarAccess_BoolVarRef();
+
+		/**
+		 * The meta object literal for the '{@link gx10.impl.EqualImpl <em>Equal</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see gx10.impl.EqualImpl
+		 * @see gx10.impl.Gx10PackageImpl#getEqual()
+		 * @generated
+		 */
+		EClass EQUAL = eINSTANCE.getEqual();
+
+		/**
+		 * The meta object literal for the '<em><b>Left Equal</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EQUAL__LEFT_EQUAL = eINSTANCE.getEqual_LeftEqual();
+
+		/**
+		 * The meta object literal for the '<em><b>Right Equal</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EQUAL__RIGHT_EQUAL = eINSTANCE.getEqual_RightEqual();
+
+		/**
+		 * The meta object literal for the '<em><b>Evaluate</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation EQUAL___EVALUATE = eINSTANCE.getEqual__Evaluate();
 
 	}
 

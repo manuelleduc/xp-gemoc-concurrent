@@ -13,7 +13,9 @@ public abstract class BoolExpressionAspect extends ExpressionAspect {
   public static boolean getCurrentValue(final BoolExpression _self) {
     final gx10.aspects.BoolExpressionAspectBoolExpressionAspectProperties _self_ = gx10.aspects.BoolExpressionAspectBoolExpressionAspectContext.getSelf(_self);
     Object result = null;
-     if (_self instanceof gx10.False){
+     if (_self instanceof gx10.BoolVarAccess){
+    					result = gx10.aspects.BoolVarAccessAspect.getCurrentValue((gx10.BoolVarAccess)_self);
+    } else  if (_self instanceof gx10.False){
     					result = gx10.aspects.FalseAspect.getCurrentValue((gx10.False)_self);
     } else  if (_self instanceof gx10.True){
     					result = gx10.aspects.TrueAspect.getCurrentValue((gx10.True)_self);

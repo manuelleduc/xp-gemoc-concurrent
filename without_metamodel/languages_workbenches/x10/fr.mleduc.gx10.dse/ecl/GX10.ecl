@@ -22,6 +22,9 @@ context Print
 	
 context IntVar
 	def : evaluate : Event = self.evaluate()
+
+context BoolVar
+	def : evaluate : Event = self.evaluate()
 	
 context Plus
 	def : evaluate : Event = self.evaluate()
@@ -138,6 +141,16 @@ context IntVar
 	inv intVarEvaluateBeforet:
 		Relation Precedes(self.evaluate, self.endStatement)
 
+context BoolVar
+	inv boolVarEvaluateBefore0:
+		Relation Precedes(self.startStatement, self.boolVarExpr.startStatement)
+		
+	inv boolVarEvaluateBefore1:
+		Relation Precedes(self.boolVarExpr.endStatement, self.evaluate)
+		
+	inv boolVarEvaluateBeforet:
+		Relation Precedes(self.evaluate, self.endStatement)
+
 context Print
 	inv printEvaluateBeforePrint0:
 		Relation Precedes(self.startStatement, self.toPrint.startStatement)
@@ -147,6 +160,8 @@ context Print
 		
 	inv printFinishAfterPrint:
 		Relation Precedes(self.print, self.endStatement)
+		
+
 		
 context Plus
 	inv plusStartThenLeftEvaluation:

@@ -11,6 +11,12 @@ import junit.textui.TestRunner;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Bool Var</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link gx10.BoolVar#evaluate() <em>Evaluate</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class BoolVarTest extends ExpressionTest {
@@ -65,6 +71,19 @@ public class BoolVarTest extends ExpressionTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link gx10.BoolVar#evaluate() <em>Evaluate</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see gx10.BoolVar#evaluate()
+	 * @generated
+	 */
+	public void testEvaluate() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //BoolVarTest

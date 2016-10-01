@@ -27,6 +27,7 @@ language GX10 {
 	with gx10.aspects.ControlStructureAspect
 	with gx10.aspects.IntVarAccessAspect
 	with gx10.aspects.BoolVarAccessAspect
+	with gx10.aspects.EqualAspect
 	
 /*
  *	with qualified.class.name

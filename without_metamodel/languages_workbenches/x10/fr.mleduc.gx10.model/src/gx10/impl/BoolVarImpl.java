@@ -6,9 +6,11 @@ import gx10.BoolExpression;
 import gx10.BoolVar;
 import gx10.Gx10Package;
 
+import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -147,6 +149,17 @@ public class BoolVarImpl extends ExpressionImpl implements BoolVar {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public void evaluate() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -222,6 +235,21 @@ public class BoolVarImpl extends ExpressionImpl implements BoolVar {
 				return boolVarExpr != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case Gx10Package.BOOL_VAR___EVALUATE:
+				evaluate();
+				return null;
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

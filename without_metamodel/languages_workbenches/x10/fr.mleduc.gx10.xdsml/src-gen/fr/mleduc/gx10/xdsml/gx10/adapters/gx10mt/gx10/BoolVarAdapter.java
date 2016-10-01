@@ -50,6 +50,11 @@ public class BoolVarAdapter extends EObjectAdapter<BoolVar> implements fr.mleduc
     else adaptee.setBoolVarExpr(null);
   }
   
+  @Override
+  public void evaluate() {
+    adaptee.evaluate();
+  }
+  
   protected final static String NAME_EDEFAULT = null;
   
   @Override

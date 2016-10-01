@@ -217,6 +217,11 @@ public class AsyncItemProvider extends StatementItemProvider {
 			(createChildParameter
 				(Gx10Package.Literals.ASYNC__ASYNC_BLOCK,
 				 Gx10Factory.eINSTANCE.createBoolVarAccess()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Gx10Package.Literals.ASYNC__ASYNC_BLOCK,
+				 Gx10Factory.eINSTANCE.createEqual()));
 	}
 
 }

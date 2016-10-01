@@ -6,6 +6,7 @@ import fr.mleduc.gx10.xdsml.gx10mt.gx10.Async;
 import fr.mleduc.gx10.xdsml.gx10mt.gx10.Block;
 import fr.mleduc.gx10.xdsml.gx10mt.gx10.BoolVar;
 import fr.mleduc.gx10.xdsml.gx10mt.gx10.BoolVarAccess;
+import fr.mleduc.gx10.xdsml.gx10mt.gx10.Equal;
 import fr.mleduc.gx10.xdsml.gx10mt.gx10.False;
 import fr.mleduc.gx10.xdsml.gx10mt.gx10.Finish;
 import fr.mleduc.gx10.xdsml.gx10mt.gx10.Gx10Factory;
@@ -124,6 +125,11 @@ public class Gx10FactoryAdapter extends EFactoryImpl implements Gx10Factory {
   @Override
   public BoolVarAccess createBoolVarAccess() {
     return adaptersFactory.createBoolVarAccessAdapter(gx10Adaptee.createBoolVarAccess(), null);
+  }
+  
+  @Override
+  public Equal createEqual() {
+    return adaptersFactory.createEqualAdapter(gx10Adaptee.createEqual(), null);
   }
   
   @Override

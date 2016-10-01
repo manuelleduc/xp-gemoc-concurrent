@@ -73,4 +73,12 @@ public interface BoolVar extends Expression {
 	 */
 	void setBoolVarExpr(BoolExpression value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void evaluate();
+
 } // BoolVar

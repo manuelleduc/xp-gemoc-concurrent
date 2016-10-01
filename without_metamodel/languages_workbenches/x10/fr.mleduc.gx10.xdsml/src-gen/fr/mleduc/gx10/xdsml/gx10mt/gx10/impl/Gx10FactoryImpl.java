@@ -78,6 +78,7 @@ public class Gx10FactoryImpl extends EFactoryImpl implements Gx10Factory {
 			case Gx10Package.INT_VAR: return createIntVar();
 			case Gx10Package.INT_VAR_ACCESS: return createIntVarAccess();
 			case Gx10Package.BOOL_VAR_ACCESS: return createBoolVarAccess();
+			case Gx10Package.EQUAL: return createEqual();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -281,6 +282,15 @@ public class Gx10FactoryImpl extends EFactoryImpl implements Gx10Factory {
 	 * @generated
 	 */
 	public BoolVarAccess createBoolVarAccess() {
+		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Equal createEqual() {
 		throw new UnsupportedOperationException("Cannot invoke element creation on a model type");
 	}
 

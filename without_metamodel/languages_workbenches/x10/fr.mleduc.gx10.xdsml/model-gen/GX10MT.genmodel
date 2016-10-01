@@ -170,6 +170,9 @@
       <genFeatures property="None" children="true" createChild="true">
         <ecoreFeature xsi:type="ecore:EReference" href="GX10MT.ecore#//BoolVar/boolVarExpr"/>
       </genFeatures>
+      <genOperations>
+        <ecoreOperation href="GX10MT.ecore#//BoolVar/evaluate"/>
+      </genOperations>
     </genClasses>
     <genClasses>
       <ecoreClass href="GX10MT.ecore#//IntVar"/>
@@ -197,6 +200,21 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true">
         <ecoreFeature xsi:type="ecore:EReference" href="GX10MT.ecore#//BoolVarAccess/boolVarRef"/>
       </genFeatures>
+      <genOperations>
+        <ecoreOperation href="GX10MT.ecore#//BoolVarAccess/getCurrentValue"/>
+      </genOperations>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="GX10MT.ecore#//Equal"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="GX10MT.ecore#//Equal/leftEqual"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="GX10MT.ecore#//Equal/rightEqual"/>
+      </genFeatures>
+      <genOperations>
+        <ecoreOperation href="GX10MT.ecore#//Equal/evaluate"/>
+      </genOperations>
     </genClasses>
   </genPackages>
   <usedGenPackages href="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore"/>

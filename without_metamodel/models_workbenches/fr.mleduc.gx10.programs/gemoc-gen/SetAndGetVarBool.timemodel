@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="ASCII"?>
+<fr.inria.aoste.timemodel.ccslmodel:ClockConstraintSystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fr.inria.aoste.timemodel="http://fr.inria.aoste.timemodel" xmlns:fr.inria.aoste.timemodel.basicTypes="http://fr.inria.aoste.timemodel.basicTypes" xmlns:fr.inria.aoste.timemodel.ccslmodel="http://fr.inria.aoste.timemodel.ccslmodel" name="ProgramImpl_0" superBlock="//@subBlock.0">
+  <subBlock name="mainBlock">
+    <elements xsi:type="fr.inria.aoste.timemodel:Clock" name="ProgramImpl_0_start">
+      <type xsi:type="fr.inria.aoste.timemodel.basicTypes:DiscreteClockType" href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@predefinedTypes.1"/>
+      <tickingEvent name="evt_ProgramImpl_0_start">
+        <referencedObjectRefs href="../SetAndGetVarBool.gx10#/"/>
+      </tickingEvent>
+    </elements>
+    <elements xsi:type="fr.inria.aoste.timemodel:Clock" name="main_1_startMethodEvt">
+      <type xsi:type="fr.inria.aoste.timemodel.basicTypes:DiscreteClockType" href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@predefinedTypes.1"/>
+      <tickingEvent name="evt_main_1_startMethodEvt">
+        <referencedObjectRefs href="../SetAndGetVarBool.gx10#//@methods.0"/>
+      </tickingEvent>
+    </elements>
+    <elements xsi:type="fr.inria.aoste.timemodel:Clock" name="main_1_endMethodEvt">
+      <type xsi:type="fr.inria.aoste.timemodel.basicTypes:DiscreteClockType" href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@predefinedTypes.1"/>
+      <tickingEvent name="evt_main_1_endMethodEvt">
+        <referencedObjectRefs href="../SetAndGetVarBool.gx10#//@methods.0"/>
+      </tickingEvent>
+    </elements>
+    <elements xsi:type="fr.inria.aoste.timemodel:Clock" name="TrueImpl_2_startStatement">
+      <type xsi:type="fr.inria.aoste.timemodel.basicTypes:DiscreteClockType" href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@predefinedTypes.1"/>
+      <tickingEvent name="evt_TrueImpl_2_startStatement">
+        <referencedObjectRefs href="../SetAndGetVarBool.gx10#//@methods.0/@methodBlock/@blockStatements.0/@boolVarExpr"/>
+      </tickingEvent>
+    </elements>
+    <elements xsi:type="fr.inria.aoste.timemodel:Clock" name="BoolVarAccessImpl_3_startStatement">
+      <type xsi:type="fr.inria.aoste.timemodel.basicTypes:DiscreteClockType" href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@predefinedTypes.1"/>
+      <tickingEvent name="evt_BoolVarAccessImpl_3_startStatement">
+        <referencedObjectRefs href="../SetAndGetVarBool.gx10#//@methods.0/@methodBlock/@blockStatements.1/@toPrint"/>
+      </tickingEvent>
+    </elements>
+    <elements xsi:type="fr.inria.aoste.timemodel:Clock" name="true_4_startStatement">
+      <type xsi:type="fr.inria.aoste.timemodel.basicTypes:DiscreteClockType" href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@predefinedTypes.1"/>
+      <tickingEvent name="evt_true_4_startStatement">
+        <referencedObjectRefs href="../SetAndGetVarBool.gx10#//@methods.0/@methodBlock/@blockStatements.0"/>
+      </tickingEvent>
+    </elements>
+    <elements xsi:type="fr.inria.aoste.timemodel:Clock" name="BlockImpl_5_startStatement">
+      <type xsi:type="fr.inria.aoste.timemodel.basicTypes:DiscreteClockType" href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@predefinedTypes.1"/>
+      <tickingEvent name="evt_BlockImpl_5_startStatement">
+        <referencedObjectRefs href="../SetAndGetVarBool.gx10#//@methods.0/@methodBlock"/>
+      </tickingEvent>
+    </elements>
+    <elements xsi:type="fr.inria.aoste.timemodel:Clock" name="PrintImpl_6_startStatement">
+      <type xsi:type="fr.inria.aoste.timemodel.basicTypes:DiscreteClockType" href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@predefinedTypes.1"/>
+      <tickingEvent name="evt_PrintImpl_6_startStatement">
+        <referencedObjectRefs href="../SetAndGetVarBool.gx10#//@methods.0/@methodBlock/@blockStatements.1"/>
+      </tickingEvent>
+    </elements>
+    <elements xsi:type="fr.inria.aoste.timemodel:Clock" name="TrueImpl_2_endStatement">
+      <type xsi:type="fr.inria.aoste.timemodel.basicTypes:DiscreteClockType" href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@predefinedTypes.1"/>
+      <tickingEvent name="evt_TrueImpl_2_endStatement">
+        <referencedObjectRefs href="../SetAndGetVarBool.gx10#//@methods.0/@methodBlock/@blockStatements.0/@boolVarExpr"/>
+      </tickingEvent>
+    </elements>
+    <elements xsi:type="fr.inria.aoste.timemodel:Clock" name="BoolVarAccessImpl_3_endStatement">
+      <type xsi:type="fr.inria.aoste.timemodel.basicTypes:DiscreteClockType" href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@predefinedTypes.1"/>
+      <tickingEvent name="evt_BoolVarAccessImpl_3_endStatement">
+        <referencedObjectRefs href="../SetAndGetVarBool.gx10#//@methods.0/@methodBlock/@blockStatements.1/@toPrint"/>
+      </tickingEvent>
+    </elements>
+    <elements xsi:type="fr.inria.aoste.timemodel:Clock" name="true_4_endStatement">
+      <type xsi:type="fr.inria.aoste.timemodel.basicTypes:DiscreteClockType" href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@predefinedTypes.1"/>
+      <tickingEvent name="evt_true_4_endStatement">
+        <referencedObjectRefs href="../SetAndGetVarBool.gx10#//@methods.0/@methodBlock/@blockStatements.0"/>
+      </tickingEvent>
+    </elements>
+    <elements xsi:type="fr.inria.aoste.timemodel:Clock" name="BlockImpl_5_endStatement">
+      <type xsi:type="fr.inria.aoste.timemodel.basicTypes:DiscreteClockType" href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@predefinedTypes.1"/>
+      <tickingEvent name="evt_BlockImpl_5_endStatement">
+        <referencedObjectRefs href="../SetAndGetVarBool.gx10#//@methods.0/@methodBlock"/>
+      </tickingEvent>
+    </elements>
+    <elements xsi:type="fr.inria.aoste.timemodel:Clock" name="PrintImpl_6_endStatement">
+      <type xsi:type="fr.inria.aoste.timemodel.basicTypes:DiscreteClockType" href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@predefinedTypes.1"/>
+      <tickingEvent name="evt_PrintImpl_6_endStatement">
+        <referencedObjectRefs href="../SetAndGetVarBool.gx10#//@methods.0/@methodBlock/@blockStatements.1"/>
+      </tickingEvent>
+    </elements>
+    <elements xsi:type="fr.inria.aoste.timemodel:Clock" name="PrintImpl_6_print">
+      <type xsi:type="fr.inria.aoste.timemodel.basicTypes:DiscreteClockType" href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@predefinedTypes.1"/>
+      <tickingEvent name="evt_PrintImpl_6_print">
+        <referencedObjectRefs href="../SetAndGetVarBool.gx10#//@methods.0/@methodBlock/@blockStatements.1"/>
+        <referencedObjectRefs href="http://mleduc.fr/gx10#//Print/print"/>
+      </tickingEvent>
+    </elements>
+    <elements xsi:type="fr.inria.aoste.timemodel:Clock" name="true_4_evaluate">
+      <type xsi:type="fr.inria.aoste.timemodel.basicTypes:DiscreteClockType" href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@predefinedTypes.1"/>
+      <tickingEvent name="evt_true_4_evaluate">
+        <referencedObjectRefs href="../SetAndGetVarBool.gx10#//@methods.0/@methodBlock/@blockStatements.0"/>
+        <referencedObjectRefs href="http://mleduc.fr/gx10#//BoolVar/evaluate"/>
+      </tickingEvent>
+    </elements>
+    <relations name="TrueImpl_2Precedes_statementStartThenStop">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2"/>
+      <bindings bindable="//@subBlock.0/@elements.3">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2/@leftEntity"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.8">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2/@rightEntity"/>
+      </bindings>
+    </relations>
+    <relations name="BoolVarAccessImpl_3Precedes_statementStartThenStop">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2"/>
+      <bindings bindable="//@subBlock.0/@elements.4">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2/@leftEntity"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.9">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2/@rightEntity"/>
+      </bindings>
+    </relations>
+    <relations name="true_4Precedes_statementStartThenStop">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2"/>
+      <bindings bindable="//@subBlock.0/@elements.5">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2/@leftEntity"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.10">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2/@rightEntity"/>
+      </bindings>
+    </relations>
+    <relations name="BlockImpl_5Precedes_statementStartThenStop">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2"/>
+      <bindings bindable="//@subBlock.0/@elements.6">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2/@leftEntity"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.11">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2/@rightEntity"/>
+      </bindings>
+    </relations>
+    <relations name="PrintImpl_6Precedes_statementStartThenStop">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2"/>
+      <bindings bindable="//@subBlock.0/@elements.7">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2/@leftEntity"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.12">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2/@rightEntity"/>
+      </bindings>
+    </relations>
+    <relations name="PrintImpl_6Precedes_waitForPreviousToFinish">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2"/>
+      <bindings bindable="//@subBlock.0/@elements.10">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2/@leftEntity"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.7">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2/@rightEntity"/>
+      </bindings>
+    </relations>
+    <relations name="true_4Precedes_firstStartAfterBlockStart">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2"/>
+      <bindings bindable="//@subBlock.0/@elements.6">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2/@leftEntity"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.5">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2/@rightEntity"/>
+      </bindings>
+    </relations>
+    <relations name="PrintImpl_6Precedes_lastEndWhenBlockEnd">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2"/>
+      <bindings bindable="//@subBlock.0/@elements.12">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2/@leftEntity"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.11">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2/@rightEntity"/>
+      </bindings>
+    </relations>
+    <relations name="main_1Precedes_methodStartThenEnd">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2"/>
+      <bindings bindable="//@subBlock.0/@elements.1">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2/@leftEntity"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.2">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2/@rightEntity"/>
+      </bindings>
+    </relations>
+    <relations name="main_1Precedes_methodBlockStartAtStart">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2"/>
+      <bindings bindable="//@subBlock.0/@elements.1">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2/@leftEntity"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.6">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2/@rightEntity"/>
+      </bindings>
+    </relations>
+    <relations name="main_1Precedes_methodStopWhenBlockStop">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2"/>
+      <bindings bindable="//@subBlock.0/@elements.11">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2/@leftEntity"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.2">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2/@rightEntity"/>
+      </bindings>
+    </relations>
+    <relations name="main_1Coincides_methodStartOnCall1">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.1"/>
+      <bindings bindable="//@subBlock.0/@elements.1">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.1/@leftEntity"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.1">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.1/@rightEntity"/>
+      </bindings>
+    </relations>
+    <relations name="true_4Precedes_boolVarEvaluateBefore0">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2"/>
+      <bindings bindable="//@subBlock.0/@elements.5">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2/@leftEntity"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.3">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2/@rightEntity"/>
+      </bindings>
+    </relations>
+    <relations name="true_4Precedes_boolVarEvaluateBefore1">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2"/>
+      <bindings bindable="//@subBlock.0/@elements.8">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2/@leftEntity"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.14">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2/@rightEntity"/>
+      </bindings>
+    </relations>
+    <relations name="true_4Precedes_boolVarEvaluateBeforet">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2"/>
+      <bindings bindable="//@subBlock.0/@elements.14">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2/@leftEntity"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.10">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2/@rightEntity"/>
+      </bindings>
+    </relations>
+    <relations name="PrintImpl_6Precedes_printEvaluateBeforePrint0">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2"/>
+      <bindings bindable="//@subBlock.0/@elements.7">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2/@leftEntity"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.4">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2/@rightEntity"/>
+      </bindings>
+    </relations>
+    <relations name="PrintImpl_6Precedes_printEvaluateBeforePrint1">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2"/>
+      <bindings bindable="//@subBlock.0/@elements.9">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2/@leftEntity"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.13">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2/@rightEntity"/>
+      </bindings>
+    </relations>
+    <relations name="PrintImpl_6Precedes_printFinishAfterPrint">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2"/>
+      <bindings bindable="//@subBlock.0/@elements.13">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2/@leftEntity"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.12">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2/@rightEntity"/>
+      </bindings>
+    </relations>
+    <relations name="BlockImpl_5Precedes_firstInstructionStartWhenBlockReady">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2"/>
+      <bindings bindable="//@subBlock.0/@elements.6">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2/@leftEntity"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.5">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2/@rightEntity"/>
+      </bindings>
+    </relations>
+    <relations name="BlockImpl_5Precedes_blockStatementWaitForAllToFinish">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2"/>
+      <bindings bindable="//@subBlock.0/@elements.12">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2/@leftEntity"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.11">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2/@rightEntity"/>
+      </bindings>
+    </relations>
+    <relations name="ProgramImpl_0Precedes_initBeforeAll">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2"/>
+      <bindings bindable="//@subBlock.0/@elements.0">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2/@leftEntity"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@elements.1">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.2/@rightEntity"/>
+      </bindings>
+    </relations>
+    <relations name="ProgramImpl_0Coincides_initOnlyOnce">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.1"/>
+      <bindings bindable="//@subBlock.0/@elements.0">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.1/@leftEntity"/>
+      </bindings>
+      <bindings bindable="//@subBlock.0/@expressions.0">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib#//@relationLibraries.0/@relationDeclarations.1/@rightEntity"/>
+      </bindings>
+    </relations>
+    <expressions name="ProgramImpl_0intermediate_oneStartOnly1">
+      <type href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.5"/>
+      <bindings bindable="//@subBlock.0/@elements.0">
+        <abstract href="../../../plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib#//@expressionLibraries.0/@expressionDeclarations.5/@parameters.0"/>
+      </bindings>
+    </expressions>
+  </subBlock>
+  <subBlock name="emptyBlock"/>
+  <imports importURI="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib" alias="kernel"/>
+  <imports importURI="platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib" alias="CCSL"/>
+  <imports importURI="platform:/plugin/fr.mleduc.gx10.mocc/mocc/GX10.ccslLib" alias="GX10"/>
+  <imports importURI="platform:/resource/fr.mleduc.gx10.programs/SetAndGetVarBool.gx10" alias="Program"/>
+</fr.inria.aoste.timemodel.ccslmodel:ClockConstraintSystem>

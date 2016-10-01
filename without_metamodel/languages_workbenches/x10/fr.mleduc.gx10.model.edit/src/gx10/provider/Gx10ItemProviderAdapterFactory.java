@@ -509,6 +509,29 @@ public class Gx10ItemProviderAdapterFactory extends Gx10AdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link gx10.Equal} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EqualItemProvider equalItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link gx10.Equal}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEqualAdapter() {
+		if (equalItemProvider == null) {
+			equalItemProvider = new EqualItemProvider(this);
+		}
+
+		return equalItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -626,6 +649,7 @@ public class Gx10ItemProviderAdapterFactory extends Gx10AdapterFactory implement
 		if (intVarItemProvider != null) intVarItemProvider.dispose();
 		if (intVarAccessItemProvider != null) intVarAccessItemProvider.dispose();
 		if (boolVarAccessItemProvider != null) boolVarAccessItemProvider.dispose();
+		if (equalItemProvider != null) equalItemProvider.dispose();
 	}
 
 }

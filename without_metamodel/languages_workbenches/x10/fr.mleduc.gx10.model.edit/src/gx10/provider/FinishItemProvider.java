@@ -217,6 +217,11 @@ public class FinishItemProvider extends StatementItemProvider {
 			(createChildParameter
 				(Gx10Package.Literals.FINISH__FINISH_STATEMENT,
 				 Gx10Factory.eINSTANCE.createBoolVarAccess()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Gx10Package.Literals.FINISH__FINISH_STATEMENT,
+				 Gx10Factory.eINSTANCE.createEqual()));
 	}
 
 }

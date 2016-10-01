@@ -9,6 +9,7 @@ import gx10.BoolExpression;
 import gx10.BoolVar;
 import gx10.BoolVarAccess;
 import gx10.ControlStructure;
+import gx10.Equal;
 import gx10.Expression;
 import gx10.False;
 import gx10.Finish;
@@ -211,6 +212,13 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 	 * @generated
 	 */
 	private EClass boolVarAccessEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass equalEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -728,6 +736,15 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getBoolVar__Evaluate() {
+		return boolVarEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getIntVar() {
 		return intVarEClass;
 	}
@@ -793,6 +810,42 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 	 */
 	public EReference getBoolVarAccess_BoolVarRef() {
 		return (EReference)boolVarAccessEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEqual() {
+		return equalEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEqual_LeftEqual() {
+		return (EReference)equalEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEqual_RightEqual() {
+		return (EReference)equalEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getEqual__Evaluate() {
+		return equalEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -893,6 +946,7 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 		boolVarEClass = createEClass(BOOL_VAR);
 		createEAttribute(boolVarEClass, BOOL_VAR__NAME);
 		createEReference(boolVarEClass, BOOL_VAR__BOOL_VAR_EXPR);
+		createEOperation(boolVarEClass, BOOL_VAR___EVALUATE);
 
 		intVarEClass = createEClass(INT_VAR);
 		createEAttribute(intVarEClass, INT_VAR__NAME);
@@ -904,6 +958,11 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 
 		boolVarAccessEClass = createEClass(BOOL_VAR_ACCESS);
 		createEReference(boolVarAccessEClass, BOOL_VAR_ACCESS__BOOL_VAR_REF);
+
+		equalEClass = createEClass(EQUAL);
+		createEReference(equalEClass, EQUAL__LEFT_EQUAL);
+		createEReference(equalEClass, EQUAL__RIGHT_EQUAL);
+		createEOperation(equalEClass, EQUAL___EVALUATE);
 	}
 
 	/**
@@ -955,6 +1014,7 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 		intVarEClass.getESuperTypes().add(this.getStatement());
 		intVarAccessEClass.getESuperTypes().add(this.getIntExpression());
 		boolVarAccessEClass.getESuperTypes().add(this.getBoolExpression());
+		equalEClass.getESuperTypes().add(this.getBoolExpression());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(programEClass, Program.class, "Program", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1033,6 +1093,8 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 		initEAttribute(getBoolVar_Name(), ecorePackage.getEString(), "name", null, 0, 1, BoolVar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBoolVar_BoolVarExpr(), this.getBoolExpression(), null, "boolVarExpr", null, 1, 1, BoolVar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEOperation(getBoolVar__Evaluate(), null, "evaluate", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(intVarEClass, IntVar.class, "IntVar", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getIntVar_Name(), ecorePackage.getEString(), "name", null, 1, 1, IntVar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIntVar_IntVarExpr(), this.getIntExpression(), null, "intVarExpr", null, 1, 1, IntVar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1044,6 +1106,12 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 
 		initEClass(boolVarAccessEClass, BoolVarAccess.class, "BoolVarAccess", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBoolVarAccess_BoolVarRef(), this.getBoolVar(), null, "boolVarRef", null, 1, 1, BoolVarAccess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(equalEClass, Equal.class, "Equal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getEqual_LeftEqual(), this.getIntExpression(), null, "leftEqual", null, 1, 1, Equal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEqual_RightEqual(), this.getIntExpression(), null, "rightEqual", null, 1, 1, Equal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getEqual__Evaluate(), null, "evaluate", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

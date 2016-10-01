@@ -51,12 +51,15 @@ import static extension gx10.aspects.BoolVarAspect.*
 import static extension gx10.aspects.IntVarAspect.*
 import static extension gx10.aspects.IntVarAccessAspect.*
 import static extension gx10.aspects.BoolVarAccessAspect.*
+import static extension gx10.aspects.EqualAspect.*
 import java.util.Map
 import org.eclipse.emf.ecore.EObject
+import gx10.Equal
 
 class Context {
 
 	private Map<String, Integer> intContext = newHashMap()
+	private Map<String, Boolean> boolContext = newHashMap()
 
 	public def void addInt(String name, int value) {
 		intContext.put(name, value)
@@ -64,6 +67,14 @@ class Context {
 
 	public def int getInt(String name) {
 		intContext.get(name)
+	}
+	
+	public def void addBool(String name, boolean value) {
+		boolContext.put(name, value)
+	}
+
+	public def boolean getBool(String name) {
+		boolContext.get(name)
 	}
 }
 
@@ -200,6 +211,9 @@ class PrintAspect extends StatementAspect {
 
 @Aspect(className=BoolVar)
 class BoolVarAspect extends ExpressionAspect {
+	def void evaluate() {
+		_self.inBlock.context.addBool(_self.name, _self.boolVarExpr.currentValue)
+	}
 }
 
 @Aspect(className=IntVar)
@@ -224,4 +238,21 @@ class IntVarAccessAspect extends IntExpressionAspect {
 
 @Aspect(className=BoolVarAccess)
 class BoolVarAccessAspect extends BoolExpressionAspect {
+	def boolean getCurrentValue() {
+		var EObject currentStatement = _self.eContainer
+		while(!(currentStatement instanceof Block)) {
+			currentStatement = currentStatement.eContainer
+		}
+	
+		(currentStatement as Block).context.getBool(_self.boolVarRef.name)
+	}
 }
+
+@Aspect(className=Equal)
+class EqualAspect extends BoolExpressionAspect {
+	def void evaluate() {
+		
+	}
+
+}
+

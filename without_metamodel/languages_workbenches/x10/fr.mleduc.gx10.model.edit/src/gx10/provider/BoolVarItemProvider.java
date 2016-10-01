@@ -188,6 +188,11 @@ public class BoolVarItemProvider extends ExpressionItemProvider {
 			(createChildParameter
 				(Gx10Package.Literals.BOOL_VAR__BOOL_VAR_EXPR,
 				 Gx10Factory.eINSTANCE.createBoolVarAccess()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Gx10Package.Literals.BOOL_VAR__BOOL_VAR_EXPR,
+				 Gx10Factory.eINSTANCE.createEqual()));
 	}
 
 }

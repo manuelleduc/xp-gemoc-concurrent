@@ -177,5 +177,14 @@
         <ecoreFeature xsi:type="ecore:EReference" href="gx10.ecore#//BoolVarAccess/boolVarRef"/>
       </genFeatures>
     </genClasses>
+    <genClasses>
+      <ecoreClass href="gx10.ecore#//Equal"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="gx10.ecore#//Equal/leftEqual"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="gx10.ecore#//Equal/rightEqual"/>
+      </genFeatures>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -9,6 +9,7 @@ import fr.mleduc.gx10.xdsml.gx10.adapters.gx10mt.gx10.BoolExpressionAdapter;
 import fr.mleduc.gx10.xdsml.gx10.adapters.gx10mt.gx10.BoolVarAccessAdapter;
 import fr.mleduc.gx10.xdsml.gx10.adapters.gx10mt.gx10.BoolVarAdapter;
 import fr.mleduc.gx10.xdsml.gx10.adapters.gx10mt.gx10.ControlStructureAdapter;
+import fr.mleduc.gx10.xdsml.gx10.adapters.gx10mt.gx10.EqualAdapter;
 import fr.mleduc.gx10.xdsml.gx10.adapters.gx10mt.gx10.ExpressionAdapter;
 import fr.mleduc.gx10.xdsml.gx10.adapters.gx10mt.gx10.FalseAdapter;
 import fr.mleduc.gx10.xdsml.gx10.adapters.gx10mt.gx10.FinishAdapter;
@@ -33,6 +34,7 @@ import gx10.BoolExpression;
 import gx10.BoolVar;
 import gx10.BoolVarAccess;
 import gx10.ControlStructure;
+import gx10.Equal;
 import gx10.Expression;
 import gx10.False;
 import gx10.Finish;
@@ -128,6 +130,9 @@ public class GX10MTAdaptersFactory implements AdaptersFactory {
     }
     if (o instanceof gx10.BoolVarAccess){
     	return createBoolVarAccessAdapter((gx10.BoolVarAccess) o, res);
+    }
+    if (o instanceof gx10.Equal){
+    	return createEqualAdapter((gx10.Equal) o, res);
     }
     
     return null;
@@ -490,6 +495,21 @@ public class GX10MTAdaptersFactory implements AdaptersFactory {
     	adapter.setResource(res);
     	register.put(adaptee, adapter);
     	return (fr.mleduc.gx10.xdsml.gx10.adapters.gx10mt.gx10.BoolVarAccessAdapter) adapter;
+    }
+  }
+  
+  public EqualAdapter createEqualAdapter(final Equal adaptee, final Resource res) {
+    if (adaptee == null)
+    	return null;
+    EObjectAdapter adapter = register.get(adaptee);
+    if(adapter != null)
+    	 return (fr.mleduc.gx10.xdsml.gx10.adapters.gx10mt.gx10.EqualAdapter) adapter;
+    else {
+    	adapter = new fr.mleduc.gx10.xdsml.gx10.adapters.gx10mt.gx10.EqualAdapter();
+    	adapter.setAdaptee(adaptee);
+    	adapter.setResource(res);
+    	register.put(adaptee, adapter);
+    	return (fr.mleduc.gx10.xdsml.gx10.adapters.gx10mt.gx10.EqualAdapter) adapter;
     }
   }
 }

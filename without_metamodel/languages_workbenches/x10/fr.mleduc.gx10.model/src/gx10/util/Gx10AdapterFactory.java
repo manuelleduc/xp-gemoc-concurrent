@@ -164,6 +164,10 @@ public class Gx10AdapterFactory extends AdapterFactoryImpl {
 				return createBoolVarAccessAdapter();
 			}
 			@Override
+			public Adapter caseEqual(Equal object) {
+				return createEqualAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -516,6 +520,20 @@ public class Gx10AdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBoolVarAccessAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link gx10.Equal <em>Equal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see gx10.Equal
+	 * @generated
+	 */
+	public Adapter createEqualAdapter() {
 		return null;
 	}
 

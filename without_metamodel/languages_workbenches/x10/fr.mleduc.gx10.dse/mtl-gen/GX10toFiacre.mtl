@@ -37,6 +37,7 @@ const NUMBER_BoolVars : int is [aProgram.eAllContents(BoolVar)->size()/]
 const NUMBER_IntVars : int is [aProgram.eAllContents(IntVar)->size()/]
 const NUMBER_IntVarAccesss : int is [aProgram.eAllContents(IntVarAccess)->size()/]
 const NUMBER_BoolVarAccesss : int is [aProgram.eAllContents(BoolVarAccess)->size()/]
+const NUMBER_Equals : int is [aProgram.eAllContents(Equal)->size()/]
 
 type Method_methodsArray is array [Program.eContents(Method)->size()/] of int
 type MethodCall_calledByArray is array [Method.eContents(MethodCall)->size()/] of int
@@ -57,6 +58,9 @@ Defining the Functions for : Print
 **********************************************************************/
 /*********************************************************************
 Defining the Functions for : IntVar
+**********************************************************************/
+/*********************************************************************
+Defining the Functions for : BoolVar
 **********************************************************************/
 /*********************************************************************
 Defining the Functions for : Plus
@@ -90,6 +94,13 @@ process p[element.name/] ['['/][element.name/]_evaluate:in none[']'/](&global : 
 	var _self:IntVar
     from s0  [element.name/]_evaluate; global:=IntVar_evaluate( global , global.refToElement_id) ;  to s0
 [/for]
+/************************* BoolVar Process Instances***************************/
+[for (element : BoolVar| aProgram.eAllContents(BoolVar))]
+process p[element.name/] ['['/][element.name/]_evaluate:in none[']'/](&global : SystemDataRoot, id : read int) is
+	states s0
+	var _self:BoolVar
+    from s0  [element.name/]_evaluate; global:=BoolVar_evaluate( global , global.refToElement_id) ;  to s0
+[/for]
 /************************* Plus Process Instances***************************/
 [for (element : Plus| aProgram.eAllContents(Plus))]
 process p[element.name/] ['['/][element.name/]_evaluate:in none[']'/](&global : SystemDataRoot, id : read int) is
@@ -109,6 +120,7 @@ process pUnConstrainedSemantics['['/][for (element : Program| aProgram.eAllConte
 [element.name/]_startMethodEvt:out none,[element.name/]_endMethodEvt:out none,[/for][for (element : Statement| aProgram.eAllContents(Statement))]
 [element.name/]_startStatement:out none,[element.name/]_endStatement:out none,[/for][for (element : Print| aProgram.eAllContents(Print))]
 [element.name/]_print:out none,[/for][for (element : IntVar| aProgram.eAllContents(IntVar))]
+[element.name/]_evaluate:out none,[/for][for (element : BoolVar| aProgram.eAllContents(BoolVar))]
 [element.name/]_evaluate:out none,[/for][for (element : Plus| aProgram.eAllContents(Plus))]
 [element.name/]_evaluate:out none,[/for][for (element : MethodCall| aProgram.eAllContents(MethodCall))]
 [element.name/]_callPreparation:out none,[/for][for (element : ControlStructure| aProgram.eAllContents(ControlStructure))]
@@ -136,6 +148,10 @@ process pUnConstrainedSemantics['['/][for (element : Program| aProgram.eAllConte
 
 [/for]
 [for (element : IntVar| aProgram.eAllContents(IntVar))]
+    from s0  [element.name/]_evaluate;  to s0
+
+[/for]
+[for (element : BoolVar| aProgram.eAllContents(BoolVar))]
     from s0  [element.name/]_evaluate;  to s0
 
 [/for]
@@ -169,6 +185,7 @@ process pUnConstrainedSemantics['['/][for (element : Program| aProgram.eAllConte
 [element.name/]_startMethodEvt:out none,[element.name/]_endMethodEvt:out none,[/for][for (element : Statement| aProgram.eAllContents(Statement))]
 [element.name/]_startStatement:out none,[element.name/]_endStatement:out none,[/for][for (element : Print| aProgram.eAllContents(Print))]
 [element.name/]_print:out none,[/for][for (element : IntVar| aProgram.eAllContents(IntVar))]
+[element.name/]_evaluate:out none,[/for][for (element : BoolVar| aProgram.eAllContents(BoolVar))]
 [element.name/]_evaluate:out none,[/for][for (element : Plus| aProgram.eAllContents(Plus))]
 [element.name/]_evaluate:out none,[/for][for (element : MethodCall| aProgram.eAllContents(MethodCall))]
 [element.name/]_callPreparation:out none,[/for][for (element : ControlStructure| aProgram.eAllContents(ControlStructure))]
@@ -197,6 +214,10 @@ process pUnConstrainedSemantics['['/][for (element : Program| aProgram.eAllConte
 
 [/for]
 [for (element : IntVar| aProgram.eAllContents(IntVar))]
+    from s0  [element.name/]_evaluate;  to s0
+
+[/for]
+[for (element : BoolVar| aProgram.eAllContents(BoolVar))]
     from s0  [element.name/]_evaluate;  to s0
 
 [/for]
@@ -248,6 +269,9 @@ port
 [/for][for (element : IntVar| aProgram.eAllContents(IntVar))]
 [element.name/]_evaluate: none,
 
+[/for][for (element : BoolVar| aProgram.eAllContents(BoolVar))]
+[element.name/]_evaluate: none,
+
 [/for][for (element : Plus| aProgram.eAllContents(Plus))]
 [element.name/]_evaluate: none,
 
@@ -272,6 +296,7 @@ pUnConstrainedSemantics['['/][for (element : Program| aProgram.eAllContents(Prog
 [element.name/]_startMethodEvt,[element.name/]_endMethodEvt,[/for][for (element : Statement| aProgram.eAllContents(Statement))]
 [element.name/]_startStatement,[element.name/]_endStatement,[/for][for (element : Print| aProgram.eAllContents(Print))]
 [element.name/]_print,[/for][for (element : IntVar| aProgram.eAllContents(IntVar))]
+[element.name/]_evaluate,[/for][for (element : BoolVar| aProgram.eAllContents(BoolVar))]
 [element.name/]_evaluate,[/for][for (element : Plus| aProgram.eAllContents(Plus))]
 [element.name/]_evaluate,[/for][for (element : MethodCall| aProgram.eAllContents(MethodCall))]
 [element.name/]_callPreparation,[/for][for (element : ControlStructure| aProgram.eAllContents(ControlStructure))]
@@ -292,6 +317,9 @@ pUnConstrainedSemantics['['/][for (element : Program| aProgram.eAllContents(Prog
 || p[element.name/] ['['/][element.name/]_print[']'/] (&global, ID)
 [/for]
 [for (element : IntVar| aProgram.eAllContents(IntVar))]
+|| p[element.name/] ['['/][element.name/]_evaluate[']'/] (&global, ID)
+[/for]
+[for (element : BoolVar| aProgram.eAllContents(BoolVar))]
 || p[element.name/] ['['/][element.name/]_evaluate[']'/] (&global, ID)
 [/for]
 [for (element : Plus| aProgram.eAllContents(Plus))]

@@ -75,6 +75,7 @@ public class Gx10FactoryImpl extends EFactoryImpl implements Gx10Factory {
 			case Gx10Package.INT_VAR: return createIntVar();
 			case Gx10Package.INT_VAR_ACCESS: return createIntVarAccess();
 			case Gx10Package.BOOL_VAR_ACCESS: return createBoolVarAccess();
+			case Gx10Package.EQUAL: return createEqual();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -268,6 +269,16 @@ public class Gx10FactoryImpl extends EFactoryImpl implements Gx10Factory {
 	public BoolVarAccess createBoolVarAccess() {
 		BoolVarAccessImpl boolVarAccess = new BoolVarAccessImpl();
 		return boolVarAccess;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Equal createEqual() {
+		EqualImpl equal = new EqualImpl();
+		return equal;
 	}
 
 	/**

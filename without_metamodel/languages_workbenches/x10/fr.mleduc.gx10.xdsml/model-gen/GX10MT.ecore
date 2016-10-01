@@ -94,6 +94,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="toPrint" lowerBound="1" eType="//Expression" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BoolVar" eSuperTypes="//Expression">
+    <eOperations name="evaluate"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name">
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eStructuralFeatures>
@@ -114,7 +115,16 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="intVarRef" lowerBound="1" eType="//IntVar"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BoolVarAccess" eSuperTypes="//BoolExpression">
+    <eOperations name="getCurrentValue">
+      <eAnnotations source="aspect"/>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="boolVarRef" lowerBound="1" eType="//BoolVar"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Equal" eSuperTypes="//BoolExpression">
+    <eOperations name="evaluate"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="leftEqual" lowerBound="1" eType="//IntExpression" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rightEqual" lowerBound="1" eType="//IntExpression" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="Context" instanceClassName="gx10.aspects.Context">
     <eAnnotations source="aspect"/>

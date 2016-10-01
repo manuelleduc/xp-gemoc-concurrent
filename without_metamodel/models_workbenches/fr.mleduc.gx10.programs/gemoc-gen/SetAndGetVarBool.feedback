@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ASCII"?>
+<feedback:ActionModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:feedback="http://timesquare.inria.fr/feedback">
+  <events name="MSE_ProgramImpl_0_start">
+    <solverEvent href="SetAndGetVarBool.timemodel#//@subBlock.0/@elements.0"/>
+  </events>
+  <events name="MSE_main_1_startMethodEvt">
+    <solverEvent href="SetAndGetVarBool.timemodel#//@subBlock.0/@elements.1"/>
+  </events>
+  <events name="MSE_main_1_endMethodEvt">
+    <solverEvent href="SetAndGetVarBool.timemodel#//@subBlock.0/@elements.2"/>
+  </events>
+  <events name="MSE_TrueImpl_2_startStatement">
+    <solverEvent href="SetAndGetVarBool.timemodel#//@subBlock.0/@elements.3"/>
+  </events>
+  <events name="MSE_BoolVarAccessImpl_3_startStatement">
+    <solverEvent href="SetAndGetVarBool.timemodel#//@subBlock.0/@elements.4"/>
+  </events>
+  <events name="MSE_true_4_startStatement">
+    <solverEvent href="SetAndGetVarBool.timemodel#//@subBlock.0/@elements.5"/>
+  </events>
+  <events name="MSE_BlockImpl_5_startStatement">
+    <solverEvent href="SetAndGetVarBool.timemodel#//@subBlock.0/@elements.6"/>
+  </events>
+  <events name="MSE_PrintImpl_6_startStatement">
+    <solverEvent href="SetAndGetVarBool.timemodel#//@subBlock.0/@elements.7"/>
+  </events>
+  <events name="MSE_TrueImpl_2_endStatement">
+    <solverEvent href="SetAndGetVarBool.timemodel#//@subBlock.0/@elements.8"/>
+  </events>
+  <events name="MSE_BoolVarAccessImpl_3_endStatement">
+    <solverEvent href="SetAndGetVarBool.timemodel#//@subBlock.0/@elements.9"/>
+  </events>
+  <events name="MSE_true_4_endStatement">
+    <solverEvent href="SetAndGetVarBool.timemodel#//@subBlock.0/@elements.10"/>
+  </events>
+  <events name="MSE_BlockImpl_5_endStatement">
+    <solverEvent href="SetAndGetVarBool.timemodel#//@subBlock.0/@elements.11"/>
+  </events>
+  <events name="MSE_PrintImpl_6_endStatement">
+    <solverEvent href="SetAndGetVarBool.timemodel#//@subBlock.0/@elements.12"/>
+  </events>
+  <events name="MSE_PrintImpl_6_print">
+    <caller href="../SetAndGetVarBool.gx10#//@methods.0/@methodBlock/@blockStatements.1"/>
+    <action href="http://mleduc.fr/gx10#//Print/print"/>
+    <solverEvent href="SetAndGetVarBool.timemodel#//@subBlock.0/@elements.13"/>
+  </events>
+  <events name="MSE_true_4_evaluate">
+    <caller href="../SetAndGetVarBool.gx10#//@methods.0/@methodBlock/@blockStatements.0"/>
+    <action href="http://mleduc.fr/gx10#//BoolVar/evaluate"/>
+    <solverEvent href="SetAndGetVarBool.timemodel#//@subBlock.0/@elements.14"/>
+  </events>
+  <importStatements importURI="platform:/3"/>
+</feedback:ActionModel>

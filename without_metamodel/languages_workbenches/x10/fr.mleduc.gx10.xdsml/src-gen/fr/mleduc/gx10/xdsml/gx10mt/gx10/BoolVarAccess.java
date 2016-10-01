@@ -46,4 +46,12 @@ public interface BoolVarAccess extends BoolExpression {
 	 */
 	void setBoolVarRef(BoolVar value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	boolean getCurrentValue();
+
 } // BoolVarAccess
