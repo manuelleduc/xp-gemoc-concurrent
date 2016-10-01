@@ -57,6 +57,11 @@ system addClocks: #(print[element.name/]).
 system addClocks: #(evaluate[element.name/]).
 
 [/for]
+[for (element : gx10::Plus| aProgram.eAllContents(gx10::Plus))]
+"clocks for Plus [element.name/]" 
+system addClocks: #(evaluate[element.name/]).
+
+[/for]
 [for (element : gx10::MethodCall| aProgram.eAllContents(gx10::MethodCall))]
 "clocks for MethodCall [element.name/]" 
 system addClocks: #(callPreparation[element.name/]).
@@ -204,6 +209,25 @@ system addClocks: #(evaluateFalse[element.name/]).
 	system library: #Kernel relation: #Precedes clocks: #(endStatement[element.intVarExpr.name/]  evaluate[element.name/])  constants:{-1} .
 		[/if]
 	"intVarEvaluateBeforet in IntVar [element.name/]"
+		[if ( true) ]
+	system library: #Kernel relation: #Precedes clocks: #(evaluate[element.name/]  endStatement[element.name/])  constants:{-1} .
+		[/if]
+[/for]
+[for (element : gx10::Plus| aProgram.eAllContents(gx10::Plus))]
+"relations for Plus [element.name/]" 
+	"plusStartThenLeftEvaluation in Plus [element.name/]"
+		[if ( true) ]
+	system library: #Kernel relation: #Precedes clocks: #(startStatement[element.name/]  startStatement[element.leftPlus.name/])  constants:{-1} .
+		[/if]
+	"plusStartRightAfterEndFinished in Plus [element.name/]"
+		[if ( true) ]
+	system library: #Kernel relation: #Precedes clocks: #(endStatement[element.leftPlus.name/]  startStatement[element.rightPlus.name/])  constants:{-1} .
+		[/if]
+	"plusEvaluateOnceRightEnd in Plus [element.name/]"
+		[if ( true) ]
+	system library: #Kernel relation: #Precedes clocks: #(endStatement[element.rightPlus.name/]  evaluate[element.name/])  constants:{-1} .
+		[/if]
+	"plusFinishOnceEvaluated in Plus [element.name/]"
 		[if ( true) ]
 	system library: #Kernel relation: #Precedes clocks: #(evaluate[element.name/]  endStatement[element.name/])  constants:{-1} .
 		[/if]

@@ -6,9 +6,11 @@ import gx10.Gx10Package;
 import gx10.IntExpression;
 import gx10.Plus;
 
+import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -159,6 +161,17 @@ public class PlusImpl extends IntExpressionImpl implements Plus {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public void evaluate() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -236,6 +249,21 @@ public class PlusImpl extends IntExpressionImpl implements Plus {
 				return rightPlus != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case Gx10Package.PLUS___EVALUATE:
+				evaluate();
+				return null;
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //PlusImpl

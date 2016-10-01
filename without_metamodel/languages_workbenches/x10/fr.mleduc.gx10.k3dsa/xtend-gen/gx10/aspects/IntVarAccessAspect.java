@@ -1,6 +1,5 @@
 package gx10.aspects;
 
-import com.google.common.base.Objects;
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
 import gx10.Block;
 import gx10.IntVar;
@@ -10,7 +9,6 @@ import gx10.aspects.Context;
 import gx10.aspects.IntExpressionAspect;
 import gx10.aspects.IntVarAccessAspectIntVarAccessAspectProperties;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.xtext.xbase.lib.InputOutput;
 
 @Aspect(className = IntVarAccess.class)
 @SuppressWarnings("all")
@@ -34,25 +32,10 @@ public class IntVarAccessAspect extends IntExpressionAspect {
         EObject _eContainer = currentStatement.eContainer();
         currentStatement = _eContainer;
       }
-      Block abc = ((Block) currentStatement);
+      Context _context = BlockAspect.context(((Block) currentStatement));
       IntVar _intVarRef = _self.getIntVarRef();
       String _name = _intVarRef.getName();
-      String _plus = ("_self.intVarRef.name = " + _name);
-      InputOutput.<String>println(_plus);
-      Context _context = BlockAspect.context(abc);
-      boolean _equals = Objects.equal(_context, null);
-      String _plus_1 = ("_self.inBlock.context is null = " + Boolean.valueOf(_equals));
-      InputOutput.<String>println(_plus_1);
-      Context _context_1 = BlockAspect.context(abc);
-      IntVar _intVarRef_1 = _self.getIntVarRef();
-      String _name_1 = _intVarRef_1.getName();
-      int _int = _context_1.getInt(_name_1);
-      String _plus_2 = ("_self.inBlock.context.getInt = " + Integer.valueOf(_int));
-      InputOutput.<String>println(_plus_2);
-      Context _context_2 = BlockAspect.context(abc);
-      IntVar _intVarRef_2 = _self.getIntVarRef();
-      String _name_2 = _intVarRef_2.getName();
-      _xblockexpression = _context_2.getInt(_name_2);
+      _xblockexpression = _context.getInt(_name);
     }
     return _xblockexpression;
   }

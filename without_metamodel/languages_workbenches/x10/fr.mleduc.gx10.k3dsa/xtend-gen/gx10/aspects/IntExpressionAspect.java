@@ -15,6 +15,8 @@ public abstract class IntExpressionAspect extends ExpressionAspect {
     Object result = null;
      if (_self instanceof gx10.IntConst){
     					result = gx10.aspects.IntConstAspect.getCurrentValue((gx10.IntConst)_self);
+    } else  if (_self instanceof gx10.Plus){
+    					result = gx10.aspects.PlusAspect.getCurrentValue((gx10.Plus)_self);
     } else  if (_self instanceof gx10.IntVarAccess){
     					result = gx10.aspects.IntVarAccessAspect.getCurrentValue((gx10.IntVarAccess)_self);
     } else  if (_self instanceof gx10.IntExpression){

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gx10:Program xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gx10="http://mleduc.fr/gx10" startMethod="//@methods.0">
+  <methods name="main">
+    <methodBlock>
+      <blockStatements xsi:type="gx10:IntVar" name="a">
+        <intVarExpr xsi:type="gx10:IntConst" value="40"/>
+      </blockStatements>
+      <blockStatements xsi:type="gx10:IntVar" name="b">
+        <intVarExpr xsi:type="gx10:IntConst" value="2"/>
+      </blockStatements>
+      <blockStatements xsi:type="gx10:Print">
+        <toPrint xsi:type="gx10:Plus">
+          <leftPlus xsi:type="gx10:IntVarAccess" intVarRef="//@methods.0/@methodBlock/@blockStatements.0"/>
+          <rightPlus xsi:type="gx10:IntVarAccess" intVarRef="//@methods.0/@methodBlock/@blockStatements.1"/>
+        </toPrint>
+      </blockStatements>
+    </methodBlock>
+  </methods>
+</gx10:Program>

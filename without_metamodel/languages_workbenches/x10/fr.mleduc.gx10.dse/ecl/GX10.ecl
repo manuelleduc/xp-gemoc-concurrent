@@ -22,6 +22,9 @@ context Print
 	
 context IntVar
 	def : evaluate : Event = self.evaluate()
+	
+context Plus
+	def : evaluate : Event = self.evaluate()
 		
 context MethodCall
 	def : callPreparation : Event = self.call()
@@ -125,14 +128,6 @@ context MethodCall
 	inv methodStartBeforePrepareCall:
 		Relation Precedes(self.startStatement, self.callPreparation)
 
---	inv methodCallStartMethod:
---		Relation Precedes(self.callPreparation, self.methodToCall.startMethodEvt)
-		
-		
-		-- (remonter la logique dans remplacer par l'union des endStatement des methodes appelée 
---	inv methodCallStopWhenCalledEnd:
---		Relation Precedes(self.methodToCall.endMethodEvt, self.endStatement)
-
 context IntVar
 	inv intVarEvaluateBefore0:
 		Relation Precedes(self.startStatement, self.intVarExpr.startStatement)
@@ -143,10 +138,6 @@ context IntVar
 	inv intVarEvaluateBeforet:
 		Relation Precedes(self.evaluate, self.endStatement)
 
---context IntConst
---	inv instConstStartThenEnd:
---		Relation Precedes(self.startStatement, self.endStatement)
-		
 context Print
 	inv printEvaluateBeforePrint0:
 		Relation Precedes(self.startStatement, self.toPrint.startStatement)
@@ -156,12 +147,19 @@ context Print
 		
 	inv printFinishAfterPrint:
 		Relation Precedes(self.print, self.endStatement)
+		
+context Plus
+	inv plusStartThenLeftEvaluation:
+		Relation Precedes(self.startStatement, self.leftPlus.startStatement)
+	inv plusStartRightAfterEndFinished:
+		Relation Precedes(self.leftPlus.endStatement, self.rightPlus.startStatement)
+	inv plusEvaluateOnceRightEnd:
+		Relation Precedes(self.rightPlus.endStatement, self.evaluate)
+	inv plusFinishOnceEvaluated:
+		Relation Precedes(self.evaluate, self.endStatement)
 
 		
 context Block
---	inv blockStatementsOrdered:
---		Relation Precedes(self.blockStatements.startStatement)
-		
 	inv firstInstructionStartWhenBlockReady:
 		(self.blockStatements->size() > 0) implies
 		(Relation Precedes(self.startStatement, self.blockStatements->first().startStatement))

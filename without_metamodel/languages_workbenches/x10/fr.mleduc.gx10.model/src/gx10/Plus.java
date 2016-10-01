@@ -73,4 +73,12 @@ public interface Plus extends IntExpression {
 	 */
 	void setRightPlus(IntExpression value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void evaluate();
+
 } // Plus

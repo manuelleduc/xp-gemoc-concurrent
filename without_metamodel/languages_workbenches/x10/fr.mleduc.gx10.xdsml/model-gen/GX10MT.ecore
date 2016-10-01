@@ -70,6 +70,11 @@
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Plus" eSuperTypes="//IntExpression">
+    <eOperations name="evaluate"/>
+    <eOperations name="getCurrentValue">
+      <eAnnotations source="aspect"/>
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="leftPlus" lowerBound="1" eType="//IntExpression" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="rightPlus" lowerBound="1" eType="//IntExpression" containment="true"/>
   </eClassifiers>

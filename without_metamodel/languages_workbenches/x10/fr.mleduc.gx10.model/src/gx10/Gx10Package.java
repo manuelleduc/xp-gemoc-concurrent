@@ -866,13 +866,22 @@ public interface Gx10Package extends EPackage {
 	int PLUS___GET_CURRENT_VALUE = INT_EXPRESSION___GET_CURRENT_VALUE;
 
 	/**
+	 * The operation id for the '<em>Evaluate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLUS___EVALUATE = INT_EXPRESSION_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Plus</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PLUS_OPERATION_COUNT = INT_EXPRESSION_OPERATION_COUNT + 0;
+	int PLUS_OPERATION_COUNT = INT_EXPRESSION_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link gx10.impl.AsyncImpl <em>Async</em>}' class.
@@ -1675,6 +1684,16 @@ public interface Gx10Package extends EPackage {
 	EReference getPlus_RightPlus();
 
 	/**
+	 * Returns the meta object for the '{@link gx10.Plus#evaluate() <em>Evaluate</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Evaluate</em>' operation.
+	 * @see gx10.Plus#evaluate()
+	 * @generated
+	 */
+	EOperation getPlus__Evaluate();
+
+	/**
 	 * Returns the meta object for class '{@link gx10.Async <em>Async</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2236,6 +2255,14 @@ public interface Gx10Package extends EPackage {
 		 * @generated
 		 */
 		EReference PLUS__RIGHT_PLUS = eINSTANCE.getPlus_RightPlus();
+
+		/**
+		 * The meta object literal for the '<em><b>Evaluate</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PLUS___EVALUATE = eINSTANCE.getPlus__Evaluate();
 
 		/**
 		 * The meta object literal for the '{@link gx10.impl.AsyncImpl <em>Async</em>}' class.

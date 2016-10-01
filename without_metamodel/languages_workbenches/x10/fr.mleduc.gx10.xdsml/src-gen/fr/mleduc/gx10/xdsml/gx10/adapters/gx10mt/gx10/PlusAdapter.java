@@ -58,6 +58,11 @@ public class PlusAdapter extends EObjectAdapter<Plus> implements fr.mleduc.gx10.
   }
   
   @Override
+  public void evaluate() {
+    adaptee.evaluate();
+  }
+  
+  @Override
   public EClass eClass() {
     return fr.mleduc.gx10.xdsml.gx10mt.gx10.Gx10Package.eINSTANCE.getPlus();
   }

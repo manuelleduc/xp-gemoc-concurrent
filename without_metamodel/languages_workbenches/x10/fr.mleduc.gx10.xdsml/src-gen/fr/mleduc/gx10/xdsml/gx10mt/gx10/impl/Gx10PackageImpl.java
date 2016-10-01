@@ -982,6 +982,10 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 		initEReference(getPlus_LeftPlus(), this.getIntExpression(), null, "leftPlus", null, 1, 1, Plus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPlus_RightPlus(), this.getIntExpression(), null, "rightPlus", null, 1, 1, Plus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		addEOperation(plusEClass, null, "evaluate", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(plusEClass, ecorePackage.getEInt(), "getCurrentValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(asyncEClass, Async.class, "Async", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAsync_AsyncBlock(), this.getStatement(), null, "asyncBlock", null, 1, 1, Async.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1054,6 +1058,11 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 		   });	
 		addAnnotation
 		  (intConstEClass.getEOperations().get(0), 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (plusEClass.getEOperations().get(1), 
 		   source, 
 		   new String[] {
 		   });	

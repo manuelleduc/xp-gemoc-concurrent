@@ -8,7 +8,6 @@ import gx10.aspects.BlockAspect;
 import gx10.aspects.Context;
 import gx10.aspects.ExpressionAspect;
 import gx10.aspects.IntVarAspectIntVarAspectProperties;
-import org.eclipse.xtext.xbase.lib.InputOutput;
 
 @Aspect(className = IntVar.class)
 @SuppressWarnings("all")
@@ -19,19 +18,11 @@ public class IntVarAspect extends ExpressionAspect {
   }
   
   protected static void _privk3_evaluate(final IntVarAspectIntVarAspectProperties _self_, final IntVar _self) {
-    String _name = _self.getName();
-    String _plus = ("Debug set value " + _name);
-    String _plus_1 = (_plus + " to key \'");
-    IntExpression _intVarExpr = _self.getIntVarExpr();
-    int _currentValue = _intVarExpr.getCurrentValue();
-    String _plus_2 = (_plus_1 + Integer.valueOf(_currentValue));
-    String _plus_3 = (_plus_2 + "\'");
-    InputOutput.<String>println(_plus_3);
     Block _inBlock = _self.getInBlock();
     Context _context = BlockAspect.context(_inBlock);
-    String _name_1 = _self.getName();
-    IntExpression _intVarExpr_1 = _self.getIntVarExpr();
-    int _currentValue_1 = _intVarExpr_1.getCurrentValue();
-    _context.addInt(_name_1, _currentValue_1);
+    String _name = _self.getName();
+    IntExpression _intVarExpr = _self.getIntVarExpr();
+    int _currentValue = _intVarExpr.getCurrentValue();
+    _context.addInt(_name, _currentValue);
   }
 }

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="ASCII"?>
+<mse:MSEModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:concurrent_mse="http://www.gemoc.org/gemoc_execution_engine_concurrent_mse" xmlns:mse="http://www.gemoc.org/gemoc_execution_engine_mse">
+  <ownedMSEs xsi:type="concurrent_mse:FeedbackMSE" name="MSE_ProgramImpl_0_start">
+    <feedbackModelSpecificEvent href="APlusBEqualC.feedback#//@events.0"/>
+  </ownedMSEs>
+  <ownedMSEs xsi:type="concurrent_mse:FeedbackMSE" name="MSE_main_1_startMethodEvt">
+    <feedbackModelSpecificEvent href="APlusBEqualC.feedback#//@events.1"/>
+  </ownedMSEs>
+  <ownedMSEs xsi:type="concurrent_mse:FeedbackMSE" name="MSE_main_1_endMethodEvt">
+    <feedbackModelSpecificEvent href="APlusBEqualC.feedback#//@events.2"/>
+  </ownedMSEs>
+  <ownedMSEs xsi:type="concurrent_mse:FeedbackMSE" name="MSE_BlockImpl_2_startStatement">
+    <feedbackModelSpecificEvent href="APlusBEqualC.feedback#//@events.3"/>
+  </ownedMSEs>
+  <ownedMSEs xsi:type="concurrent_mse:FeedbackMSE" name="MSE_IntVarAccessImpl_3_startStatement">
+    <feedbackModelSpecificEvent href="APlusBEqualC.feedback#//@events.4"/>
+  </ownedMSEs>
+  <ownedMSEs xsi:type="concurrent_mse:FeedbackMSE" name="MSE_IntVarAccessImpl_4_startStatement">
+    <feedbackModelSpecificEvent href="APlusBEqualC.feedback#//@events.5"/>
+  </ownedMSEs>
+  <ownedMSEs xsi:type="concurrent_mse:FeedbackMSE" name="MSE_a_5_startStatement">
+    <feedbackModelSpecificEvent href="APlusBEqualC.feedback#//@events.6"/>
+  </ownedMSEs>
+  <ownedMSEs xsi:type="concurrent_mse:FeedbackMSE" name="MSE_IntConstImpl_6_startStatement">
+    <feedbackModelSpecificEvent href="APlusBEqualC.feedback#//@events.7"/>
+  </ownedMSEs>
+  <ownedMSEs xsi:type="concurrent_mse:FeedbackMSE" name="MSE_b_7_startStatement">
+    <feedbackModelSpecificEvent href="APlusBEqualC.feedback#//@events.8"/>
+  </ownedMSEs>
+  <ownedMSEs xsi:type="concurrent_mse:FeedbackMSE" name="MSE_IntConstImpl_8_startStatement">
+    <feedbackModelSpecificEvent href="APlusBEqualC.feedback#//@events.9"/>
+  </ownedMSEs>
+  <ownedMSEs xsi:type="concurrent_mse:FeedbackMSE" name="MSE_PrintImpl_9_startStatement">
+    <feedbackModelSpecificEvent href="APlusBEqualC.feedback#//@events.10"/>
+  </ownedMSEs>
+  <ownedMSEs xsi:type="concurrent_mse:FeedbackMSE" name="MSE_PlusImpl_10_startStatement">
+    <feedbackModelSpecificEvent href="APlusBEqualC.feedback#//@events.11"/>
+  </ownedMSEs>
+  <ownedMSEs xsi:type="concurrent_mse:FeedbackMSE" name="MSE_BlockImpl_2_endStatement">
+    <feedbackModelSpecificEvent href="APlusBEqualC.feedback#//@events.12"/>
+  </ownedMSEs>
+  <ownedMSEs xsi:type="concurrent_mse:FeedbackMSE" name="MSE_IntVarAccessImpl_3_endStatement">
+    <feedbackModelSpecificEvent href="APlusBEqualC.feedback#//@events.13"/>
+  </ownedMSEs>
+  <ownedMSEs xsi:type="concurrent_mse:FeedbackMSE" name="MSE_IntVarAccessImpl_4_endStatement">
+    <feedbackModelSpecificEvent href="APlusBEqualC.feedback#//@events.14"/>
+  </ownedMSEs>
+  <ownedMSEs xsi:type="concurrent_mse:FeedbackMSE" name="MSE_a_5_endStatement">
+    <feedbackModelSpecificEvent href="APlusBEqualC.feedback#//@events.15"/>
+  </ownedMSEs>
+  <ownedMSEs xsi:type="concurrent_mse:FeedbackMSE" name="MSE_IntConstImpl_6_endStatement">
+    <feedbackModelSpecificEvent href="APlusBEqualC.feedback#//@events.16"/>
+  </ownedMSEs>
+  <ownedMSEs xsi:type="concurrent_mse:FeedbackMSE" name="MSE_b_7_endStatement">
+    <feedbackModelSpecificEvent href="APlusBEqualC.feedback#//@events.17"/>
+  </ownedMSEs>
+  <ownedMSEs xsi:type="concurrent_mse:FeedbackMSE" name="MSE_IntConstImpl_8_endStatement">
+    <feedbackModelSpecificEvent href="APlusBEqualC.feedback#//@events.18"/>
+  </ownedMSEs>
+  <ownedMSEs xsi:type="concurrent_mse:FeedbackMSE" name="MSE_PrintImpl_9_endStatement">
+    <feedbackModelSpecificEvent href="APlusBEqualC.feedback#//@events.19"/>
+  </ownedMSEs>
+  <ownedMSEs xsi:type="concurrent_mse:FeedbackMSE" name="MSE_PlusImpl_10_endStatement">
+    <feedbackModelSpecificEvent href="APlusBEqualC.feedback#//@events.20"/>
+  </ownedMSEs>
+  <ownedMSEs xsi:type="concurrent_mse:FeedbackMSE" name="MSE_PrintImpl_9_print">
+    <feedbackModelSpecificEvent href="APlusBEqualC.feedback#//@events.21"/>
+  </ownedMSEs>
+  <ownedMSEs xsi:type="concurrent_mse:FeedbackMSE" name="MSE_a_5_evaluate">
+    <feedbackModelSpecificEvent href="APlusBEqualC.feedback#//@events.22"/>
+  </ownedMSEs>
+  <ownedMSEs xsi:type="concurrent_mse:FeedbackMSE" name="MSE_b_7_evaluate">
+    <feedbackModelSpecificEvent href="APlusBEqualC.feedback#//@events.23"/>
+  </ownedMSEs>
+  <ownedMSEs xsi:type="concurrent_mse:FeedbackMSE" name="MSE_PlusImpl_10_evaluate">
+    <feedbackModelSpecificEvent href="APlusBEqualC.feedback#//@events.24"/>
+  </ownedMSEs>
+</mse:MSEModel>

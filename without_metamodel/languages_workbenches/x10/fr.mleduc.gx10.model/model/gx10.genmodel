@@ -107,6 +107,9 @@
       <genFeatures property="None" children="true" createChild="true">
         <ecoreFeature xsi:type="ecore:EReference" href="gx10.ecore#//Plus/rightPlus"/>
       </genFeatures>
+      <genOperations>
+        <ecoreOperation href="gx10.ecore#//Plus/evaluate"/>
+      </genOperations>
     </genClasses>
     <genClasses>
       <ecoreClass href="gx10.ecore#//Async"/>

@@ -149,6 +149,16 @@ class IntConstAspect extends IntExpressionAspect {
 
 @Aspect(className=Plus)
 class PlusAspect extends IntExpressionAspect {
+	
+	int currentValuePlus = 0;
+	
+	def void evaluate() {
+		_self.currentValuePlus = _self.leftPlus.currentValue + _self.rightPlus.currentValue
+	}
+	
+	def int getCurrentValue() {
+		_self.currentValuePlus
+	}
 }
 
 @Aspect(className=Async)
@@ -195,10 +205,6 @@ class BoolVarAspect extends ExpressionAspect {
 @Aspect(className=IntVar)
 class IntVarAspect extends ExpressionAspect {
 	def void evaluate() {
-		println("Debug set value " + _self.name + " to key '" + _self.intVarExpr.currentValue + "'")
-
-		// TODO : extract in service and add constrait (no overiding etc)
-		// might have to transmit the current call instance ?
 		_self.inBlock.context.addInt(_self.name, _self.intVarExpr.currentValue)
 	}
 }
@@ -207,14 +213,11 @@ class IntVarAspect extends ExpressionAspect {
 class IntVarAccessAspect extends IntExpressionAspect {
 	def int getCurrentValue() {
 		var EObject currentStatement = _self.eContainer
-		while(!(currentStatement instanceof Block))
+		while(!(currentStatement instanceof Block)) {
 			currentStatement = currentStatement.eContainer
-		
-		var abc = currentStatement as Block
-		println("_self.intVarRef.name = " + _self.intVarRef.name)
-		println("_self.inBlock.context is null = " + (abc.context == null))
-		println("_self.inBlock.context.getInt = " + (abc.context.getInt(_self.intVarRef.name)))
-		abc.context.getInt(_self.intVarRef.name)
+		}
+	
+		(currentStatement as Block).context.getInt(_self.intVarRef.name)
 	}
 
 }

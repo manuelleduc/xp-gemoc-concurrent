@@ -122,6 +122,12 @@
       <genFeatures property="None" children="true" createChild="true">
         <ecoreFeature xsi:type="ecore:EReference" href="GX10MT.ecore#//Plus/rightPlus"/>
       </genFeatures>
+      <genOperations>
+        <ecoreOperation href="GX10MT.ecore#//Plus/evaluate"/>
+      </genOperations>
+      <genOperations>
+        <ecoreOperation href="GX10MT.ecore#//Plus/getCurrentValue"/>
+      </genOperations>
     </genClasses>
     <genClasses>
       <ecoreClass href="GX10MT.ecore#//Async"/>
