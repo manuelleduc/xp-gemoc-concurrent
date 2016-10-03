@@ -10,3 +10,6 @@ Require-Bundle: fr.mleduc.gx10.xtext,
  org.eclipse.xtext.ide,
  org.eclipse.xtext.xbase.ide
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: fr.mleduc.ide.contentassist.antlr.internal,
+ fr.mleduc.ide.contentassist.antlr
+
