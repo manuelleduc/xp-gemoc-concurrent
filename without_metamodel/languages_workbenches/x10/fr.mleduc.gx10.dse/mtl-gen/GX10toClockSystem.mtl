@@ -52,6 +52,11 @@ system addClocks: #(endStatement[element.name/]).
 system addClocks: #(print[element.name/]).
 
 [/for]
+[for (element : gx10::Block| aProgram.eAllContents(gx10::Block))]
+"clocks for Block [element.name/]" 
+system addClocks: #(initBlock[element.name/]).
+
+[/for]
 [for (element : gx10::IntVar| aProgram.eAllContents(gx10::IntVar))]
 "clocks for IntVar [element.name/]" 
 system addClocks: #(evaluate[element.name/]).
@@ -64,6 +69,11 @@ system addClocks: #(evaluate[element.name/]).
 [/for]
 [for (element : gx10::Plus| aProgram.eAllContents(gx10::Plus))]
 "clocks for Plus [element.name/]" 
+system addClocks: #(evaluate[element.name/]).
+
+[/for]
+[for (element : gx10::Equal| aProgram.eAllContents(gx10::Equal))]
+"clocks for Equal [element.name/]" 
 system addClocks: #(evaluate[element.name/]).
 
 [/for]
@@ -91,8 +101,8 @@ system addClocks: #(evaluateFalse[element.name/]).
 	system addInternalClocks: #(allWhileLoopEnds[element.name/]).
 
 [/for]
-[for (element : gx10::Block| aProgram.eAllContents(gx10::Block))]
-"clocks for Block [element.name/]" 
+[for (element : gx10::Not| aProgram.eAllContents(gx10::Not))]
+"clocks for Not [element.name/]" 
 [/for]
 
 [for (element : gx10::Program| aProgram.eAllContents(gx10::Program))]
@@ -203,6 +213,21 @@ system addClocks: #(evaluateFalse[element.name/]).
 	system library: #Kernel relation: #Precedes clocks: #(print[element.name/]  endStatement[element.name/])  constants:{-1} .
 		[/if]
 [/for]
+[for (element : gx10::Block| aProgram.eAllContents(gx10::Block))]
+"relations for Block [element.name/]" 
+	"blockInitFirstAfterStart in Block [element.name/]"
+		[if ( true) ]
+	system library: #Kernel relation: #Precedes clocks: #(startStatement[element.name/]  initBlock[element.name/])  constants:{-1} .
+		[/if]
+	"firstInstructionStartWhenBlockReady in Block [element.name/]"
+		[if ( ( self.blockStatements->size() > 0) ) ]
+	system library: #Kernel relation: #Precedes clocks: #(initBlock[element.name/]  startStatement[element.blockStatements->first().name/])  constants:{-1} .
+		[/if]
+	"blockStatementWaitForAllToFinish in Block [element.name/]"
+		[if ( ( self.blockStatements->size() > 0) ) ]
+	system library: #Kernel relation: #Precedes clocks: #(endStatement[element.blockStatements->last().name/]  endStatement[element.name/])  constants:{-1} .
+		[/if]
+[/for]
 [for (element : gx10::IntVar| aProgram.eAllContents(gx10::IntVar))]
 "relations for IntVar [element.name/]" 
 	"intVarEvaluateBefore0 in IntVar [element.name/]"
@@ -248,6 +273,25 @@ system addClocks: #(evaluateFalse[element.name/]).
 	system library: #Kernel relation: #Precedes clocks: #(endStatement[element.rightPlus.name/]  evaluate[element.name/])  constants:{-1} .
 		[/if]
 	"plusFinishOnceEvaluated in Plus [element.name/]"
+		[if ( true) ]
+	system library: #Kernel relation: #Precedes clocks: #(evaluate[element.name/]  endStatement[element.name/])  constants:{-1} .
+		[/if]
+[/for]
+[for (element : gx10::Equal| aProgram.eAllContents(gx10::Equal))]
+"relations for Equal [element.name/]" 
+	"equalStartThenLeftEvaluation in Equal [element.name/]"
+		[if ( true) ]
+	system library: #Kernel relation: #Precedes clocks: #(startStatement[element.name/]  startStatement[element.leftEqual.name/])  constants:{-1} .
+		[/if]
+	"equalStartRightAfterEndFinished in Equal [element.name/]"
+		[if ( true) ]
+	system library: #Kernel relation: #Precedes clocks: #(endStatement[element.leftEqual.name/]  startStatement[element.rightEqual.name/])  constants:{-1} .
+		[/if]
+	"equalEvaluateOnceRightEnd in Equal [element.name/]"
+		[if ( true) ]
+	system library: #Kernel relation: #Precedes clocks: #(endStatement[element.rightEqual.name/]  evaluate[element.name/])  constants:{-1} .
+		[/if]
+	"equallFinishOnceEvaluated in Equal [element.name/]"
 		[if ( true) ]
 	system library: #Kernel relation: #Precedes clocks: #(evaluate[element.name/]  endStatement[element.name/])  constants:{-1} .
 		[/if]
@@ -326,15 +370,15 @@ system addClocks: #(evaluateFalse[element.name/]).
 	system library: #Kernel relation: #Precedes clocks: #(evaluateFalse[element.name/]  endStatement[element.name/])  constants:{-1} .
 		[/if]
 [/for]
-[for (element : gx10::Block| aProgram.eAllContents(gx10::Block))]
-"relations for Block [element.name/]" 
-	"firstInstructionStartWhenBlockReady in Block [element.name/]"
-		[if ( ( self.blockStatements->size() > 0) ) ]
-	system library: #Kernel relation: #Precedes clocks: #(startStatement[element.name/]  startStatement[element.blockStatements->first().name/])  constants:{-1} .
+[for (element : gx10::Not| aProgram.eAllContents(gx10::Not))]
+"relations for Not [element.name/]" 
+	"notStartThenExpressionStart in Not [element.name/]"
+		[if ( true) ]
+	system library: #Kernel relation: #Precedes clocks: #(startStatement[element.name/]  startStatement[element.notExpression.name/])  constants:{-1} .
 		[/if]
-	"blockStatementWaitForAllToFinish in Block [element.name/]"
-		[if ( ( self.blockStatements->size() > 0) ) ]
-	system library: #Kernel relation: #Precedes clocks: #(endStatement[element.blockStatements->last().name/]  endStatement[element.name/])  constants:{-1} .
+	"notEndAfterExpressionEnd in Not [element.name/]"
+		[if ( true) ]
+	system library: #Kernel relation: #Precedes clocks: #(endStatement[element.notExpression.name/]  endStatement[element.name/])  constants:{-1} .
 		[/if]
 [/for]
 [/file]

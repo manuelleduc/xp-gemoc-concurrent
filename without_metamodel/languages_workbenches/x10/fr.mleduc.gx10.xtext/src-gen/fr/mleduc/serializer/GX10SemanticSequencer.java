@@ -315,7 +315,7 @@ public class GX10SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, Gx10Package.Literals.INT_CONST__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getIntConstAccess().getValueEIntParserRuleCall_3_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getIntConstAccess().getValueEIntParserRuleCall_1_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
@@ -336,7 +336,7 @@ public class GX10SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, Gx10Package.Literals.INT_VAR_ACCESS__INT_VAR_REF));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getIntVarAccessAccess().getIntVarRefIntVarEStringParserRuleCall_3_0_1(), semanticObject.getIntVarRef());
+		feeder.accept(grammarAccess.getIntVarAccessAccess().getIntVarRefIntVarEStringParserRuleCall_1_0_1(), semanticObject.getIntVarRef());
 		feeder.finish();
 	}
 	
@@ -358,7 +358,7 @@ public class GX10SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getIntVarAccess().getNameEStringParserRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getIntVarAccess().getIntVarExprIntExpressionParserRuleCall_4_0(), semanticObject.getIntVarExpr());
+		feeder.accept(grammarAccess.getIntVarAccess().getIntVarExprIntExpressionParserRuleCall_3_0(), semanticObject.getIntVarExpr());
 		feeder.finish();
 	}
 	
@@ -463,7 +463,7 @@ public class GX10SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, Gx10Package.Literals.PRINT__TO_PRINT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPrintAccess().getToPrintExpressionParserRuleCall_3_0(), semanticObject.getToPrint());
+		feeder.accept(grammarAccess.getPrintAccess().getToPrintExpressionParserRuleCall_2_0(), semanticObject.getToPrint());
 		feeder.finish();
 	}
 	

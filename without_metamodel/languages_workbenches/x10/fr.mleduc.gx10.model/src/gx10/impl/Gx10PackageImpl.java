@@ -376,6 +376,15 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getBlock__InitBlock() {
+		return blockEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getStatement() {
 		return statementEClass;
 	}
@@ -888,6 +897,7 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 
 		blockEClass = createEClass(BLOCK);
 		createEReference(blockEClass, BLOCK__BLOCK_STATEMENTS);
+		createEOperation(blockEClass, BLOCK___INIT_BLOCK);
 
 		statementEClass = createEClass(STATEMENT);
 		createEReference(statementEClass, STATEMENT__IN_BLOCK);
@@ -1029,6 +1039,8 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 
 		initEClass(blockEClass, Block.class, "Block", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBlock_BlockStatements(), this.getStatement(), this.getStatement_InBlock(), "blockStatements", null, 0, -1, Block.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getBlock__InitBlock(), null, "initBlock", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(statementEClass, Statement.class, "Statement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getStatement_InBlock(), this.getBlock(), this.getBlock_BlockStatements(), "inBlock", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

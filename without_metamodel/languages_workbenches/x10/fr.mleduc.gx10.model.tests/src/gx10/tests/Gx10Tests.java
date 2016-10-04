@@ -31,6 +31,7 @@ public class Gx10Tests extends TestSuite {
 	 */
 	public static Test suite() {
 		TestSuite suite = new Gx10Tests("gx10 Tests");
+		suite.addTestSuite(BlockTest.class);
 		suite.addTestSuite(TrueTest.class);
 		suite.addTestSuite(FalseTest.class);
 		suite.addTestSuite(NotTest.class);

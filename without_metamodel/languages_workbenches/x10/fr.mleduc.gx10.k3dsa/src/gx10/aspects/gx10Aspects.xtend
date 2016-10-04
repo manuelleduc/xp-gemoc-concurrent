@@ -26,6 +26,9 @@ import gx10.BoolVar
 import gx10.IntVar
 import gx10.IntVarAccess
 import gx10.BoolVarAccess
+import java.util.Map
+import org.eclipse.emf.ecore.EObject
+import gx10.Equal
 
 import static extension gx10.aspects.ProgramAspect.*
 import static extension gx10.aspects.MethodAspect.*
@@ -52,29 +55,61 @@ import static extension gx10.aspects.IntVarAspect.*
 import static extension gx10.aspects.IntVarAccessAspect.*
 import static extension gx10.aspects.BoolVarAccessAspect.*
 import static extension gx10.aspects.EqualAspect.*
-import java.util.Map
-import org.eclipse.emf.ecore.EObject
-import gx10.Equal
 
 class Context {
 
-	private Map<String, Integer> intContext = newHashMap()
-	private Map<String, Boolean> boolContext = newHashMap()
-
+	private val Map<String, Integer> intContext = newHashMap()
+	private val Map<String, Boolean> boolContext = newHashMap()
+	private val Context parent
+	
+	new(Context parent) {
+		this.parent = parent
+	}
+	
+	new() {
+		this.parent = null
+	}
+	
+	
 	public def void addInt(String name, int value) {
-		intContext.put(name, value)
+		if(parent != null && parent.intVarInContext(name)) {
+			parent.addInt(name, value)			
+		} else {
+			intContext.put(name, value)
+	
+		}
+	}
+	
+	def boolean intVarInContext(String name) {
+		intContext.containsKey(name) ||(parent != null && parent.intVarInContext(name))
+	}
+	
+	def boolean boolVarInContext(String name) {
+		boolContext.containsKey(name) ||(parent != null && parent.boolVarInContext(name))
 	}
 
 	public def int getInt(String name) {
-		intContext.get(name)
+		if(intContext.containsKey(name) || parent == null) {
+			intContext.get(name)
+		} else {
+			parent.getInt(name)
+		} 
 	}
 	
 	public def void addBool(String name, boolean value) {
-		boolContext.put(name, value)
+		if(boolContext.containsKey(name) || parent == null) {
+			boolContext.get(name)
+		} else {
+			parent.getInt(name)
+		}
 	}
 
 	public def boolean getBool(String name) {
-		boolContext.get(name)
+		if(boolContext.containsKey(name) || parent == null) {
+			boolContext.get(name)
+		} else {
+			parent.getBool(name)
+		} 
 	}
 }
 
@@ -89,7 +124,20 @@ class MethodAspect {
 @Aspect(className=Block)
 class BlockAspect extends StatementAspect {
 
-	public val Context context = new Context
+	public var Context context = null
+	
+	def void initBlock() {
+		var EObject currentStatement = _self.eContainer
+		while(currentStatement != null && !(currentStatement instanceof Block)) {
+			currentStatement = currentStatement.eContainer
+		}
+		
+		if(currentStatement == null) {
+			_self.context = new Context
+		} else {
+			_self.context = new Context((currentStatement as Block).context)
+		}
+	}
 
 }
 
@@ -144,6 +192,9 @@ class FalseAspect extends BoolExpressionAspect {
 
 @Aspect(className=Not)
 class NotAspect extends BoolExpressionAspect {
+	def boolean getCurrentValue() {
+		!_self.notExpression.currentValue
+	}
 }
 
 @Aspect(className=And)
@@ -250,8 +301,14 @@ class BoolVarAccessAspect extends BoolExpressionAspect {
 
 @Aspect(className=Equal)
 class EqualAspect extends BoolExpressionAspect {
+	
+	boolean currentValueEqual
+	
 	def void evaluate() {
-		
+		_self.currentValueEqual = _self.leftEqual.currentValue == _self.rightEqual.currentValue
+	}
+	def boolean getCurrentValue() {
+		_self.currentValueEqual
 	}
 
 }

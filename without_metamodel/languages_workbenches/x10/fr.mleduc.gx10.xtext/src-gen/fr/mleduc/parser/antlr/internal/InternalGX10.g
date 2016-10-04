@@ -96,16 +96,12 @@ ruleProgram returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_2=';'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getProgramAccess().getSemicolonKeyword_2());
-		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getProgramAccess().getMethodsMethodParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getProgramAccess().getMethodsMethodParserRuleCall_2_0());
 				}
-				lv_methods_3_0=ruleMethod
+				lv_methods_2_0=ruleMethod
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getProgramRule());
@@ -113,7 +109,7 @@ ruleProgram returns [EObject current=null]
 					add(
 						$current,
 						"methods",
-						lv_methods_3_0,
+						lv_methods_2_0,
 						"fr.mleduc.GX10.Method");
 					afterParserOrEnumRuleCall();
 				}
@@ -1115,24 +1111,16 @@ ruleIntConst returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='IntConst'
+		otherlv_0='ic'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getIntConstAccess().getIntConstKeyword_0());
-		}
-		otherlv_1='{'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getIntConstAccess().getLeftCurlyBracketKeyword_1());
-		}
-		otherlv_2='value'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getIntConstAccess().getValueKeyword_2());
+			newLeafNode(otherlv_0, grammarAccess.getIntConstAccess().getIcKeyword_0());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getIntConstAccess().getValueEIntParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getIntConstAccess().getValueEIntParserRuleCall_1_0());
 				}
-				lv_value_3_0=ruleEInt
+				lv_value_1_0=ruleEInt
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getIntConstRule());
@@ -1140,16 +1128,12 @@ ruleIntConst returns [EObject current=null]
 					set(
 						$current,
 						"value",
-						lv_value_3_0,
+						lv_value_1_0,
 						"fr.mleduc.GX10.EInt");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_4='}'
-		{
-			newLeafNode(otherlv_4, grammarAccess.getIntConstAccess().getRightCurlyBracketKeyword_4());
-		}
 	)
 ;
 
@@ -1354,24 +1338,20 @@ rulePrint returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='Print'
+		otherlv_0='print'
 		{
 			newLeafNode(otherlv_0, grammarAccess.getPrintAccess().getPrintKeyword_0());
 		}
-		otherlv_1='{'
+		otherlv_1='('
 		{
-			newLeafNode(otherlv_1, grammarAccess.getPrintAccess().getLeftCurlyBracketKeyword_1());
-		}
-		otherlv_2='toPrint'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getPrintAccess().getToPrintKeyword_2());
+			newLeafNode(otherlv_1, grammarAccess.getPrintAccess().getLeftParenthesisKeyword_1());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getPrintAccess().getToPrintExpressionParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getPrintAccess().getToPrintExpressionParserRuleCall_2_0());
 				}
-				lv_toPrint_3_0=ruleExpression
+				lv_toPrint_2_0=ruleExpression
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getPrintRule());
@@ -1379,15 +1359,15 @@ rulePrint returns [EObject current=null]
 					set(
 						$current,
 						"toPrint",
-						lv_toPrint_3_0,
+						lv_toPrint_2_0,
 						"fr.mleduc.GX10.Expression");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_4='}'
+		otherlv_3=')'
 		{
-			newLeafNode(otherlv_4, grammarAccess.getPrintAccess().getRightCurlyBracketKeyword_4());
+			newLeafNode(otherlv_3, grammarAccess.getPrintAccess().getRightParenthesisKeyword_3());
 		}
 	)
 ;
@@ -1481,9 +1461,9 @@ ruleIntVar returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='IntVar'
+		otherlv_0='iv'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getIntVarAccess().getIntVarKeyword_0());
+			newLeafNode(otherlv_0, grammarAccess.getIntVarAccess().getIvKeyword_0());
 		}
 		(
 			(
@@ -1504,20 +1484,16 @@ ruleIntVar returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_2='{'
+		otherlv_2='<-'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getIntVarAccess().getLeftCurlyBracketKeyword_2());
-		}
-		otherlv_3='intVarExpr'
-		{
-			newLeafNode(otherlv_3, grammarAccess.getIntVarAccess().getIntVarExprKeyword_3());
+			newLeafNode(otherlv_2, grammarAccess.getIntVarAccess().getLessThanSignHyphenMinusKeyword_2());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getIntVarAccess().getIntVarExprIntExpressionParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getIntVarAccess().getIntVarExprIntExpressionParserRuleCall_3_0());
 				}
-				lv_intVarExpr_4_0=ruleIntExpression
+				lv_intVarExpr_3_0=ruleIntExpression
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getIntVarRule());
@@ -1525,16 +1501,12 @@ ruleIntVar returns [EObject current=null]
 					set(
 						$current,
 						"intVarExpr",
-						lv_intVarExpr_4_0,
+						lv_intVarExpr_3_0,
 						"fr.mleduc.GX10.IntExpression");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_5='}'
-		{
-			newLeafNode(otherlv_5, grammarAccess.getIntVarAccess().getRightCurlyBracketKeyword_5());
-		}
 	)
 ;
 
@@ -1554,17 +1526,9 @@ ruleIntVarAccess returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='IntVarAccess'
+		otherlv_0='ir'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getIntVarAccessAccess().getIntVarAccessKeyword_0());
-		}
-		otherlv_1='{'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getIntVarAccessAccess().getLeftCurlyBracketKeyword_1());
-		}
-		otherlv_2='intVarRef'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getIntVarAccessAccess().getIntVarRefKeyword_2());
+			newLeafNode(otherlv_0, grammarAccess.getIntVarAccessAccess().getIrKeyword_0());
 		}
 		(
 			(
@@ -1574,7 +1538,7 @@ ruleIntVarAccess returns [EObject current=null]
 					}
 				}
 				{
-					newCompositeNode(grammarAccess.getIntVarAccessAccess().getIntVarRefIntVarCrossReference_3_0());
+					newCompositeNode(grammarAccess.getIntVarAccessAccess().getIntVarRefIntVarCrossReference_1_0());
 				}
 				ruleEString
 				{
@@ -1582,10 +1546,6 @@ ruleIntVarAccess returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_4='}'
-		{
-			newLeafNode(otherlv_4, grammarAccess.getIntVarAccessAccess().getRightCurlyBracketKeyword_4());
-		}
 	)
 ;
 

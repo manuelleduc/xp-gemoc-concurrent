@@ -11,6 +11,12 @@ import junit.textui.TestRunner;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Block</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link gx10.Block#initBlock() <em>Init Block</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class BlockTest extends StatementTest {
@@ -65,6 +71,19 @@ public class BlockTest extends StatementTest {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link gx10.Block#initBlock() <em>Init Block</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see gx10.Block#initBlock()
+	 * @generated
+	 */
+	public void testInitBlock() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //BlockTest

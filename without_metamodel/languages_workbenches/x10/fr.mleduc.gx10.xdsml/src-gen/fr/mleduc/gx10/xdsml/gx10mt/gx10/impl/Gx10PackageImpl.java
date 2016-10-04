@@ -389,6 +389,15 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getBlock_Context() {
+		return (EAttribute)blockEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getStatement() {
 		return statementEClass;
 	}
@@ -838,6 +847,7 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 
 		blockEClass = createEClass(BLOCK);
 		createEReference(blockEClass, BLOCK__BLOCK_STATEMENTS);
+		createEAttribute(blockEClass, BLOCK__CONTEXT);
 
 		statementEClass = createEClass(STATEMENT);
 		createEReference(statementEClass, STATEMENT__IN_BLOCK);
@@ -974,8 +984,9 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 
 		initEClass(blockEClass, Block.class, "Block", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBlock_BlockStatements(), this.getStatement(), this.getStatement_InBlock(), "blockStatements", null, 0, -1, Block.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBlock_Context(), this.getContext(), "context", null, 0, 1, Block.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		addEOperation(blockEClass, this.getContext(), "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(blockEClass, null, "initBlock", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(statementEClass, Statement.class, "Statement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getStatement_InBlock(), this.getBlock(), this.getBlock_BlockStatements(), "inBlock", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1008,6 +1019,8 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 
 		initEClass(notEClass, Not.class, "Not", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getNot_NotExpression(), this.getBoolExpression(), null, "notExpression", null, 1, 1, Not.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		addEOperation(notEClass, ecorePackage.getEBoolean(), "getCurrentValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(andEClass, And.class, "And", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAnd_LeftAndExpression(), this.getBoolExpression(), null, "leftAndExpression", null, 1, 1, And.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1072,6 +1085,8 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 
 		addEOperation(equalEClass, null, "evaluate", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		addEOperation(equalEClass, ecorePackage.getEBoolean(), "getCurrentValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		// Initialize data types
 		initEDataType(contextEDataType, Context.class, "Context", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
@@ -1092,7 +1107,7 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 	protected void createAspectAnnotations() {
 		String source = "aspect";	
 		addAnnotation
-		  (blockEClass.getEOperations().get(0), 
+		  (getBlock_Context(), 
 		   source, 
 		   new String[] {
 		   });	
@@ -1103,6 +1118,11 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 		   });	
 		addAnnotation
 		  (falseEClass.getEOperations().get(0), 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (notEClass.getEOperations().get(0), 
 		   source, 
 		   new String[] {
 		   });	
@@ -1123,6 +1143,11 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 		   });	
 		addAnnotation
 		  (boolVarAccessEClass.getEOperations().get(0), 
+		   source, 
+		   new String[] {
+		   });	
+		addAnnotation
+		  (equalEClass.getEOperations().get(1), 
 		   source, 
 		   new String[] {
 		   });	

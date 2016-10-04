@@ -4,5 +4,5 @@ import gx10.aspects.Context;
 
 @SuppressWarnings("all")
 public class BlockAspectBlockAspectProperties {
-  public final Context context = new Context();
+  public Context context = null;
 }

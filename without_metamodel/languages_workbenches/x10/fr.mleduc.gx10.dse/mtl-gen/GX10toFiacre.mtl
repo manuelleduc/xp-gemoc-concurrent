@@ -57,6 +57,9 @@ Defining the Functions for : Statement
 Defining the Functions for : Print
 **********************************************************************/
 /*********************************************************************
+Defining the Functions for : Block
+**********************************************************************/
+/*********************************************************************
 Defining the Functions for : IntVar
 **********************************************************************/
 /*********************************************************************
@@ -64,6 +67,9 @@ Defining the Functions for : BoolVar
 **********************************************************************/
 /*********************************************************************
 Defining the Functions for : Plus
+**********************************************************************/
+/*********************************************************************
+Defining the Functions for : Equal
 **********************************************************************/
 /*********************************************************************
 Defining the Functions for : MethodCall
@@ -78,7 +84,7 @@ Defining the Functions for : If
 Defining the Functions for : While
 **********************************************************************/
 /*********************************************************************
-Defining the Functions for : Block
+Defining the Functions for : Not
 **********************************************************************/
 /************************* Print Process Instances***************************/
 [for (element : Print| aProgram.eAllContents(Print))]
@@ -86,6 +92,13 @@ process p[element.name/] ['['/][element.name/]_print:in none[']'/](&global : Sys
 	states s0
 	var _self:Print
     from s0  [element.name/]_print; global:=Print_print( global , global.refToElement_id) ;  to s0
+[/for]
+/************************* Block Process Instances***************************/
+[for (element : Block| aProgram.eAllContents(Block))]
+process p[element.name/] ['['/][element.name/]_initBlock:in none[']'/](&global : SystemDataRoot, id : read int) is
+	states s0
+	var _self:Block
+    from s0  [element.name/]_initBlock; global:=Block_initBlock( global , global.refToElement_id) ;  to s0
 [/for]
 /************************* IntVar Process Instances***************************/
 [for (element : IntVar| aProgram.eAllContents(IntVar))]
@@ -108,6 +121,13 @@ process p[element.name/] ['['/][element.name/]_evaluate:in none[']'/](&global : 
 	var _self:Plus
     from s0  [element.name/]_evaluate; global:=Plus_evaluate( global , global.refToElement_id) ;  to s0
 [/for]
+/************************* Equal Process Instances***************************/
+[for (element : Equal| aProgram.eAllContents(Equal))]
+process p[element.name/] ['['/][element.name/]_evaluate:in none[']'/](&global : SystemDataRoot, id : read int) is
+	states s0
+	var _self:Equal
+    from s0  [element.name/]_evaluate; global:=Equal_evaluate( global , global.refToElement_id) ;  to s0
+[/for]
 /************************* MethodCall Process Instances***************************/
 [for (element : MethodCall| aProgram.eAllContents(MethodCall))]
 process p[element.name/] ['['/][element.name/]_callPreparation:in none[']'/](&global : SystemDataRoot, id : read int) is
@@ -119,14 +139,16 @@ process pUnConstrainedSemantics['['/][for (element : Program| aProgram.eAllConte
 [element.name/]_start:out none,[/for][for (element : Method| aProgram.eAllContents(Method))]
 [element.name/]_startMethodEvt:out none,[element.name/]_endMethodEvt:out none,[/for][for (element : Statement| aProgram.eAllContents(Statement))]
 [element.name/]_startStatement:out none,[element.name/]_endStatement:out none,[/for][for (element : Print| aProgram.eAllContents(Print))]
-[element.name/]_print:out none,[/for][for (element : IntVar| aProgram.eAllContents(IntVar))]
+[element.name/]_print:out none,[/for][for (element : Block| aProgram.eAllContents(Block))]
+[element.name/]_initBlock:out none,[/for][for (element : IntVar| aProgram.eAllContents(IntVar))]
 [element.name/]_evaluate:out none,[/for][for (element : BoolVar| aProgram.eAllContents(BoolVar))]
 [element.name/]_evaluate:out none,[/for][for (element : Plus| aProgram.eAllContents(Plus))]
+[element.name/]_evaluate:out none,[/for][for (element : Equal| aProgram.eAllContents(Equal))]
 [element.name/]_evaluate:out none,[/for][for (element : MethodCall| aProgram.eAllContents(MethodCall))]
 [element.name/]_callPreparation:out none,[/for][for (element : ControlStructure| aProgram.eAllContents(ControlStructure))]
 [element.name/]_doEvaluateIf:out none,[element.name/]_evaluateTrue:out none,[element.name/]_evaluateFalse:out none,[/for][for (element : If| aProgram.eAllContents(If))]
 [/for][for (element : While| aProgram.eAllContents(While))]
-[/for][for (element : Block| aProgram.eAllContents(Block))]
+[/for][for (element : Not| aProgram.eAllContents(Not))]
 [/for][']'/] is
 	states s0
 [for (element : Program| aProgram.eAllContents(Program))]
@@ -147,6 +169,10 @@ process pUnConstrainedSemantics['['/][for (element : Program| aProgram.eAllConte
     from s0  [element.name/]_print;  to s0
 
 [/for]
+[for (element : Block| aProgram.eAllContents(Block))]
+    from s0  [element.name/]_initBlock;  to s0
+
+[/for]
 [for (element : IntVar| aProgram.eAllContents(IntVar))]
     from s0  [element.name/]_evaluate;  to s0
 
@@ -156,6 +182,10 @@ process pUnConstrainedSemantics['['/][for (element : Program| aProgram.eAllConte
 
 [/for]
 [for (element : Plus| aProgram.eAllContents(Plus))]
+    from s0  [element.name/]_evaluate;  to s0
+
+[/for]
+[for (element : Equal| aProgram.eAllContents(Equal))]
     from s0  [element.name/]_evaluate;  to s0
 
 [/for]
@@ -175,7 +205,7 @@ process pUnConstrainedSemantics['['/][for (element : Program| aProgram.eAllConte
 [for (element : While| aProgram.eAllContents(While))]
 
 [/for]
-[for (element : Block| aProgram.eAllContents(Block))]
+[for (element : Not| aProgram.eAllContents(Not))]
 
 [/for]
 
@@ -184,14 +214,16 @@ process pUnConstrainedSemantics['['/][for (element : Program| aProgram.eAllConte
 [element.name/]_start:out none,[/for][for (element : Method| aProgram.eAllContents(Method))]
 [element.name/]_startMethodEvt:out none,[element.name/]_endMethodEvt:out none,[/for][for (element : Statement| aProgram.eAllContents(Statement))]
 [element.name/]_startStatement:out none,[element.name/]_endStatement:out none,[/for][for (element : Print| aProgram.eAllContents(Print))]
-[element.name/]_print:out none,[/for][for (element : IntVar| aProgram.eAllContents(IntVar))]
+[element.name/]_print:out none,[/for][for (element : Block| aProgram.eAllContents(Block))]
+[element.name/]_initBlock:out none,[/for][for (element : IntVar| aProgram.eAllContents(IntVar))]
 [element.name/]_evaluate:out none,[/for][for (element : BoolVar| aProgram.eAllContents(BoolVar))]
 [element.name/]_evaluate:out none,[/for][for (element : Plus| aProgram.eAllContents(Plus))]
+[element.name/]_evaluate:out none,[/for][for (element : Equal| aProgram.eAllContents(Equal))]
 [element.name/]_evaluate:out none,[/for][for (element : MethodCall| aProgram.eAllContents(MethodCall))]
 [element.name/]_callPreparation:out none,[/for][for (element : ControlStructure| aProgram.eAllContents(ControlStructure))]
 [element.name/]_doEvaluateIf:out none,[element.name/]_evaluateTrue:out none,[element.name/]_evaluateFalse:out none,[/for][for (element : If| aProgram.eAllContents(If))]
 [/for][for (element : While| aProgram.eAllContents(While))]
-[/for][for (element : Block| aProgram.eAllContents(Block))]
+[/for][for (element : Not| aProgram.eAllContents(Not))]
 [/for][']'/] is
 	
 	states s0
@@ -213,6 +245,10 @@ process pUnConstrainedSemantics['['/][for (element : Program| aProgram.eAllConte
     from s0  [element.name/]_print;  to s0
 
 [/for]
+[for (element : Block| aProgram.eAllContents(Block))]
+    from s0  [element.name/]_initBlock;  to s0
+
+[/for]
 [for (element : IntVar| aProgram.eAllContents(IntVar))]
     from s0  [element.name/]_evaluate;  to s0
 
@@ -222,6 +258,10 @@ process pUnConstrainedSemantics['['/][for (element : Program| aProgram.eAllConte
 
 [/for]
 [for (element : Plus| aProgram.eAllContents(Plus))]
+    from s0  [element.name/]_evaluate;  to s0
+
+[/for]
+[for (element : Equal| aProgram.eAllContents(Equal))]
     from s0  [element.name/]_evaluate;  to s0
 
 [/for]
@@ -241,7 +281,7 @@ process pUnConstrainedSemantics['['/][for (element : Program| aProgram.eAllConte
 [for (element : While| aProgram.eAllContents(While))]
 
 [/for]
-[for (element : Block| aProgram.eAllContents(Block))]
+[for (element : Not| aProgram.eAllContents(Not))]
 
 [/for]
 [/file]
@@ -266,6 +306,9 @@ port
 [/for][for (element : Print| aProgram.eAllContents(Print))]
 [element.name/]_print: none,
 
+[/for][for (element : Block| aProgram.eAllContents(Block))]
+[element.name/]_initBlock: none,
+
 [/for][for (element : IntVar| aProgram.eAllContents(IntVar))]
 [element.name/]_evaluate: none,
 
@@ -273,6 +316,9 @@ port
 [element.name/]_evaluate: none,
 
 [/for][for (element : Plus| aProgram.eAllContents(Plus))]
+[element.name/]_evaluate: none,
+
+[/for][for (element : Equal| aProgram.eAllContents(Equal))]
 [element.name/]_evaluate: none,
 
 [/for][for (element : MethodCall| aProgram.eAllContents(MethodCall))]
@@ -285,7 +331,7 @@ port
 
 [/for][for (element : While| aProgram.eAllContents(While))]
 
-[/for][for (element : Block| aProgram.eAllContents(Block))]
+[/for][for (element : Not| aProgram.eAllContents(Not))]
 
 [/for]
 
@@ -295,14 +341,16 @@ pUnConstrainedSemantics['['/][for (element : Program| aProgram.eAllContents(Prog
 [element.name/]_start,[/for][for (element : Method| aProgram.eAllContents(Method))]
 [element.name/]_startMethodEvt,[element.name/]_endMethodEvt,[/for][for (element : Statement| aProgram.eAllContents(Statement))]
 [element.name/]_startStatement,[element.name/]_endStatement,[/for][for (element : Print| aProgram.eAllContents(Print))]
-[element.name/]_print,[/for][for (element : IntVar| aProgram.eAllContents(IntVar))]
+[element.name/]_print,[/for][for (element : Block| aProgram.eAllContents(Block))]
+[element.name/]_initBlock,[/for][for (element : IntVar| aProgram.eAllContents(IntVar))]
 [element.name/]_evaluate,[/for][for (element : BoolVar| aProgram.eAllContents(BoolVar))]
 [element.name/]_evaluate,[/for][for (element : Plus| aProgram.eAllContents(Plus))]
+[element.name/]_evaluate,[/for][for (element : Equal| aProgram.eAllContents(Equal))]
 [element.name/]_evaluate,[/for][for (element : MethodCall| aProgram.eAllContents(MethodCall))]
 [element.name/]_callPreparation,[/for][for (element : ControlStructure| aProgram.eAllContents(ControlStructure))]
 [element.name/]_doEvaluateIf,[element.name/]_evaluateTrue,[element.name/]_evaluateFalse,[/for][for (element : If| aProgram.eAllContents(If))]
 ,[/for][for (element : While| aProgram.eAllContents(While))]
-,[/for][for (element : Block| aProgram.eAllContents(Block))]
+,[/for][for (element : Not| aProgram.eAllContents(Not))]
 ,[/for][']'/]
 [for (element : Program| aProgram.eAllContents(Program))]
 || p[element.name/] ['['/][element.name/]_start[']'/] (&global, ID)
@@ -316,6 +364,9 @@ pUnConstrainedSemantics['['/][for (element : Program| aProgram.eAllContents(Prog
 [for (element : Print| aProgram.eAllContents(Print))]
 || p[element.name/] ['['/][element.name/]_print[']'/] (&global, ID)
 [/for]
+[for (element : Block| aProgram.eAllContents(Block))]
+|| p[element.name/] ['['/][element.name/]_initBlock[']'/] (&global, ID)
+[/for]
 [for (element : IntVar| aProgram.eAllContents(IntVar))]
 || p[element.name/] ['['/][element.name/]_evaluate[']'/] (&global, ID)
 [/for]
@@ -323,6 +374,9 @@ pUnConstrainedSemantics['['/][for (element : Program| aProgram.eAllContents(Prog
 || p[element.name/] ['['/][element.name/]_evaluate[']'/] (&global, ID)
 [/for]
 [for (element : Plus| aProgram.eAllContents(Plus))]
+|| p[element.name/] ['['/][element.name/]_evaluate[']'/] (&global, ID)
+[/for]
+[for (element : Equal| aProgram.eAllContents(Equal))]
 || p[element.name/] ['['/][element.name/]_evaluate[']'/] (&global, ID)
 [/for]
 [for (element : MethodCall| aProgram.eAllContents(MethodCall))]
@@ -337,7 +391,7 @@ pUnConstrainedSemantics['['/][for (element : Program| aProgram.eAllContents(Prog
 [for (element : While| aProgram.eAllContents(While))]
 || p[element.name/] ['['/][']'/] (&global, ID)
 [/for]
-[for (element : Block| aProgram.eAllContents(Block))]
+[for (element : Not| aProgram.eAllContents(Not))]
 || p[element.name/] ['['/][']'/] (&global, ID)
 [/for]
 end par

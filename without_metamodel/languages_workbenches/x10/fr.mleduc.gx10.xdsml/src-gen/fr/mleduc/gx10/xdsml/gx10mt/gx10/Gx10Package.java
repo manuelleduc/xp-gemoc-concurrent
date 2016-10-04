@@ -205,13 +205,22 @@ public interface Gx10Package extends EPackage {
 	int BLOCK__BLOCK_STATEMENTS = STATEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Context</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLOCK__CONTEXT = STATEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Block</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BLOCK_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
+	int BLOCK_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link fr.mleduc.gx10.xdsml.gx10mt.gx10.impl.ControlStructureImpl <em>Control Structure</em>}' class.
@@ -1136,6 +1145,17 @@ public interface Gx10Package extends EPackage {
 	EReference getBlock_BlockStatements();
 
 	/**
+	 * Returns the meta object for the attribute '{@link fr.mleduc.gx10.xdsml.gx10mt.gx10.Block#getContext <em>Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Context</em>'.
+	 * @see fr.mleduc.gx10.xdsml.gx10mt.gx10.Block#getContext()
+	 * @see #getBlock()
+	 * @generated
+	 */
+	EAttribute getBlock_Context();
+
+	/**
 	 * Returns the meta object for class '{@link fr.mleduc.gx10.xdsml.gx10mt.gx10.Statement <em>Statement</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1726,6 +1746,14 @@ public interface Gx10Package extends EPackage {
 		 * @generated
 		 */
 		EReference BLOCK__BLOCK_STATEMENTS = eINSTANCE.getBlock_BlockStatements();
+
+		/**
+		 * The meta object literal for the '<em><b>Context</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BLOCK__CONTEXT = eINSTANCE.getBlock_Context();
 
 		/**
 		 * The meta object literal for the '{@link fr.mleduc.gx10.xdsml.gx10mt.gx10.impl.StatementImpl <em>Statement</em>}' class.

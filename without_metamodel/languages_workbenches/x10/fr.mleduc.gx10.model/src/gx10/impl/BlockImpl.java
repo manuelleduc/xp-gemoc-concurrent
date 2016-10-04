@@ -6,6 +6,7 @@ import gx10.Block;
 import gx10.Gx10Package;
 import gx10.Statement;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -71,6 +72,17 @@ public class BlockImpl extends StatementImpl implements Block {
 			blockStatements = new EObjectContainmentWithInverseEList<Statement>(Statement.class, this, Gx10Package.BLOCK__BLOCK_STATEMENTS, Gx10Package.STATEMENT__IN_BLOCK);
 		}
 		return blockStatements;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void initBlock() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -160,6 +172,21 @@ public class BlockImpl extends StatementImpl implements Block {
 				return blockStatements != null && !blockStatements.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case Gx10Package.BLOCK___INIT_BLOCK:
+				initBlock();
+				return null;
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //BlockImpl

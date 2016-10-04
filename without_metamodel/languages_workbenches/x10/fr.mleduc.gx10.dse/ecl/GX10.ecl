@@ -20,6 +20,9 @@ context Statement
 context Print
 	def : print : Event = self.print()
 	
+context Block
+	def : initBlock : Event = self.initBlock()
+
 context IntVar
 	def : evaluate : Event = self.evaluate()
 
@@ -29,6 +32,9 @@ context BoolVar
 context Plus
 	def : evaluate : Event = self.evaluate()
 		
+context Equal
+	def : evaluate : Event = self.evaluate()
+
 context MethodCall
 	def : callPreparation : Event = self.call()
 
@@ -173,11 +179,29 @@ context Plus
 	inv plusFinishOnceEvaluated:
 		Relation Precedes(self.evaluate, self.endStatement)
 
+context Not
+	inv notStartThenExpressionStart:
+		Relation Precedes(self.startStatement, self.notExpression.startStatement)
+	inv notEndAfterExpressionEnd:
+		Relation Precedes(self.notExpression.endStatement, self.endStatement)
+
+context Equal
+	inv equalStartThenLeftEvaluation:
+		Relation Precedes(self.startStatement, self.leftEqual.startStatement)
+	inv equalStartRightAfterEndFinished:
+		Relation Precedes(self.leftEqual.endStatement, self.rightEqual.startStatement)
+	inv equalEvaluateOnceRightEnd:
+		Relation Precedes(self.rightEqual.endStatement, self.evaluate)
+	inv equallFinishOnceEvaluated:
+		Relation Precedes(self.evaluate, self.endStatement)
+
 		
 context Block
+	inv blockInitFirstAfterStart:
+		Relation Precedes(self.startStatement, self.initBlock)
 	inv firstInstructionStartWhenBlockReady:
 		(self.blockStatements->size() > 0) implies
-		(Relation Precedes(self.startStatement, self.blockStatements->first().startStatement))
+		(Relation Precedes(self.initBlock, self.blockStatements->first().startStatement))
 		
 	inv blockStatementWaitForAllToFinish:
 		(self.blockStatements->size() > 0) implies 

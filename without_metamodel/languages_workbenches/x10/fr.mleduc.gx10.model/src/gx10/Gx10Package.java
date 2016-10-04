@@ -242,13 +242,22 @@ public interface Gx10Package extends EPackage {
 	int BLOCK_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Init Block</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLOCK___INIT_BLOCK = STATEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Block</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BLOCK_OPERATION_COUNT = STATEMENT_OPERATION_COUNT + 0;
+	int BLOCK_OPERATION_COUNT = STATEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link gx10.impl.ControlStructureImpl <em>Control Structure</em>}' class.
@@ -1506,6 +1515,16 @@ public interface Gx10Package extends EPackage {
 	EReference getBlock_BlockStatements();
 
 	/**
+	 * Returns the meta object for the '{@link gx10.Block#initBlock() <em>Init Block</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Init Block</em>' operation.
+	 * @see gx10.Block#initBlock()
+	 * @generated
+	 */
+	EOperation getBlock__InitBlock();
+
+	/**
 	 * Returns the meta object for class '{@link gx10.Statement <em>Statement</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2166,6 +2185,14 @@ public interface Gx10Package extends EPackage {
 		 * @generated
 		 */
 		EReference BLOCK__BLOCK_STATEMENTS = eINSTANCE.getBlock_BlockStatements();
+
+		/**
+		 * The meta object literal for the '<em><b>Init Block</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation BLOCK___INIT_BLOCK = eINSTANCE.getBlock__InitBlock();
 
 		/**
 		 * The meta object literal for the '{@link gx10.impl.StatementImpl <em>Statement</em>}' class.

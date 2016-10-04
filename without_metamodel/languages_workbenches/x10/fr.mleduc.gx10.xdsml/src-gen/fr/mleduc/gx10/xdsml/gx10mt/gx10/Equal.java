@@ -81,4 +81,12 @@ public interface Equal extends BoolExpression {
 	 */
 	void evaluate();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	boolean getCurrentValue();
+
 } // Equal

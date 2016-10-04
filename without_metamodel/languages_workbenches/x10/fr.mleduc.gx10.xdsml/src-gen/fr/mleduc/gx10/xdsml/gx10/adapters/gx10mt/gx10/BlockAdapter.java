@@ -40,9 +40,22 @@ public class BlockAdapter extends EObjectAdapter<Block> implements fr.mleduc.gx1
   }
   
   @Override
-  public Context context() {
+  public void initBlock() {
+    adaptee.initBlock();
+  }
+  
+  @Override
+  public Context getContext() {
     return gx10.aspects.BlockAspect.context(adaptee);
   }
+  
+  @Override
+  public void setContext(final Context context) {
+    gx10.aspects.BlockAspect.context(adaptee, context
+    );
+  }
+  
+  protected final static Context CONTEXT_EDEFAULT = null;
   
   @Override
   public EClass eClass() {
@@ -56,6 +69,8 @@ public class BlockAdapter extends EObjectAdapter<Block> implements fr.mleduc.gx1
     		return getInBlock();
     	case fr.mleduc.gx10.xdsml.gx10mt.gx10.Gx10Package.BLOCK__BLOCK_STATEMENTS:
     		return getBlockStatements();
+    	case fr.mleduc.gx10.xdsml.gx10mt.gx10.Gx10Package.BLOCK__CONTEXT:
+    		return getContext();
     }
     
     return super.eGet(featureID, resolve, coreType);
@@ -68,6 +83,8 @@ public class BlockAdapter extends EObjectAdapter<Block> implements fr.mleduc.gx1
     		return getInBlock() != null;
     	case fr.mleduc.gx10.xdsml.gx10mt.gx10.Gx10Package.BLOCK__BLOCK_STATEMENTS:
     		return getBlockStatements() != null && !getBlockStatements().isEmpty();
+    	case fr.mleduc.gx10.xdsml.gx10mt.gx10.Gx10Package.BLOCK__CONTEXT:
+    		return getContext() != CONTEXT_EDEFAULT;
     }
     
     return super.eIsSet(featureID);
@@ -84,6 +101,11 @@ public class BlockAdapter extends EObjectAdapter<Block> implements fr.mleduc.gx1
     	case fr.mleduc.gx10.xdsml.gx10mt.gx10.Gx10Package.BLOCK__BLOCK_STATEMENTS:
     		getBlockStatements().clear();
     		getBlockStatements().addAll((Collection) newValue);
+    		return;
+    	case fr.mleduc.gx10.xdsml.gx10mt.gx10.Gx10Package.BLOCK__CONTEXT:
+    		setContext(
+    		(gx10.aspects.Context)
+    		 newValue);
     		return;
     }
     

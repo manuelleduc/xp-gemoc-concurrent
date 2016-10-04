@@ -1,19 +1,48 @@
 package gx10.aspects;
 
+import com.google.common.base.Objects;
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
 import gx10.Block;
 import gx10.aspects.BlockAspectBlockAspectProperties;
 import gx10.aspects.Context;
 import gx10.aspects.StatementAspect;
+import org.eclipse.emf.ecore.EObject;
 
 @Aspect(className = Block.class)
 @SuppressWarnings("all")
 public class BlockAspect extends StatementAspect {
+  public static void initBlock(final Block _self) {
+    final gx10.aspects.BlockAspectBlockAspectProperties _self_ = gx10.aspects.BlockAspectBlockAspectContext.getSelf(_self);
+    _privk3_initBlock(_self_, _self);;
+  }
+  
   public static Context context(final Block _self) {
     final gx10.aspects.BlockAspectBlockAspectProperties _self_ = gx10.aspects.BlockAspectBlockAspectContext.getSelf(_self);
     Object result = null;
     result = _privk3_context(_self_, _self);;
     return (gx10.aspects.Context)result;
+  }
+  
+  public static void context(final Block _self, final Context context) {
+    final gx10.aspects.BlockAspectBlockAspectProperties _self_ = gx10.aspects.BlockAspectBlockAspectContext.getSelf(_self);
+    _privk3_context(_self_, _self,context);;
+  }
+  
+  protected static void _privk3_initBlock(final BlockAspectBlockAspectProperties _self_, final Block _self) {
+    EObject currentStatement = _self.eContainer();
+    while (((!Objects.equal(currentStatement, null)) && (!(currentStatement instanceof Block)))) {
+      EObject _eContainer = currentStatement.eContainer();
+      currentStatement = _eContainer;
+    }
+    boolean _equals = Objects.equal(currentStatement, null);
+    if (_equals) {
+      Context _context = new Context();
+      BlockAspect.context(_self, _context);
+    } else {
+      Context _context_1 = BlockAspect.context(((Block) currentStatement));
+      Context _context_2 = new Context(_context_1);
+      BlockAspect.context(_self, _context_2);
+    }
   }
   
   protected static Context _privk3_context(final BlockAspectBlockAspectProperties _self_, final Block _self) {
@@ -31,5 +60,18 @@ public class BlockAspect extends StatementAspect {
     	// Chut !
     }
     return _self_.context;
+  }
+  
+  protected static void _privk3_context(final BlockAspectBlockAspectProperties _self_, final Block _self, final Context context) {
+    _self_.context = context; try {
+    	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
+    		if (m.getName().equals("setContext")
+    				&& m.getParameterTypes().length == 1) {
+    			m.invoke(_self, context);
+    		}
+    	}
+    } catch (Exception e) {
+    	// Chut !
+    }
   }
 }

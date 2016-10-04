@@ -28,6 +28,8 @@ language GX10 {
 	with gx10.aspects.IntVarAccessAspect
 	with gx10.aspects.BoolVarAccessAspect
 	with gx10.aspects.EqualAspect
+
+	xtext "/fr.mleduc.gx10.xtext/src/fr/mleduc/GX10.xtext"
 	
 /*
  *	with qualified.class.name

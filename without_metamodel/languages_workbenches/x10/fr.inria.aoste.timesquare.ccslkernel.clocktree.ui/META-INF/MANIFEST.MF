@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Clock Tree View
+Bundle-SymbolicName: fr.inria.aoste.timesquare.ccslkernel.clocktree.ui;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Export-Package: fr.inria.aoste.timesquare.ccslkernel.clocktree.ui,
+ fr.inria.aoste.timesquare.ccslkernel.clocktree.ui.handlers
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources,
+ org.eclipse.draw2d,
+ org.eclipse.jface,
+ org.eclipse.ui.ide,
+ org.eclipse.zest.core,
+ org.eclipse.zest.layouts,
+ fr.inria.aoste.timesquare.jgrapht,
+ fr.inria.aoste.timesquare.ccslkernel.clocktree.generator,
+ fr.inria.aoste.timesquare.utils.console,
+ fr.inria.aoste.timesquare.utils.pluginhelpers,
+ org.eclipse.emf.ecore,
+ fr.inria.aoste.timesquare.ccslkernel.modelunfolding,
+ fr.inria.aoste.utils.grph;bundle-version="1.0.0"
+Bundle-Vendor: Aoste INRIA/I3S
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

@@ -81,4 +81,5 @@ public interface Equal extends BoolExpression {
 	 */
 	void evaluate();
 
+
 } // Equal

@@ -46,4 +46,12 @@ public interface Not extends BoolExpression {
 	 */
 	void setNotExpression(BoolExpression value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	boolean getCurrentValue();
+
 } // Not

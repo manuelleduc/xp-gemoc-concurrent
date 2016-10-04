@@ -13,12 +13,16 @@ public abstract class BoolExpressionAspect extends ExpressionAspect {
   public static boolean getCurrentValue(final BoolExpression _self) {
     final gx10.aspects.BoolExpressionAspectBoolExpressionAspectProperties _self_ = gx10.aspects.BoolExpressionAspectBoolExpressionAspectContext.getSelf(_self);
     Object result = null;
-     if (_self instanceof gx10.BoolVarAccess){
+     if (_self instanceof gx10.Not){
+    					result = gx10.aspects.NotAspect.getCurrentValue((gx10.Not)_self);
+    } else  if (_self instanceof gx10.True){
+    					result = gx10.aspects.TrueAspect.getCurrentValue((gx10.True)_self);
+    } else  if (_self instanceof gx10.BoolVarAccess){
     					result = gx10.aspects.BoolVarAccessAspect.getCurrentValue((gx10.BoolVarAccess)_self);
     } else  if (_self instanceof gx10.False){
     					result = gx10.aspects.FalseAspect.getCurrentValue((gx10.False)_self);
-    } else  if (_self instanceof gx10.True){
-    					result = gx10.aspects.TrueAspect.getCurrentValue((gx10.True)_self);
+    } else  if (_self instanceof gx10.Equal){
+    					result = gx10.aspects.EqualAspect.getCurrentValue((gx10.Equal)_self);
     } else  if (_self instanceof gx10.BoolExpression){
     					result = gx10.aspects.BoolExpressionAspect._privk3_getCurrentValue(_self_, (gx10.BoolExpression)_self);
     } else  { throw new IllegalArgumentException("Unhandled parameter types: " + java.util.Arrays.<Object>asList(_self).toString()); };

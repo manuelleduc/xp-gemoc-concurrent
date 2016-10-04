@@ -5,7 +5,7 @@ import "http://mleduc.fr/gx10"
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 Program returns Program:
-'main' startMethod=[Method|EString] ';'
+'main' startMethod=[Method|EString]
 (methods+=Method)*
 ;
 
@@ -85,10 +85,7 @@ And returns And:
 	'}';
 
 IntConst returns IntConst:
-	'IntConst'
-	'{'
-		'value' value=EInt
-	'}';
+	'ic' value=EInt;
 
 Plus returns Plus:
 	'Plus'
@@ -110,10 +107,7 @@ Finish returns Finish:
 	'}';
 
 Print returns Print:
-	'Print'
-	'{'
-		'toPrint' toPrint=Expression
-	'}';
+	'print' '('toPrint=Expression ')';
 
 BoolVar returns BoolVar:
 	'BoolVar'
@@ -123,17 +117,11 @@ BoolVar returns BoolVar:
 	'}';
 
 IntVar returns IntVar:
-	'IntVar'
-	name=EString
-	'{'
-		'intVarExpr' intVarExpr=IntExpression
-	'}';
+	'iv'
+	name=EString '<-' intVarExpr=IntExpression;
 
 IntVarAccess returns IntVarAccess:
-	'IntVarAccess'
-	'{'
-		'intVarRef' intVarRef=[IntVar|EString]
-	'}';
+	'ir' intVarRef=[IntVar|EString];
 
 BoolVarAccess returns BoolVarAccess:
 	'BoolVarAccess'

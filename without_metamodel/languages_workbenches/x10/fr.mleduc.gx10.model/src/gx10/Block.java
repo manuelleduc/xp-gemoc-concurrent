@@ -39,4 +39,12 @@ public interface Block extends Statement {
 	 */
 	EList<Statement> getBlockStatements();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void initBlock();
+
 } // Block

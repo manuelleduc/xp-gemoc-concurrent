@@ -1,3 +1,5 @@
-/.WhileAdapter.java._trace
+/.Gx10FactoryAdapter.java._trace
+/.IntExpressionAdapter.java._trace
 /.IntConstAdapter.java._trace
-/.BoolVarAccessAdapter.java._trace
+/PlusAdapter.java
+/.MethodCallAdapter.java._trace

@@ -31,16 +31,14 @@ public class GX10GrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cStartMethodAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final CrossReference cStartMethodMethodCrossReference_1_0 = (CrossReference)cStartMethodAssignment_1.eContents().get(0);
 		private final RuleCall cStartMethodMethodEStringParserRuleCall_1_0_1 = (RuleCall)cStartMethodMethodCrossReference_1_0.eContents().get(1);
-		private final Keyword cSemicolonKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cMethodsAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cMethodsMethodParserRuleCall_3_0 = (RuleCall)cMethodsAssignment_3.eContents().get(0);
+		private final Assignment cMethodsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cMethodsMethodParserRuleCall_2_0 = (RuleCall)cMethodsAssignment_2.eContents().get(0);
 		
 		//Program:
-		//	'main' startMethod=[Method|EString] ';'
-		//	methods+=Method*;
+		//	'main' startMethod=[Method|EString] methods+=Method*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'main' startMethod=[Method|EString] ';' methods+=Method*
+		//'main' startMethod=[Method|EString] methods+=Method*
 		public Group getGroup() { return cGroup; }
 		
 		//'main'
@@ -55,14 +53,11 @@ public class GX10GrammarAccess extends AbstractGrammarElementFinder {
 		//EString
 		public RuleCall getStartMethodMethodEStringParserRuleCall_1_0_1() { return cStartMethodMethodEStringParserRuleCall_1_0_1; }
 		
-		//';'
-		public Keyword getSemicolonKeyword_2() { return cSemicolonKeyword_2; }
-		
 		//methods+=Method*
-		public Assignment getMethodsAssignment_3() { return cMethodsAssignment_3; }
+		public Assignment getMethodsAssignment_2() { return cMethodsAssignment_2; }
 		
 		//Method
-		public RuleCall getMethodsMethodParserRuleCall_3_0() { return cMethodsMethodParserRuleCall_3_0; }
+		public RuleCall getMethodsMethodParserRuleCall_2_0() { return cMethodsMethodParserRuleCall_2_0; }
 	}
 	public class StatementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.mleduc.GX10.Statement");
@@ -634,40 +629,25 @@ public class GX10GrammarAccess extends AbstractGrammarElementFinder {
 	public class IntConstElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.mleduc.GX10.IntConst");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cIntConstKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cValueKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cValueAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cValueEIntParserRuleCall_3_0 = (RuleCall)cValueAssignment_3.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cIcKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueEIntParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
 		
 		//IntConst:
-		//	'IntConst'
-		//	'{'
-		//	'value' value=EInt
-		//	'}';
+		//	'ic' value=EInt;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'IntConst' '{' 'value' value=EInt '}'
+		//'ic' value=EInt
 		public Group getGroup() { return cGroup; }
 		
-		//'IntConst'
-		public Keyword getIntConstKeyword_0() { return cIntConstKeyword_0; }
-		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
-		
-		//'value'
-		public Keyword getValueKeyword_2() { return cValueKeyword_2; }
+		//'ic'
+		public Keyword getIcKeyword_0() { return cIcKeyword_0; }
 		
 		//value=EInt
-		public Assignment getValueAssignment_3() { return cValueAssignment_3; }
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
 		
 		//EInt
-		public RuleCall getValueEIntParserRuleCall_3_0() { return cValueEIntParserRuleCall_3_0; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+		public RuleCall getValueEIntParserRuleCall_1_0() { return cValueEIntParserRuleCall_1_0; }
 	}
 	public class PlusElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.mleduc.GX10.Plus");
@@ -800,39 +780,32 @@ public class GX10GrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.mleduc.GX10.Print");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cPrintKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cToPrintKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cToPrintAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cToPrintExpressionParserRuleCall_3_0 = (RuleCall)cToPrintAssignment_3.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cToPrintAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cToPrintExpressionParserRuleCall_2_0 = (RuleCall)cToPrintAssignment_2.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//Print:
-		//	'Print'
-		//	'{'
-		//	'toPrint' toPrint=Expression
-		//	'}';
+		//	'print' '(' toPrint=Expression ')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Print' '{' 'toPrint' toPrint=Expression '}'
+		//'print' '(' toPrint=Expression ')'
 		public Group getGroup() { return cGroup; }
 		
-		//'Print'
+		//'print'
 		public Keyword getPrintKeyword_0() { return cPrintKeyword_0; }
 		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
-		
-		//'toPrint'
-		public Keyword getToPrintKeyword_2() { return cToPrintKeyword_2; }
+		//'('
+		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
 		
 		//toPrint=Expression
-		public Assignment getToPrintAssignment_3() { return cToPrintAssignment_3; }
+		public Assignment getToPrintAssignment_2() { return cToPrintAssignment_2; }
 		
 		//Expression
-		public RuleCall getToPrintExpressionParserRuleCall_3_0() { return cToPrintExpressionParserRuleCall_3_0; }
+		public RuleCall getToPrintExpressionParserRuleCall_2_0() { return cToPrintExpressionParserRuleCall_2_0; }
 		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+		//')'
+		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
 	}
 	public class BoolVarElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.mleduc.GX10.BoolVar");
@@ -884,28 +857,23 @@ public class GX10GrammarAccess extends AbstractGrammarElementFinder {
 	public class IntVarElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.mleduc.GX10.IntVar");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cIntVarKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cIvKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameEStringParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Keyword cIntVarExprKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cIntVarExprAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cIntVarExprIntExpressionParserRuleCall_4_0 = (RuleCall)cIntVarExprAssignment_4.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cLessThanSignHyphenMinusKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cIntVarExprAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cIntVarExprIntExpressionParserRuleCall_3_0 = (RuleCall)cIntVarExprAssignment_3.eContents().get(0);
 		
 		//IntVar:
-		//	'IntVar'
-		//	name=EString
-		//	'{'
-		//	'intVarExpr' intVarExpr=IntExpression
-		//	'}';
+		//	'iv'
+		//	name=EString '<-' intVarExpr=IntExpression;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'IntVar' name=EString '{' 'intVarExpr' intVarExpr=IntExpression '}'
+		//'iv' name=EString '<-' intVarExpr=IntExpression
 		public Group getGroup() { return cGroup; }
 		
-		//'IntVar'
-		public Keyword getIntVarKeyword_0() { return cIntVarKeyword_0; }
+		//'iv'
+		public Keyword getIvKeyword_0() { return cIvKeyword_0; }
 		
 		//name=EString
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
@@ -913,62 +881,41 @@ public class GX10GrammarAccess extends AbstractGrammarElementFinder {
 		//EString
 		public RuleCall getNameEStringParserRuleCall_1_0() { return cNameEStringParserRuleCall_1_0; }
 		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
-		
-		//'intVarExpr'
-		public Keyword getIntVarExprKeyword_3() { return cIntVarExprKeyword_3; }
+		//'<-'
+		public Keyword getLessThanSignHyphenMinusKeyword_2() { return cLessThanSignHyphenMinusKeyword_2; }
 		
 		//intVarExpr=IntExpression
-		public Assignment getIntVarExprAssignment_4() { return cIntVarExprAssignment_4; }
+		public Assignment getIntVarExprAssignment_3() { return cIntVarExprAssignment_3; }
 		
 		//IntExpression
-		public RuleCall getIntVarExprIntExpressionParserRuleCall_4_0() { return cIntVarExprIntExpressionParserRuleCall_4_0; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+		public RuleCall getIntVarExprIntExpressionParserRuleCall_3_0() { return cIntVarExprIntExpressionParserRuleCall_3_0; }
 	}
 	public class IntVarAccessElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.mleduc.GX10.IntVarAccess");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cIntVarAccessKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cIntVarRefKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cIntVarRefAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final CrossReference cIntVarRefIntVarCrossReference_3_0 = (CrossReference)cIntVarRefAssignment_3.eContents().get(0);
-		private final RuleCall cIntVarRefIntVarEStringParserRuleCall_3_0_1 = (RuleCall)cIntVarRefIntVarCrossReference_3_0.eContents().get(1);
-		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cIrKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cIntVarRefAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cIntVarRefIntVarCrossReference_1_0 = (CrossReference)cIntVarRefAssignment_1.eContents().get(0);
+		private final RuleCall cIntVarRefIntVarEStringParserRuleCall_1_0_1 = (RuleCall)cIntVarRefIntVarCrossReference_1_0.eContents().get(1);
 		
 		//IntVarAccess:
-		//	'IntVarAccess'
-		//	'{'
-		//	'intVarRef' intVarRef=[IntVar|EString]
-		//	'}';
+		//	'ir' intVarRef=[IntVar|EString];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'IntVarAccess' '{' 'intVarRef' intVarRef=[IntVar|EString] '}'
+		//'ir' intVarRef=[IntVar|EString]
 		public Group getGroup() { return cGroup; }
 		
-		//'IntVarAccess'
-		public Keyword getIntVarAccessKeyword_0() { return cIntVarAccessKeyword_0; }
-		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
-		
-		//'intVarRef'
-		public Keyword getIntVarRefKeyword_2() { return cIntVarRefKeyword_2; }
+		//'ir'
+		public Keyword getIrKeyword_0() { return cIrKeyword_0; }
 		
 		//intVarRef=[IntVar|EString]
-		public Assignment getIntVarRefAssignment_3() { return cIntVarRefAssignment_3; }
+		public Assignment getIntVarRefAssignment_1() { return cIntVarRefAssignment_1; }
 		
 		//[IntVar|EString]
-		public CrossReference getIntVarRefIntVarCrossReference_3_0() { return cIntVarRefIntVarCrossReference_3_0; }
+		public CrossReference getIntVarRefIntVarCrossReference_1_0() { return cIntVarRefIntVarCrossReference_1_0; }
 		
 		//EString
-		public RuleCall getIntVarRefIntVarEStringParserRuleCall_3_0_1() { return cIntVarRefIntVarEStringParserRuleCall_3_0_1; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+		public RuleCall getIntVarRefIntVarEStringParserRuleCall_1_0_1() { return cIntVarRefIntVarEStringParserRuleCall_1_0_1; }
 	}
 	public class BoolVarAccessElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.mleduc.GX10.BoolVarAccess");
@@ -1176,8 +1123,7 @@ public class GX10GrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Program:
-	//	'main' startMethod=[Method|EString] ';'
-	//	methods+=Method*;
+	//	'main' startMethod=[Method|EString] methods+=Method*;
 	public ProgramElements getProgramAccess() {
 		return pProgram;
 	}
@@ -1353,10 +1299,7 @@ public class GX10GrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//IntConst:
-	//	'IntConst'
-	//	'{'
-	//	'value' value=EInt
-	//	'}';
+	//	'ic' value=EInt;
 	public IntConstElements getIntConstAccess() {
 		return pIntConst;
 	}
@@ -1406,10 +1349,7 @@ public class GX10GrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Print:
-	//	'Print'
-	//	'{'
-	//	'toPrint' toPrint=Expression
-	//	'}';
+	//	'print' '(' toPrint=Expression ')';
 	public PrintElements getPrintAccess() {
 		return pPrint;
 	}
@@ -1433,11 +1373,8 @@ public class GX10GrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//IntVar:
-	//	'IntVar'
-	//	name=EString
-	//	'{'
-	//	'intVarExpr' intVarExpr=IntExpression
-	//	'}';
+	//	'iv'
+	//	name=EString '<-' intVarExpr=IntExpression;
 	public IntVarElements getIntVarAccess() {
 		return pIntVar;
 	}
@@ -1447,10 +1384,7 @@ public class GX10GrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//IntVarAccess:
-	//	'IntVarAccess'
-	//	'{'
-	//	'intVarRef' intVarRef=[IntVar|EString]
-	//	'}';
+	//	'ir' intVarRef=[IntVar|EString];
 	public IntVarAccessElements getIntVarAccessAccess() {
 		return pIntVarAccess;
 	}
