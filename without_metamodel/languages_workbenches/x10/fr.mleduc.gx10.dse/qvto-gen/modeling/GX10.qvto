@@ -159,8 +159,8 @@ main() {
 
 		
 
-		////[ Plus ]
-		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Plus.oclAsType(EClass)).oclAsType(Plus)->map evaluate2Clock();
+		////[ IntBinaryOperation ]
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), IntBinaryOperation.oclAsType(EClass)).oclAsType(IntBinaryOperation)->map evaluate2Clock();
 		
 
 
@@ -333,16 +333,16 @@ main() {
 
 
 		
-		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Plus.oclAsType(EClass)).oclAsType(Plus)->map plusStartThenLeftEvaluation12plusStartThenLeftEvaluation();
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), IntBinaryOperation.oclAsType(EClass)).oclAsType(IntBinaryOperation)->map iboStartThenLeftEvaluation12iboStartThenLeftEvaluation();
 		
 		
-		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Plus.oclAsType(EClass)).oclAsType(Plus)->map plusStartRightAfterEndFinished12plusStartRightAfterEndFinished();
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), IntBinaryOperation.oclAsType(EClass)).oclAsType(IntBinaryOperation)->map iboStartRightAfterEndFinished12iboStartRightAfterEndFinished();
 		
 		
-		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Plus.oclAsType(EClass)).oclAsType(Plus)->map plusEvaluateOnceRightEnd12plusEvaluateOnceRightEnd();
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), IntBinaryOperation.oclAsType(EClass)).oclAsType(IntBinaryOperation)->map iboEvaluateOnceRightEnd12iboEvaluateOnceRightEnd();
 		
 		
-		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Plus.oclAsType(EClass)).oclAsType(Plus)->map plusFinishOnceEvaluated12plusFinishOnceEvaluated();
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), IntBinaryOperation.oclAsType(EClass)).oclAsType(IntBinaryOperation)->map iboFinishOnceEvaluated12iboFinishOnceEvaluated();
 		
 		
 
@@ -938,7 +938,7 @@ main() {
 		}
 
 //relation stuff		
-	 	mapping inMM1::Plus::evaluate2Clock() :TimeModel::Clock 
+	 	mapping inMM1::IntBinaryOperation::evaluate2Clock() :TimeModel::Clock 
 			when {  }
 		{
 			name:= getNameOrUID(self.oclAsType(EObject))+'_evaluate';
@@ -1636,16 +1636,16 @@ main() {
 
 //relation stuff		
 	
-		mapping inMM1::Plus::plusStartThenLeftEvaluation12plusStartThenLeftEvaluation(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+		mapping inMM1::IntBinaryOperation::iboStartThenLeftEvaluation12iboStartThenLeftEvaluation(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
 		{
-		 	name := getNameOrUID(self.oclAsType(EObject))+"Precedes_plusStartThenLeftEvaluation";
+		 	name := getNameOrUID(self.oclAsType(EObject))+"Precedes_iboStartThenLeftEvaluation";
 			type := seqOfRelationDeclaration->select(rd | rd.name = "Precedes")->first();
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
 					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_startStatement']->first();
 					_abstract := seqOfRelationDeclaration[name = 'Precedes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).leftEntity;
 				};
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-					bindable := theMainBlock.elements[name = getNameOrUID(self.leftPlus.oclAsType(EObject))+'_startStatement']->first();
+					bindable := theMainBlock.elements[name = getNameOrUID(self.leftBinaryExpression.oclAsType(EObject))+'_startStatement']->first();
 					_abstract := seqOfRelationDeclaration[name = 'Precedes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).rightEntity;
 				};
 		
@@ -1653,16 +1653,16 @@ main() {
 		}
 		
 	
-		mapping inMM1::Plus::plusStartRightAfterEndFinished12plusStartRightAfterEndFinished(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+		mapping inMM1::IntBinaryOperation::iboStartRightAfterEndFinished12iboStartRightAfterEndFinished(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
 		{
-		 	name := getNameOrUID(self.oclAsType(EObject))+"Precedes_plusStartRightAfterEndFinished";
+		 	name := getNameOrUID(self.oclAsType(EObject))+"Precedes_iboStartRightAfterEndFinished";
 			type := seqOfRelationDeclaration->select(rd | rd.name = "Precedes")->first();
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-					bindable := theMainBlock.elements[name = getNameOrUID(self.leftPlus.oclAsType(EObject))+'_endStatement']->first();
+					bindable := theMainBlock.elements[name = getNameOrUID(self.leftBinaryExpression.oclAsType(EObject))+'_endStatement']->first();
 					_abstract := seqOfRelationDeclaration[name = 'Precedes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).leftEntity;
 				};
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-					bindable := theMainBlock.elements[name = getNameOrUID(self.rightPlus.oclAsType(EObject))+'_startStatement']->first();
+					bindable := theMainBlock.elements[name = getNameOrUID(self.rightBinaryExpression.oclAsType(EObject))+'_startStatement']->first();
 					_abstract := seqOfRelationDeclaration[name = 'Precedes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).rightEntity;
 				};
 		
@@ -1670,12 +1670,12 @@ main() {
 		}
 		
 	
-		mapping inMM1::Plus::plusEvaluateOnceRightEnd12plusEvaluateOnceRightEnd(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+		mapping inMM1::IntBinaryOperation::iboEvaluateOnceRightEnd12iboEvaluateOnceRightEnd(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
 		{
-		 	name := getNameOrUID(self.oclAsType(EObject))+"Precedes_plusEvaluateOnceRightEnd";
+		 	name := getNameOrUID(self.oclAsType(EObject))+"Precedes_iboEvaluateOnceRightEnd";
 			type := seqOfRelationDeclaration->select(rd | rd.name = "Precedes")->first();
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
-					bindable := theMainBlock.elements[name = getNameOrUID(self.rightPlus.oclAsType(EObject))+'_endStatement']->first();
+					bindable := theMainBlock.elements[name = getNameOrUID(self.rightBinaryExpression.oclAsType(EObject))+'_endStatement']->first();
 					_abstract := seqOfRelationDeclaration[name = 'Precedes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).leftEntity;
 				};
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
@@ -1687,9 +1687,9 @@ main() {
 		}
 		
 	
-		mapping inMM1::Plus::plusFinishOnceEvaluated12plusFinishOnceEvaluated(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+		mapping inMM1::IntBinaryOperation::iboFinishOnceEvaluated12iboFinishOnceEvaluated(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
 		{
-		 	name := getNameOrUID(self.oclAsType(EObject))+"Precedes_plusFinishOnceEvaluated";
+		 	name := getNameOrUID(self.oclAsType(EObject))+"Precedes_iboFinishOnceEvaluated";
 			type := seqOfRelationDeclaration->select(rd | rd.name = "Precedes")->first();
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
 					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_evaluate']->first();
@@ -1985,7 +1985,7 @@ mapping inMM1::Program::gx102FeedBack() : FeedBack::ActionModel {
 
 		
 
-	getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Plus.oclAsType(EClass)).oclAsType(Plus)->map evaluate2MSE();
+	getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), IntBinaryOperation.oclAsType(EClass)).oclAsType(IntBinaryOperation)->map evaluate2MSE();
 
 
 
@@ -2211,7 +2211,7 @@ mapping inMM1::Program::gx102FeedBack() : FeedBack::ActionModel {
 				seqOfMSE += result
 			}
 		}
-	 	mapping inMM1::Plus::evaluate2MSE() :FeedBack::ModelSpecificEvent 
+	 	mapping inMM1::IntBinaryOperation::evaluate2MSE() :FeedBack::ModelSpecificEvent 
 			when {  }
 		{
 			name:= 'MSE_'+getNameOrUID(self.oclAsType(EObject))+'_evaluate';

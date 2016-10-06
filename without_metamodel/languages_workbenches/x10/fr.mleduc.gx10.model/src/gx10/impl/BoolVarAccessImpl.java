@@ -2,9 +2,9 @@
  */
 package gx10.impl;
 
-import gx10.BoolVar;
 import gx10.BoolVarAccess;
 import gx10.Gx10Package;
+import gx10.Referentiable;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -35,7 +35,7 @@ public class BoolVarAccessImpl extends BoolExpressionImpl implements BoolVarAcce
 	 * @generated
 	 * @ordered
 	 */
-	protected BoolVar boolVarRef;
+	protected Referentiable boolVarRef;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -61,10 +61,10 @@ public class BoolVarAccessImpl extends BoolExpressionImpl implements BoolVarAcce
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BoolVar getBoolVarRef() {
+	public Referentiable getBoolVarRef() {
 		if (boolVarRef != null && boolVarRef.eIsProxy()) {
 			InternalEObject oldBoolVarRef = (InternalEObject)boolVarRef;
-			boolVarRef = (BoolVar)eResolveProxy(oldBoolVarRef);
+			boolVarRef = (Referentiable)eResolveProxy(oldBoolVarRef);
 			if (boolVarRef != oldBoolVarRef) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, Gx10Package.BOOL_VAR_ACCESS__BOOL_VAR_REF, oldBoolVarRef, boolVarRef));
@@ -78,7 +78,7 @@ public class BoolVarAccessImpl extends BoolExpressionImpl implements BoolVarAcce
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BoolVar basicGetBoolVarRef() {
+	public Referentiable basicGetBoolVarRef() {
 		return boolVarRef;
 	}
 
@@ -87,8 +87,8 @@ public class BoolVarAccessImpl extends BoolExpressionImpl implements BoolVarAcce
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setBoolVarRef(BoolVar newBoolVarRef) {
-		BoolVar oldBoolVarRef = boolVarRef;
+	public void setBoolVarRef(Referentiable newBoolVarRef) {
+		Referentiable oldBoolVarRef = boolVarRef;
 		boolVarRef = newBoolVarRef;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, Gx10Package.BOOL_VAR_ACCESS__BOOL_VAR_REF, oldBoolVarRef, boolVarRef));
@@ -118,7 +118,7 @@ public class BoolVarAccessImpl extends BoolExpressionImpl implements BoolVarAcce
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case Gx10Package.BOOL_VAR_ACCESS__BOOL_VAR_REF:
-				setBoolVarRef((BoolVar)newValue);
+				setBoolVarRef((Referentiable)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -133,7 +133,7 @@ public class BoolVarAccessImpl extends BoolExpressionImpl implements BoolVarAcce
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case Gx10Package.BOOL_VAR_ACCESS__BOOL_VAR_REF:
-				setBoolVarRef((BoolVar)null);
+				setBoolVarRef((Referentiable)null);
 				return;
 		}
 		super.eUnset(featureID);

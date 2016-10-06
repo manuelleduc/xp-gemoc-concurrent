@@ -126,6 +126,7 @@ public class MethodItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(Gx10Package.Literals.METHOD__METHOD_BLOCK);
+			childrenFeatures.add(Gx10Package.Literals.METHOD__METHOD_PARAMETERS);
 		}
 		return childrenFeatures;
 	}
@@ -185,6 +186,7 @@ public class MethodItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case Gx10Package.METHOD__METHOD_BLOCK:
+			case Gx10Package.METHOD__METHOD_PARAMETERS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -206,6 +208,11 @@ public class MethodItemProvider
 			(createChildParameter
 				(Gx10Package.Literals.METHOD__METHOD_BLOCK,
 				 Gx10Factory.eINSTANCE.createBlock()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Gx10Package.Literals.METHOD__METHOD_PARAMETERS,
+				 Gx10Factory.eINSTANCE.createReferentiable()));
 	}
 
 	/**

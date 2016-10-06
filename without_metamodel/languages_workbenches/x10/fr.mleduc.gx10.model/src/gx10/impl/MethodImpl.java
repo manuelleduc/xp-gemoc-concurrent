@@ -7,6 +7,7 @@ import gx10.Gx10Package;
 import gx10.Method;
 import gx10.MethodCall;
 import gx10.Program;
+import gx10.Referentiable;
 
 import java.util.Collection;
 
@@ -21,6 +22,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -37,6 +39,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link gx10.impl.MethodImpl#getMethodBlock <em>Method Block</em>}</li>
  *   <li>{@link gx10.impl.MethodImpl#getName <em>Name</em>}</li>
  *   <li>{@link gx10.impl.MethodImpl#getCalledBy <em>Called By</em>}</li>
+ *   <li>{@link gx10.impl.MethodImpl#getMethodParameters <em>Method Parameters</em>}</li>
  * </ul>
  *
  * @generated
@@ -81,6 +84,16 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 	 * @ordered
 	 */
 	protected EList<MethodCall> calledBy;
+
+	/**
+	 * The cached value of the '{@link #getMethodParameters() <em>Method Parameters</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMethodParameters()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Referentiable> methodParameters;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -223,6 +236,18 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Referentiable> getMethodParameters() {
+		if (methodParameters == null) {
+			methodParameters = new EObjectContainmentEList<Referentiable>(Referentiable.class, this, Gx10Package.METHOD__METHOD_PARAMETERS);
+		}
+		return methodParameters;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -251,6 +276,8 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 				return basicSetMethodBlock(null, msgs);
 			case Gx10Package.METHOD__CALLED_BY:
 				return ((InternalEList<?>)getCalledBy()).basicRemove(otherEnd, msgs);
+			case Gx10Package.METHOD__METHOD_PARAMETERS:
+				return ((InternalEList<?>)getMethodParameters()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -285,6 +312,8 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 				return getName();
 			case Gx10Package.METHOD__CALLED_BY:
 				return getCalledBy();
+			case Gx10Package.METHOD__METHOD_PARAMETERS:
+				return getMethodParameters();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -311,6 +340,10 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 				getCalledBy().clear();
 				getCalledBy().addAll((Collection<? extends MethodCall>)newValue);
 				return;
+			case Gx10Package.METHOD__METHOD_PARAMETERS:
+				getMethodParameters().clear();
+				getMethodParameters().addAll((Collection<? extends Referentiable>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -335,6 +368,9 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 			case Gx10Package.METHOD__CALLED_BY:
 				getCalledBy().clear();
 				return;
+			case Gx10Package.METHOD__METHOD_PARAMETERS:
+				getMethodParameters().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -355,6 +391,8 @@ public class MethodImpl extends MinimalEObjectImpl.Container implements Method {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case Gx10Package.METHOD__CALLED_BY:
 				return calledBy != null && !calledBy.isEmpty();
+			case Gx10Package.METHOD__METHOD_PARAMETERS:
+				return methodParameters != null && !methodParameters.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

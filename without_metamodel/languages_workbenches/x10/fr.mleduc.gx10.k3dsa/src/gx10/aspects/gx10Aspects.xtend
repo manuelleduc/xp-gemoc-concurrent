@@ -44,7 +44,9 @@ import static extension gx10.aspects.FalseAspect.*
 import static extension gx10.aspects.NotAspect.*
 import static extension gx10.aspects.AndAspect.*
 import static extension gx10.aspects.IntConstAspect.*
+import static extension gx10.aspects.IntBinaryOperationAspect.*
 import static extension gx10.aspects.PlusAspect.*
+import static extension gx10.aspects.TimeAspect.*
 import static extension gx10.aspects.AsyncAspect.*
 import static extension gx10.aspects.MethodCallAspect.*
 import static extension gx10.aspects.ExpressionAspect.*
@@ -55,6 +57,8 @@ import static extension gx10.aspects.IntVarAspect.*
 import static extension gx10.aspects.IntVarAccessAspect.*
 import static extension gx10.aspects.BoolVarAccessAspect.*
 import static extension gx10.aspects.EqualAspect.*
+import gx10.IntBinaryOperation
+import gx10.Time
 
 class Context {
 
@@ -209,17 +213,36 @@ class IntConstAspect extends IntExpressionAspect {
 
 }
 
+@Aspect(className=IntBinaryOperation)
+class IntBinaryOperationAspect extends IntExpressionAspect {
+	
+}
+
 @Aspect(className=Plus)
-class PlusAspect extends IntExpressionAspect {
+class PlusAspect extends IntBinaryOperationAspect {
 	
 	int currentValuePlus = 0;
 	
 	def void evaluate() {
-		_self.currentValuePlus = _self.leftPlus.currentValue + _self.rightPlus.currentValue
+		_self.currentValuePlus = _self.leftBinaryExpression.currentValue + _self.rightBinaryExpression.currentValue
 	}
 	
 	def int getCurrentValue() {
 		_self.currentValuePlus
+	}
+}
+
+@Aspect(className=Time)
+class TimeAspect extends IntBinaryOperationAspect {
+	
+	int currentValueTime = 0;
+	
+	def void evaluate() {
+		_self.currentValueTime = _self.leftBinaryExpression.currentValue * _self.rightBinaryExpression.currentValue
+	}
+	
+	def int getCurrentValue() {
+		_self.currentValueTime
 	}
 }
 
@@ -263,14 +286,14 @@ class PrintAspect extends StatementAspect {
 @Aspect(className=BoolVar)
 class BoolVarAspect extends ExpressionAspect {
 	def void evaluate() {
-		_self.inBlock.context.addBool(_self.name, _self.boolVarExpr.currentValue)
+		_self.inBlock.context.addBool(_self.boolVarName.name, _self.boolVarExpr.currentValue)
 	}
 }
 
 @Aspect(className=IntVar)
 class IntVarAspect extends ExpressionAspect {
 	def void evaluate() {
-		_self.inBlock.context.addInt(_self.name, _self.intVarExpr.currentValue)
+		_self.inBlock.context.addInt(_self.intVarName.name, _self.intVarExpr.currentValue)
 	}
 }
 

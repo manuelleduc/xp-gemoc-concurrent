@@ -325,6 +325,29 @@ public class Gx10ItemProviderAdapterFactory extends Gx10AdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link gx10.Time} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TimeItemProvider timeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link gx10.Time}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTimeAdapter() {
+		if (timeItemProvider == null) {
+			timeItemProvider = new TimeItemProvider(this);
+		}
+
+		return timeItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link gx10.Async} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -532,6 +555,52 @@ public class Gx10ItemProviderAdapterFactory extends Gx10AdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link gx10.MethodCallParameter} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MethodCallParameterItemProvider methodCallParameterItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link gx10.MethodCallParameter}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMethodCallParameterAdapter() {
+		if (methodCallParameterItemProvider == null) {
+			methodCallParameterItemProvider = new MethodCallParameterItemProvider(this);
+		}
+
+		return methodCallParameterItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link gx10.Referentiable} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ReferentiableItemProvider referentiableItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link gx10.Referentiable}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createReferentiableAdapter() {
+		if (referentiableItemProvider == null) {
+			referentiableItemProvider = new ReferentiableItemProvider(this);
+		}
+
+		return referentiableItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -640,7 +709,6 @@ public class Gx10ItemProviderAdapterFactory extends Gx10AdapterFactory implement
 		if (notItemProvider != null) notItemProvider.dispose();
 		if (andItemProvider != null) andItemProvider.dispose();
 		if (intConstItemProvider != null) intConstItemProvider.dispose();
-		if (plusItemProvider != null) plusItemProvider.dispose();
 		if (asyncItemProvider != null) asyncItemProvider.dispose();
 		if (methodCallItemProvider != null) methodCallItemProvider.dispose();
 		if (finishItemProvider != null) finishItemProvider.dispose();
@@ -650,6 +718,10 @@ public class Gx10ItemProviderAdapterFactory extends Gx10AdapterFactory implement
 		if (intVarAccessItemProvider != null) intVarAccessItemProvider.dispose();
 		if (boolVarAccessItemProvider != null) boolVarAccessItemProvider.dispose();
 		if (equalItemProvider != null) equalItemProvider.dispose();
+		if (methodCallParameterItemProvider != null) methodCallParameterItemProvider.dispose();
+		if (referentiableItemProvider != null) referentiableItemProvider.dispose();
+		if (plusItemProvider != null) plusItemProvider.dispose();
+		if (timeItemProvider != null) timeItemProvider.dispose();
 	}
 
 }

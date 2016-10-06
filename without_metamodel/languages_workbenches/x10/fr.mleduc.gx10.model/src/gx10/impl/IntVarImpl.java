@@ -5,12 +5,18 @@ package gx10.impl;
 import gx10.Gx10Package;
 import gx10.IntExpression;
 import gx10.IntVar;
+import gx10.Referentiable;
+
 import java.lang.reflect.InvocationTargetException;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -21,33 +27,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link gx10.impl.IntVarImpl#getName <em>Name</em>}</li>
  *   <li>{@link gx10.impl.IntVarImpl#getIntVarExpr <em>Int Var Expr</em>}</li>
+ *   <li>{@link gx10.impl.IntVarImpl#getIntVarName <em>Int Var Name</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class IntVarImpl extends StatementImpl implements IntVar {
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
-
 	/**
 	 * The cached value of the '{@link #getIntVarExpr() <em>Int Var Expr</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -57,6 +43,16 @@ public class IntVarImpl extends StatementImpl implements IntVar {
 	 * @ordered
 	 */
 	protected IntExpression intVarExpr;
+
+	/**
+	 * The cached value of the '{@link #getIntVarName() <em>Int Var Name</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIntVarName()
+	 * @generated
+	 * @ordered
+	 */
+	protected Referentiable intVarName;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -75,27 +71,6 @@ public class IntVarImpl extends StatementImpl implements IntVar {
 	@Override
 	protected EClass eStaticClass() {
 		return Gx10Package.Literals.INT_VAR;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, Gx10Package.INT_VAR__NAME, oldName, name));
 	}
 
 	/**
@@ -146,6 +121,49 @@ public class IntVarImpl extends StatementImpl implements IntVar {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Referentiable getIntVarName() {
+		return intVarName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetIntVarName(Referentiable newIntVarName, NotificationChain msgs) {
+		Referentiable oldIntVarName = intVarName;
+		intVarName = newIntVarName;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, Gx10Package.INT_VAR__INT_VAR_NAME, oldIntVarName, newIntVarName);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIntVarName(Referentiable newIntVarName) {
+		if (newIntVarName != intVarName) {
+			NotificationChain msgs = null;
+			if (intVarName != null)
+				msgs = ((InternalEObject)intVarName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - Gx10Package.INT_VAR__INT_VAR_NAME, null, msgs);
+			if (newIntVarName != null)
+				msgs = ((InternalEObject)newIntVarName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - Gx10Package.INT_VAR__INT_VAR_NAME, null, msgs);
+			msgs = basicSetIntVarName(newIntVarName, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, Gx10Package.INT_VAR__INT_VAR_NAME, newIntVarName, newIntVarName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public void evaluate() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -162,6 +180,8 @@ public class IntVarImpl extends StatementImpl implements IntVar {
 		switch (featureID) {
 			case Gx10Package.INT_VAR__INT_VAR_EXPR:
 				return basicSetIntVarExpr(null, msgs);
+			case Gx10Package.INT_VAR__INT_VAR_NAME:
+				return basicSetIntVarName(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -174,10 +194,10 @@ public class IntVarImpl extends StatementImpl implements IntVar {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case Gx10Package.INT_VAR__NAME:
-				return getName();
 			case Gx10Package.INT_VAR__INT_VAR_EXPR:
 				return getIntVarExpr();
+			case Gx10Package.INT_VAR__INT_VAR_NAME:
+				return getIntVarName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -190,11 +210,11 @@ public class IntVarImpl extends StatementImpl implements IntVar {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case Gx10Package.INT_VAR__NAME:
-				setName((String)newValue);
-				return;
 			case Gx10Package.INT_VAR__INT_VAR_EXPR:
 				setIntVarExpr((IntExpression)newValue);
+				return;
+			case Gx10Package.INT_VAR__INT_VAR_NAME:
+				setIntVarName((Referentiable)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -208,11 +228,11 @@ public class IntVarImpl extends StatementImpl implements IntVar {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case Gx10Package.INT_VAR__NAME:
-				setName(NAME_EDEFAULT);
-				return;
 			case Gx10Package.INT_VAR__INT_VAR_EXPR:
 				setIntVarExpr((IntExpression)null);
+				return;
+			case Gx10Package.INT_VAR__INT_VAR_NAME:
+				setIntVarName((Referentiable)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -226,10 +246,10 @@ public class IntVarImpl extends StatementImpl implements IntVar {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case Gx10Package.INT_VAR__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case Gx10Package.INT_VAR__INT_VAR_EXPR:
 				return intVarExpr != null;
+			case Gx10Package.INT_VAR__INT_VAR_NAME:
+				return intVarName != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -247,22 +267,6 @@ public class IntVarImpl extends StatementImpl implements IntVar {
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name: ");
-		result.append(name);
-		result.append(')');
-		return result.toString();
 	}
 
 } //IntVarImpl

@@ -29,12 +29,12 @@ public interface IntVarAccess extends IntExpression {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Int Var Ref</em>' reference.
-	 * @see #setIntVarRef(IntVar)
+	 * @see #setIntVarRef(Referentiable)
 	 * @see gx10.Gx10Package#getIntVarAccess_IntVarRef()
 	 * @model required="true"
 	 * @generated
 	 */
-	IntVar getIntVarRef();
+	Referentiable getIntVarRef();
 
 	/**
 	 * Sets the value of the '{@link gx10.IntVarAccess#getIntVarRef <em>Int Var Ref</em>}' reference.
@@ -44,6 +44,6 @@ public interface IntVarAccess extends IntExpression {
 	 * @see #getIntVarRef()
 	 * @generated
 	 */
-	void setIntVarRef(IntVar value);
+	void setIntVarRef(Referentiable value);
 
 } // IntVarAccess

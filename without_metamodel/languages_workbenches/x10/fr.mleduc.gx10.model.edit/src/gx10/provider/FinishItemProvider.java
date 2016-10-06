@@ -176,11 +176,6 @@ public class FinishItemProvider extends StatementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(Gx10Package.Literals.FINISH__FINISH_STATEMENT,
-				 Gx10Factory.eINSTANCE.createPlus()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Gx10Package.Literals.FINISH__FINISH_STATEMENT,
 				 Gx10Factory.eINSTANCE.createAsync()));
 
 		newChildDescriptors.add
@@ -222,6 +217,16 @@ public class FinishItemProvider extends StatementItemProvider {
 			(createChildParameter
 				(Gx10Package.Literals.FINISH__FINISH_STATEMENT,
 				 Gx10Factory.eINSTANCE.createEqual()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Gx10Package.Literals.FINISH__FINISH_STATEMENT,
+				 Gx10Factory.eINSTANCE.createPlus()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Gx10Package.Literals.FINISH__FINISH_STATEMENT,
+				 Gx10Factory.eINSTANCE.createTime()));
 	}
 
 }

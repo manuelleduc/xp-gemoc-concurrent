@@ -23,7 +23,9 @@ language GX10 {
 	with gx10.aspects.AndAspect
 	with gx10.aspects.IntConstAspect
 	with gx10.aspects.ProgramAspect
+	with gx10.aspects.IntBinaryOperationAspect
 	with gx10.aspects.PlusAspect
+	with gx10.aspects.TimeAspect
 	with gx10.aspects.ControlStructureAspect
 	with gx10.aspects.IntVarAccessAspect
 	with gx10.aspects.BoolVarAccessAspect

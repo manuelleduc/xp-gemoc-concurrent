@@ -16,17 +16,21 @@ import gx10.Finish;
 import gx10.Gx10Factory;
 import gx10.Gx10Package;
 import gx10.If;
+import gx10.IntBinaryOperation;
 import gx10.IntConst;
 import gx10.IntExpression;
 import gx10.IntVar;
 import gx10.IntVarAccess;
 import gx10.Method;
 import gx10.MethodCall;
+import gx10.MethodCallParameter;
 import gx10.Not;
 import gx10.Plus;
 import gx10.Print;
 import gx10.Program;
+import gx10.Referentiable;
 import gx10.Statement;
+import gx10.Time;
 import gx10.True;
 import gx10.While;
 
@@ -148,7 +152,7 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass plusEClass = null;
+	private EClass intBinaryOperationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -219,6 +223,34 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 	 * @generated
 	 */
 	private EClass equalEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass methodCallParameterEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass referentiableEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass plusEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass timeEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -351,6 +383,15 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 	 */
 	public EReference getMethod_CalledBy() {
 		return (EReference)methodEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMethod_MethodParameters() {
+		return (EReference)methodEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -583,8 +624,8 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPlus() {
-		return plusEClass;
+	public EClass getIntBinaryOperation() {
+		return intBinaryOperationEClass;
 	}
 
 	/**
@@ -592,8 +633,8 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPlus_LeftPlus() {
-		return (EReference)plusEClass.getEStructuralFeatures().get(0);
+	public EReference getIntBinaryOperation_LeftBinaryExpression() {
+		return (EReference)intBinaryOperationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -601,8 +642,8 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPlus_RightPlus() {
-		return (EReference)plusEClass.getEStructuralFeatures().get(1);
+	public EReference getIntBinaryOperation_RightBinaryExpression() {
+		return (EReference)intBinaryOperationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -610,8 +651,8 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPlus__Evaluate() {
-		return plusEClass.getEOperations().get(0);
+	public EOperation getIntBinaryOperation__Evaluate() {
+		return intBinaryOperationEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -648,6 +689,15 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 	 */
 	public EReference getMethodCall_MethodToCall() {
 		return (EReference)methodCallEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMethodCall_MethodCallParameters() {
+		return (EReference)methodCallEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -727,8 +777,8 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getBoolVar_Name() {
-		return (EAttribute)boolVarEClass.getEStructuralFeatures().get(0);
+	public EReference getBoolVar_BoolVarExpr() {
+		return (EReference)boolVarEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -736,7 +786,7 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBoolVar_BoolVarExpr() {
+	public EReference getBoolVar_BoolVarName() {
 		return (EReference)boolVarEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -763,8 +813,8 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getIntVar_Name() {
-		return (EAttribute)intVarEClass.getEStructuralFeatures().get(0);
+	public EReference getIntVar_IntVarExpr() {
+		return (EReference)intVarEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -772,7 +822,7 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getIntVar_IntVarExpr() {
+	public EReference getIntVar_IntVarName() {
 		return (EReference)intVarEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -862,6 +912,69 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getMethodCallParameter() {
+		return methodCallParameterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMethodCallParameter_Name() {
+		return (EAttribute)methodCallParameterEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMethodCallParameter_MethodCallParameterExpr() {
+		return (EReference)methodCallParameterEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getReferentiable() {
+		return referentiableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getReferentiable_Name() {
+		return (EAttribute)referentiableEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPlus() {
+		return plusEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTime() {
+		return timeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Gx10Factory getGx10Factory() {
 		return (Gx10Factory)getEFactoryInstance();
 	}
@@ -894,6 +1007,7 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 		createEReference(methodEClass, METHOD__METHOD_BLOCK);
 		createEAttribute(methodEClass, METHOD__NAME);
 		createEReference(methodEClass, METHOD__CALLED_BY);
+		createEReference(methodEClass, METHOD__METHOD_PARAMETERS);
 
 		blockEClass = createEClass(BLOCK);
 		createEReference(blockEClass, BLOCK__BLOCK_STATEMENTS);
@@ -932,16 +1046,17 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 		intConstEClass = createEClass(INT_CONST);
 		createEAttribute(intConstEClass, INT_CONST__VALUE);
 
-		plusEClass = createEClass(PLUS);
-		createEReference(plusEClass, PLUS__LEFT_PLUS);
-		createEReference(plusEClass, PLUS__RIGHT_PLUS);
-		createEOperation(plusEClass, PLUS___EVALUATE);
+		intBinaryOperationEClass = createEClass(INT_BINARY_OPERATION);
+		createEReference(intBinaryOperationEClass, INT_BINARY_OPERATION__LEFT_BINARY_EXPRESSION);
+		createEReference(intBinaryOperationEClass, INT_BINARY_OPERATION__RIGHT_BINARY_EXPRESSION);
+		createEOperation(intBinaryOperationEClass, INT_BINARY_OPERATION___EVALUATE);
 
 		asyncEClass = createEClass(ASYNC);
 		createEReference(asyncEClass, ASYNC__ASYNC_BLOCK);
 
 		methodCallEClass = createEClass(METHOD_CALL);
 		createEReference(methodCallEClass, METHOD_CALL__METHOD_TO_CALL);
+		createEReference(methodCallEClass, METHOD_CALL__METHOD_CALL_PARAMETERS);
 		createEOperation(methodCallEClass, METHOD_CALL___CALL);
 
 		expressionEClass = createEClass(EXPRESSION);
@@ -954,13 +1069,13 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 		createEOperation(printEClass, PRINT___PRINT);
 
 		boolVarEClass = createEClass(BOOL_VAR);
-		createEAttribute(boolVarEClass, BOOL_VAR__NAME);
 		createEReference(boolVarEClass, BOOL_VAR__BOOL_VAR_EXPR);
+		createEReference(boolVarEClass, BOOL_VAR__BOOL_VAR_NAME);
 		createEOperation(boolVarEClass, BOOL_VAR___EVALUATE);
 
 		intVarEClass = createEClass(INT_VAR);
-		createEAttribute(intVarEClass, INT_VAR__NAME);
 		createEReference(intVarEClass, INT_VAR__INT_VAR_EXPR);
+		createEReference(intVarEClass, INT_VAR__INT_VAR_NAME);
 		createEOperation(intVarEClass, INT_VAR___EVALUATE);
 
 		intVarAccessEClass = createEClass(INT_VAR_ACCESS);
@@ -973,6 +1088,17 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 		createEReference(equalEClass, EQUAL__LEFT_EQUAL);
 		createEReference(equalEClass, EQUAL__RIGHT_EQUAL);
 		createEOperation(equalEClass, EQUAL___EVALUATE);
+
+		methodCallParameterEClass = createEClass(METHOD_CALL_PARAMETER);
+		createEAttribute(methodCallParameterEClass, METHOD_CALL_PARAMETER__NAME);
+		createEReference(methodCallParameterEClass, METHOD_CALL_PARAMETER__METHOD_CALL_PARAMETER_EXPR);
+
+		referentiableEClass = createEClass(REFERENTIABLE);
+		createEAttribute(referentiableEClass, REFERENTIABLE__NAME);
+
+		plusEClass = createEClass(PLUS);
+
+		timeEClass = createEClass(TIME);
 	}
 
 	/**
@@ -1014,7 +1140,7 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 		notEClass.getESuperTypes().add(this.getBoolExpression());
 		andEClass.getESuperTypes().add(this.getBoolExpression());
 		intConstEClass.getESuperTypes().add(this.getIntExpression());
-		plusEClass.getESuperTypes().add(this.getIntExpression());
+		intBinaryOperationEClass.getESuperTypes().add(this.getIntExpression());
 		asyncEClass.getESuperTypes().add(this.getStatement());
 		methodCallEClass.getESuperTypes().add(this.getExpression());
 		expressionEClass.getESuperTypes().add(this.getStatement());
@@ -1025,6 +1151,8 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 		intVarAccessEClass.getESuperTypes().add(this.getIntExpression());
 		boolVarAccessEClass.getESuperTypes().add(this.getBoolExpression());
 		equalEClass.getESuperTypes().add(this.getBoolExpression());
+		plusEClass.getESuperTypes().add(this.getIntBinaryOperation());
+		timeEClass.getESuperTypes().add(this.getIntBinaryOperation());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(programEClass, Program.class, "Program", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1036,6 +1164,7 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 		initEReference(getMethod_MethodBlock(), this.getBlock(), null, "methodBlock", null, 1, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMethod_Name(), ecorePackage.getEString(), "name", null, 1, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMethod_CalledBy(), this.getMethodCall(), this.getMethodCall_MethodToCall(), "calledBy", null, 0, -1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMethod_MethodParameters(), this.getReferentiable(), null, "methodParameters", null, 0, -1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(blockEClass, Block.class, "Block", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBlock_BlockStatements(), this.getStatement(), this.getStatement_InBlock(), "blockStatements", null, 0, -1, Block.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1077,17 +1206,18 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 		initEClass(intConstEClass, IntConst.class, "IntConst", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getIntConst_Value(), ecorePackage.getEInt(), "value", null, 1, 1, IntConst.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(plusEClass, Plus.class, "Plus", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPlus_LeftPlus(), this.getIntExpression(), null, "leftPlus", null, 1, 1, Plus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPlus_RightPlus(), this.getIntExpression(), null, "rightPlus", null, 1, 1, Plus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(intBinaryOperationEClass, IntBinaryOperation.class, "IntBinaryOperation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getIntBinaryOperation_LeftBinaryExpression(), this.getIntExpression(), null, "leftBinaryExpression", null, 1, 1, IntBinaryOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIntBinaryOperation_RightBinaryExpression(), this.getIntExpression(), null, "rightBinaryExpression", null, 1, 1, IntBinaryOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getPlus__Evaluate(), null, "evaluate", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getIntBinaryOperation__Evaluate(), null, "evaluate", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(asyncEClass, Async.class, "Async", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAsync_AsyncBlock(), this.getStatement(), null, "asyncBlock", null, 1, 1, Async.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(methodCallEClass, MethodCall.class, "MethodCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMethodCall_MethodToCall(), this.getMethod(), this.getMethod_CalledBy(), "methodToCall", null, 1, 1, MethodCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMethodCall_MethodCallParameters(), this.getMethodCallParameter(), null, "methodCallParameters", null, 0, -1, MethodCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getMethodCall__Call(), null, "call", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -1102,28 +1232,39 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 		initEOperation(getPrint__Print(), null, "print", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(boolVarEClass, BoolVar.class, "BoolVar", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getBoolVar_Name(), ecorePackage.getEString(), "name", null, 0, 1, BoolVar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBoolVar_BoolVarExpr(), this.getBoolExpression(), null, "boolVarExpr", null, 1, 1, BoolVar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBoolVar_BoolVarName(), this.getReferentiable(), null, "boolVarName", null, 1, 1, BoolVar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getBoolVar__Evaluate(), null, "evaluate", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(intVarEClass, IntVar.class, "IntVar", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getIntVar_Name(), ecorePackage.getEString(), "name", null, 1, 1, IntVar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIntVar_IntVarExpr(), this.getIntExpression(), null, "intVarExpr", null, 1, 1, IntVar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIntVar_IntVarName(), this.getReferentiable(), null, "intVarName", null, 1, 1, IntVar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getIntVar__Evaluate(), null, "evaluate", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(intVarAccessEClass, IntVarAccess.class, "IntVarAccess", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getIntVarAccess_IntVarRef(), this.getIntVar(), null, "intVarRef", null, 1, 1, IntVarAccess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIntVarAccess_IntVarRef(), this.getReferentiable(), null, "intVarRef", null, 1, 1, IntVarAccess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(boolVarAccessEClass, BoolVarAccess.class, "BoolVarAccess", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getBoolVarAccess_BoolVarRef(), this.getBoolVar(), null, "boolVarRef", null, 1, 1, BoolVarAccess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBoolVarAccess_BoolVarRef(), this.getReferentiable(), null, "boolVarRef", null, 1, 1, BoolVarAccess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(equalEClass, Equal.class, "Equal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEqual_LeftEqual(), this.getIntExpression(), null, "leftEqual", null, 1, 1, Equal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEqual_RightEqual(), this.getIntExpression(), null, "rightEqual", null, 1, 1, Equal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getEqual__Evaluate(), null, "evaluate", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(methodCallParameterEClass, MethodCallParameter.class, "MethodCallParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getMethodCallParameter_Name(), ecorePackage.getEString(), "name", null, 0, 1, MethodCallParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMethodCallParameter_MethodCallParameterExpr(), this.getIntExpression(), null, "methodCallParameterExpr", null, 1, 1, MethodCallParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(referentiableEClass, Referentiable.class, "Referentiable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getReferentiable_Name(), ecorePackage.getEString(), "name", null, 1, 1, Referentiable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(plusEClass, Plus.class, "Plus", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(timeEClass, Time.class, "Time", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

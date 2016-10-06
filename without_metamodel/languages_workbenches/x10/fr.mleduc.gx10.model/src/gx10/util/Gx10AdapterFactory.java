@@ -124,8 +124,8 @@ public class Gx10AdapterFactory extends AdapterFactoryImpl {
 				return createIntConstAdapter();
 			}
 			@Override
-			public Adapter casePlus(Plus object) {
-				return createPlusAdapter();
+			public Adapter caseIntBinaryOperation(IntBinaryOperation object) {
+				return createIntBinaryOperationAdapter();
 			}
 			@Override
 			public Adapter caseAsync(Async object) {
@@ -166,6 +166,22 @@ public class Gx10AdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseEqual(Equal object) {
 				return createEqualAdapter();
+			}
+			@Override
+			public Adapter caseMethodCallParameter(MethodCallParameter object) {
+				return createMethodCallParameterAdapter();
+			}
+			@Override
+			public Adapter caseReferentiable(Referentiable object) {
+				return createReferentiableAdapter();
+			}
+			@Override
+			public Adapter casePlus(Plus object) {
+				return createPlusAdapter();
+			}
+			@Override
+			public Adapter caseTime(Time object) {
+				return createTimeAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -384,16 +400,16 @@ public class Gx10AdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link gx10.Plus <em>Plus</em>}'.
+	 * Creates a new adapter for an object of class '{@link gx10.IntBinaryOperation <em>Int Binary Operation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see gx10.Plus
+	 * @see gx10.IntBinaryOperation
 	 * @generated
 	 */
-	public Adapter createPlusAdapter() {
+	public Adapter createIntBinaryOperationAdapter() {
 		return null;
 	}
 
@@ -534,6 +550,62 @@ public class Gx10AdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createEqualAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link gx10.MethodCallParameter <em>Method Call Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see gx10.MethodCallParameter
+	 * @generated
+	 */
+	public Adapter createMethodCallParameterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link gx10.Referentiable <em>Referentiable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see gx10.Referentiable
+	 * @generated
+	 */
+	public Adapter createReferentiableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link gx10.Plus <em>Plus</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see gx10.Plus
+	 * @generated
+	 */
+	public Adapter createPlusAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link gx10.Time <em>Time</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see gx10.Time
+	 * @generated
+	 */
+	public Adapter createTimeAdapter() {
 		return null;
 	}
 

@@ -5,29 +5,30 @@ import "http://mleduc.fr/gx10"
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 Program returns Program:
-'main' startMethod=[Method|EString]
-(methods+=Method)*
-;
-
-
-
+	'main' startMethod=[Method|EString]
+	(methods+=Method)*
+	;
 
 Statement returns Statement:
-	Block | If | While | True | False | Not | And | IntConst | Plus | Async | MethodCall | Finish | Print | BoolVar | IntVar | IntVarAccess | BoolVarAccess | Equal;
+	Block | If | While | True | False | Not | And | IntConst | Plus | Time | Async | MethodCall | Finish | Print | BoolVar | IntVar | IntVarAccess | BoolVarAccess | Equal;
+
 
 BoolExpression returns BoolExpression:
 	True | False | Not | And | BoolVarAccess | Equal;
 
+IntBinaryOperation returns IntBinaryOperation:
+	Time |Plus
+;
+
 IntExpression returns IntExpression:
-	IntConst | Plus | IntVarAccess;
+	IntConst | IntBinaryOperation | IntVarAccess;
 
 Expression returns Expression:
-	True | False | Not | And | IntConst | Plus | MethodCall | BoolVar | IntVarAccess | BoolVarAccess | Equal;
-
-
+	True | False | Not | And | IntConst | Plus | Time | MethodCall | BoolVar | IntVarAccess | BoolVarAccess | Equal;
 
 Method returns Method:
-	name=EString
+	name=EString '(' (methodParameters+=Referentiable ( "," methodParameters+=Referentiable)* )? ')'
+//		('calledBy' '(' calledBy+=[MethodCall|EString] ( "," calledBy+=[MethodCall|EString])* ')' )?
 	methodBlock=Block
 	;
 
@@ -44,7 +45,12 @@ MethodCall returns MethodCall:
 	'MethodCall'
 	'{'
 		'methodToCall' methodToCall=[Method|EString]
+		('methodCallParameters' '{' methodCallParameters+=MethodCallParameter ( "," methodCallParameters+=MethodCallParameter)* '}' )?
 	'}';
+
+Referentiable returns Referentiable:
+	{Referentiable}
+	name=EString;
 
 If returns If:
 	'If'
@@ -85,13 +91,21 @@ And returns And:
 	'}';
 
 IntConst returns IntConst:
-	'ic' value=EInt;
+	'ic' value=EInt
+	;
 
 Plus returns Plus:
 	'Plus'
 	'{'
-		'leftPlus' leftPlus=IntExpression
-		'rightPlus' rightPlus=IntExpression
+		'leftPlus' leftBinaryExpression=IntExpression
+		'rightPlus' rightBinaryExpression=IntExpression
+	'}';
+	
+Time returns Time:
+	'Time'
+	'{'
+		'leftTime' leftBinaryExpression=IntExpression
+		'rightTime' rightBinaryExpression=IntExpression
 	'}';
 
 Async returns Async:
@@ -107,27 +121,23 @@ Finish returns Finish:
 	'}';
 
 Print returns Print:
-	'print' '('toPrint=Expression ')';
+	'print' '(' toPrint=Expression ')';
 
 BoolVar returns BoolVar:
 	'BoolVar'
-	name=EString
 	'{'
 		'boolVarExpr' boolVarExpr=BoolExpression
+		'boolVarName' boolVarName=Referentiable
 	'}';
 
 IntVar returns IntVar:
-	'iv'
-	name=EString '<-' intVarExpr=IntExpression;
+	'iv' intVarName=Referentiable '<-' intVarExpr=IntExpression;
 
 IntVarAccess returns IntVarAccess:
-	'ir' intVarRef=[IntVar|EString];
+	'ir' intVarRef=[Referentiable|EString];
 
 BoolVarAccess returns BoolVarAccess:
-	'BoolVarAccess'
-	'{'
-		'boolVarRef' boolVarRef=[BoolVar|EString]
-	'}';
+	'br' boolVarRef=[Referentiable|EString];
 
 Equal returns Equal:
 	'Equal'
@@ -138,3 +148,10 @@ Equal returns Equal:
 
 EInt returns ecore::EInt:
 	'-'? INT;
+
+MethodCallParameter returns MethodCallParameter:
+	'MethodCallParameter'
+	name=EString
+	'{'
+		'methodCallParameterExpr' methodCallParameterExpr=IntExpression
+	'}';

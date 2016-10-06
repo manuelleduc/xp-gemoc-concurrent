@@ -175,12 +175,12 @@ public class Gx10Switch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case Gx10Package.PLUS: {
-				Plus plus = (Plus)theEObject;
-				T result = casePlus(plus);
-				if (result == null) result = caseIntExpression(plus);
-				if (result == null) result = caseExpression(plus);
-				if (result == null) result = caseStatement(plus);
+			case Gx10Package.INT_BINARY_OPERATION: {
+				IntBinaryOperation intBinaryOperation = (IntBinaryOperation)theEObject;
+				T result = caseIntBinaryOperation(intBinaryOperation);
+				if (result == null) result = caseIntExpression(intBinaryOperation);
+				if (result == null) result = caseExpression(intBinaryOperation);
+				if (result == null) result = caseStatement(intBinaryOperation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -259,6 +259,38 @@ public class Gx10Switch<T> extends Switch<T> {
 				if (result == null) result = caseBoolExpression(equal);
 				if (result == null) result = caseExpression(equal);
 				if (result == null) result = caseStatement(equal);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case Gx10Package.METHOD_CALL_PARAMETER: {
+				MethodCallParameter methodCallParameter = (MethodCallParameter)theEObject;
+				T result = caseMethodCallParameter(methodCallParameter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case Gx10Package.REFERENTIABLE: {
+				Referentiable referentiable = (Referentiable)theEObject;
+				T result = caseReferentiable(referentiable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case Gx10Package.PLUS: {
+				Plus plus = (Plus)theEObject;
+				T result = casePlus(plus);
+				if (result == null) result = caseIntBinaryOperation(plus);
+				if (result == null) result = caseIntExpression(plus);
+				if (result == null) result = caseExpression(plus);
+				if (result == null) result = caseStatement(plus);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case Gx10Package.TIME: {
+				Time time = (Time)theEObject;
+				T result = caseTime(time);
+				if (result == null) result = caseIntBinaryOperation(time);
+				if (result == null) result = caseIntExpression(time);
+				if (result == null) result = caseExpression(time);
+				if (result == null) result = caseStatement(time);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -477,17 +509,17 @@ public class Gx10Switch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Plus</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Int Binary Operation</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Plus</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Int Binary Operation</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePlus(Plus object) {
+	public T caseIntBinaryOperation(IntBinaryOperation object) {
 		return null;
 	}
 
@@ -638,6 +670,66 @@ public class Gx10Switch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseEqual(Equal object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Method Call Parameter</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Method Call Parameter</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMethodCallParameter(MethodCallParameter object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Referentiable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Referentiable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseReferentiable(Referentiable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Plus</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Plus</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePlus(Plus object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Time</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Time</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTime(Time object) {
 		return null;
 	}
 

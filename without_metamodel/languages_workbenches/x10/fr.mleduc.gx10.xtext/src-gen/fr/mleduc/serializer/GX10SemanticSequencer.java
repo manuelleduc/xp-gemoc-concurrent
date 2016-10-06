@@ -20,10 +20,13 @@ import gx10.IntVar;
 import gx10.IntVarAccess;
 import gx10.Method;
 import gx10.MethodCall;
+import gx10.MethodCallParameter;
 import gx10.Not;
 import gx10.Plus;
 import gx10.Print;
 import gx10.Program;
+import gx10.Referentiable;
+import gx10.Time;
 import gx10.True;
 import gx10.While;
 import java.util.Set;
@@ -93,6 +96,9 @@ public class GX10SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case Gx10Package.METHOD_CALL:
 				sequence_MethodCall(context, (MethodCall) semanticObject); 
 				return; 
+			case Gx10Package.METHOD_CALL_PARAMETER:
+				sequence_MethodCallParameter(context, (MethodCallParameter) semanticObject); 
+				return; 
 			case Gx10Package.NOT:
 				sequence_Not(context, (Not) semanticObject); 
 				return; 
@@ -104,6 +110,12 @@ public class GX10SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case Gx10Package.PROGRAM:
 				sequence_Program(context, (Program) semanticObject); 
+				return; 
+			case Gx10Package.REFERENTIABLE:
+				sequence_Referentiable(context, (Referentiable) semanticObject); 
+				return; 
+			case Gx10Package.TIME:
+				sequence_Time(context, (Time) semanticObject); 
 				return; 
 			case Gx10Package.TRUE:
 				sequence_True(context, (True) semanticObject); 
@@ -180,7 +192,7 @@ public class GX10SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     BoolVarAccess returns BoolVarAccess
 	 *
 	 * Constraint:
-	 *     boolVarRef=[BoolVar|EString]
+	 *     boolVarRef=[Referentiable|EString]
 	 */
 	protected void sequence_BoolVarAccess(ISerializationContext context, BoolVarAccess semanticObject) {
 		if (errorAcceptor != null) {
@@ -188,7 +200,7 @@ public class GX10SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, Gx10Package.Literals.BOOL_VAR_ACCESS__BOOL_VAR_REF));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getBoolVarAccessAccess().getBoolVarRefBoolVarEStringParserRuleCall_3_0_1(), semanticObject.getBoolVarRef());
+		feeder.accept(grammarAccess.getBoolVarAccessAccess().getBoolVarRefReferentiableEStringParserRuleCall_1_0_1(), semanticObject.getBoolVarRef());
 		feeder.finish();
 	}
 	
@@ -200,18 +212,18 @@ public class GX10SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     BoolVar returns BoolVar
 	 *
 	 * Constraint:
-	 *     (name=EString boolVarExpr=BoolExpression)
+	 *     (boolVarExpr=BoolExpression boolVarName=Referentiable)
 	 */
 	protected void sequence_BoolVar(ISerializationContext context, BoolVar semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, Gx10Package.Literals.BOOL_VAR__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, Gx10Package.Literals.BOOL_VAR__NAME));
 			if (transientValues.isValueTransient(semanticObject, Gx10Package.Literals.BOOL_VAR__BOOL_VAR_EXPR) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, Gx10Package.Literals.BOOL_VAR__BOOL_VAR_EXPR));
+			if (transientValues.isValueTransient(semanticObject, Gx10Package.Literals.BOOL_VAR__BOOL_VAR_NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, Gx10Package.Literals.BOOL_VAR__BOOL_VAR_NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getBoolVarAccess().getNameEStringParserRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getBoolVarAccess().getBoolVarExprBoolExpressionParserRuleCall_4_0(), semanticObject.getBoolVarExpr());
+		feeder.accept(grammarAccess.getBoolVarAccess().getBoolVarExprBoolExpressionParserRuleCall_3_0(), semanticObject.getBoolVarExpr());
+		feeder.accept(grammarAccess.getBoolVarAccess().getBoolVarNameReferentiableParserRuleCall_5_0(), semanticObject.getBoolVarName());
 		feeder.finish();
 	}
 	
@@ -328,7 +340,7 @@ public class GX10SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     IntVarAccess returns IntVarAccess
 	 *
 	 * Constraint:
-	 *     intVarRef=[IntVar|EString]
+	 *     intVarRef=[Referentiable|EString]
 	 */
 	protected void sequence_IntVarAccess(ISerializationContext context, IntVarAccess semanticObject) {
 		if (errorAcceptor != null) {
@@ -336,7 +348,7 @@ public class GX10SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, Gx10Package.Literals.INT_VAR_ACCESS__INT_VAR_REF));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getIntVarAccessAccess().getIntVarRefIntVarEStringParserRuleCall_1_0_1(), semanticObject.getIntVarRef());
+		feeder.accept(grammarAccess.getIntVarAccessAccess().getIntVarRefReferentiableEStringParserRuleCall_1_0_1(), semanticObject.getIntVarRef());
 		feeder.finish();
 	}
 	
@@ -347,18 +359,39 @@ public class GX10SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     IntVar returns IntVar
 	 *
 	 * Constraint:
-	 *     (name=EString intVarExpr=IntExpression)
+	 *     (intVarName=Referentiable intVarExpr=IntExpression)
 	 */
 	protected void sequence_IntVar(ISerializationContext context, IntVar semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, Gx10Package.Literals.INT_VAR__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, Gx10Package.Literals.INT_VAR__NAME));
+			if (transientValues.isValueTransient(semanticObject, Gx10Package.Literals.INT_VAR__INT_VAR_NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, Gx10Package.Literals.INT_VAR__INT_VAR_NAME));
 			if (transientValues.isValueTransient(semanticObject, Gx10Package.Literals.INT_VAR__INT_VAR_EXPR) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, Gx10Package.Literals.INT_VAR__INT_VAR_EXPR));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getIntVarAccess().getNameEStringParserRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getIntVarAccess().getIntVarNameReferentiableParserRuleCall_1_0(), semanticObject.getIntVarName());
 		feeder.accept(grammarAccess.getIntVarAccess().getIntVarExprIntExpressionParserRuleCall_3_0(), semanticObject.getIntVarExpr());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     MethodCallParameter returns MethodCallParameter
+	 *
+	 * Constraint:
+	 *     (name=EString methodCallParameterExpr=IntExpression)
+	 */
+	protected void sequence_MethodCallParameter(ISerializationContext context, MethodCallParameter semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, Gx10Package.Literals.METHOD_CALL_PARAMETER__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, Gx10Package.Literals.METHOD_CALL_PARAMETER__NAME));
+			if (transientValues.isValueTransient(semanticObject, Gx10Package.Literals.METHOD_CALL_PARAMETER__METHOD_CALL_PARAMETER_EXPR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, Gx10Package.Literals.METHOD_CALL_PARAMETER__METHOD_CALL_PARAMETER_EXPR));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getMethodCallParameterAccess().getNameEStringParserRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getMethodCallParameterAccess().getMethodCallParameterExprIntExpressionParserRuleCall_4_0(), semanticObject.getMethodCallParameterExpr());
 		feeder.finish();
 	}
 	
@@ -370,16 +403,10 @@ public class GX10SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     MethodCall returns MethodCall
 	 *
 	 * Constraint:
-	 *     methodToCall=[Method|EString]
+	 *     (methodToCall=[Method|EString] (methodCallParameters+=MethodCallParameter methodCallParameters+=MethodCallParameter*)?)
 	 */
 	protected void sequence_MethodCall(ISerializationContext context, MethodCall semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, Gx10Package.Literals.METHOD_CALL__METHOD_TO_CALL) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, Gx10Package.Literals.METHOD_CALL__METHOD_TO_CALL));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getMethodCallAccess().getMethodToCallMethodEStringParserRuleCall_3_0_1(), semanticObject.getMethodToCall());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -388,19 +415,10 @@ public class GX10SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Method returns Method
 	 *
 	 * Constraint:
-	 *     (name=EString methodBlock=Block)
+	 *     (name=EString (methodParameters+=Referentiable methodParameters+=Referentiable*)? methodBlock=Block)
 	 */
 	protected void sequence_Method(ISerializationContext context, Method semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, Gx10Package.Literals.METHOD__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, Gx10Package.Literals.METHOD__NAME));
-			if (transientValues.isValueTransient(semanticObject, Gx10Package.Literals.METHOD__METHOD_BLOCK) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, Gx10Package.Literals.METHOD__METHOD_BLOCK));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getMethodAccess().getNameEStringParserRuleCall_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getMethodAccess().getMethodBlockBlockParserRuleCall_1_0(), semanticObject.getMethodBlock());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -428,23 +446,24 @@ public class GX10SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * Contexts:
 	 *     Statement returns Plus
+	 *     IntBinaryOperation returns Plus
 	 *     IntExpression returns Plus
 	 *     Expression returns Plus
 	 *     Plus returns Plus
 	 *
 	 * Constraint:
-	 *     (leftPlus=IntExpression rightPlus=IntExpression)
+	 *     (leftBinaryExpression=IntExpression rightBinaryExpression=IntExpression)
 	 */
 	protected void sequence_Plus(ISerializationContext context, Plus semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, Gx10Package.Literals.PLUS__LEFT_PLUS) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, Gx10Package.Literals.PLUS__LEFT_PLUS));
-			if (transientValues.isValueTransient(semanticObject, Gx10Package.Literals.PLUS__RIGHT_PLUS) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, Gx10Package.Literals.PLUS__RIGHT_PLUS));
+			if (transientValues.isValueTransient(semanticObject, Gx10Package.Literals.INT_BINARY_OPERATION__LEFT_BINARY_EXPRESSION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, Gx10Package.Literals.INT_BINARY_OPERATION__LEFT_BINARY_EXPRESSION));
+			if (transientValues.isValueTransient(semanticObject, Gx10Package.Literals.INT_BINARY_OPERATION__RIGHT_BINARY_EXPRESSION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, Gx10Package.Literals.INT_BINARY_OPERATION__RIGHT_BINARY_EXPRESSION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPlusAccess().getLeftPlusIntExpressionParserRuleCall_3_0(), semanticObject.getLeftPlus());
-		feeder.accept(grammarAccess.getPlusAccess().getRightPlusIntExpressionParserRuleCall_5_0(), semanticObject.getRightPlus());
+		feeder.accept(grammarAccess.getPlusAccess().getLeftBinaryExpressionIntExpressionParserRuleCall_3_0(), semanticObject.getLeftBinaryExpression());
+		feeder.accept(grammarAccess.getPlusAccess().getRightBinaryExpressionIntExpressionParserRuleCall_5_0(), semanticObject.getRightBinaryExpression());
 		feeder.finish();
 	}
 	
@@ -477,6 +496,49 @@ public class GX10SemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_Program(ISerializationContext context, Program semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Referentiable returns Referentiable
+	 *
+	 * Constraint:
+	 *     name=EString
+	 */
+	protected void sequence_Referentiable(ISerializationContext context, Referentiable semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, Gx10Package.Literals.REFERENTIABLE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, Gx10Package.Literals.REFERENTIABLE__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getReferentiableAccess().getNameEStringParserRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Statement returns Time
+	 *     IntBinaryOperation returns Time
+	 *     IntExpression returns Time
+	 *     Expression returns Time
+	 *     Time returns Time
+	 *
+	 * Constraint:
+	 *     (leftBinaryExpression=IntExpression rightBinaryExpression=IntExpression)
+	 */
+	protected void sequence_Time(ISerializationContext context, Time semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, Gx10Package.Literals.INT_BINARY_OPERATION__LEFT_BINARY_EXPRESSION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, Gx10Package.Literals.INT_BINARY_OPERATION__LEFT_BINARY_EXPRESSION));
+			if (transientValues.isValueTransient(semanticObject, Gx10Package.Literals.INT_BINARY_OPERATION__RIGHT_BINARY_EXPRESSION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, Gx10Package.Literals.INT_BINARY_OPERATION__RIGHT_BINARY_EXPRESSION));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getTimeAccess().getLeftBinaryExpressionIntExpressionParserRuleCall_3_0(), semanticObject.getLeftBinaryExpression());
+		feeder.accept(grammarAccess.getTimeAccess().getRightBinaryExpressionIntExpressionParserRuleCall_5_0(), semanticObject.getRightBinaryExpression());
+		feeder.finish();
 	}
 	
 	

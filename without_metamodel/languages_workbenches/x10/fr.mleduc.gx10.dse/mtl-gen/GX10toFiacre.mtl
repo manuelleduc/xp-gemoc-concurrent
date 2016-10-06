@@ -27,7 +27,7 @@ const NUMBER_Falses : int is [aProgram.eAllContents(False)->size()/]
 const NUMBER_Nots : int is [aProgram.eAllContents(Not)->size()/]
 const NUMBER_Ands : int is [aProgram.eAllContents(And)->size()/]
 const NUMBER_IntConsts : int is [aProgram.eAllContents(IntConst)->size()/]
-const NUMBER_Pluss : int is [aProgram.eAllContents(Plus)->size()/]
+const NUMBER_IntBinaryOperations : int is [aProgram.eAllContents(IntBinaryOperation)->size()/]
 const NUMBER_Asyncs : int is [aProgram.eAllContents(Async)->size()/]
 const NUMBER_MethodCalls : int is [aProgram.eAllContents(MethodCall)->size()/]
 const NUMBER_Expressions : int is [aProgram.eAllContents(Expression)->size()/]
@@ -38,10 +38,16 @@ const NUMBER_IntVars : int is [aProgram.eAllContents(IntVar)->size()/]
 const NUMBER_IntVarAccesss : int is [aProgram.eAllContents(IntVarAccess)->size()/]
 const NUMBER_BoolVarAccesss : int is [aProgram.eAllContents(BoolVarAccess)->size()/]
 const NUMBER_Equals : int is [aProgram.eAllContents(Equal)->size()/]
+const NUMBER_MethodCallParameters : int is [aProgram.eAllContents(MethodCallParameter)->size()/]
+const NUMBER_Referentiables : int is [aProgram.eAllContents(Referentiable)->size()/]
+const NUMBER_Pluss : int is [aProgram.eAllContents(Plus)->size()/]
+const NUMBER_Times : int is [aProgram.eAllContents(Time)->size()/]
 
 type Method_methodsArray is array [Program.eContents(Method)->size()/] of int
 type MethodCall_calledByArray is array [Method.eContents(MethodCall)->size()/] of int
+type Referentiable_methodParametersArray is array [Method.eContents(Referentiable)->size()/] of int
 type Statement_blockStatementsArray is array [Block.eContents(Statement)->size()/] of int
+type MethodCallParameter_methodCallParametersArray is array [MethodCall.eContents(MethodCallParameter)->size()/] of int
 
 
 /*********************************************************************
@@ -66,7 +72,7 @@ Defining the Functions for : IntVar
 Defining the Functions for : BoolVar
 **********************************************************************/
 /*********************************************************************
-Defining the Functions for : Plus
+Defining the Functions for : IntBinaryOperation
 **********************************************************************/
 /*********************************************************************
 Defining the Functions for : Equal
@@ -114,12 +120,12 @@ process p[element.name/] ['['/][element.name/]_evaluate:in none[']'/](&global : 
 	var _self:BoolVar
     from s0  [element.name/]_evaluate; global:=BoolVar_evaluate( global , global.refToElement_id) ;  to s0
 [/for]
-/************************* Plus Process Instances***************************/
-[for (element : Plus| aProgram.eAllContents(Plus))]
+/************************* IntBinaryOperation Process Instances***************************/
+[for (element : IntBinaryOperation| aProgram.eAllContents(IntBinaryOperation))]
 process p[element.name/] ['['/][element.name/]_evaluate:in none[']'/](&global : SystemDataRoot, id : read int) is
 	states s0
-	var _self:Plus
-    from s0  [element.name/]_evaluate; global:=Plus_evaluate( global , global.refToElement_id) ;  to s0
+	var _self:IntBinaryOperation
+    from s0  [element.name/]_evaluate; global:=IntBinaryOperation_evaluate( global , global.refToElement_id) ;  to s0
 [/for]
 /************************* Equal Process Instances***************************/
 [for (element : Equal| aProgram.eAllContents(Equal))]
@@ -142,7 +148,7 @@ process pUnConstrainedSemantics['['/][for (element : Program| aProgram.eAllConte
 [element.name/]_print:out none,[/for][for (element : Block| aProgram.eAllContents(Block))]
 [element.name/]_initBlock:out none,[/for][for (element : IntVar| aProgram.eAllContents(IntVar))]
 [element.name/]_evaluate:out none,[/for][for (element : BoolVar| aProgram.eAllContents(BoolVar))]
-[element.name/]_evaluate:out none,[/for][for (element : Plus| aProgram.eAllContents(Plus))]
+[element.name/]_evaluate:out none,[/for][for (element : IntBinaryOperation| aProgram.eAllContents(IntBinaryOperation))]
 [element.name/]_evaluate:out none,[/for][for (element : Equal| aProgram.eAllContents(Equal))]
 [element.name/]_evaluate:out none,[/for][for (element : MethodCall| aProgram.eAllContents(MethodCall))]
 [element.name/]_callPreparation:out none,[/for][for (element : ControlStructure| aProgram.eAllContents(ControlStructure))]
@@ -181,7 +187,7 @@ process pUnConstrainedSemantics['['/][for (element : Program| aProgram.eAllConte
     from s0  [element.name/]_evaluate;  to s0
 
 [/for]
-[for (element : Plus| aProgram.eAllContents(Plus))]
+[for (element : IntBinaryOperation| aProgram.eAllContents(IntBinaryOperation))]
     from s0  [element.name/]_evaluate;  to s0
 
 [/for]
@@ -217,7 +223,7 @@ process pUnConstrainedSemantics['['/][for (element : Program| aProgram.eAllConte
 [element.name/]_print:out none,[/for][for (element : Block| aProgram.eAllContents(Block))]
 [element.name/]_initBlock:out none,[/for][for (element : IntVar| aProgram.eAllContents(IntVar))]
 [element.name/]_evaluate:out none,[/for][for (element : BoolVar| aProgram.eAllContents(BoolVar))]
-[element.name/]_evaluate:out none,[/for][for (element : Plus| aProgram.eAllContents(Plus))]
+[element.name/]_evaluate:out none,[/for][for (element : IntBinaryOperation| aProgram.eAllContents(IntBinaryOperation))]
 [element.name/]_evaluate:out none,[/for][for (element : Equal| aProgram.eAllContents(Equal))]
 [element.name/]_evaluate:out none,[/for][for (element : MethodCall| aProgram.eAllContents(MethodCall))]
 [element.name/]_callPreparation:out none,[/for][for (element : ControlStructure| aProgram.eAllContents(ControlStructure))]
@@ -257,7 +263,7 @@ process pUnConstrainedSemantics['['/][for (element : Program| aProgram.eAllConte
     from s0  [element.name/]_evaluate;  to s0
 
 [/for]
-[for (element : Plus| aProgram.eAllContents(Plus))]
+[for (element : IntBinaryOperation| aProgram.eAllContents(IntBinaryOperation))]
     from s0  [element.name/]_evaluate;  to s0
 
 [/for]
@@ -315,7 +321,7 @@ port
 [/for][for (element : BoolVar| aProgram.eAllContents(BoolVar))]
 [element.name/]_evaluate: none,
 
-[/for][for (element : Plus| aProgram.eAllContents(Plus))]
+[/for][for (element : IntBinaryOperation| aProgram.eAllContents(IntBinaryOperation))]
 [element.name/]_evaluate: none,
 
 [/for][for (element : Equal| aProgram.eAllContents(Equal))]
@@ -344,7 +350,7 @@ pUnConstrainedSemantics['['/][for (element : Program| aProgram.eAllContents(Prog
 [element.name/]_print,[/for][for (element : Block| aProgram.eAllContents(Block))]
 [element.name/]_initBlock,[/for][for (element : IntVar| aProgram.eAllContents(IntVar))]
 [element.name/]_evaluate,[/for][for (element : BoolVar| aProgram.eAllContents(BoolVar))]
-[element.name/]_evaluate,[/for][for (element : Plus| aProgram.eAllContents(Plus))]
+[element.name/]_evaluate,[/for][for (element : IntBinaryOperation| aProgram.eAllContents(IntBinaryOperation))]
 [element.name/]_evaluate,[/for][for (element : Equal| aProgram.eAllContents(Equal))]
 [element.name/]_evaluate,[/for][for (element : MethodCall| aProgram.eAllContents(MethodCall))]
 [element.name/]_callPreparation,[/for][for (element : ControlStructure| aProgram.eAllContents(ControlStructure))]
@@ -373,7 +379,7 @@ pUnConstrainedSemantics['['/][for (element : Program| aProgram.eAllContents(Prog
 [for (element : BoolVar| aProgram.eAllContents(BoolVar))]
 || p[element.name/] ['['/][element.name/]_evaluate[']'/] (&global, ID)
 [/for]
-[for (element : Plus| aProgram.eAllContents(Plus))]
+[for (element : IntBinaryOperation| aProgram.eAllContents(IntBinaryOperation))]
 || p[element.name/] ['['/][element.name/]_evaluate[']'/] (&global, ID)
 [/for]
 [for (element : Equal| aProgram.eAllContents(Equal))]

@@ -143,12 +143,17 @@ public class EqualItemProvider extends BoolExpressionItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(Gx10Package.Literals.EQUAL__LEFT_EQUAL,
+				 Gx10Factory.eINSTANCE.createIntVarAccess()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Gx10Package.Literals.EQUAL__LEFT_EQUAL,
 				 Gx10Factory.eINSTANCE.createPlus()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(Gx10Package.Literals.EQUAL__LEFT_EQUAL,
-				 Gx10Factory.eINSTANCE.createIntVarAccess()));
+				 Gx10Factory.eINSTANCE.createTime()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -158,12 +163,17 @@ public class EqualItemProvider extends BoolExpressionItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(Gx10Package.Literals.EQUAL__RIGHT_EQUAL,
+				 Gx10Factory.eINSTANCE.createIntVarAccess()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Gx10Package.Literals.EQUAL__RIGHT_EQUAL,
 				 Gx10Factory.eINSTANCE.createPlus()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(Gx10Package.Literals.EQUAL__RIGHT_EQUAL,
-				 Gx10Factory.eINSTANCE.createIntVarAccess()));
+				 Gx10Factory.eINSTANCE.createTime()));
 	}
 
 	/**

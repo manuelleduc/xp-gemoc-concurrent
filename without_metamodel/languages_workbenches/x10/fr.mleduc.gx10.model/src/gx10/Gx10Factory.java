@@ -112,15 +112,6 @@ public interface Gx10Factory extends EFactory {
 	IntConst createIntConst();
 
 	/**
-	 * Returns a new object of class '<em>Plus</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Plus</em>'.
-	 * @generated
-	 */
-	Plus createPlus();
-
-	/**
 	 * Returns a new object of class '<em>Async</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -200,6 +191,42 @@ public interface Gx10Factory extends EFactory {
 	 * @generated
 	 */
 	Equal createEqual();
+
+	/**
+	 * Returns a new object of class '<em>Method Call Parameter</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Method Call Parameter</em>'.
+	 * @generated
+	 */
+	MethodCallParameter createMethodCallParameter();
+
+	/**
+	 * Returns a new object of class '<em>Referentiable</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Referentiable</em>'.
+	 * @generated
+	 */
+	Referentiable createReferentiable();
+
+	/**
+	 * Returns a new object of class '<em>Plus</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Plus</em>'.
+	 * @generated
+	 */
+	Plus createPlus();
+
+	/**
+	 * Returns a new object of class '<em>Time</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Time</em>'.
+	 * @generated
+	 */
+	Time createTime();
 
 	/**
 	 * Returns the package supported by this factory.

@@ -67,8 +67,8 @@ system addClocks: #(evaluate[element.name/]).
 system addClocks: #(evaluate[element.name/]).
 
 [/for]
-[for (element : gx10::Plus| aProgram.eAllContents(gx10::Plus))]
-"clocks for Plus [element.name/]" 
+[for (element : gx10::IntBinaryOperation| aProgram.eAllContents(gx10::IntBinaryOperation))]
+"clocks for IntBinaryOperation [element.name/]" 
 system addClocks: #(evaluate[element.name/]).
 
 [/for]
@@ -258,21 +258,21 @@ system addClocks: #(evaluateFalse[element.name/]).
 	system library: #Kernel relation: #Precedes clocks: #(evaluate[element.name/]  endStatement[element.name/])  constants:{-1} .
 		[/if]
 [/for]
-[for (element : gx10::Plus| aProgram.eAllContents(gx10::Plus))]
-"relations for Plus [element.name/]" 
-	"plusStartThenLeftEvaluation in Plus [element.name/]"
+[for (element : gx10::IntBinaryOperation| aProgram.eAllContents(gx10::IntBinaryOperation))]
+"relations for IntBinaryOperation [element.name/]" 
+	"iboStartThenLeftEvaluation in IntBinaryOperation [element.name/]"
 		[if ( true) ]
-	system library: #Kernel relation: #Precedes clocks: #(startStatement[element.name/]  startStatement[element.leftPlus.name/])  constants:{-1} .
+	system library: #Kernel relation: #Precedes clocks: #(startStatement[element.name/]  startStatement[element.leftBinaryExpression.name/])  constants:{-1} .
 		[/if]
-	"plusStartRightAfterEndFinished in Plus [element.name/]"
+	"iboStartRightAfterEndFinished in IntBinaryOperation [element.name/]"
 		[if ( true) ]
-	system library: #Kernel relation: #Precedes clocks: #(endStatement[element.leftPlus.name/]  startStatement[element.rightPlus.name/])  constants:{-1} .
+	system library: #Kernel relation: #Precedes clocks: #(endStatement[element.leftBinaryExpression.name/]  startStatement[element.rightBinaryExpression.name/])  constants:{-1} .
 		[/if]
-	"plusEvaluateOnceRightEnd in Plus [element.name/]"
+	"iboEvaluateOnceRightEnd in IntBinaryOperation [element.name/]"
 		[if ( true) ]
-	system library: #Kernel relation: #Precedes clocks: #(endStatement[element.rightPlus.name/]  evaluate[element.name/])  constants:{-1} .
+	system library: #Kernel relation: #Precedes clocks: #(endStatement[element.rightBinaryExpression.name/]  evaluate[element.name/])  constants:{-1} .
 		[/if]
-	"plusFinishOnceEvaluated in Plus [element.name/]"
+	"iboFinishOnceEvaluated in IntBinaryOperation [element.name/]"
 		[if ( true) ]
 	system library: #Kernel relation: #Precedes clocks: #(evaluate[element.name/]  endStatement[element.name/])  constants:{-1} .
 		[/if]

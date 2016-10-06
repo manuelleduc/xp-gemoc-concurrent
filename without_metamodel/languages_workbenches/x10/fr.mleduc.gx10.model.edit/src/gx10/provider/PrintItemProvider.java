@@ -161,11 +161,6 @@ public class PrintItemProvider extends StatementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(Gx10Package.Literals.PRINT__TO_PRINT,
-				 Gx10Factory.eINSTANCE.createPlus()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Gx10Package.Literals.PRINT__TO_PRINT,
 				 Gx10Factory.eINSTANCE.createMethodCall()));
 
 		newChildDescriptors.add
@@ -187,6 +182,16 @@ public class PrintItemProvider extends StatementItemProvider {
 			(createChildParameter
 				(Gx10Package.Literals.PRINT__TO_PRINT,
 				 Gx10Factory.eINSTANCE.createEqual()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Gx10Package.Literals.PRINT__TO_PRINT,
+				 Gx10Factory.eINSTANCE.createPlus()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Gx10Package.Literals.PRINT__TO_PRINT,
+				 Gx10Factory.eINSTANCE.createTime()));
 	}
 
 }

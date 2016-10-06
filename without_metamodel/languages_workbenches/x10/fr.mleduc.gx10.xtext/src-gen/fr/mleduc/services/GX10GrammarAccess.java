@@ -71,23 +71,24 @@ public class GX10GrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cAndParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
 		private final RuleCall cIntConstParserRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
 		private final RuleCall cPlusParserRuleCall_8 = (RuleCall)cAlternatives.eContents().get(8);
-		private final RuleCall cAsyncParserRuleCall_9 = (RuleCall)cAlternatives.eContents().get(9);
-		private final RuleCall cMethodCallParserRuleCall_10 = (RuleCall)cAlternatives.eContents().get(10);
-		private final RuleCall cFinishParserRuleCall_11 = (RuleCall)cAlternatives.eContents().get(11);
-		private final RuleCall cPrintParserRuleCall_12 = (RuleCall)cAlternatives.eContents().get(12);
-		private final RuleCall cBoolVarParserRuleCall_13 = (RuleCall)cAlternatives.eContents().get(13);
-		private final RuleCall cIntVarParserRuleCall_14 = (RuleCall)cAlternatives.eContents().get(14);
-		private final RuleCall cIntVarAccessParserRuleCall_15 = (RuleCall)cAlternatives.eContents().get(15);
-		private final RuleCall cBoolVarAccessParserRuleCall_16 = (RuleCall)cAlternatives.eContents().get(16);
-		private final RuleCall cEqualParserRuleCall_17 = (RuleCall)cAlternatives.eContents().get(17);
+		private final RuleCall cTimeParserRuleCall_9 = (RuleCall)cAlternatives.eContents().get(9);
+		private final RuleCall cAsyncParserRuleCall_10 = (RuleCall)cAlternatives.eContents().get(10);
+		private final RuleCall cMethodCallParserRuleCall_11 = (RuleCall)cAlternatives.eContents().get(11);
+		private final RuleCall cFinishParserRuleCall_12 = (RuleCall)cAlternatives.eContents().get(12);
+		private final RuleCall cPrintParserRuleCall_13 = (RuleCall)cAlternatives.eContents().get(13);
+		private final RuleCall cBoolVarParserRuleCall_14 = (RuleCall)cAlternatives.eContents().get(14);
+		private final RuleCall cIntVarParserRuleCall_15 = (RuleCall)cAlternatives.eContents().get(15);
+		private final RuleCall cIntVarAccessParserRuleCall_16 = (RuleCall)cAlternatives.eContents().get(16);
+		private final RuleCall cBoolVarAccessParserRuleCall_17 = (RuleCall)cAlternatives.eContents().get(17);
+		private final RuleCall cEqualParserRuleCall_18 = (RuleCall)cAlternatives.eContents().get(18);
 		
 		//Statement:
-		//	Block | If | While | True | False | Not | And | IntConst | Plus | Async | MethodCall | Finish | Print | BoolVar |
-		//	IntVar | IntVarAccess | BoolVarAccess | Equal;
+		//	Block | If | While | True | False | Not | And | IntConst | Plus | Time | Async | MethodCall | Finish | Print | BoolVar
+		//	| IntVar | IntVarAccess | BoolVarAccess | Equal;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Block | If | While | True | False | Not | And | IntConst | Plus | Async | MethodCall | Finish | Print | BoolVar | IntVar
-		//| IntVarAccess | BoolVarAccess | Equal
+		//Block | If | While | True | False | Not | And | IntConst | Plus | Time | Async | MethodCall | Finish | Print | BoolVar |
+		//IntVar | IntVarAccess | BoolVarAccess | Equal
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//Block
@@ -117,32 +118,35 @@ public class GX10GrammarAccess extends AbstractGrammarElementFinder {
 		//Plus
 		public RuleCall getPlusParserRuleCall_8() { return cPlusParserRuleCall_8; }
 		
+		//Time
+		public RuleCall getTimeParserRuleCall_9() { return cTimeParserRuleCall_9; }
+		
 		//Async
-		public RuleCall getAsyncParserRuleCall_9() { return cAsyncParserRuleCall_9; }
+		public RuleCall getAsyncParserRuleCall_10() { return cAsyncParserRuleCall_10; }
 		
 		//MethodCall
-		public RuleCall getMethodCallParserRuleCall_10() { return cMethodCallParserRuleCall_10; }
+		public RuleCall getMethodCallParserRuleCall_11() { return cMethodCallParserRuleCall_11; }
 		
 		//Finish
-		public RuleCall getFinishParserRuleCall_11() { return cFinishParserRuleCall_11; }
+		public RuleCall getFinishParserRuleCall_12() { return cFinishParserRuleCall_12; }
 		
 		//Print
-		public RuleCall getPrintParserRuleCall_12() { return cPrintParserRuleCall_12; }
+		public RuleCall getPrintParserRuleCall_13() { return cPrintParserRuleCall_13; }
 		
 		//BoolVar
-		public RuleCall getBoolVarParserRuleCall_13() { return cBoolVarParserRuleCall_13; }
+		public RuleCall getBoolVarParserRuleCall_14() { return cBoolVarParserRuleCall_14; }
 		
 		//IntVar
-		public RuleCall getIntVarParserRuleCall_14() { return cIntVarParserRuleCall_14; }
+		public RuleCall getIntVarParserRuleCall_15() { return cIntVarParserRuleCall_15; }
 		
 		//IntVarAccess
-		public RuleCall getIntVarAccessParserRuleCall_15() { return cIntVarAccessParserRuleCall_15; }
+		public RuleCall getIntVarAccessParserRuleCall_16() { return cIntVarAccessParserRuleCall_16; }
 		
 		//BoolVarAccess
-		public RuleCall getBoolVarAccessParserRuleCall_16() { return cBoolVarAccessParserRuleCall_16; }
+		public RuleCall getBoolVarAccessParserRuleCall_17() { return cBoolVarAccessParserRuleCall_17; }
 		
 		//Equal
-		public RuleCall getEqualParserRuleCall_17() { return cEqualParserRuleCall_17; }
+		public RuleCall getEqualParserRuleCall_18() { return cEqualParserRuleCall_18; }
 	}
 	public class BoolExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.mleduc.GX10.BoolExpression");
@@ -179,25 +183,44 @@ public class GX10GrammarAccess extends AbstractGrammarElementFinder {
 		//Equal
 		public RuleCall getEqualParserRuleCall_5() { return cEqualParserRuleCall_5; }
 	}
+	public class IntBinaryOperationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.mleduc.GX10.IntBinaryOperation");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cTimeParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cPlusParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//IntBinaryOperation:
+		//	Time | Plus;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//Time | Plus
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//Time
+		public RuleCall getTimeParserRuleCall_0() { return cTimeParserRuleCall_0; }
+		
+		//Plus
+		public RuleCall getPlusParserRuleCall_1() { return cPlusParserRuleCall_1; }
+	}
 	public class IntExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.mleduc.GX10.IntExpression");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cIntConstParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cPlusParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cIntBinaryOperationParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cIntVarAccessParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		//IntExpression:
-		//	IntConst | Plus | IntVarAccess;
+		//	IntConst | IntBinaryOperation | IntVarAccess;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//IntConst | Plus | IntVarAccess
+		//IntConst | IntBinaryOperation | IntVarAccess
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//IntConst
 		public RuleCall getIntConstParserRuleCall_0() { return cIntConstParserRuleCall_0; }
 		
-		//Plus
-		public RuleCall getPlusParserRuleCall_1() { return cPlusParserRuleCall_1; }
+		//IntBinaryOperation
+		public RuleCall getIntBinaryOperationParserRuleCall_1() { return cIntBinaryOperationParserRuleCall_1; }
 		
 		//IntVarAccess
 		public RuleCall getIntVarAccessParserRuleCall_2() { return cIntVarAccessParserRuleCall_2; }
@@ -211,17 +234,18 @@ public class GX10GrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cAndParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		private final RuleCall cIntConstParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		private final RuleCall cPlusParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
-		private final RuleCall cMethodCallParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
-		private final RuleCall cBoolVarParserRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
-		private final RuleCall cIntVarAccessParserRuleCall_8 = (RuleCall)cAlternatives.eContents().get(8);
-		private final RuleCall cBoolVarAccessParserRuleCall_9 = (RuleCall)cAlternatives.eContents().get(9);
-		private final RuleCall cEqualParserRuleCall_10 = (RuleCall)cAlternatives.eContents().get(10);
+		private final RuleCall cTimeParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
+		private final RuleCall cMethodCallParserRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
+		private final RuleCall cBoolVarParserRuleCall_8 = (RuleCall)cAlternatives.eContents().get(8);
+		private final RuleCall cIntVarAccessParserRuleCall_9 = (RuleCall)cAlternatives.eContents().get(9);
+		private final RuleCall cBoolVarAccessParserRuleCall_10 = (RuleCall)cAlternatives.eContents().get(10);
+		private final RuleCall cEqualParserRuleCall_11 = (RuleCall)cAlternatives.eContents().get(11);
 		
 		//Expression:
-		//	True | False | Not | And | IntConst | Plus | MethodCall | BoolVar | IntVarAccess | BoolVarAccess | Equal;
+		//	True | False | Not | And | IntConst | Plus | Time | MethodCall | BoolVar | IntVarAccess | BoolVarAccess | Equal;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//True | False | Not | And | IntConst | Plus | MethodCall | BoolVar | IntVarAccess | BoolVarAccess | Equal
+		//True | False | Not | And | IntConst | Plus | Time | MethodCall | BoolVar | IntVarAccess | BoolVarAccess | Equal
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//True
@@ -242,35 +266,49 @@ public class GX10GrammarAccess extends AbstractGrammarElementFinder {
 		//Plus
 		public RuleCall getPlusParserRuleCall_5() { return cPlusParserRuleCall_5; }
 		
+		//Time
+		public RuleCall getTimeParserRuleCall_6() { return cTimeParserRuleCall_6; }
+		
 		//MethodCall
-		public RuleCall getMethodCallParserRuleCall_6() { return cMethodCallParserRuleCall_6; }
+		public RuleCall getMethodCallParserRuleCall_7() { return cMethodCallParserRuleCall_7; }
 		
 		//BoolVar
-		public RuleCall getBoolVarParserRuleCall_7() { return cBoolVarParserRuleCall_7; }
+		public RuleCall getBoolVarParserRuleCall_8() { return cBoolVarParserRuleCall_8; }
 		
 		//IntVarAccess
-		public RuleCall getIntVarAccessParserRuleCall_8() { return cIntVarAccessParserRuleCall_8; }
+		public RuleCall getIntVarAccessParserRuleCall_9() { return cIntVarAccessParserRuleCall_9; }
 		
 		//BoolVarAccess
-		public RuleCall getBoolVarAccessParserRuleCall_9() { return cBoolVarAccessParserRuleCall_9; }
+		public RuleCall getBoolVarAccessParserRuleCall_10() { return cBoolVarAccessParserRuleCall_10; }
 		
 		//Equal
-		public RuleCall getEqualParserRuleCall_10() { return cEqualParserRuleCall_10; }
+		public RuleCall getEqualParserRuleCall_11() { return cEqualParserRuleCall_11; }
 	}
 	public class MethodElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.mleduc.GX10.Method");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cNameEStringParserRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
-		private final Assignment cMethodBlockAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cMethodBlockBlockParserRuleCall_1_0 = (RuleCall)cMethodBlockAssignment_1.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Assignment cMethodParametersAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
+		private final RuleCall cMethodParametersReferentiableParserRuleCall_2_0_0 = (RuleCall)cMethodParametersAssignment_2_0.eContents().get(0);
+		private final Group cGroup_2_1 = (Group)cGroup_2.eContents().get(1);
+		private final Keyword cCommaKeyword_2_1_0 = (Keyword)cGroup_2_1.eContents().get(0);
+		private final Assignment cMethodParametersAssignment_2_1_1 = (Assignment)cGroup_2_1.eContents().get(1);
+		private final RuleCall cMethodParametersReferentiableParserRuleCall_2_1_1_0 = (RuleCall)cMethodParametersAssignment_2_1_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cMethodBlockAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cMethodBlockBlockParserRuleCall_4_0 = (RuleCall)cMethodBlockAssignment_4.eContents().get(0);
 		
 		//Method:
-		//	name=EString
+		//	name=EString '(' (methodParameters+=Referentiable ("," methodParameters+=Referentiable)*)? ')'
+		//	//		('calledBy' '(' calledBy+=[MethodCall|EString] ( "," calledBy+=[MethodCall|EString])* ')' )?
 		//	methodBlock=Block;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=EString methodBlock=Block
+		//name=EString '(' (methodParameters+=Referentiable ("," methodParameters+=Referentiable)*)? ')' //		('calledBy' '(' calledBy+=[MethodCall|EString] ( "," calledBy+=[MethodCall|EString])* ')' )?
+		//methodBlock=Block
 		public Group getGroup() { return cGroup; }
 		
 		//name=EString
@@ -279,11 +317,39 @@ public class GX10GrammarAccess extends AbstractGrammarElementFinder {
 		//EString
 		public RuleCall getNameEStringParserRuleCall_0_0() { return cNameEStringParserRuleCall_0_0; }
 		
+		//'('
+		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
+		
+		//(methodParameters+=Referentiable ("," methodParameters+=Referentiable)*)?
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//methodParameters+=Referentiable
+		public Assignment getMethodParametersAssignment_2_0() { return cMethodParametersAssignment_2_0; }
+		
+		//Referentiable
+		public RuleCall getMethodParametersReferentiableParserRuleCall_2_0_0() { return cMethodParametersReferentiableParserRuleCall_2_0_0; }
+		
+		//("," methodParameters+=Referentiable)*
+		public Group getGroup_2_1() { return cGroup_2_1; }
+		
+		//","
+		public Keyword getCommaKeyword_2_1_0() { return cCommaKeyword_2_1_0; }
+		
+		//methodParameters+=Referentiable
+		public Assignment getMethodParametersAssignment_2_1_1() { return cMethodParametersAssignment_2_1_1; }
+		
+		//Referentiable
+		public RuleCall getMethodParametersReferentiableParserRuleCall_2_1_1_0() { return cMethodParametersReferentiableParserRuleCall_2_1_1_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
+		
+		////		('calledBy' '(' calledBy+=[MethodCall|EString] ( "," calledBy+=[MethodCall|EString])* ')' )?
 		//methodBlock=Block
-		public Assignment getMethodBlockAssignment_1() { return cMethodBlockAssignment_1; }
+		public Assignment getMethodBlockAssignment_4() { return cMethodBlockAssignment_4; }
 		
 		//Block
-		public RuleCall getMethodBlockBlockParserRuleCall_1_0() { return cMethodBlockBlockParserRuleCall_1_0; }
+		public RuleCall getMethodBlockBlockParserRuleCall_4_0() { return cMethodBlockBlockParserRuleCall_4_0; }
 	}
 	public class BlockElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.mleduc.GX10.Block");
@@ -347,16 +413,28 @@ public class GX10GrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cMethodToCallAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final CrossReference cMethodToCallMethodCrossReference_3_0 = (CrossReference)cMethodToCallAssignment_3.eContents().get(0);
 		private final RuleCall cMethodToCallMethodEStringParserRuleCall_3_0_1 = (RuleCall)cMethodToCallMethodCrossReference_3_0.eContents().get(1);
-		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cMethodCallParametersKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
+		private final Assignment cMethodCallParametersAssignment_4_2 = (Assignment)cGroup_4.eContents().get(2);
+		private final RuleCall cMethodCallParametersMethodCallParameterParserRuleCall_4_2_0 = (RuleCall)cMethodCallParametersAssignment_4_2.eContents().get(0);
+		private final Group cGroup_4_3 = (Group)cGroup_4.eContents().get(3);
+		private final Keyword cCommaKeyword_4_3_0 = (Keyword)cGroup_4_3.eContents().get(0);
+		private final Assignment cMethodCallParametersAssignment_4_3_1 = (Assignment)cGroup_4_3.eContents().get(1);
+		private final RuleCall cMethodCallParametersMethodCallParameterParserRuleCall_4_3_1_0 = (RuleCall)cMethodCallParametersAssignment_4_3_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4_4 = (Keyword)cGroup_4.eContents().get(4);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//MethodCall:
 		//	'MethodCall'
 		//	'{'
-		//	'methodToCall' methodToCall=[Method|EString]
+		//	'methodToCall' methodToCall=[Method|EString] ('methodCallParameters' '{' methodCallParameters+=MethodCallParameter
+		//	("," methodCallParameters+=MethodCallParameter)* '}')?
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'MethodCall' '{' 'methodToCall' methodToCall=[Method|EString] '}'
+		//'MethodCall' '{' 'methodToCall' methodToCall=[Method|EString] ('methodCallParameters' '{'
+		//methodCallParameters+=MethodCallParameter ("," methodCallParameters+=MethodCallParameter)* '}')? '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'MethodCall'
@@ -377,8 +455,62 @@ public class GX10GrammarAccess extends AbstractGrammarElementFinder {
 		//EString
 		public RuleCall getMethodToCallMethodEStringParserRuleCall_3_0_1() { return cMethodToCallMethodEStringParserRuleCall_3_0_1; }
 		
+		//('methodCallParameters' '{' methodCallParameters+=MethodCallParameter ("," methodCallParameters+=MethodCallParameter)*
+		//'}')?
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//'methodCallParameters'
+		public Keyword getMethodCallParametersKeyword_4_0() { return cMethodCallParametersKeyword_4_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_4_1() { return cLeftCurlyBracketKeyword_4_1; }
+		
+		//methodCallParameters+=MethodCallParameter
+		public Assignment getMethodCallParametersAssignment_4_2() { return cMethodCallParametersAssignment_4_2; }
+		
+		//MethodCallParameter
+		public RuleCall getMethodCallParametersMethodCallParameterParserRuleCall_4_2_0() { return cMethodCallParametersMethodCallParameterParserRuleCall_4_2_0; }
+		
+		//("," methodCallParameters+=MethodCallParameter)*
+		public Group getGroup_4_3() { return cGroup_4_3; }
+		
+		//","
+		public Keyword getCommaKeyword_4_3_0() { return cCommaKeyword_4_3_0; }
+		
+		//methodCallParameters+=MethodCallParameter
+		public Assignment getMethodCallParametersAssignment_4_3_1() { return cMethodCallParametersAssignment_4_3_1; }
+		
+		//MethodCallParameter
+		public RuleCall getMethodCallParametersMethodCallParameterParserRuleCall_4_3_1_0() { return cMethodCallParametersMethodCallParameterParserRuleCall_4_3_1_0; }
+		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+		public Keyword getRightCurlyBracketKeyword_4_4() { return cRightCurlyBracketKeyword_4_4; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+	}
+	public class ReferentiableElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.mleduc.GX10.Referentiable");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cReferentiableAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameEStringParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		
+		//Referentiable:
+		//	{Referentiable} name=EString;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{Referentiable} name=EString
+		public Group getGroup() { return cGroup; }
+		
+		//{Referentiable}
+		public Action getReferentiableAction_0() { return cReferentiableAction_0; }
+		
+		//name=EString
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//EString
+		public RuleCall getNameEStringParserRuleCall_1_0() { return cNameEStringParserRuleCall_1_0; }
 	}
 	public class IfElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.mleduc.GX10.If");
@@ -655,22 +787,22 @@ public class GX10GrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cPlusKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cLeftPlusKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cLeftPlusAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cLeftPlusIntExpressionParserRuleCall_3_0 = (RuleCall)cLeftPlusAssignment_3.eContents().get(0);
+		private final Assignment cLeftBinaryExpressionAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cLeftBinaryExpressionIntExpressionParserRuleCall_3_0 = (RuleCall)cLeftBinaryExpressionAssignment_3.eContents().get(0);
 		private final Keyword cRightPlusKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cRightPlusAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cRightPlusIntExpressionParserRuleCall_5_0 = (RuleCall)cRightPlusAssignment_5.eContents().get(0);
+		private final Assignment cRightBinaryExpressionAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cRightBinaryExpressionIntExpressionParserRuleCall_5_0 = (RuleCall)cRightBinaryExpressionAssignment_5.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//Plus:
 		//	'Plus'
 		//	'{'
-		//	'leftPlus' leftPlus=IntExpression
-		//	'rightPlus' rightPlus=IntExpression
+		//	'leftPlus' leftBinaryExpression=IntExpression
+		//	'rightPlus' rightBinaryExpression=IntExpression
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Plus' '{' 'leftPlus' leftPlus=IntExpression 'rightPlus' rightPlus=IntExpression '}'
+		//'Plus' '{' 'leftPlus' leftBinaryExpression=IntExpression 'rightPlus' rightBinaryExpression=IntExpression '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'Plus'
@@ -682,20 +814,71 @@ public class GX10GrammarAccess extends AbstractGrammarElementFinder {
 		//'leftPlus'
 		public Keyword getLeftPlusKeyword_2() { return cLeftPlusKeyword_2; }
 		
-		//leftPlus=IntExpression
-		public Assignment getLeftPlusAssignment_3() { return cLeftPlusAssignment_3; }
+		//leftBinaryExpression=IntExpression
+		public Assignment getLeftBinaryExpressionAssignment_3() { return cLeftBinaryExpressionAssignment_3; }
 		
 		//IntExpression
-		public RuleCall getLeftPlusIntExpressionParserRuleCall_3_0() { return cLeftPlusIntExpressionParserRuleCall_3_0; }
+		public RuleCall getLeftBinaryExpressionIntExpressionParserRuleCall_3_0() { return cLeftBinaryExpressionIntExpressionParserRuleCall_3_0; }
 		
 		//'rightPlus'
 		public Keyword getRightPlusKeyword_4() { return cRightPlusKeyword_4; }
 		
-		//rightPlus=IntExpression
-		public Assignment getRightPlusAssignment_5() { return cRightPlusAssignment_5; }
+		//rightBinaryExpression=IntExpression
+		public Assignment getRightBinaryExpressionAssignment_5() { return cRightBinaryExpressionAssignment_5; }
 		
 		//IntExpression
-		public RuleCall getRightPlusIntExpressionParserRuleCall_5_0() { return cRightPlusIntExpressionParserRuleCall_5_0; }
+		public RuleCall getRightBinaryExpressionIntExpressionParserRuleCall_5_0() { return cRightBinaryExpressionIntExpressionParserRuleCall_5_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+	}
+	public class TimeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.mleduc.GX10.Time");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cTimeKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cLeftTimeKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cLeftBinaryExpressionAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cLeftBinaryExpressionIntExpressionParserRuleCall_3_0 = (RuleCall)cLeftBinaryExpressionAssignment_3.eContents().get(0);
+		private final Keyword cRightTimeKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cRightBinaryExpressionAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cRightBinaryExpressionIntExpressionParserRuleCall_5_0 = (RuleCall)cRightBinaryExpressionAssignment_5.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		
+		//Time:
+		//	'Time'
+		//	'{'
+		//	'leftTime' leftBinaryExpression=IntExpression
+		//	'rightTime' rightBinaryExpression=IntExpression
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'Time' '{' 'leftTime' leftBinaryExpression=IntExpression 'rightTime' rightBinaryExpression=IntExpression '}'
+		public Group getGroup() { return cGroup; }
+		
+		//'Time'
+		public Keyword getTimeKeyword_0() { return cTimeKeyword_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+		
+		//'leftTime'
+		public Keyword getLeftTimeKeyword_2() { return cLeftTimeKeyword_2; }
+		
+		//leftBinaryExpression=IntExpression
+		public Assignment getLeftBinaryExpressionAssignment_3() { return cLeftBinaryExpressionAssignment_3; }
+		
+		//IntExpression
+		public RuleCall getLeftBinaryExpressionIntExpressionParserRuleCall_3_0() { return cLeftBinaryExpressionIntExpressionParserRuleCall_3_0; }
+		
+		//'rightTime'
+		public Keyword getRightTimeKeyword_4() { return cRightTimeKeyword_4; }
+		
+		//rightBinaryExpression=IntExpression
+		public Assignment getRightBinaryExpressionAssignment_5() { return cRightBinaryExpressionAssignment_5; }
+		
+		//IntExpression
+		public RuleCall getRightBinaryExpressionIntExpressionParserRuleCall_5_0() { return cRightBinaryExpressionIntExpressionParserRuleCall_5_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
@@ -811,75 +994,78 @@ public class GX10GrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.mleduc.GX10.BoolVar");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cBoolVarKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Keyword cBoolVarExprKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cBoolVarExprAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cBoolVarExprBoolExpressionParserRuleCall_4_0 = (RuleCall)cBoolVarExprAssignment_4.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cBoolVarExprKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cBoolVarExprAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cBoolVarExprBoolExpressionParserRuleCall_3_0 = (RuleCall)cBoolVarExprAssignment_3.eContents().get(0);
+		private final Keyword cBoolVarNameKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cBoolVarNameAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cBoolVarNameReferentiableParserRuleCall_5_0 = (RuleCall)cBoolVarNameAssignment_5.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//BoolVar:
 		//	'BoolVar'
-		//	name=EString
 		//	'{'
 		//	'boolVarExpr' boolVarExpr=BoolExpression
+		//	'boolVarName' boolVarName=Referentiable
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'BoolVar' name=EString '{' 'boolVarExpr' boolVarExpr=BoolExpression '}'
+		//'BoolVar' '{' 'boolVarExpr' boolVarExpr=BoolExpression 'boolVarName' boolVarName=Referentiable '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'BoolVar'
 		public Keyword getBoolVarKeyword_0() { return cBoolVarKeyword_0; }
 		
-		//name=EString
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
-		
-		//EString
-		public RuleCall getNameEStringParserRuleCall_1_0() { return cNameEStringParserRuleCall_1_0; }
-		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
 		
 		//'boolVarExpr'
-		public Keyword getBoolVarExprKeyword_3() { return cBoolVarExprKeyword_3; }
+		public Keyword getBoolVarExprKeyword_2() { return cBoolVarExprKeyword_2; }
 		
 		//boolVarExpr=BoolExpression
-		public Assignment getBoolVarExprAssignment_4() { return cBoolVarExprAssignment_4; }
+		public Assignment getBoolVarExprAssignment_3() { return cBoolVarExprAssignment_3; }
 		
 		//BoolExpression
-		public RuleCall getBoolVarExprBoolExpressionParserRuleCall_4_0() { return cBoolVarExprBoolExpressionParserRuleCall_4_0; }
+		public RuleCall getBoolVarExprBoolExpressionParserRuleCall_3_0() { return cBoolVarExprBoolExpressionParserRuleCall_3_0; }
+		
+		//'boolVarName'
+		public Keyword getBoolVarNameKeyword_4() { return cBoolVarNameKeyword_4; }
+		
+		//boolVarName=Referentiable
+		public Assignment getBoolVarNameAssignment_5() { return cBoolVarNameAssignment_5; }
+		
+		//Referentiable
+		public RuleCall getBoolVarNameReferentiableParserRuleCall_5_0() { return cBoolVarNameReferentiableParserRuleCall_5_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
 	}
 	public class IntVarElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.mleduc.GX10.IntVar");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cIvKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cIntVarNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cIntVarNameReferentiableParserRuleCall_1_0 = (RuleCall)cIntVarNameAssignment_1.eContents().get(0);
 		private final Keyword cLessThanSignHyphenMinusKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cIntVarExprAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cIntVarExprIntExpressionParserRuleCall_3_0 = (RuleCall)cIntVarExprAssignment_3.eContents().get(0);
 		
 		//IntVar:
-		//	'iv'
-		//	name=EString '<-' intVarExpr=IntExpression;
+		//	'iv' intVarName=Referentiable '<-' intVarExpr=IntExpression;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'iv' name=EString '<-' intVarExpr=IntExpression
+		//'iv' intVarName=Referentiable '<-' intVarExpr=IntExpression
 		public Group getGroup() { return cGroup; }
 		
 		//'iv'
 		public Keyword getIvKeyword_0() { return cIvKeyword_0; }
 		
-		//name=EString
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		//intVarName=Referentiable
+		public Assignment getIntVarNameAssignment_1() { return cIntVarNameAssignment_1; }
 		
-		//EString
-		public RuleCall getNameEStringParserRuleCall_1_0() { return cNameEStringParserRuleCall_1_0; }
+		//Referentiable
+		public RuleCall getIntVarNameReferentiableParserRuleCall_1_0() { return cIntVarNameReferentiableParserRuleCall_1_0; }
 		
 		//'<-'
 		public Keyword getLessThanSignHyphenMinusKeyword_2() { return cLessThanSignHyphenMinusKeyword_2; }
@@ -895,69 +1081,54 @@ public class GX10GrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cIrKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cIntVarRefAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final CrossReference cIntVarRefIntVarCrossReference_1_0 = (CrossReference)cIntVarRefAssignment_1.eContents().get(0);
-		private final RuleCall cIntVarRefIntVarEStringParserRuleCall_1_0_1 = (RuleCall)cIntVarRefIntVarCrossReference_1_0.eContents().get(1);
+		private final CrossReference cIntVarRefReferentiableCrossReference_1_0 = (CrossReference)cIntVarRefAssignment_1.eContents().get(0);
+		private final RuleCall cIntVarRefReferentiableEStringParserRuleCall_1_0_1 = (RuleCall)cIntVarRefReferentiableCrossReference_1_0.eContents().get(1);
 		
 		//IntVarAccess:
-		//	'ir' intVarRef=[IntVar|EString];
+		//	'ir' intVarRef=[Referentiable|EString];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'ir' intVarRef=[IntVar|EString]
+		//'ir' intVarRef=[Referentiable|EString]
 		public Group getGroup() { return cGroup; }
 		
 		//'ir'
 		public Keyword getIrKeyword_0() { return cIrKeyword_0; }
 		
-		//intVarRef=[IntVar|EString]
+		//intVarRef=[Referentiable|EString]
 		public Assignment getIntVarRefAssignment_1() { return cIntVarRefAssignment_1; }
 		
-		//[IntVar|EString]
-		public CrossReference getIntVarRefIntVarCrossReference_1_0() { return cIntVarRefIntVarCrossReference_1_0; }
+		//[Referentiable|EString]
+		public CrossReference getIntVarRefReferentiableCrossReference_1_0() { return cIntVarRefReferentiableCrossReference_1_0; }
 		
 		//EString
-		public RuleCall getIntVarRefIntVarEStringParserRuleCall_1_0_1() { return cIntVarRefIntVarEStringParserRuleCall_1_0_1; }
+		public RuleCall getIntVarRefReferentiableEStringParserRuleCall_1_0_1() { return cIntVarRefReferentiableEStringParserRuleCall_1_0_1; }
 	}
 	public class BoolVarAccessElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.mleduc.GX10.BoolVarAccess");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cBoolVarAccessKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cBoolVarRefKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cBoolVarRefAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final CrossReference cBoolVarRefBoolVarCrossReference_3_0 = (CrossReference)cBoolVarRefAssignment_3.eContents().get(0);
-		private final RuleCall cBoolVarRefBoolVarEStringParserRuleCall_3_0_1 = (RuleCall)cBoolVarRefBoolVarCrossReference_3_0.eContents().get(1);
-		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cBrKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cBoolVarRefAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cBoolVarRefReferentiableCrossReference_1_0 = (CrossReference)cBoolVarRefAssignment_1.eContents().get(0);
+		private final RuleCall cBoolVarRefReferentiableEStringParserRuleCall_1_0_1 = (RuleCall)cBoolVarRefReferentiableCrossReference_1_0.eContents().get(1);
 		
 		//BoolVarAccess:
-		//	'BoolVarAccess'
-		//	'{'
-		//	'boolVarRef' boolVarRef=[BoolVar|EString]
-		//	'}';
+		//	'br' boolVarRef=[Referentiable|EString];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'BoolVarAccess' '{' 'boolVarRef' boolVarRef=[BoolVar|EString] '}'
+		//'br' boolVarRef=[Referentiable|EString]
 		public Group getGroup() { return cGroup; }
 		
-		//'BoolVarAccess'
-		public Keyword getBoolVarAccessKeyword_0() { return cBoolVarAccessKeyword_0; }
+		//'br'
+		public Keyword getBrKeyword_0() { return cBrKeyword_0; }
 		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+		//boolVarRef=[Referentiable|EString]
+		public Assignment getBoolVarRefAssignment_1() { return cBoolVarRefAssignment_1; }
 		
-		//'boolVarRef'
-		public Keyword getBoolVarRefKeyword_2() { return cBoolVarRefKeyword_2; }
-		
-		//boolVarRef=[BoolVar|EString]
-		public Assignment getBoolVarRefAssignment_3() { return cBoolVarRefAssignment_3; }
-		
-		//[BoolVar|EString]
-		public CrossReference getBoolVarRefBoolVarCrossReference_3_0() { return cBoolVarRefBoolVarCrossReference_3_0; }
+		//[Referentiable|EString]
+		public CrossReference getBoolVarRefReferentiableCrossReference_1_0() { return cBoolVarRefReferentiableCrossReference_1_0; }
 		
 		//EString
-		public RuleCall getBoolVarRefBoolVarEStringParserRuleCall_3_0_1() { return cBoolVarRefBoolVarEStringParserRuleCall_3_0_1; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+		public RuleCall getBoolVarRefReferentiableEStringParserRuleCall_1_0_1() { return cBoolVarRefReferentiableEStringParserRuleCall_1_0_1; }
 	}
 	public class EqualElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.mleduc.GX10.Equal");
@@ -1029,17 +1200,66 @@ public class GX10GrammarAccess extends AbstractGrammarElementFinder {
 		//INT
 		public RuleCall getINTTerminalRuleCall_1() { return cINTTerminalRuleCall_1; }
 	}
+	public class MethodCallParameterElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.mleduc.GX10.MethodCallParameter");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cMethodCallParameterKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameEStringParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cMethodCallParameterExprKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cMethodCallParameterExprAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cMethodCallParameterExprIntExpressionParserRuleCall_4_0 = (RuleCall)cMethodCallParameterExprAssignment_4.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		
+		//MethodCallParameter:
+		//	'MethodCallParameter'
+		//	name=EString
+		//	'{'
+		//	'methodCallParameterExpr' methodCallParameterExpr=IntExpression
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'MethodCallParameter' name=EString '{' 'methodCallParameterExpr' methodCallParameterExpr=IntExpression '}'
+		public Group getGroup() { return cGroup; }
+		
+		//'MethodCallParameter'
+		public Keyword getMethodCallParameterKeyword_0() { return cMethodCallParameterKeyword_0; }
+		
+		//name=EString
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//EString
+		public RuleCall getNameEStringParserRuleCall_1_0() { return cNameEStringParserRuleCall_1_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//'methodCallParameterExpr'
+		public Keyword getMethodCallParameterExprKeyword_3() { return cMethodCallParameterExprKeyword_3; }
+		
+		//methodCallParameterExpr=IntExpression
+		public Assignment getMethodCallParameterExprAssignment_4() { return cMethodCallParameterExprAssignment_4; }
+		
+		//IntExpression
+		public RuleCall getMethodCallParameterExprIntExpressionParserRuleCall_4_0() { return cMethodCallParameterExprIntExpressionParserRuleCall_4_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+	}
 	
 	
 	private final ProgramElements pProgram;
 	private final StatementElements pStatement;
 	private final BoolExpressionElements pBoolExpression;
+	private final IntBinaryOperationElements pIntBinaryOperation;
 	private final IntExpressionElements pIntExpression;
 	private final ExpressionElements pExpression;
 	private final MethodElements pMethod;
 	private final BlockElements pBlock;
 	private final EStringElements pEString;
 	private final MethodCallElements pMethodCall;
+	private final ReferentiableElements pReferentiable;
 	private final IfElements pIf;
 	private final WhileElements pWhile;
 	private final TrueElements pTrue;
@@ -1048,6 +1268,7 @@ public class GX10GrammarAccess extends AbstractGrammarElementFinder {
 	private final AndElements pAnd;
 	private final IntConstElements pIntConst;
 	private final PlusElements pPlus;
+	private final TimeElements pTime;
 	private final AsyncElements pAsync;
 	private final FinishElements pFinish;
 	private final PrintElements pPrint;
@@ -1057,6 +1278,7 @@ public class GX10GrammarAccess extends AbstractGrammarElementFinder {
 	private final BoolVarAccessElements pBoolVarAccess;
 	private final EqualElements pEqual;
 	private final EIntElements pEInt;
+	private final MethodCallParameterElements pMethodCallParameter;
 	
 	private final Grammar grammar;
 	
@@ -1070,12 +1292,14 @@ public class GX10GrammarAccess extends AbstractGrammarElementFinder {
 		this.pProgram = new ProgramElements();
 		this.pStatement = new StatementElements();
 		this.pBoolExpression = new BoolExpressionElements();
+		this.pIntBinaryOperation = new IntBinaryOperationElements();
 		this.pIntExpression = new IntExpressionElements();
 		this.pExpression = new ExpressionElements();
 		this.pMethod = new MethodElements();
 		this.pBlock = new BlockElements();
 		this.pEString = new EStringElements();
 		this.pMethodCall = new MethodCallElements();
+		this.pReferentiable = new ReferentiableElements();
 		this.pIf = new IfElements();
 		this.pWhile = new WhileElements();
 		this.pTrue = new TrueElements();
@@ -1084,6 +1308,7 @@ public class GX10GrammarAccess extends AbstractGrammarElementFinder {
 		this.pAnd = new AndElements();
 		this.pIntConst = new IntConstElements();
 		this.pPlus = new PlusElements();
+		this.pTime = new TimeElements();
 		this.pAsync = new AsyncElements();
 		this.pFinish = new FinishElements();
 		this.pPrint = new PrintElements();
@@ -1093,6 +1318,7 @@ public class GX10GrammarAccess extends AbstractGrammarElementFinder {
 		this.pBoolVarAccess = new BoolVarAccessElements();
 		this.pEqual = new EqualElements();
 		this.pEInt = new EIntElements();
+		this.pMethodCallParameter = new MethodCallParameterElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -1133,8 +1359,8 @@ public class GX10GrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Statement:
-	//	Block | If | While | True | False | Not | And | IntConst | Plus | Async | MethodCall | Finish | Print | BoolVar |
-	//	IntVar | IntVarAccess | BoolVarAccess | Equal;
+	//	Block | If | While | True | False | Not | And | IntConst | Plus | Time | Async | MethodCall | Finish | Print | BoolVar
+	//	| IntVar | IntVarAccess | BoolVarAccess | Equal;
 	public StatementElements getStatementAccess() {
 		return pStatement;
 	}
@@ -1153,8 +1379,18 @@ public class GX10GrammarAccess extends AbstractGrammarElementFinder {
 		return getBoolExpressionAccess().getRule();
 	}
 	
+	//IntBinaryOperation:
+	//	Time | Plus;
+	public IntBinaryOperationElements getIntBinaryOperationAccess() {
+		return pIntBinaryOperation;
+	}
+	
+	public ParserRule getIntBinaryOperationRule() {
+		return getIntBinaryOperationAccess().getRule();
+	}
+	
 	//IntExpression:
-	//	IntConst | Plus | IntVarAccess;
+	//	IntConst | IntBinaryOperation | IntVarAccess;
 	public IntExpressionElements getIntExpressionAccess() {
 		return pIntExpression;
 	}
@@ -1164,7 +1400,7 @@ public class GX10GrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Expression:
-	//	True | False | Not | And | IntConst | Plus | MethodCall | BoolVar | IntVarAccess | BoolVarAccess | Equal;
+	//	True | False | Not | And | IntConst | Plus | Time | MethodCall | BoolVar | IntVarAccess | BoolVarAccess | Equal;
 	public ExpressionElements getExpressionAccess() {
 		return pExpression;
 	}
@@ -1174,7 +1410,8 @@ public class GX10GrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Method:
-	//	name=EString
+	//	name=EString '(' (methodParameters+=Referentiable ("," methodParameters+=Referentiable)*)? ')'
+	//	//		('calledBy' '(' calledBy+=[MethodCall|EString] ( "," calledBy+=[MethodCall|EString])* ')' )?
 	//	methodBlock=Block;
 	public MethodElements getMethodAccess() {
 		return pMethod;
@@ -1210,7 +1447,8 @@ public class GX10GrammarAccess extends AbstractGrammarElementFinder {
 	//MethodCall:
 	//	'MethodCall'
 	//	'{'
-	//	'methodToCall' methodToCall=[Method|EString]
+	//	'methodToCall' methodToCall=[Method|EString] ('methodCallParameters' '{' methodCallParameters+=MethodCallParameter
+	//	("," methodCallParameters+=MethodCallParameter)* '}')?
 	//	'}';
 	public MethodCallElements getMethodCallAccess() {
 		return pMethodCall;
@@ -1218,6 +1456,16 @@ public class GX10GrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getMethodCallRule() {
 		return getMethodCallAccess().getRule();
+	}
+	
+	//Referentiable:
+	//	{Referentiable} name=EString;
+	public ReferentiableElements getReferentiableAccess() {
+		return pReferentiable;
+	}
+	
+	public ParserRule getReferentiableRule() {
+		return getReferentiableAccess().getRule();
 	}
 	
 	//If:
@@ -1311,8 +1559,8 @@ public class GX10GrammarAccess extends AbstractGrammarElementFinder {
 	//Plus:
 	//	'Plus'
 	//	'{'
-	//	'leftPlus' leftPlus=IntExpression
-	//	'rightPlus' rightPlus=IntExpression
+	//	'leftPlus' leftBinaryExpression=IntExpression
+	//	'rightPlus' rightBinaryExpression=IntExpression
 	//	'}';
 	public PlusElements getPlusAccess() {
 		return pPlus;
@@ -1320,6 +1568,20 @@ public class GX10GrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getPlusRule() {
 		return getPlusAccess().getRule();
+	}
+	
+	//Time:
+	//	'Time'
+	//	'{'
+	//	'leftTime' leftBinaryExpression=IntExpression
+	//	'rightTime' rightBinaryExpression=IntExpression
+	//	'}';
+	public TimeElements getTimeAccess() {
+		return pTime;
+	}
+	
+	public ParserRule getTimeRule() {
+		return getTimeAccess().getRule();
 	}
 	
 	//Async:
@@ -1360,9 +1622,9 @@ public class GX10GrammarAccess extends AbstractGrammarElementFinder {
 	
 	//BoolVar:
 	//	'BoolVar'
-	//	name=EString
 	//	'{'
 	//	'boolVarExpr' boolVarExpr=BoolExpression
+	//	'boolVarName' boolVarName=Referentiable
 	//	'}';
 	public BoolVarElements getBoolVarAccess() {
 		return pBoolVar;
@@ -1373,8 +1635,7 @@ public class GX10GrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//IntVar:
-	//	'iv'
-	//	name=EString '<-' intVarExpr=IntExpression;
+	//	'iv' intVarName=Referentiable '<-' intVarExpr=IntExpression;
 	public IntVarElements getIntVarAccess() {
 		return pIntVar;
 	}
@@ -1384,7 +1645,7 @@ public class GX10GrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//IntVarAccess:
-	//	'ir' intVarRef=[IntVar|EString];
+	//	'ir' intVarRef=[Referentiable|EString];
 	public IntVarAccessElements getIntVarAccessAccess() {
 		return pIntVarAccess;
 	}
@@ -1394,10 +1655,7 @@ public class GX10GrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//BoolVarAccess:
-	//	'BoolVarAccess'
-	//	'{'
-	//	'boolVarRef' boolVarRef=[BoolVar|EString]
-	//	'}';
+	//	'br' boolVarRef=[Referentiable|EString];
 	public BoolVarAccessElements getBoolVarAccessAccess() {
 		return pBoolVarAccess;
 	}
@@ -1428,6 +1686,20 @@ public class GX10GrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getEIntRule() {
 		return getEIntAccess().getRule();
+	}
+	
+	//MethodCallParameter:
+	//	'MethodCallParameter'
+	//	name=EString
+	//	'{'
+	//	'methodCallParameterExpr' methodCallParameterExpr=IntExpression
+	//	'}';
+	public MethodCallParameterElements getMethodCallParameterAccess() {
+		return pMethodCallParameter;
+	}
+	
+	public ParserRule getMethodCallParameterRule() {
+		return getMethodCallParameterAccess().getRule();
 	}
 	
 	//terminal ID:

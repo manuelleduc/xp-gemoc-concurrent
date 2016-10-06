@@ -150,13 +150,22 @@ public interface Gx10Package extends EPackage {
 	int METHOD__CALLED_BY = 3;
 
 	/**
+	 * The feature id for the '<em><b>Method Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD__METHOD_PARAMETERS = 4;
+
+	/**
 	 * The number of structural features of the '<em>Method</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int METHOD_FEATURE_COUNT = 4;
+	int METHOD_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Method</em>' class.
@@ -820,14 +829,14 @@ public interface Gx10Package extends EPackage {
 	int INT_CONST_OPERATION_COUNT = INT_EXPRESSION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link gx10.impl.PlusImpl <em>Plus</em>}' class.
+	 * The meta object id for the '{@link gx10.impl.IntBinaryOperationImpl <em>Int Binary Operation</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see gx10.impl.PlusImpl
-	 * @see gx10.impl.Gx10PackageImpl#getPlus()
+	 * @see gx10.impl.IntBinaryOperationImpl
+	 * @see gx10.impl.Gx10PackageImpl#getIntBinaryOperation()
 	 * @generated
 	 */
-	int PLUS = 14;
+	int INT_BINARY_OPERATION = 14;
 
 	/**
 	 * The feature id for the '<em><b>In Block</b></em>' container reference.
@@ -836,34 +845,34 @@ public interface Gx10Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PLUS__IN_BLOCK = INT_EXPRESSION__IN_BLOCK;
+	int INT_BINARY_OPERATION__IN_BLOCK = INT_EXPRESSION__IN_BLOCK;
 
 	/**
-	 * The feature id for the '<em><b>Left Plus</b></em>' containment reference.
+	 * The feature id for the '<em><b>Left Binary Expression</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PLUS__LEFT_PLUS = INT_EXPRESSION_FEATURE_COUNT + 0;
+	int INT_BINARY_OPERATION__LEFT_BINARY_EXPRESSION = INT_EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Right Plus</b></em>' containment reference.
+	 * The feature id for the '<em><b>Right Binary Expression</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PLUS__RIGHT_PLUS = INT_EXPRESSION_FEATURE_COUNT + 1;
+	int INT_BINARY_OPERATION__RIGHT_BINARY_EXPRESSION = INT_EXPRESSION_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>Plus</em>' class.
+	 * The number of structural features of the '<em>Int Binary Operation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PLUS_FEATURE_COUNT = INT_EXPRESSION_FEATURE_COUNT + 2;
+	int INT_BINARY_OPERATION_FEATURE_COUNT = INT_EXPRESSION_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get Current Value</em>' operation.
@@ -872,7 +881,7 @@ public interface Gx10Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PLUS___GET_CURRENT_VALUE = INT_EXPRESSION___GET_CURRENT_VALUE;
+	int INT_BINARY_OPERATION___GET_CURRENT_VALUE = INT_EXPRESSION___GET_CURRENT_VALUE;
 
 	/**
 	 * The operation id for the '<em>Evaluate</em>' operation.
@@ -881,16 +890,16 @@ public interface Gx10Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PLUS___EVALUATE = INT_EXPRESSION_OPERATION_COUNT + 0;
+	int INT_BINARY_OPERATION___EVALUATE = INT_EXPRESSION_OPERATION_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Plus</em>' class.
+	 * The number of operations of the '<em>Int Binary Operation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PLUS_OPERATION_COUNT = INT_EXPRESSION_OPERATION_COUNT + 1;
+	int INT_BINARY_OPERATION_OPERATION_COUNT = INT_EXPRESSION_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link gx10.impl.AsyncImpl <em>Async</em>}' class.
@@ -967,13 +976,22 @@ public interface Gx10Package extends EPackage {
 	int METHOD_CALL__METHOD_TO_CALL = EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Method Call Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD_CALL__METHOD_CALL_PARAMETERS = EXPRESSION_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Method Call</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int METHOD_CALL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+	int METHOD_CALL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Call</em>' operation.
@@ -1114,22 +1132,22 @@ public interface Gx10Package extends EPackage {
 	int BOOL_VAR__IN_BLOCK = EXPRESSION__IN_BLOCK;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOL_VAR__NAME = EXPRESSION_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Bool Var Expr</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOL_VAR__BOOL_VAR_EXPR = EXPRESSION_FEATURE_COUNT + 1;
+	int BOOL_VAR__BOOL_VAR_EXPR = EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Bool Var Name</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOL_VAR__BOOL_VAR_NAME = EXPRESSION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Bool Var</em>' class.
@@ -1178,22 +1196,22 @@ public interface Gx10Package extends EPackage {
 	int INT_VAR__IN_BLOCK = STATEMENT__IN_BLOCK;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INT_VAR__NAME = STATEMENT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Int Var Expr</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INT_VAR__INT_VAR_EXPR = STATEMENT_FEATURE_COUNT + 1;
+	int INT_VAR__INT_VAR_EXPR = STATEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Int Var Name</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INT_VAR__INT_VAR_NAME = STATEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Int Var</em>' class.
@@ -1332,7 +1350,6 @@ public interface Gx10Package extends EPackage {
 	 */
 	int BOOL_VAR_ACCESS_OPERATION_COUNT = BOOL_EXPRESSION_OPERATION_COUNT + 0;
 
-
 	/**
 	 * The meta object id for the '{@link gx10.impl.EqualImpl <em>Equal</em>}' class.
 	 * <!-- begin-user-doc -->
@@ -1405,6 +1422,235 @@ public interface Gx10Package extends EPackage {
 	 * @ordered
 	 */
 	int EQUAL_OPERATION_COUNT = BOOL_EXPRESSION_OPERATION_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link gx10.impl.MethodCallParameterImpl <em>Method Call Parameter</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see gx10.impl.MethodCallParameterImpl
+	 * @see gx10.impl.Gx10PackageImpl#getMethodCallParameter()
+	 * @generated
+	 */
+	int METHOD_CALL_PARAMETER = 25;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD_CALL_PARAMETER__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Method Call Parameter Expr</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD_CALL_PARAMETER__METHOD_CALL_PARAMETER_EXPR = 1;
+
+	/**
+	 * The number of structural features of the '<em>Method Call Parameter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD_CALL_PARAMETER_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Method Call Parameter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD_CALL_PARAMETER_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link gx10.impl.ReferentiableImpl <em>Referentiable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see gx10.impl.ReferentiableImpl
+	 * @see gx10.impl.Gx10PackageImpl#getReferentiable()
+	 * @generated
+	 */
+	int REFERENTIABLE = 26;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENTIABLE__NAME = 0;
+
+	/**
+	 * The number of structural features of the '<em>Referentiable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENTIABLE_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Referentiable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENTIABLE_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link gx10.impl.PlusImpl <em>Plus</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see gx10.impl.PlusImpl
+	 * @see gx10.impl.Gx10PackageImpl#getPlus()
+	 * @generated
+	 */
+	int PLUS = 27;
+
+	/**
+	 * The feature id for the '<em><b>In Block</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLUS__IN_BLOCK = INT_BINARY_OPERATION__IN_BLOCK;
+
+	/**
+	 * The feature id for the '<em><b>Left Binary Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLUS__LEFT_BINARY_EXPRESSION = INT_BINARY_OPERATION__LEFT_BINARY_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Right Binary Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLUS__RIGHT_BINARY_EXPRESSION = INT_BINARY_OPERATION__RIGHT_BINARY_EXPRESSION;
+
+	/**
+	 * The number of structural features of the '<em>Plus</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLUS_FEATURE_COUNT = INT_BINARY_OPERATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Current Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLUS___GET_CURRENT_VALUE = INT_BINARY_OPERATION___GET_CURRENT_VALUE;
+
+	/**
+	 * The operation id for the '<em>Evaluate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLUS___EVALUATE = INT_BINARY_OPERATION___EVALUATE;
+
+	/**
+	 * The number of operations of the '<em>Plus</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLUS_OPERATION_COUNT = INT_BINARY_OPERATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link gx10.impl.TimeImpl <em>Time</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see gx10.impl.TimeImpl
+	 * @see gx10.impl.Gx10PackageImpl#getTime()
+	 * @generated
+	 */
+	int TIME = 28;
+
+	/**
+	 * The feature id for the '<em><b>In Block</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME__IN_BLOCK = INT_BINARY_OPERATION__IN_BLOCK;
+
+	/**
+	 * The feature id for the '<em><b>Left Binary Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME__LEFT_BINARY_EXPRESSION = INT_BINARY_OPERATION__LEFT_BINARY_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Right Binary Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME__RIGHT_BINARY_EXPRESSION = INT_BINARY_OPERATION__RIGHT_BINARY_EXPRESSION;
+
+	/**
+	 * The number of structural features of the '<em>Time</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_FEATURE_COUNT = INT_BINARY_OPERATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Current Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME___GET_CURRENT_VALUE = INT_BINARY_OPERATION___GET_CURRENT_VALUE;
+
+	/**
+	 * The operation id for the '<em>Evaluate</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME___EVALUATE = INT_BINARY_OPERATION___EVALUATE;
+
+	/**
+	 * The number of operations of the '<em>Time</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_OPERATION_COUNT = INT_BINARY_OPERATION_OPERATION_COUNT + 0;
 
 
 	/**
@@ -1492,6 +1738,17 @@ public interface Gx10Package extends EPackage {
 	 * @generated
 	 */
 	EReference getMethod_CalledBy();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link gx10.Method#getMethodParameters <em>Method Parameters</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Method Parameters</em>'.
+	 * @see gx10.Method#getMethodParameters()
+	 * @see #getMethod()
+	 * @generated
+	 */
+	EReference getMethod_MethodParameters();
 
 	/**
 	 * Returns the meta object for class '{@link gx10.Block <em>Block</em>}'.
@@ -1754,46 +2011,46 @@ public interface Gx10Package extends EPackage {
 	EAttribute getIntConst_Value();
 
 	/**
-	 * Returns the meta object for class '{@link gx10.Plus <em>Plus</em>}'.
+	 * Returns the meta object for class '{@link gx10.IntBinaryOperation <em>Int Binary Operation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Plus</em>'.
-	 * @see gx10.Plus
+	 * @return the meta object for class '<em>Int Binary Operation</em>'.
+	 * @see gx10.IntBinaryOperation
 	 * @generated
 	 */
-	EClass getPlus();
+	EClass getIntBinaryOperation();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link gx10.Plus#getLeftPlus <em>Left Plus</em>}'.
+	 * Returns the meta object for the containment reference '{@link gx10.IntBinaryOperation#getLeftBinaryExpression <em>Left Binary Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Left Plus</em>'.
-	 * @see gx10.Plus#getLeftPlus()
-	 * @see #getPlus()
+	 * @return the meta object for the containment reference '<em>Left Binary Expression</em>'.
+	 * @see gx10.IntBinaryOperation#getLeftBinaryExpression()
+	 * @see #getIntBinaryOperation()
 	 * @generated
 	 */
-	EReference getPlus_LeftPlus();
+	EReference getIntBinaryOperation_LeftBinaryExpression();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link gx10.Plus#getRightPlus <em>Right Plus</em>}'.
+	 * Returns the meta object for the containment reference '{@link gx10.IntBinaryOperation#getRightBinaryExpression <em>Right Binary Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Right Plus</em>'.
-	 * @see gx10.Plus#getRightPlus()
-	 * @see #getPlus()
+	 * @return the meta object for the containment reference '<em>Right Binary Expression</em>'.
+	 * @see gx10.IntBinaryOperation#getRightBinaryExpression()
+	 * @see #getIntBinaryOperation()
 	 * @generated
 	 */
-	EReference getPlus_RightPlus();
+	EReference getIntBinaryOperation_RightBinaryExpression();
 
 	/**
-	 * Returns the meta object for the '{@link gx10.Plus#evaluate() <em>Evaluate</em>}' operation.
+	 * Returns the meta object for the '{@link gx10.IntBinaryOperation#evaluate() <em>Evaluate</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Evaluate</em>' operation.
-	 * @see gx10.Plus#evaluate()
+	 * @see gx10.IntBinaryOperation#evaluate()
 	 * @generated
 	 */
-	EOperation getPlus__Evaluate();
+	EOperation getIntBinaryOperation__Evaluate();
 
 	/**
 	 * Returns the meta object for class '{@link gx10.Async <em>Async</em>}'.
@@ -1836,6 +2093,17 @@ public interface Gx10Package extends EPackage {
 	 * @generated
 	 */
 	EReference getMethodCall_MethodToCall();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link gx10.MethodCall#getMethodCallParameters <em>Method Call Parameters</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Method Call Parameters</em>'.
+	 * @see gx10.MethodCall#getMethodCallParameters()
+	 * @see #getMethodCall()
+	 * @generated
+	 */
+	EReference getMethodCall_MethodCallParameters();
 
 	/**
 	 * Returns the meta object for the '{@link gx10.MethodCall#call() <em>Call</em>}' operation.
@@ -1920,17 +2188,6 @@ public interface Gx10Package extends EPackage {
 	EClass getBoolVar();
 
 	/**
-	 * Returns the meta object for the attribute '{@link gx10.BoolVar#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see gx10.BoolVar#getName()
-	 * @see #getBoolVar()
-	 * @generated
-	 */
-	EAttribute getBoolVar_Name();
-
-	/**
 	 * Returns the meta object for the containment reference '{@link gx10.BoolVar#getBoolVarExpr <em>Bool Var Expr</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1940,6 +2197,17 @@ public interface Gx10Package extends EPackage {
 	 * @generated
 	 */
 	EReference getBoolVar_BoolVarExpr();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link gx10.BoolVar#getBoolVarName <em>Bool Var Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Bool Var Name</em>'.
+	 * @see gx10.BoolVar#getBoolVarName()
+	 * @see #getBoolVar()
+	 * @generated
+	 */
+	EReference getBoolVar_BoolVarName();
 
 	/**
 	 * Returns the meta object for the '{@link gx10.BoolVar#evaluate() <em>Evaluate</em>}' operation.
@@ -1962,17 +2230,6 @@ public interface Gx10Package extends EPackage {
 	EClass getIntVar();
 
 	/**
-	 * Returns the meta object for the attribute '{@link gx10.IntVar#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see gx10.IntVar#getName()
-	 * @see #getIntVar()
-	 * @generated
-	 */
-	EAttribute getIntVar_Name();
-
-	/**
 	 * Returns the meta object for the containment reference '{@link gx10.IntVar#getIntVarExpr <em>Int Var Expr</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1982,6 +2239,17 @@ public interface Gx10Package extends EPackage {
 	 * @generated
 	 */
 	EReference getIntVar_IntVarExpr();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link gx10.IntVar#getIntVarName <em>Int Var Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Int Var Name</em>'.
+	 * @see gx10.IntVar#getIntVarName()
+	 * @see #getIntVar()
+	 * @generated
+	 */
+	EReference getIntVar_IntVarName();
 
 	/**
 	 * Returns the meta object for the '{@link gx10.IntVar#evaluate() <em>Evaluate</em>}' operation.
@@ -2078,6 +2346,79 @@ public interface Gx10Package extends EPackage {
 	EOperation getEqual__Evaluate();
 
 	/**
+	 * Returns the meta object for class '{@link gx10.MethodCallParameter <em>Method Call Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Method Call Parameter</em>'.
+	 * @see gx10.MethodCallParameter
+	 * @generated
+	 */
+	EClass getMethodCallParameter();
+
+	/**
+	 * Returns the meta object for the attribute '{@link gx10.MethodCallParameter#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see gx10.MethodCallParameter#getName()
+	 * @see #getMethodCallParameter()
+	 * @generated
+	 */
+	EAttribute getMethodCallParameter_Name();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link gx10.MethodCallParameter#getMethodCallParameterExpr <em>Method Call Parameter Expr</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Method Call Parameter Expr</em>'.
+	 * @see gx10.MethodCallParameter#getMethodCallParameterExpr()
+	 * @see #getMethodCallParameter()
+	 * @generated
+	 */
+	EReference getMethodCallParameter_MethodCallParameterExpr();
+
+	/**
+	 * Returns the meta object for class '{@link gx10.Referentiable <em>Referentiable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Referentiable</em>'.
+	 * @see gx10.Referentiable
+	 * @generated
+	 */
+	EClass getReferentiable();
+
+	/**
+	 * Returns the meta object for the attribute '{@link gx10.Referentiable#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see gx10.Referentiable#getName()
+	 * @see #getReferentiable()
+	 * @generated
+	 */
+	EAttribute getReferentiable_Name();
+
+	/**
+	 * Returns the meta object for class '{@link gx10.Plus <em>Plus</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Plus</em>'.
+	 * @see gx10.Plus
+	 * @generated
+	 */
+	EClass getPlus();
+
+	/**
+	 * Returns the meta object for class '{@link gx10.Time <em>Time</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Time</em>'.
+	 * @see gx10.Time
+	 * @generated
+	 */
+	EClass getTime();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2167,6 +2508,14 @@ public interface Gx10Package extends EPackage {
 		 * @generated
 		 */
 		EReference METHOD__CALLED_BY = eINSTANCE.getMethod_CalledBy();
+
+		/**
+		 * The meta object literal for the '<em><b>Method Parameters</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference METHOD__METHOD_PARAMETERS = eINSTANCE.getMethod_MethodParameters();
 
 		/**
 		 * The meta object literal for the '{@link gx10.impl.BlockImpl <em>Block</em>}' class.
@@ -2393,30 +2742,30 @@ public interface Gx10Package extends EPackage {
 		EAttribute INT_CONST__VALUE = eINSTANCE.getIntConst_Value();
 
 		/**
-		 * The meta object literal for the '{@link gx10.impl.PlusImpl <em>Plus</em>}' class.
+		 * The meta object literal for the '{@link gx10.impl.IntBinaryOperationImpl <em>Int Binary Operation</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see gx10.impl.PlusImpl
-		 * @see gx10.impl.Gx10PackageImpl#getPlus()
+		 * @see gx10.impl.IntBinaryOperationImpl
+		 * @see gx10.impl.Gx10PackageImpl#getIntBinaryOperation()
 		 * @generated
 		 */
-		EClass PLUS = eINSTANCE.getPlus();
+		EClass INT_BINARY_OPERATION = eINSTANCE.getIntBinaryOperation();
 
 		/**
-		 * The meta object literal for the '<em><b>Left Plus</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Left Binary Expression</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PLUS__LEFT_PLUS = eINSTANCE.getPlus_LeftPlus();
+		EReference INT_BINARY_OPERATION__LEFT_BINARY_EXPRESSION = eINSTANCE.getIntBinaryOperation_LeftBinaryExpression();
 
 		/**
-		 * The meta object literal for the '<em><b>Right Plus</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Right Binary Expression</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PLUS__RIGHT_PLUS = eINSTANCE.getPlus_RightPlus();
+		EReference INT_BINARY_OPERATION__RIGHT_BINARY_EXPRESSION = eINSTANCE.getIntBinaryOperation_RightBinaryExpression();
 
 		/**
 		 * The meta object literal for the '<em><b>Evaluate</b></em>' operation.
@@ -2424,7 +2773,7 @@ public interface Gx10Package extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation PLUS___EVALUATE = eINSTANCE.getPlus__Evaluate();
+		EOperation INT_BINARY_OPERATION___EVALUATE = eINSTANCE.getIntBinaryOperation__Evaluate();
 
 		/**
 		 * The meta object literal for the '{@link gx10.impl.AsyncImpl <em>Async</em>}' class.
@@ -2461,6 +2810,14 @@ public interface Gx10Package extends EPackage {
 		 * @generated
 		 */
 		EReference METHOD_CALL__METHOD_TO_CALL = eINSTANCE.getMethodCall_MethodToCall();
+
+		/**
+		 * The meta object literal for the '<em><b>Method Call Parameters</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference METHOD_CALL__METHOD_CALL_PARAMETERS = eINSTANCE.getMethodCall_MethodCallParameters();
 
 		/**
 		 * The meta object literal for the '<em><b>Call</b></em>' operation.
@@ -2535,20 +2892,20 @@ public interface Gx10Package extends EPackage {
 		EClass BOOL_VAR = eINSTANCE.getBoolVar();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute BOOL_VAR__NAME = eINSTANCE.getBoolVar_Name();
-
-		/**
 		 * The meta object literal for the '<em><b>Bool Var Expr</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference BOOL_VAR__BOOL_VAR_EXPR = eINSTANCE.getBoolVar_BoolVarExpr();
+
+		/**
+		 * The meta object literal for the '<em><b>Bool Var Name</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BOOL_VAR__BOOL_VAR_NAME = eINSTANCE.getBoolVar_BoolVarName();
 
 		/**
 		 * The meta object literal for the '<em><b>Evaluate</b></em>' operation.
@@ -2569,20 +2926,20 @@ public interface Gx10Package extends EPackage {
 		EClass INT_VAR = eINSTANCE.getIntVar();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute INT_VAR__NAME = eINSTANCE.getIntVar_Name();
-
-		/**
 		 * The meta object literal for the '<em><b>Int Var Expr</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference INT_VAR__INT_VAR_EXPR = eINSTANCE.getIntVar_IntVarExpr();
+
+		/**
+		 * The meta object literal for the '<em><b>Int Var Name</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INT_VAR__INT_VAR_NAME = eINSTANCE.getIntVar_IntVarName();
 
 		/**
 		 * The meta object literal for the '<em><b>Evaluate</b></em>' operation.
@@ -2661,6 +3018,70 @@ public interface Gx10Package extends EPackage {
 		 * @generated
 		 */
 		EOperation EQUAL___EVALUATE = eINSTANCE.getEqual__Evaluate();
+
+		/**
+		 * The meta object literal for the '{@link gx10.impl.MethodCallParameterImpl <em>Method Call Parameter</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see gx10.impl.MethodCallParameterImpl
+		 * @see gx10.impl.Gx10PackageImpl#getMethodCallParameter()
+		 * @generated
+		 */
+		EClass METHOD_CALL_PARAMETER = eINSTANCE.getMethodCallParameter();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute METHOD_CALL_PARAMETER__NAME = eINSTANCE.getMethodCallParameter_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Method Call Parameter Expr</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference METHOD_CALL_PARAMETER__METHOD_CALL_PARAMETER_EXPR = eINSTANCE.getMethodCallParameter_MethodCallParameterExpr();
+
+		/**
+		 * The meta object literal for the '{@link gx10.impl.ReferentiableImpl <em>Referentiable</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see gx10.impl.ReferentiableImpl
+		 * @see gx10.impl.Gx10PackageImpl#getReferentiable()
+		 * @generated
+		 */
+		EClass REFERENTIABLE = eINSTANCE.getReferentiable();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute REFERENTIABLE__NAME = eINSTANCE.getReferentiable_Name();
+
+		/**
+		 * The meta object literal for the '{@link gx10.impl.PlusImpl <em>Plus</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see gx10.impl.PlusImpl
+		 * @see gx10.impl.Gx10PackageImpl#getPlus()
+		 * @generated
+		 */
+		EClass PLUS = eINSTANCE.getPlus();
+
+		/**
+		 * The meta object literal for the '{@link gx10.impl.TimeImpl <em>Time</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see gx10.impl.TimeImpl
+		 * @see gx10.impl.Gx10PackageImpl#getTime()
+		 * @generated
+		 */
+		EClass TIME = eINSTANCE.getTime();
 
 	}
 

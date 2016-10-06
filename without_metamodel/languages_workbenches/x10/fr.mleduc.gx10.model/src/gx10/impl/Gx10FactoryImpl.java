@@ -66,7 +66,6 @@ public class Gx10FactoryImpl extends EFactoryImpl implements Gx10Factory {
 			case Gx10Package.NOT: return createNot();
 			case Gx10Package.AND: return createAnd();
 			case Gx10Package.INT_CONST: return createIntConst();
-			case Gx10Package.PLUS: return createPlus();
 			case Gx10Package.ASYNC: return createAsync();
 			case Gx10Package.METHOD_CALL: return createMethodCall();
 			case Gx10Package.FINISH: return createFinish();
@@ -76,6 +75,10 @@ public class Gx10FactoryImpl extends EFactoryImpl implements Gx10Factory {
 			case Gx10Package.INT_VAR_ACCESS: return createIntVarAccess();
 			case Gx10Package.BOOL_VAR_ACCESS: return createBoolVarAccess();
 			case Gx10Package.EQUAL: return createEqual();
+			case Gx10Package.METHOD_CALL_PARAMETER: return createMethodCallParameter();
+			case Gx10Package.REFERENTIABLE: return createReferentiable();
+			case Gx10Package.PLUS: return createPlus();
+			case Gx10Package.TIME: return createTime();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -186,16 +189,6 @@ public class Gx10FactoryImpl extends EFactoryImpl implements Gx10Factory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Plus createPlus() {
-		PlusImpl plus = new PlusImpl();
-		return plus;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Async createAsync() {
 		AsyncImpl async = new AsyncImpl();
 		return async;
@@ -279,6 +272,46 @@ public class Gx10FactoryImpl extends EFactoryImpl implements Gx10Factory {
 	public Equal createEqual() {
 		EqualImpl equal = new EqualImpl();
 		return equal;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MethodCallParameter createMethodCallParameter() {
+		MethodCallParameterImpl methodCallParameter = new MethodCallParameterImpl();
+		return methodCallParameter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Referentiable createReferentiable() {
+		ReferentiableImpl referentiable = new ReferentiableImpl();
+		return referentiable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Plus createPlus() {
+		PlusImpl plus = new PlusImpl();
+		return plus;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Time createTime() {
+		TimeImpl time = new TimeImpl();
+		return time;
 	}
 
 	/**

@@ -2,8 +2,8 @@ package gx10.aspects;
 
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
 import gx10.Block;
-import gx10.BoolVar;
 import gx10.BoolVarAccess;
+import gx10.Referentiable;
 import gx10.aspects.BlockAspect;
 import gx10.aspects.BoolExpressionAspect;
 import gx10.aspects.BoolVarAccessAspectBoolVarAccessAspectProperties;
@@ -33,7 +33,7 @@ public class BoolVarAccessAspect extends BoolExpressionAspect {
         currentStatement = _eContainer;
       }
       Context _context = BlockAspect.context(((Block) currentStatement));
-      BoolVar _boolVarRef = _self.getBoolVarRef();
+      Referentiable _boolVarRef = _self.getBoolVarRef();
       String _name = _boolVarRef.getName();
       _xblockexpression = _context.getBool(_name);
     }

@@ -3,12 +3,12 @@ package gx10.aspects;
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
 import gx10.IntExpression;
 import gx10.Plus;
-import gx10.aspects.IntExpressionAspect;
+import gx10.aspects.IntBinaryOperationAspect;
 import gx10.aspects.PlusAspectPlusAspectProperties;
 
 @Aspect(className = Plus.class)
 @SuppressWarnings("all")
-public class PlusAspect extends IntExpressionAspect {
+public class PlusAspect extends IntBinaryOperationAspect {
   public static void evaluate(final Plus _self) {
     final gx10.aspects.PlusAspectPlusAspectProperties _self_ = gx10.aspects.PlusAspectPlusAspectContext.getSelf(_self);
     _privk3_evaluate(_self_, _self);;
@@ -38,10 +38,10 @@ public class PlusAspect extends IntExpressionAspect {
   }
   
   protected static void _privk3_evaluate(final PlusAspectPlusAspectProperties _self_, final Plus _self) {
-    IntExpression _leftPlus = _self.getLeftPlus();
-    int _currentValue = _leftPlus.getCurrentValue();
-    IntExpression _rightPlus = _self.getRightPlus();
-    int _currentValue_1 = _rightPlus.getCurrentValue();
+    IntExpression _leftBinaryExpression = _self.getLeftBinaryExpression();
+    int _currentValue = _leftBinaryExpression.getCurrentValue();
+    IntExpression _rightBinaryExpression = _self.getRightBinaryExpression();
+    int _currentValue_1 = _rightBinaryExpression.getCurrentValue();
     int _plus = (_currentValue + _currentValue_1);
     PlusAspect.currentValuePlus(_self, _plus);
   }

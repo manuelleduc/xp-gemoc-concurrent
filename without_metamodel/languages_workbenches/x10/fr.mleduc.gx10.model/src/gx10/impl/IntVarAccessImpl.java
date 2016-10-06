@@ -3,8 +3,8 @@
 package gx10.impl;
 
 import gx10.Gx10Package;
-import gx10.IntVar;
 import gx10.IntVarAccess;
+import gx10.Referentiable;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -35,7 +35,7 @@ public class IntVarAccessImpl extends IntExpressionImpl implements IntVarAccess 
 	 * @generated
 	 * @ordered
 	 */
-	protected IntVar intVarRef;
+	protected Referentiable intVarRef;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -61,10 +61,10 @@ public class IntVarAccessImpl extends IntExpressionImpl implements IntVarAccess 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IntVar getIntVarRef() {
+	public Referentiable getIntVarRef() {
 		if (intVarRef != null && intVarRef.eIsProxy()) {
 			InternalEObject oldIntVarRef = (InternalEObject)intVarRef;
-			intVarRef = (IntVar)eResolveProxy(oldIntVarRef);
+			intVarRef = (Referentiable)eResolveProxy(oldIntVarRef);
 			if (intVarRef != oldIntVarRef) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, Gx10Package.INT_VAR_ACCESS__INT_VAR_REF, oldIntVarRef, intVarRef));
@@ -78,7 +78,7 @@ public class IntVarAccessImpl extends IntExpressionImpl implements IntVarAccess 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IntVar basicGetIntVarRef() {
+	public Referentiable basicGetIntVarRef() {
 		return intVarRef;
 	}
 
@@ -87,8 +87,8 @@ public class IntVarAccessImpl extends IntExpressionImpl implements IntVarAccess 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setIntVarRef(IntVar newIntVarRef) {
-		IntVar oldIntVarRef = intVarRef;
+	public void setIntVarRef(Referentiable newIntVarRef) {
+		Referentiable oldIntVarRef = intVarRef;
 		intVarRef = newIntVarRef;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, Gx10Package.INT_VAR_ACCESS__INT_VAR_REF, oldIntVarRef, intVarRef));
@@ -118,7 +118,7 @@ public class IntVarAccessImpl extends IntExpressionImpl implements IntVarAccess 
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case Gx10Package.INT_VAR_ACCESS__INT_VAR_REF:
-				setIntVarRef((IntVar)newValue);
+				setIntVarRef((Referentiable)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -133,7 +133,7 @@ public class IntVarAccessImpl extends IntExpressionImpl implements IntVarAccess 
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case Gx10Package.INT_VAR_ACCESS__INT_VAR_REF:
-				setIntVarRef((IntVar)null);
+				setIntVarRef((Referentiable)null);
 				return;
 		}
 		super.eUnset(featureID);

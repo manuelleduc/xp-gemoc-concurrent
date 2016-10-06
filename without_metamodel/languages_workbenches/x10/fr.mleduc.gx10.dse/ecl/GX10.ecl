@@ -29,7 +29,7 @@ context IntVar
 context BoolVar
 	def : evaluate : Event = self.evaluate()
 	
-context Plus
+context IntBinaryOperation
 	def : evaluate : Event = self.evaluate()
 		
 context Equal
@@ -169,14 +169,14 @@ context Print
 		
 
 		
-context Plus
-	inv plusStartThenLeftEvaluation:
-		Relation Precedes(self.startStatement, self.leftPlus.startStatement)
-	inv plusStartRightAfterEndFinished:
-		Relation Precedes(self.leftPlus.endStatement, self.rightPlus.startStatement)
-	inv plusEvaluateOnceRightEnd:
-		Relation Precedes(self.rightPlus.endStatement, self.evaluate)
-	inv plusFinishOnceEvaluated:
+context IntBinaryOperation
+	inv iboStartThenLeftEvaluation:
+		Relation Precedes(self.startStatement, self.leftBinaryExpression.startStatement)
+	inv iboStartRightAfterEndFinished:
+		Relation Precedes(self.leftBinaryExpression.endStatement, self.rightBinaryExpression.startStatement)
+	inv iboEvaluateOnceRightEnd:
+		Relation Precedes(self.rightBinaryExpression.endStatement, self.evaluate)
+	inv iboFinishOnceEvaluated:
 		Relation Precedes(self.evaluate, self.endStatement)
 
 context Not

@@ -176,11 +176,6 @@ public class AsyncItemProvider extends StatementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(Gx10Package.Literals.ASYNC__ASYNC_BLOCK,
-				 Gx10Factory.eINSTANCE.createPlus()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(Gx10Package.Literals.ASYNC__ASYNC_BLOCK,
 				 Gx10Factory.eINSTANCE.createAsync()));
 
 		newChildDescriptors.add
@@ -222,6 +217,16 @@ public class AsyncItemProvider extends StatementItemProvider {
 			(createChildParameter
 				(Gx10Package.Literals.ASYNC__ASYNC_BLOCK,
 				 Gx10Factory.eINSTANCE.createEqual()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Gx10Package.Literals.ASYNC__ASYNC_BLOCK,
+				 Gx10Factory.eINSTANCE.createPlus()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Gx10Package.Literals.ASYNC__ASYNC_BLOCK,
+				 Gx10Factory.eINSTANCE.createTime()));
 	}
 
 }

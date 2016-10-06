@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link gx10.Method#getMethodBlock <em>Method Block</em>}</li>
  *   <li>{@link gx10.Method#getName <em>Name</em>}</li>
  *   <li>{@link gx10.Method#getCalledBy <em>Called By</em>}</li>
+ *   <li>{@link gx10.Method#getMethodParameters <em>Method Parameters</em>}</li>
  * </ul>
  *
  * @see gx10.Gx10Package#getMethod()
@@ -123,5 +124,21 @@ public interface Method extends EObject {
 	 * @generated
 	 */
 	EList<MethodCall> getCalledBy();
+
+	/**
+	 * Returns the value of the '<em><b>Method Parameters</b></em>' containment reference list.
+	 * The list contents are of type {@link gx10.Referentiable}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Method Parameters</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Method Parameters</em>' containment reference list.
+	 * @see gx10.Gx10Package#getMethod_MethodParameters()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Referentiable> getMethodParameters();
 
 } // Method

@@ -5,8 +5,11 @@ package gx10.impl;
 import gx10.Gx10Package;
 import gx10.Method;
 import gx10.MethodCall;
+import gx10.MethodCallParameter;
 
 import java.lang.reflect.InvocationTargetException;
+
+import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -18,6 +21,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Method Call</b></em>'.
@@ -27,6 +33,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link gx10.impl.MethodCallImpl#getMethodToCall <em>Method To Call</em>}</li>
+ *   <li>{@link gx10.impl.MethodCallImpl#getMethodCallParameters <em>Method Call Parameters</em>}</li>
  * </ul>
  *
  * @generated
@@ -41,6 +48,16 @@ public class MethodCallImpl extends ExpressionImpl implements MethodCall {
 	 * @ordered
 	 */
 	protected Method methodToCall;
+
+	/**
+	 * The cached value of the '{@link #getMethodCallParameters() <em>Method Call Parameters</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMethodCallParameters()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<MethodCallParameter> methodCallParameters;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -126,6 +143,18 @@ public class MethodCallImpl extends ExpressionImpl implements MethodCall {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<MethodCallParameter> getMethodCallParameters() {
+		if (methodCallParameters == null) {
+			methodCallParameters = new EObjectContainmentEList<MethodCallParameter>(MethodCallParameter.class, this, Gx10Package.METHOD_CALL__METHOD_CALL_PARAMETERS);
+		}
+		return methodCallParameters;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public void call() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -158,6 +187,8 @@ public class MethodCallImpl extends ExpressionImpl implements MethodCall {
 		switch (featureID) {
 			case Gx10Package.METHOD_CALL__METHOD_TO_CALL:
 				return basicSetMethodToCall(null, msgs);
+			case Gx10Package.METHOD_CALL__METHOD_CALL_PARAMETERS:
+				return ((InternalEList<?>)getMethodCallParameters()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -173,6 +204,8 @@ public class MethodCallImpl extends ExpressionImpl implements MethodCall {
 			case Gx10Package.METHOD_CALL__METHOD_TO_CALL:
 				if (resolve) return getMethodToCall();
 				return basicGetMethodToCall();
+			case Gx10Package.METHOD_CALL__METHOD_CALL_PARAMETERS:
+				return getMethodCallParameters();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -182,11 +215,16 @@ public class MethodCallImpl extends ExpressionImpl implements MethodCall {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case Gx10Package.METHOD_CALL__METHOD_TO_CALL:
 				setMethodToCall((Method)newValue);
+				return;
+			case Gx10Package.METHOD_CALL__METHOD_CALL_PARAMETERS:
+				getMethodCallParameters().clear();
+				getMethodCallParameters().addAll((Collection<? extends MethodCallParameter>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -203,6 +241,9 @@ public class MethodCallImpl extends ExpressionImpl implements MethodCall {
 			case Gx10Package.METHOD_CALL__METHOD_TO_CALL:
 				setMethodToCall((Method)null);
 				return;
+			case Gx10Package.METHOD_CALL__METHOD_CALL_PARAMETERS:
+				getMethodCallParameters().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -217,6 +258,8 @@ public class MethodCallImpl extends ExpressionImpl implements MethodCall {
 		switch (featureID) {
 			case Gx10Package.METHOD_CALL__METHOD_TO_CALL:
 				return methodToCall != null;
+			case Gx10Package.METHOD_CALL__METHOD_CALL_PARAMETERS:
+				return methodCallParameters != null && !methodCallParameters.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

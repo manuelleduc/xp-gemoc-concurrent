@@ -26,12 +26,18 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true">
         <ecoreFeature xsi:type="ecore:EReference" href="gx10.ecore#//Method/calledBy"/>
       </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="gx10.ecore#//Method/methodParameters"/>
+      </genFeatures>
     </genClasses>
     <genClasses>
       <ecoreClass href="gx10.ecore#//Block"/>
       <genFeatures property="None" children="true" createChild="true">
         <ecoreFeature xsi:type="ecore:EReference" href="gx10.ecore#//Block/blockStatements"/>
       </genFeatures>
+      <genOperations>
+        <ecoreOperation href="gx10.ecore#//Block/initBlock"/>
+      </genOperations>
     </genClasses>
     <genClasses image="false">
       <ecoreClass href="gx10.ecore#//Statement"/>
@@ -99,16 +105,16 @@
         <ecoreFeature xsi:type="ecore:EAttribute" href="gx10.ecore#//IntConst/value"/>
       </genFeatures>
     </genClasses>
-    <genClasses>
-      <ecoreClass href="gx10.ecore#//Plus"/>
+    <genClasses image="false">
+      <ecoreClass href="gx10.ecore#//IntBinaryOperation"/>
       <genFeatures property="None" children="true" createChild="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="gx10.ecore#//Plus/leftPlus"/>
+        <ecoreFeature xsi:type="ecore:EReference" href="gx10.ecore#//IntBinaryOperation/leftBinaryExpression"/>
       </genFeatures>
       <genFeatures property="None" children="true" createChild="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="gx10.ecore#//Plus/rightPlus"/>
+        <ecoreFeature xsi:type="ecore:EReference" href="gx10.ecore#//IntBinaryOperation/rightBinaryExpression"/>
       </genFeatures>
       <genOperations>
-        <ecoreOperation href="gx10.ecore#//Plus/evaluate"/>
+        <ecoreOperation href="gx10.ecore#//IntBinaryOperation/evaluate"/>
       </genOperations>
     </genClasses>
     <genClasses>
@@ -121,6 +127,9 @@
       <ecoreClass href="gx10.ecore#//MethodCall"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true">
         <ecoreFeature xsi:type="ecore:EReference" href="gx10.ecore#//MethodCall/methodToCall"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="gx10.ecore#//MethodCall/methodCallParameters"/>
       </genFeatures>
       <genOperations>
         <ecoreOperation href="gx10.ecore#//MethodCall/call"/>
@@ -146,20 +155,23 @@
     </genClasses>
     <genClasses>
       <ecoreClass href="gx10.ecore#//BoolVar"/>
-      <genFeatures createChild="false">
-        <ecoreFeature xsi:type="ecore:EAttribute" href="gx10.ecore#//BoolVar/name"/>
-      </genFeatures>
       <genFeatures property="None" children="true" createChild="true">
         <ecoreFeature xsi:type="ecore:EReference" href="gx10.ecore#//BoolVar/boolVarExpr"/>
       </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="gx10.ecore#//BoolVar/boolVarName"/>
+      </genFeatures>
+      <genOperations>
+        <ecoreOperation href="gx10.ecore#//BoolVar/evaluate"/>
+      </genOperations>
     </genClasses>
     <genClasses>
       <ecoreClass href="gx10.ecore#//IntVar"/>
-      <genFeatures createChild="false">
-        <ecoreFeature xsi:type="ecore:EAttribute" href="gx10.ecore#//IntVar/name"/>
-      </genFeatures>
       <genFeatures property="None" children="true" createChild="true">
         <ecoreFeature xsi:type="ecore:EReference" href="gx10.ecore#//IntVar/intVarExpr"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="gx10.ecore#//IntVar/intVarName"/>
       </genFeatures>
       <genOperations>
         <ecoreOperation href="gx10.ecore#//IntVar/evaluate"/>
@@ -185,6 +197,30 @@
       <genFeatures property="None" children="true" createChild="true">
         <ecoreFeature xsi:type="ecore:EReference" href="gx10.ecore#//Equal/rightEqual"/>
       </genFeatures>
+      <genOperations>
+        <ecoreOperation href="gx10.ecore#//Equal/evaluate"/>
+      </genOperations>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="gx10.ecore#//MethodCallParameter"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="gx10.ecore#//MethodCallParameter/name"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="gx10.ecore#//MethodCallParameter/methodCallParameterExpr"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="gx10.ecore#//Referentiable"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="gx10.ecore#//Referentiable/name"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="gx10.ecore#//Plus"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="gx10.ecore#//Time"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

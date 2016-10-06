@@ -2,8 +2,8 @@ package gx10.aspects;
 
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
 import gx10.Block;
-import gx10.IntVar;
 import gx10.IntVarAccess;
+import gx10.Referentiable;
 import gx10.aspects.BlockAspect;
 import gx10.aspects.Context;
 import gx10.aspects.IntExpressionAspect;
@@ -33,7 +33,7 @@ public class IntVarAccessAspect extends IntExpressionAspect {
         currentStatement = _eContainer;
       }
       Context _context = BlockAspect.context(((Block) currentStatement));
-      IntVar _intVarRef = _self.getIntVarRef();
+      Referentiable _intVarRef = _self.getIntVarRef();
       String _name = _intVarRef.getName();
       _xblockexpression = _context.getInt(_name);
     }

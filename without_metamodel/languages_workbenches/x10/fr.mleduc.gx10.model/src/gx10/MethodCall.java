@@ -2,6 +2,7 @@
  */
 package gx10;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,6 +14,7 @@ package gx10;
  * </p>
  * <ul>
  *   <li>{@link gx10.MethodCall#getMethodToCall <em>Method To Call</em>}</li>
+ *   <li>{@link gx10.MethodCall#getMethodCallParameters <em>Method Call Parameters</em>}</li>
  * </ul>
  *
  * @see gx10.Gx10Package#getMethodCall()
@@ -47,6 +49,22 @@ public interface MethodCall extends Expression {
 	 * @generated
 	 */
 	void setMethodToCall(Method value);
+
+	/**
+	 * Returns the value of the '<em><b>Method Call Parameters</b></em>' containment reference list.
+	 * The list contents are of type {@link gx10.MethodCallParameter}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Method Call Parameters</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Method Call Parameters</em>' containment reference list.
+	 * @see gx10.Gx10Package#getMethodCall_MethodCallParameters()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<MethodCallParameter> getMethodCallParameters();
 
 	/**
 	 * <!-- begin-user-doc -->

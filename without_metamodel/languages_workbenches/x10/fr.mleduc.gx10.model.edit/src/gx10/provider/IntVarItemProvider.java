@@ -6,18 +6,12 @@ package gx10.provider;
 import gx10.Gx10Factory;
 import gx10.Gx10Package;
 import gx10.IntVar;
-
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -48,31 +42,8 @@ public class IntVarItemProvider extends StatementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_IntVar_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IntVar_name_feature", "_UI_IntVar_type"),
-				 Gx10Package.Literals.INT_VAR__NAME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -88,6 +59,7 @@ public class IntVarItemProvider extends StatementItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(Gx10Package.Literals.INT_VAR__INT_VAR_EXPR);
+			childrenFeatures.add(Gx10Package.Literals.INT_VAR__INT_VAR_NAME);
 		}
 		return childrenFeatures;
 	}
@@ -124,10 +96,7 @@ public class IntVarItemProvider extends StatementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((IntVar)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_IntVar_type") :
-			getString("_UI_IntVar_type") + " " + label;
+		return getString("_UI_IntVar_type");
 	}
 	
 
@@ -143,10 +112,8 @@ public class IntVarItemProvider extends StatementItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(IntVar.class)) {
-			case Gx10Package.INT_VAR__NAME:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
 			case Gx10Package.INT_VAR__INT_VAR_EXPR:
+			case Gx10Package.INT_VAR__INT_VAR_NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -172,12 +139,22 @@ public class IntVarItemProvider extends StatementItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(Gx10Package.Literals.INT_VAR__INT_VAR_EXPR,
+				 Gx10Factory.eINSTANCE.createIntVarAccess()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Gx10Package.Literals.INT_VAR__INT_VAR_EXPR,
 				 Gx10Factory.eINSTANCE.createPlus()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(Gx10Package.Literals.INT_VAR__INT_VAR_EXPR,
-				 Gx10Factory.eINSTANCE.createIntVarAccess()));
+				 Gx10Factory.eINSTANCE.createTime()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(Gx10Package.Literals.INT_VAR__INT_VAR_NAME,
+				 Gx10Factory.eINSTANCE.createReferentiable()));
 	}
 
 }

@@ -4,6 +4,7 @@ import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
 import gx10.Block;
 import gx10.BoolExpression;
 import gx10.BoolVar;
+import gx10.Referentiable;
 import gx10.aspects.BlockAspect;
 import gx10.aspects.BoolVarAspectBoolVarAspectProperties;
 import gx10.aspects.Context;
@@ -20,7 +21,8 @@ public class BoolVarAspect extends ExpressionAspect {
   protected static void _privk3_evaluate(final BoolVarAspectBoolVarAspectProperties _self_, final BoolVar _self) {
     Block _inBlock = _self.getInBlock();
     Context _context = BlockAspect.context(_inBlock);
-    String _name = _self.getName();
+    Referentiable _boolVarName = _self.getBoolVarName();
+    String _name = _boolVarName.getName();
     BoolExpression _boolVarExpr = _self.getBoolVarExpr();
     boolean _currentValue = _boolVarExpr.getCurrentValue();
     _context.addBool(_name, _currentValue);

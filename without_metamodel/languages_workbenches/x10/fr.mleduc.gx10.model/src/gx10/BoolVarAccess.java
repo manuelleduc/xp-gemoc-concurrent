@@ -29,12 +29,12 @@ public interface BoolVarAccess extends BoolExpression {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Bool Var Ref</em>' reference.
-	 * @see #setBoolVarRef(BoolVar)
+	 * @see #setBoolVarRef(Referentiable)
 	 * @see gx10.Gx10Package#getBoolVarAccess_BoolVarRef()
 	 * @model required="true"
 	 * @generated
 	 */
-	BoolVar getBoolVarRef();
+	Referentiable getBoolVarRef();
 
 	/**
 	 * Sets the value of the '{@link gx10.BoolVarAccess#getBoolVarRef <em>Bool Var Ref</em>}' reference.
@@ -44,6 +44,6 @@ public interface BoolVarAccess extends BoolExpression {
 	 * @see #getBoolVarRef()
 	 * @generated
 	 */
-	void setBoolVarRef(BoolVar value);
+	void setBoolVarRef(Referentiable value);
 
 } // BoolVarAccess
