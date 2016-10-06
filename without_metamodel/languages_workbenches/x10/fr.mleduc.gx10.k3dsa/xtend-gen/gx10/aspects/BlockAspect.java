@@ -29,19 +29,23 @@ public class BlockAspect extends StatementAspect {
   }
   
   protected static void _privk3_initBlock(final BlockAspectBlockAspectProperties _self_, final Block _self) {
-    EObject currentStatement = _self.eContainer();
-    while (((!Objects.equal(currentStatement, null)) && (!(currentStatement instanceof Block)))) {
-      EObject _eContainer = currentStatement.eContainer();
-      currentStatement = _eContainer;
-    }
-    boolean _equals = Objects.equal(currentStatement, null);
+    Context _context = BlockAspect.context(_self);
+    boolean _equals = Objects.equal(_context, null);
     if (_equals) {
-      Context _context = new Context();
-      BlockAspect.context(_self, _context);
-    } else {
-      Context _context_1 = BlockAspect.context(((Block) currentStatement));
-      Context _context_2 = new Context(_context_1);
-      BlockAspect.context(_self, _context_2);
+      EObject currentStatement = _self.eContainer();
+      while (((!Objects.equal(currentStatement, null)) && (!(currentStatement instanceof Block)))) {
+        EObject _eContainer = currentStatement.eContainer();
+        currentStatement = _eContainer;
+      }
+      boolean _equals_1 = Objects.equal(currentStatement, null);
+      if (_equals_1) {
+        Context _context_1 = new Context();
+        BlockAspect.context(_self, _context_1);
+      } else {
+        Context _context_2 = BlockAspect.context(((Block) currentStatement));
+        Context _context_3 = new Context(_context_2);
+        BlockAspect.context(_self, _context_3);
+      }
     }
   }
   

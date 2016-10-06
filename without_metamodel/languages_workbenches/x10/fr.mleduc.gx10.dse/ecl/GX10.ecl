@@ -134,8 +134,21 @@ context Method
 		
 context MethodCall
 
-	inv methodStartBeforePrepareCall:
-		Relation Precedes(self.startStatement, self.callPreparation)
+ 	-- still have to call every method parameter before call preparation ! 
+ 	inv methodCallPrepareParametersBeforeCallPreparation:
+ 		(self.methodCallParameters->size() > 0) implies
+ 		(Relation Precedes(self.startStatement, self.methodCallParameters->first().methodCallParameterExpr.startStatement))
+	inv methodCallStartBeforePrepareCall:
+		(self.methodCallParameters->size() > 0) implies
+		(Relation Precedes(self.methodCallParameters->last().methodCallParameterExpr.startStatement, self.callPreparation))
+	inv methdCalldirectlyCallMethodPreparationIfNoParameters:
+		(self.methodCallParameters->size() = 0) implies
+		(Relation Precedes(self.startStatement, self.callPreparation))
+	inv methodCallExecBlockAfterPreparation:
+		Relation Precedes(self.callPreparation, self.methodToCall.startMethodEvt)
+		
+	inv methodCallMethodCalledEndThenMethodCallEnd:
+		Relation Precedes(self.methodToCall.endMethodEvt, self.endStatement)
 
 context IntVar
 	inv intVarEvaluateBefore0:
@@ -168,6 +181,25 @@ context Print
 		Relation Precedes(self.print, self.endStatement)
 		
 
+
+context IntExpression
+
+
+	-- TODO inMethodCallParameter instead of inBlock !!!
+	inv intExpressionWaitForPreviousToFinish:
+		-- partie à gauche du and, il faut valider que l'expression est bien la première de la liste des expressions donc jouer sur ->indexOf(self.inMethodCallParameter)s
+		(self.inMethodCallParameter <> null and self.inMethodCallParameter.inMethodCall.methodCallParameters->first() <> self.inMethodCallParameter) implies
+		(Relation Precedes(self.inMethodCallParameter.inMethodCall.methodCallParameters->at(self.inMethodCallParameter.inMethodCall.methodCallParameters->indexOf(self.inMethodCallParameter)-1).methodCallParameterExpr.endStatement, 
+				self.startStatement
+		))
+		
+	inv intExpressionFirstStartAfterBlockStart:
+		(self.inBlock <> null and self.inMethodCallParameter.inMethodCall.methodCallParameters->first() = self.inMethodCallParameter) implies
+		(Relation Precedes(self.inMethodCallParameter.inMethodCall.startStatement, self.startStatement))
+		
+	inv intExpressionLastEndWhenBlockEnd:
+		(self.inBlock <> null and self.inMethodCallParameter.inMethodCall.methodCallParameters->last() = self.inMethodCallParameter) implies
+		(Relation Precedes(self.endStatement, self.inBlock.endStatement))
 		
 context IntBinaryOperation
 	inv iboStartThenLeftEvaluation:

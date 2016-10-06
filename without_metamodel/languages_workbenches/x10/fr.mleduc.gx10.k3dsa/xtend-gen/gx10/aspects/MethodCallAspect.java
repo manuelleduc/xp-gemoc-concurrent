@@ -1,10 +1,17 @@
 package gx10.aspects;
 
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
+import gx10.Block;
+import gx10.IntExpression;
 import gx10.Method;
 import gx10.MethodCall;
+import gx10.MethodCallParameter;
+import gx10.aspects.BlockAspect;
+import gx10.aspects.Context;
 import gx10.aspects.ExpressionAspect;
 import gx10.aspects.MethodCallAspectMethodCallAspectProperties;
+import java.util.function.Consumer;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 
 @Aspect(className = MethodCall.class)
@@ -20,5 +27,17 @@ public class MethodCallAspect extends ExpressionAspect {
     String _name = _methodToCall.getName();
     String _plus = ("Calling " + _name);
     InputOutput.<String>println(_plus);
+    final Context tmpCtx = new Context();
+    Method _methodToCall_1 = _self.getMethodToCall();
+    Block _methodBlock = _methodToCall_1.getMethodBlock();
+    BlockAspect.context(_methodBlock, tmpCtx);
+    EList<MethodCallParameter> _methodCallParameters = _self.getMethodCallParameters();
+    final Consumer<MethodCallParameter> _function = (MethodCallParameter param) -> {
+      String _name_1 = param.getName();
+      IntExpression _methodCallParameterExpr = param.getMethodCallParameterExpr();
+      int _currentValue = _methodCallParameterExpr.getCurrentValue();
+      tmpCtx.addInt(_name_1, _currentValue);
+    };
+    _methodCallParameters.forEach(_function);
   }
 }

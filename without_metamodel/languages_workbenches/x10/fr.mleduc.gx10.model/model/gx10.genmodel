@@ -53,6 +53,9 @@
     </genClasses>
     <genClasses image="false">
       <ecoreClass href="gx10.ecore#//IntExpression"/>
+      <genFeatures property="None" notify="false" createChild="false">
+        <ecoreFeature xsi:type="ecore:EReference" href="gx10.ecore#//IntExpression/inMethodCallParameter"/>
+      </genFeatures>
       <genOperations>
         <ecoreOperation href="gx10.ecore#//IntExpression/getCurrentValue"/>
       </genOperations>
@@ -208,6 +211,9 @@
       </genFeatures>
       <genFeatures property="None" children="true" createChild="true">
         <ecoreFeature xsi:type="ecore:EReference" href="gx10.ecore#//MethodCallParameter/methodCallParameterExpr"/>
+      </genFeatures>
+      <genFeatures property="None" notify="false" createChild="false">
+        <ecoreFeature xsi:type="ecore:EReference" href="gx10.ecore#//MethodCallParameter/inMethodCall"/>
       </genFeatures>
     </genClasses>
     <genClasses>

@@ -53,6 +53,7 @@ public interface MethodCall extends Expression {
 	/**
 	 * Returns the value of the '<em><b>Method Call Parameters</b></em>' containment reference list.
 	 * The list contents are of type {@link gx10.MethodCallParameter}.
+	 * It is bidirectional and its opposite is '{@link gx10.MethodCallParameter#getInMethodCall <em>In Method Call</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Method Call Parameters</em>' containment reference list isn't clear,
@@ -61,7 +62,8 @@ public interface MethodCall extends Expression {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Method Call Parameters</em>' containment reference list.
 	 * @see gx10.Gx10Package#getMethodCall_MethodCallParameters()
-	 * @model containment="true"
+	 * @see gx10.MethodCallParameter#getInMethodCall
+	 * @model opposite="inMethodCall" containment="true"
 	 * @generated
 	 */
 	EList<MethodCallParameter> getMethodCallParameters();

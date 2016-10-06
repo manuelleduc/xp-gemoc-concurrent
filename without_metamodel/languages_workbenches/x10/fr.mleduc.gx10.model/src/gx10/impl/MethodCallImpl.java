@@ -6,22 +6,15 @@ import gx10.Gx10Package;
 import gx10.Method;
 import gx10.MethodCall;
 import gx10.MethodCallParameter;
-
 import java.lang.reflect.InvocationTargetException;
-
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -145,7 +138,7 @@ public class MethodCallImpl extends ExpressionImpl implements MethodCall {
 	 */
 	public EList<MethodCallParameter> getMethodCallParameters() {
 		if (methodCallParameters == null) {
-			methodCallParameters = new EObjectContainmentEList<MethodCallParameter>(MethodCallParameter.class, this, Gx10Package.METHOD_CALL__METHOD_CALL_PARAMETERS);
+			methodCallParameters = new EObjectContainmentWithInverseEList<MethodCallParameter>(MethodCallParameter.class, this, Gx10Package.METHOD_CALL__METHOD_CALL_PARAMETERS, Gx10Package.METHOD_CALL_PARAMETER__IN_METHOD_CALL);
 		}
 		return methodCallParameters;
 	}
@@ -166,6 +159,7 @@ public class MethodCallImpl extends ExpressionImpl implements MethodCall {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -173,6 +167,8 @@ public class MethodCallImpl extends ExpressionImpl implements MethodCall {
 				if (methodToCall != null)
 					msgs = ((InternalEObject)methodToCall).eInverseRemove(this, Gx10Package.METHOD__CALLED_BY, Method.class, msgs);
 				return basicSetMethodToCall((Method)otherEnd, msgs);
+			case Gx10Package.METHOD_CALL__METHOD_CALL_PARAMETERS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getMethodCallParameters()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}

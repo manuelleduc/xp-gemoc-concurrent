@@ -101,6 +101,9 @@ system addClocks: #(evaluateFalse[element.name/]).
 	system addInternalClocks: #(allWhileLoopEnds[element.name/]).
 
 [/for]
+[for (element : gx10::IntExpression| aProgram.eAllContents(gx10::IntExpression))]
+"clocks for IntExpression [element.name/]" 
+[/for]
 [for (element : gx10::Not| aProgram.eAllContents(gx10::Not))]
 "clocks for Not [element.name/]" 
 [/for]
@@ -298,9 +301,25 @@ system addClocks: #(evaluateFalse[element.name/]).
 [/for]
 [for (element : gx10::MethodCall| aProgram.eAllContents(gx10::MethodCall))]
 "relations for MethodCall [element.name/]" 
-	"methodStartBeforePrepareCall in MethodCall [element.name/]"
-		[if ( true) ]
+	"methodCallPrepareParametersBeforeCallPreparation in MethodCall [element.name/]"
+		[if ( ( self.methodCallParameters->size() > 0) ) ]
+	system library: #Kernel relation: #Precedes clocks: #(startStatement[element.name/]  startStatement[element.methodCallParameters->first().methodCallParameterExpr.name/])  constants:{-1} .
+		[/if]
+	"methodCallStartBeforePrepareCall in MethodCall [element.name/]"
+		[if ( ( self.methodCallParameters->size() > 0) ) ]
+	system library: #Kernel relation: #Precedes clocks: #(startStatement[element.methodCallParameters->last().methodCallParameterExpr.name/]  callPreparation[element.name/])  constants:{-1} .
+		[/if]
+	"methdCalldirectlyCallMethodPreparationIfNoParameters in MethodCall [element.name/]"
+		[if ( ( self.methodCallParameters->size() = 0) ) ]
 	system library: #Kernel relation: #Precedes clocks: #(startStatement[element.name/]  callPreparation[element.name/])  constants:{-1} .
+		[/if]
+	"methodCallExecBlockAfterPreparation in MethodCall [element.name/]"
+		[if ( true) ]
+	system library: #Kernel relation: #Precedes clocks: #(callPreparation[element.name/]  startMethodEvt[element.methodToCall.name/])  constants:{-1} .
+		[/if]
+	"methodCallMethodCalledEndThenMethodCallEnd in MethodCall [element.name/]"
+		[if ( true) ]
+	system library: #Kernel relation: #Precedes clocks: #(endMethodEvt[element.methodToCall.name/]  endStatement[element.name/])  constants:{-1} .
 		[/if]
 [/for]
 [for (element : gx10::ControlStructure| aProgram.eAllContents(gx10::ControlStructure))]
@@ -368,6 +387,21 @@ system addClocks: #(evaluateFalse[element.name/]).
 	"whileEndOnEvalFalse in While [element.name/]"
 		[if ( true) ]
 	system library: #Kernel relation: #Precedes clocks: #(evaluateFalse[element.name/]  endStatement[element.name/])  constants:{-1} .
+		[/if]
+[/for]
+[for (element : gx10::IntExpression| aProgram.eAllContents(gx10::IntExpression))]
+"relations for IntExpression [element.name/]" 
+	"intExpressionWaitForPreviousToFinish in IntExpression [element.name/]"
+		[if ( ( self.inMethodCallParameter <> null and self.inMethodCallParameter.inMethodCall.methodCallParameters->first() <> self.inMethodCallParameter) ) ]
+	system library: #Kernel relation: #Precedes clocks: #(endStatement[element.inMethodCallParameter.inMethodCall.methodCallParameters->at(element.inMethodCallParameter.inMethodCall.methodCallParameters->indexOf(element.inMethodCallParameter).-(1)).methodCallParameterExpr.name/]  startStatement[element.name/])  constants:{-1} .
+		[/if]
+	"intExpressionFirstStartAfterBlockStart in IntExpression [element.name/]"
+		[if ( ( self.inBlock <> null and self.inMethodCallParameter.inMethodCall.methodCallParameters->first() = self.inMethodCallParameter) ) ]
+	system library: #Kernel relation: #Precedes clocks: #(startStatement[element.inMethodCallParameter.inMethodCall.name/]  startStatement[element.name/])  constants:{-1} .
+		[/if]
+	"intExpressionLastEndWhenBlockEnd in IntExpression [element.name/]"
+		[if ( ( self.inBlock <> null and self.inMethodCallParameter.inMethodCall.methodCallParameters->last() = self.inMethodCallParameter) ) ]
+	system library: #Kernel relation: #Precedes clocks: #(endStatement[element.name/]  endStatement[element.inBlock.name/])  constants:{-1} .
 		[/if]
 [/for]
 [for (element : gx10::Not| aProgram.eAllContents(gx10::Not))]

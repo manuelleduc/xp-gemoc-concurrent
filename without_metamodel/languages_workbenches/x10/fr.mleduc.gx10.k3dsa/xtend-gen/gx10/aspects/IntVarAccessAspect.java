@@ -1,14 +1,12 @@
 package gx10.aspects;
 
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
-import gx10.Block;
 import gx10.IntVarAccess;
 import gx10.Referentiable;
-import gx10.aspects.BlockAspect;
 import gx10.aspects.Context;
+import gx10.aspects.ECoreUtil;
 import gx10.aspects.IntExpressionAspect;
 import gx10.aspects.IntVarAccessAspectIntVarAccessAspectProperties;
-import org.eclipse.emf.ecore.EObject;
 
 @Aspect(className = IntVarAccess.class)
 @SuppressWarnings("all")
@@ -27,15 +25,10 @@ public class IntVarAccessAspect extends IntExpressionAspect {
   protected static int _privk3_getCurrentValue(final IntVarAccessAspectIntVarAccessAspectProperties _self_, final IntVarAccess _self) {
     int _xblockexpression = (int) 0;
     {
-      EObject currentStatement = _self.eContainer();
-      while ((!(currentStatement instanceof Block))) {
-        EObject _eContainer = currentStatement.eContainer();
-        currentStatement = _eContainer;
-      }
-      Context _context = BlockAspect.context(((Block) currentStatement));
+      final Context context = ECoreUtil.getContext(_self);
       Referentiable _intVarRef = _self.getIntVarRef();
       String _name = _intVarRef.getName();
-      _xblockexpression = _context.getInt(_name);
+      _xblockexpression = context.getInt(_name);
     }
     return _xblockexpression;
   }

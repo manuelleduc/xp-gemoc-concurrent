@@ -27,6 +27,7 @@
     <eOperations name="getCurrentValue">
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inMethodCallParameter" eType="//MethodCallParameter" eOpposite="//MethodCallParameter/methodCallParameterExpr"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BoolExpression" abstract="true" eSuperTypes="//Expression">
     <eOperations name="getCurrentValue">
@@ -65,7 +66,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="MethodCall" eSuperTypes="//Expression">
     <eOperations name="call"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="methodToCall" lowerBound="1" eType="//Method" eOpposite="//Method/calledBy"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="methodCallParameters" upperBound="-1" eType="//MethodCallParameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="methodCallParameters" upperBound="-1" eType="//MethodCallParameter" containment="true" eOpposite="//MethodCallParameter/inMethodCall"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Expression" abstract="true" eSuperTypes="//Statement"/>
   <eClassifiers xsi:type="ecore:EClass" name="Finish" eSuperTypes="//Statement">
@@ -100,7 +101,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name">
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="methodCallParameterExpr" lowerBound="1" eType="//IntExpression" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="methodCallParameterExpr" lowerBound="1" eType="//IntExpression" containment="true" eOpposite="//IntExpression/inMethodCallParameter"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inMethodCall" lowerBound="1" eType="//MethodCall" eOpposite="//MethodCall/methodCallParameters"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Referentiable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1">

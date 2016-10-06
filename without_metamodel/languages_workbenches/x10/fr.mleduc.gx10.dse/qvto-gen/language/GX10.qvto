@@ -283,7 +283,19 @@ main() {
 
 
 		
-		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), MethodCall.oclAsType(EClass)).oclAsType(MethodCall)->map methodStartBeforePrepareCall12methodStartBeforePrepareCall();
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), MethodCall.oclAsType(EClass)).oclAsType(MethodCall)->map methodCallPrepareParametersBeforeCallPreparation132methodCallPrepareParametersBeforeCallPreparation();
+		
+		
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), MethodCall.oclAsType(EClass)).oclAsType(MethodCall)->map methodCallStartBeforePrepareCall132methodCallStartBeforePrepareCall();
+		
+		
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), MethodCall.oclAsType(EClass)).oclAsType(MethodCall)->map methdCalldirectlyCallMethodPreparationIfNoParameters132methdCalldirectlyCallMethodPreparationIfNoParameters();
+		
+		
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), MethodCall.oclAsType(EClass)).oclAsType(MethodCall)->map methodCallExecBlockAfterPreparation12methodCallExecBlockAfterPreparation();
+		
+		
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), MethodCall.oclAsType(EClass)).oclAsType(MethodCall)->map methodCallMethodCalledEndThenMethodCallEnd12methodCallMethodCalledEndThenMethodCallEnd();
 		
 		
 
@@ -326,6 +338,20 @@ main() {
 		
 		
 		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), Print.oclAsType(EClass)).oclAsType(Print)->map printFinishAfterPrint12printFinishAfterPrint();
+		
+		
+
+		
+
+
+		
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), IntExpression.oclAsType(EClass)).oclAsType(IntExpression)->map intExpressionWaitForPreviousToFinish252intExpressionWaitForPreviousToFinish();
+		
+		
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), IntExpression.oclAsType(EClass)).oclAsType(IntExpression)->map intExpressionFirstStartAfterBlockStart252intExpressionFirstStartAfterBlockStart();
+		
+		
+		getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), IntExpression.oclAsType(EClass)).oclAsType(IntExpression)->map intExpressionLastEndWhenBlockEnd252intExpressionLastEndWhenBlockEnd();
 		
 		
 
@@ -1458,9 +1484,55 @@ main() {
 
 //relation stuff		
 	
-		mapping inMM1::MethodCall::methodStartBeforePrepareCall12methodStartBeforePrepareCall(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+		mapping inMM1::MethodCall::methodCallPrepareParametersBeforeCallPreparation132methodCallPrepareParametersBeforeCallPreparation(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+			when { 
+				(self.methodCallParameters->size() > 0) 
+				
+}
 		{
-		 	name := getNameOrUID(self.oclAsType(EObject))+"Precedes_methodStartBeforePrepareCall";
+		 	name := getNameOrUID(self.oclAsType(EObject))+"Precedes_methodCallPrepareParametersBeforeCallPreparation";
+			type := seqOfRelationDeclaration->select(rd | rd.name = "Precedes")->first();
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_startStatement']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Precedes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).leftEntity;
+				};
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = getNameOrUID(self.methodCallParameters->first().methodCallParameterExpr.oclAsType(EObject))+'_startStatement']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Precedes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).rightEntity;
+				};
+		
+		theMainBlock.relations += result;
+		}
+		
+	
+		mapping inMM1::MethodCall::methodCallStartBeforePrepareCall132methodCallStartBeforePrepareCall(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+			when { 
+				(self.methodCallParameters->size() > 0) 
+				
+}
+		{
+		 	name := getNameOrUID(self.oclAsType(EObject))+"Precedes_methodCallStartBeforePrepareCall";
+			type := seqOfRelationDeclaration->select(rd | rd.name = "Precedes")->first();
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = getNameOrUID(self.methodCallParameters->last().methodCallParameterExpr.oclAsType(EObject))+'_startStatement']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Precedes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).leftEntity;
+				};
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_callPreparation']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Precedes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).rightEntity;
+				};
+		
+		theMainBlock.relations += result;
+		}
+		
+	
+		mapping inMM1::MethodCall::methdCalldirectlyCallMethodPreparationIfNoParameters132methdCalldirectlyCallMethodPreparationIfNoParameters(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+			when { 
+				(self.methodCallParameters->size() = 0) 
+				
+}
+		{
+		 	name := getNameOrUID(self.oclAsType(EObject))+"Precedes_methdCalldirectlyCallMethodPreparationIfNoParameters";
 			type := seqOfRelationDeclaration->select(rd | rd.name = "Precedes")->first();
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
 					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_startStatement']->first();
@@ -1468,6 +1540,40 @@ main() {
 				};
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
 					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_callPreparation']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Precedes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).rightEntity;
+				};
+		
+		theMainBlock.relations += result;
+		}
+		
+	
+		mapping inMM1::MethodCall::methodCallExecBlockAfterPreparation12methodCallExecBlockAfterPreparation(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+		{
+		 	name := getNameOrUID(self.oclAsType(EObject))+"Precedes_methodCallExecBlockAfterPreparation";
+			type := seqOfRelationDeclaration->select(rd | rd.name = "Precedes")->first();
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_callPreparation']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Precedes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).leftEntity;
+				};
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = getNameOrUID(self.methodToCall.oclAsType(EObject))+'_startMethodEvt']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Precedes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).rightEntity;
+				};
+		
+		theMainBlock.relations += result;
+		}
+		
+	
+		mapping inMM1::MethodCall::methodCallMethodCalledEndThenMethodCallEnd12methodCallMethodCalledEndThenMethodCallEnd(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+		{
+		 	name := getNameOrUID(self.oclAsType(EObject))+"Precedes_methodCallMethodCalledEndThenMethodCallEnd";
+			type := seqOfRelationDeclaration->select(rd | rd.name = "Precedes")->first();
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = getNameOrUID(self.methodToCall.oclAsType(EObject))+'_endMethodEvt']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Precedes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).leftEntity;
+				};
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_endStatement']->first();
 					_abstract := seqOfRelationDeclaration[name = 'Precedes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).rightEntity;
 				};
 		
@@ -1627,6 +1733,72 @@ main() {
 				};
 				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
 					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_endStatement']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Precedes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).rightEntity;
+				};
+		
+		theMainBlock.relations += result;
+		}
+		
+
+//relation stuff		
+	
+		mapping inMM1::IntExpression::intExpressionWaitForPreviousToFinish252intExpressionWaitForPreviousToFinish(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+			when { 
+				-- partie à gauche du and, il faut valider que l'expression est bien la première de la liste des expressions donc jouer sur ->indexOf(self.inMethodCallParameter)s
+		(self.inMethodCallParameter <> null and self.inMethodCallParameter.inMethodCall.methodCallParameters->first() <> self.inMethodCallParameter) 
+				
+}
+		{
+		 	name := getNameOrUID(self.oclAsType(EObject))+"Precedes_intExpressionWaitForPreviousToFinish";
+			type := seqOfRelationDeclaration->select(rd | rd.name = "Precedes")->first();
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = getNameOrUID(self.inMethodCallParameter.inMethodCall.methodCallParameters->at(self.inMethodCallParameter.inMethodCall.methodCallParameters->indexOf(self.inMethodCallParameter)-1).methodCallParameterExpr.oclAsType(EObject))+'_endStatement']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Precedes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).leftEntity;
+				};
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_startStatement']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Precedes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).rightEntity;
+				};
+		
+		theMainBlock.relations += result;
+		}
+		
+	
+		mapping inMM1::IntExpression::intExpressionFirstStartAfterBlockStart252intExpressionFirstStartAfterBlockStart(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+			when { 
+				(self.inBlock <> null and self.inMethodCallParameter.inMethodCall.methodCallParameters->first() = self.inMethodCallParameter) 
+				
+}
+		{
+		 	name := getNameOrUID(self.oclAsType(EObject))+"Precedes_intExpressionFirstStartAfterBlockStart";
+			type := seqOfRelationDeclaration->select(rd | rd.name = "Precedes")->first();
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = getNameOrUID(self.inMethodCallParameter.inMethodCall.oclAsType(EObject))+'_startStatement']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Precedes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).leftEntity;
+				};
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_startStatement']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Precedes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).rightEntity;
+				};
+		
+		theMainBlock.relations += result;
+		}
+		
+	
+		mapping inMM1::IntExpression::intExpressionLastEndWhenBlockEnd252intExpressionLastEndWhenBlockEnd(): TimeModel::CCSLModel::ClockExpressionAndRelation::Relation
+			when { 
+				(self.inBlock <> null and self.inMethodCallParameter.inMethodCall.methodCallParameters->last() = self.inMethodCallParameter) 
+				
+}
+		{
+		 	name := getNameOrUID(self.oclAsType(EObject))+"Precedes_intExpressionLastEndWhenBlockEnd";
+			type := seqOfRelationDeclaration->select(rd | rd.name = "Precedes")->first();
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = getNameOrUID(self.oclAsType(EObject))+'_endStatement']->first();
+					_abstract := seqOfRelationDeclaration[name = 'Precedes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).leftEntity;
+				};
+				bindings += object TimeModel::CCSLModel::ClockExpressionAndRelation::Binding{
+					bindable := theMainBlock.elements[name = getNameOrUID(self.inBlock.oclAsType(EObject))+'_endStatement']->first();
 					_abstract := seqOfRelationDeclaration[name = 'Precedes']->first().oclAsType(TimeModel::CCSLModel::ClockExpressionAndRelation::KernelRelation::KernelRelationDeclaration).rightEntity;
 				};
 		
@@ -2012,6 +2184,12 @@ mapping inMM1::Program::gx102FeedBack() : FeedBack::ActionModel {
 
 	getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), ControlStructure.oclAsType(EClass)).oclAsType(ControlStructure)->map doEvaluateIf12ActionFeedBack();
 	getVeryAllElementsFromResourceSetOf(self.oclAsType(EObject), ControlStructure.oclAsType(EClass)).oclAsType(ControlStructure)->map doEvaluateIf22ActionFeedBack();
+
+
+
+		
+
+
 
 
 

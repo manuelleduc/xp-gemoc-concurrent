@@ -471,6 +471,15 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getIntExpression_InMethodCallParameter() {
+		return (EReference)intExpressionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getIntExpression__GetCurrentValue() {
 		return intExpressionEClass.getEOperations().get(0);
 	}
@@ -939,6 +948,15 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getMethodCallParameter_InMethodCall() {
+		return (EReference)methodCallParameterEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getReferentiable() {
 		return referentiableEClass;
 	}
@@ -1020,6 +1038,7 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 		createEReference(controlStructureEClass, CONTROL_STRUCTURE__CONTROL_STRUCTURE_CONDITION);
 
 		intExpressionEClass = createEClass(INT_EXPRESSION);
+		createEReference(intExpressionEClass, INT_EXPRESSION__IN_METHOD_CALL_PARAMETER);
 		createEOperation(intExpressionEClass, INT_EXPRESSION___GET_CURRENT_VALUE);
 
 		boolExpressionEClass = createEClass(BOOL_EXPRESSION);
@@ -1092,6 +1111,7 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 		methodCallParameterEClass = createEClass(METHOD_CALL_PARAMETER);
 		createEAttribute(methodCallParameterEClass, METHOD_CALL_PARAMETER__NAME);
 		createEReference(methodCallParameterEClass, METHOD_CALL_PARAMETER__METHOD_CALL_PARAMETER_EXPR);
+		createEReference(methodCallParameterEClass, METHOD_CALL_PARAMETER__IN_METHOD_CALL);
 
 		referentiableEClass = createEClass(REFERENTIABLE);
 		createEAttribute(referentiableEClass, REFERENTIABLE__NAME);
@@ -1178,6 +1198,7 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 		initEReference(getControlStructure_ControlStructureCondition(), this.getBoolExpression(), null, "controlStructureCondition", null, 1, 1, ControlStructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(intExpressionEClass, IntExpression.class, "IntExpression", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getIntExpression_InMethodCallParameter(), this.getMethodCallParameter(), this.getMethodCallParameter_MethodCallParameterExpr(), "inMethodCallParameter", null, 0, 1, IntExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getIntExpression__GetCurrentValue(), ecorePackage.getEInt(), "getCurrentValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -1217,7 +1238,7 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 
 		initEClass(methodCallEClass, MethodCall.class, "MethodCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMethodCall_MethodToCall(), this.getMethod(), this.getMethod_CalledBy(), "methodToCall", null, 1, 1, MethodCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMethodCall_MethodCallParameters(), this.getMethodCallParameter(), null, "methodCallParameters", null, 0, -1, MethodCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMethodCall_MethodCallParameters(), this.getMethodCallParameter(), this.getMethodCallParameter_InMethodCall(), "methodCallParameters", null, 0, -1, MethodCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getMethodCall__Call(), null, "call", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -1257,7 +1278,8 @@ public class Gx10PackageImpl extends EPackageImpl implements Gx10Package {
 
 		initEClass(methodCallParameterEClass, MethodCallParameter.class, "MethodCallParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMethodCallParameter_Name(), ecorePackage.getEString(), "name", null, 0, 1, MethodCallParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMethodCallParameter_MethodCallParameterExpr(), this.getIntExpression(), null, "methodCallParameterExpr", null, 1, 1, MethodCallParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMethodCallParameter_MethodCallParameterExpr(), this.getIntExpression(), this.getIntExpression_InMethodCallParameter(), "methodCallParameterExpr", null, 1, 1, MethodCallParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMethodCallParameter_InMethodCall(), this.getMethodCall(), this.getMethodCall_MethodCallParameters(), "inMethodCall", null, 1, 1, MethodCallParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(referentiableEClass, Referentiable.class, "Referentiable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getReferentiable_Name(), ecorePackage.getEString(), "name", null, 1, 1, Referentiable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

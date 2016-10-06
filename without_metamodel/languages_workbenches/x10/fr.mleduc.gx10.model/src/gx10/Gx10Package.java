@@ -371,13 +371,22 @@ public interface Gx10Package extends EPackage {
 	int INT_EXPRESSION__IN_BLOCK = EXPRESSION__IN_BLOCK;
 
 	/**
+	 * The feature id for the '<em><b>In Method Call Parameter</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INT_EXPRESSION__IN_METHOD_CALL_PARAMETER = EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Int Expression</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INT_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
+	int INT_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Get Current Value</em>' operation.
@@ -793,6 +802,15 @@ public interface Gx10Package extends EPackage {
 	int INT_CONST__IN_BLOCK = INT_EXPRESSION__IN_BLOCK;
 
 	/**
+	 * The feature id for the '<em><b>In Method Call Parameter</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INT_CONST__IN_METHOD_CALL_PARAMETER = INT_EXPRESSION__IN_METHOD_CALL_PARAMETER;
+
+	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -846,6 +864,15 @@ public interface Gx10Package extends EPackage {
 	 * @ordered
 	 */
 	int INT_BINARY_OPERATION__IN_BLOCK = INT_EXPRESSION__IN_BLOCK;
+
+	/**
+	 * The feature id for the '<em><b>In Method Call Parameter</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INT_BINARY_OPERATION__IN_METHOD_CALL_PARAMETER = INT_EXPRESSION__IN_METHOD_CALL_PARAMETER;
 
 	/**
 	 * The feature id for the '<em><b>Left Binary Expression</b></em>' containment reference.
@@ -1260,6 +1287,15 @@ public interface Gx10Package extends EPackage {
 	int INT_VAR_ACCESS__IN_BLOCK = INT_EXPRESSION__IN_BLOCK;
 
 	/**
+	 * The feature id for the '<em><b>In Method Call Parameter</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INT_VAR_ACCESS__IN_METHOD_CALL_PARAMETER = INT_EXPRESSION__IN_METHOD_CALL_PARAMETER;
+
+	/**
 	 * The feature id for the '<em><b>Int Var Ref</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1452,13 +1488,22 @@ public interface Gx10Package extends EPackage {
 	int METHOD_CALL_PARAMETER__METHOD_CALL_PARAMETER_EXPR = 1;
 
 	/**
+	 * The feature id for the '<em><b>In Method Call</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD_CALL_PARAMETER__IN_METHOD_CALL = 2;
+
+	/**
 	 * The number of structural features of the '<em>Method Call Parameter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int METHOD_CALL_PARAMETER_FEATURE_COUNT = 2;
+	int METHOD_CALL_PARAMETER_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Method Call Parameter</em>' class.
@@ -1524,6 +1569,15 @@ public interface Gx10Package extends EPackage {
 	 * @ordered
 	 */
 	int PLUS__IN_BLOCK = INT_BINARY_OPERATION__IN_BLOCK;
+
+	/**
+	 * The feature id for the '<em><b>In Method Call Parameter</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLUS__IN_METHOD_CALL_PARAMETER = INT_BINARY_OPERATION__IN_METHOD_CALL_PARAMETER;
 
 	/**
 	 * The feature id for the '<em><b>Left Binary Expression</b></em>' containment reference.
@@ -1597,6 +1651,15 @@ public interface Gx10Package extends EPackage {
 	 * @ordered
 	 */
 	int TIME__IN_BLOCK = INT_BINARY_OPERATION__IN_BLOCK;
+
+	/**
+	 * The feature id for the '<em><b>In Method Call Parameter</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME__IN_METHOD_CALL_PARAMETER = INT_BINARY_OPERATION__IN_METHOD_CALL_PARAMETER;
 
 	/**
 	 * The feature id for the '<em><b>Left Binary Expression</b></em>' containment reference.
@@ -1832,6 +1895,17 @@ public interface Gx10Package extends EPackage {
 	 * @generated
 	 */
 	EClass getIntExpression();
+
+	/**
+	 * Returns the meta object for the container reference '{@link gx10.IntExpression#getInMethodCallParameter <em>In Method Call Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>In Method Call Parameter</em>'.
+	 * @see gx10.IntExpression#getInMethodCallParameter()
+	 * @see #getIntExpression()
+	 * @generated
+	 */
+	EReference getIntExpression_InMethodCallParameter();
 
 	/**
 	 * Returns the meta object for the '{@link gx10.IntExpression#getCurrentValue() <em>Get Current Value</em>}' operation.
@@ -2378,6 +2452,17 @@ public interface Gx10Package extends EPackage {
 	EReference getMethodCallParameter_MethodCallParameterExpr();
 
 	/**
+	 * Returns the meta object for the container reference '{@link gx10.MethodCallParameter#getInMethodCall <em>In Method Call</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>In Method Call</em>'.
+	 * @see gx10.MethodCallParameter#getInMethodCall()
+	 * @see #getMethodCallParameter()
+	 * @generated
+	 */
+	EReference getMethodCallParameter_InMethodCall();
+
+	/**
 	 * Returns the meta object for class '{@link gx10.Referentiable <em>Referentiable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2588,6 +2673,14 @@ public interface Gx10Package extends EPackage {
 		 * @generated
 		 */
 		EClass INT_EXPRESSION = eINSTANCE.getIntExpression();
+
+		/**
+		 * The meta object literal for the '<em><b>In Method Call Parameter</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INT_EXPRESSION__IN_METHOD_CALL_PARAMETER = eINSTANCE.getIntExpression_InMethodCallParameter();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Current Value</b></em>' operation.
@@ -3044,6 +3137,14 @@ public interface Gx10Package extends EPackage {
 		 * @generated
 		 */
 		EReference METHOD_CALL_PARAMETER__METHOD_CALL_PARAMETER_EXPR = eINSTANCE.getMethodCallParameter_MethodCallParameterExpr();
+
+		/**
+		 * The meta object literal for the '<em><b>In Method Call</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference METHOD_CALL_PARAMETER__IN_METHOD_CALL = eINSTANCE.getMethodCallParameter_InMethodCall();
 
 		/**
 		 * The meta object literal for the '{@link gx10.impl.ReferentiableImpl <em>Referentiable</em>}' class.

@@ -1,14 +1,12 @@
 package gx10.aspects;
 
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
-import gx10.Block;
 import gx10.BoolVarAccess;
 import gx10.Referentiable;
-import gx10.aspects.BlockAspect;
 import gx10.aspects.BoolExpressionAspect;
 import gx10.aspects.BoolVarAccessAspectBoolVarAccessAspectProperties;
 import gx10.aspects.Context;
-import org.eclipse.emf.ecore.EObject;
+import gx10.aspects.ECoreUtil;
 
 @Aspect(className = BoolVarAccess.class)
 @SuppressWarnings("all")
@@ -27,15 +25,10 @@ public class BoolVarAccessAspect extends BoolExpressionAspect {
   protected static boolean _privk3_getCurrentValue(final BoolVarAccessAspectBoolVarAccessAspectProperties _self_, final BoolVarAccess _self) {
     boolean _xblockexpression = false;
     {
-      EObject currentStatement = _self.eContainer();
-      while ((!(currentStatement instanceof Block))) {
-        EObject _eContainer = currentStatement.eContainer();
-        currentStatement = _eContainer;
-      }
-      Context _context = BlockAspect.context(((Block) currentStatement));
+      final Context context = ECoreUtil.getContext(_self);
       Referentiable _boolVarRef = _self.getBoolVarRef();
       String _name = _boolVarRef.getName();
-      _xblockexpression = _context.getBool(_name);
+      _xblockexpression = context.getBool(_name);
     }
     return _xblockexpression;
   }
