@@ -110,6 +110,7 @@ context Method
 	inv methodStopWhenBlockStop:
 		Relation Precedes(self.methodBlock.endStatement, self.endMethodEvt) -- Coincides
 		
+	-- start method synchronization
 	inv methodStartOnCall0:
 		(self.inProgram.startMethod = self and self.calledBy->size() > 0) implies
 		let allEventWhichCall0 : Event = Expression Union(self.calledBy.callPreparation) in
@@ -125,12 +126,14 @@ context Method
 		(self.inProgram.startMethod <> self and self.calledBy->size() > 0) implies
 		let allEventWhichCall2 : Event = Expression Union(self.calledBy.callPreparation) in
 		(Relation Precedes(allEventWhichCall2, self.startMethodEvt))
-		
+	
+	
+	-- end method synchronization	
 	inv methodEndOnCall2:
 		(self.inProgram.startMethod <> self and self.calledBy->size() > 0) implies
 		let allEventWhichCall22 : Event = Expression Union(self.calledBy.endStatement) in
 		(Relation Precedes(self.endMethodEvt, allEventWhichCall22))
-	
+		
 		
 context MethodCall
 
@@ -138,17 +141,20 @@ context MethodCall
  	inv methodCallPrepareParametersBeforeCallPreparation:
  		(self.methodCallParameters->size() > 0) implies
  		(Relation Precedes(self.startStatement, self.methodCallParameters->first().methodCallParameterExpr.startStatement))
+	
 	inv methodCallStartBeforePrepareCall:
 		(self.methodCallParameters->size() > 0) implies
-		(Relation Precedes(self.methodCallParameters->last().methodCallParameterExpr.startStatement, self.callPreparation))
+		(Relation Precedes(self.methodCallParameters->last().methodCallParameterExpr.endStatement, self.callPreparation))
+	
 	inv methdCalldirectlyCallMethodPreparationIfNoParameters:
 		(self.methodCallParameters->size() = 0) implies
 		(Relation Precedes(self.startStatement, self.callPreparation))
-	inv methodCallExecBlockAfterPreparation:
-		Relation Precedes(self.callPreparation, self.methodToCall.startMethodEvt)
-		
-	inv methodCallMethodCalledEndThenMethodCallEnd:
-		Relation Precedes(self.methodToCall.endMethodEvt, self.endStatement)
+	
+--	inv methodCallExecBlockAfterPreparation:
+--		Relation Precedes(self.callPreparation, self.methodToCall.startMethodEvt)
+--		
+--	inv methodCallMethodCalledEndThenMethodCallEnd:
+--		Relation Precedes(self.methodToCall.endMethodEvt, self.endStatement)
 
 context IntVar
 	inv intVarEvaluateBefore0:

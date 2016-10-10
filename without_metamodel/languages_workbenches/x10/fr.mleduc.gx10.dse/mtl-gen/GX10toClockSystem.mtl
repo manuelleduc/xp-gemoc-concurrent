@@ -307,19 +307,11 @@ system addClocks: #(evaluateFalse[element.name/]).
 		[/if]
 	"methodCallStartBeforePrepareCall in MethodCall [element.name/]"
 		[if ( ( self.methodCallParameters->size() > 0) ) ]
-	system library: #Kernel relation: #Precedes clocks: #(startStatement[element.methodCallParameters->last().methodCallParameterExpr.name/]  callPreparation[element.name/])  constants:{-1} .
+	system library: #Kernel relation: #Precedes clocks: #(endStatement[element.methodCallParameters->last().methodCallParameterExpr.name/]  callPreparation[element.name/])  constants:{-1} .
 		[/if]
 	"methdCalldirectlyCallMethodPreparationIfNoParameters in MethodCall [element.name/]"
 		[if ( ( self.methodCallParameters->size() = 0) ) ]
 	system library: #Kernel relation: #Precedes clocks: #(startStatement[element.name/]  callPreparation[element.name/])  constants:{-1} .
-		[/if]
-	"methodCallExecBlockAfterPreparation in MethodCall [element.name/]"
-		[if ( true) ]
-	system library: #Kernel relation: #Precedes clocks: #(callPreparation[element.name/]  startMethodEvt[element.methodToCall.name/])  constants:{-1} .
-		[/if]
-	"methodCallMethodCalledEndThenMethodCallEnd in MethodCall [element.name/]"
-		[if ( true) ]
-	system library: #Kernel relation: #Precedes clocks: #(endMethodEvt[element.methodToCall.name/]  endStatement[element.name/])  constants:{-1} .
 		[/if]
 [/for]
 [for (element : gx10::ControlStructure| aProgram.eAllContents(gx10::ControlStructure))]

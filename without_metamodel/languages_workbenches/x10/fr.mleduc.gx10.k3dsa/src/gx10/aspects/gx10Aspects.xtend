@@ -271,6 +271,7 @@ class MethodCallAspect extends ExpressionAspect {
 		val tmpCtx = new Context
 		_self.methodToCall.methodBlock.context = tmpCtx
 		_self.methodCallParameters.forEach [ param |
+			println("param " + param.name + " " + param.methodCallParameterExpr.currentValue)
 			tmpCtx.addInt(param.name, param.methodCallParameterExpr.currentValue)
 		]
 	}

@@ -34,9 +34,16 @@ public class MethodCallAspect extends ExpressionAspect {
     EList<MethodCallParameter> _methodCallParameters = _self.getMethodCallParameters();
     final Consumer<MethodCallParameter> _function = (MethodCallParameter param) -> {
       String _name_1 = param.getName();
+      String _plus_1 = ("param " + _name_1);
+      String _plus_2 = (_plus_1 + " ");
       IntExpression _methodCallParameterExpr = param.getMethodCallParameterExpr();
       int _currentValue = _methodCallParameterExpr.getCurrentValue();
-      tmpCtx.addInt(_name_1, _currentValue);
+      String _plus_3 = (_plus_2 + Integer.valueOf(_currentValue));
+      InputOutput.<String>println(_plus_3);
+      String _name_2 = param.getName();
+      IntExpression _methodCallParameterExpr_1 = param.getMethodCallParameterExpr();
+      int _currentValue_1 = _methodCallParameterExpr_1.getCurrentValue();
+      tmpCtx.addInt(_name_2, _currentValue_1);
     };
     _methodCallParameters.forEach(_function);
   }
